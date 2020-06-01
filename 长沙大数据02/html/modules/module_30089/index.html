@@ -1,0 +1,68 @@
+<div class="title">
+    <div class="text">未来30天游客年龄预测</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>50岁以上</h6>
+            <label class="up">6<span> %</span></label>
+        </li>
+        <li>
+            <h6>40-49岁</h6>
+            <label class="up">36<span> %</span></label>
+        </li>
+        <li>
+            <h6>30-39岁</h6>
+            <label class="up">47<span> %</span></label>
+        </li>
+    </ul>
+    <div id="module_30089" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30089 = echarts.init(document.getElementById('module_30089'), 'BigDataPe');
+var option = {
+    title: {
+        show: true,
+        text: '年龄\n占比',
+        x: 'center',
+        y: 'center',
+        textStyle: {
+            color: '#2de7ff',
+            fontSize: 16
+        },
+        textBaseline: 'top',
+        itemGap: 0
+    },
+    series: [{
+        type: 'pie',
+        silent: true,
+        label: {
+            normal: {
+                position: 'outside',
+                formatter: '{b}\n{d}%'
+            }
+        },
+        data: [{
+            value: 1,
+            name: '19岁及以下'
+        }, {
+            value: 10,
+            name: '20-29岁'
+        }, {
+            value: 47,
+            name: '30-39岁'
+        }, {
+            value: 36,
+            name: '40-49岁'
+        }, {
+            value: 6,
+            name: '50岁以上'
+        }]
+    }]
+};
+module_30089.setOption(option);
+
+$(window).resize(function() {
+    module_30089.resize();
+});
+</script>

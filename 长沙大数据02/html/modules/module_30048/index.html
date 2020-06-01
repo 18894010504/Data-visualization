@@ -1,0 +1,93 @@
+<div class="title">
+    <div class="text">近24小时AQI指数变化</div>
+</div>
+<div class="inner-box module_30048">
+    <ul class="box-info">
+        <li>
+            <h6>AQI指数</h6>
+            <label>32</label>
+        </li>
+        <li>
+            <h6>PM2.5</h6>
+            <label>20<span> μg/m<sup>3</sup></span></label>
+        </li>
+        <li>
+            <h6>PM10</h6>
+            <label>34<span> μg/m<sup>3</sup></span></label>
+        </li>
+    </ul>
+    <div id="module_30048" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30048 = echarts.init(document.getElementById('module_30048'), 'BigDataPe');
+var option = {
+    grid: {
+        left: 0,
+        right: 0,
+        top: 20,
+        bottom: 20,
+    },
+    tooltip: {
+        triggerOn: 'none',
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: ["18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "24:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
+    },
+    yAxis: [{
+        type: 'value',
+        boundaryGap: true,
+        axisLabel: {
+            inside: true,
+            formatter: '{value}'
+        },
+    }],
+    series: [{
+        name: 'AQI指数',
+        type: 'line',
+        label: {
+            normal: {
+                show: true,
+                position: 'top',
+            }
+        },
+        // areaStyle: {
+        //     normal: {
+        //         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+        //             offset: 0,
+        //             color: 'rgba(0, 153, 204,0.1)'
+        //         }, {
+        //             offset: 1,
+        //             color: 'rgba(0, 153, 204,.5)'
+        //         }])
+        //     }
+        // },
+        data: [29, 28, 29, 31, 31, 32, 35, 34, 33, 36, 34, 31, 36, 26, 36, 34, 32, 33, 30, 28, 30, 31, 34, 33],
+        markLine: {
+            label: {
+                normal: {
+                    position: 'middle'
+                }
+            },
+            lineStyle: {
+                normal: {
+                    color: '#fa792e'
+                }
+            },
+            data: [
+                { type: 'average', name: '平均值' }
+            ]
+        }
+    }]
+
+};
+module_30048.setOption(option);
+
+$(window).resize(function() {
+    module_30048.resize();
+});
+</script>

@@ -1,0 +1,2973 @@
+<div class="page-container">
+    <div class="inner-page">
+        <div id="inner_page_header"></div>
+        <div id="alert_info"></div>
+        <div id="filter_panel">
+            <div class="filter-panel">
+                <date-picker type="daterange" :options="options" placement="bottom-start" placeholder="日期选择" style="width: 200px; margin-right: 8px;"></date-picker>
+                <i-select v-model="model1">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value" v-text="item.label"></i-option>
+                </i-select>
+                <i-select v-model="model2">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value" v-text="item.label"></i-option>
+                </i-select>
+                <i-select v-model="model3">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value" v-text="item.label"></i-option>
+                </i-select>
+                <i-button type="info" icon="funnel" class="filter-btn">筛选</i-button>
+            </div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="weather_panel_01"></div>
+            </div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="weather_panel_02"></div>
+            </div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="weather_panel_03"></div>
+            </div>
+        </div>
+        <div id="inner_page_footer"></div>
+    </div>
+    <div id="page_footer"></div>
+</div>
+<script type="text/javascript">
+
+    new Vue({
+        el: '#filter_panel',
+        data: {
+            model1: '',
+            model2: '',
+            model3: '',
+            cityList: [{
+                value: 'beijing',
+                label: '北京市'
+            }, {
+                value: 'shanghai',
+                label: '上海市'
+            }, {
+                value: 'shenzhen',
+                label: '深圳市'
+            }, {
+                value: 'hangzhou',
+                label: '杭州市'
+            }, {
+                value: 'nanjing',
+                label: '南京市'
+            }, {
+                value: 'chongqing',
+                label: '重庆市'
+            }],
+            options: {
+                shortcuts: [
+                    {
+                        text: '近一周',
+                        value () {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                            return [start, end];
+                        }
+                    },
+                    {
+                        text: '近一月',
+                        value () {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                            return [start, end];
+                        }
+                    },
+                    {
+                        text: '近三月',
+                        value () {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                            return [start, end];
+                        }
+                    }
+                ]
+            }
+        }
+    });
+
+    $('#inner_page_header').tourInnerPageHeader({
+        pageTitle: '客流对比分析',
+        btnSave: false,
+        btnNew: false,
+        btnPrintReport: false
+    });
+
+    $('#alert_info').tourAlert({
+        desc: '消息提示的描述文案消息提示的描述文案消息提示的描述文案消息提示的描述文案消息提示的描述文案',
+        href: '#'
+    });
+
+    $('#weather_panel_01').tourChartTablePanel({
+        chartId: 'chart_01',
+        chartTitle: '近30日各省客流对比',
+        chartLegend: '客流量',
+        chartType: 'bar',
+        tableTitle: '近30日各省客流对比',
+        columns: [{
+            "title": "日期",
+            "key": "name",
+            "fixed": "left",
+            "width": 150
+        }, {
+            "title": "湖南",
+            "key": "hunan",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "湖北",
+            "key": "hubei",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "甘肃",
+            "key": "gansu",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "陕西",
+            "key": "shanxi",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "山西",
+            "key": "sanxi",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "山东",
+            "key": "shandong",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "江苏",
+            "key": "jiangsu",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "上海",
+            "key": "shanghai",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "浙江",
+            "key": "zhejiang",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "安徽",
+            "key": "anhui",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "福建",
+            "key": "fujian",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "江西",
+            "key": "jiangxi",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "广东",
+            "key": "guangdong",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "广西",
+            "key": "guangxi",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "海南",
+            "key": "hainan",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "河南",
+            "key": "henan",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "内蒙古",
+            "key": "neimenggu",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "宁夏",
+            "key": "ningxia",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "北京",
+            "key": "beijing",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "天津",
+            "key": "tianjin",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "河北",
+            "key": "hebei",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "青海",
+            "key": "qinghai",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        },{
+            "title": "新疆",
+            "key": "xinjiang",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        },{
+            "title": "四川",
+            "key": "sichuan",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        },{
+            "title": "贵州",
+            "key": "guizhou",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        },{
+            "title": "云南",
+            "key": "yunnan",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        },{
+            "title": "重庆",
+            "key": "chongqing",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        },{
+            "title": "西藏",
+            "key": "xizang",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        },{
+            "title": "辽宁",
+            "key": "liaoning",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        },{
+            "title": "吉林",
+            "key": "jilin",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        },{
+            "title": "黑龙江",
+            "key": "heilongjiang",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        },{
+            "title": "香港",
+            "key": "xianggang",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        },{
+            "title": "澳门",
+            "key": "aomen",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        },{
+            "title": "台湾",
+            "key": "taiwan",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }],
+        data: [{
+            "name": "04/01",
+            "hunan": 9521,
+            "hubei": 8235,
+            "gansu": 7289,
+            "shanxi": 8235,
+            "sanxi": 7289,
+            "shandong": 10289,
+            "jiangsu": 8562,
+            "shanghai": 9523,
+            "zhejiang": 8475,
+            "anhui": 9632,
+            "fujian": 9845,
+            "jiangxi": 8899,
+            "guangdong": 9966,
+            "guangxi": 7564,
+            "hainan": 6589,
+            "henan": 9845,
+            "neimenggu": 8569,
+            "ningxia": 7893,
+            "beijing": 8932,
+            "tianjin": 10389,
+            "hebei": 4569,
+            "qinghai": 9854,
+            "xinjiang": 10389,
+            "sichuan": 6358,
+            "guizhou": 10389,
+            "yunnan": 7854,
+            "chongqing": 10389,
+            "xizang": 8564,
+            "liaoning": 10389,
+            "jilin": 8974,
+            "heilongjiang": 10389,
+            "xianggang": 8794,
+            "aomen": 10389,
+            "taiwan": 9218,
+        },{
+            "name": "04/02",
+            "hunan": 6542,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/03",
+            "hunan": 8942,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/04",
+            "hunan": 10023,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/05",
+            "hunan": 9321,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/06",
+            "hunan": 7524,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/07",
+            "hunan": 6537,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/08",
+            "hunan": 9642,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/09",
+            "hunan": 8289,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/10",
+            "hunan": 5994,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/11",
+            "hunan": 8289,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/12",
+            "hunan": 7856,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/13",
+            "hunan": 6321,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/14",
+            "hunan": 8289,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/15",
+            "hunan": 11023,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/16",
+            "hunan": 7865,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/17",
+            "hunan": 8289,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/18",
+            "hunan": 9456,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/19",
+            "hunan": 9923,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/20",
+            "hunan": 8289,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/21",
+            "hunan": 5897,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/22",
+            "hunan": 6854,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },{
+            "name": "04/23",
+            "hunan": 8289,
+            "hubei": 10289,
+            "gansu": 10289,
+            "shanxi": 10289,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10289,
+            "shanghai": 10289,
+            "zhejiang": 10289,
+            "anhui": 10289,
+            "fujian": 10289,
+            "jiangxi": 10289,
+            "guangdong": 10289,
+            "guangxi": 10389,
+            "hainan": 10389,
+            "henan": 10389,
+            "neimenggu": 10389,
+            "ningxia": 10389,
+            "beijing": 10389,
+            "tianjin": 10389,
+            "hebei": 10389,
+            "qinghai": 10389,
+            "xinjiang": 10389,
+            "sichuan": 10389,
+            "guizhou": 10389,
+            "yunnan": 10389,
+            "chongqing": 10389,
+            "xizang": 10389,
+            "liaoning": 10389,
+            "jilin": 10389,
+            "heilongjiang": 10389,
+            "xianggang": 10389,
+            "aomen": 10389,
+            "taiwan": 10389,
+        },
+            {
+                "name": "04/24",
+                "hunan": 9654,
+                "hubei": 10289,
+                "gansu": 10289,
+                "shanxi": 10289,
+                "sanxi": 10289,
+                "shandong": 10289,
+                "jiangsu": 10289,
+                "shanghai": 10289,
+                "zhejiang": 10289,
+                "anhui": 10289,
+                "fujian": 10289,
+                "jiangxi": 10289,
+                "guangdong": 10289,
+                "guangxi": 10389,
+                "hainan": 10389,
+                "henan": 10389,
+                "neimenggu": 10389,
+                "ningxia": 10389,
+                "beijing": 10389,
+                "tianjin": 10389,
+                "hebei": 10389,
+                "qinghai": 10389,
+                "xinjiang": 10389,
+                "sichuan": 10389,
+                "guizhou": 10389,
+                "yunnan": 10389,
+                "chongqing": 10389,
+                "xizang": 10389,
+                "liaoning": 10389,
+                "jilin": 10389,
+                "heilongjiang": 10389,
+                "xianggang": 10389,
+                "aomen": 10389,
+                "taiwan": 10389,
+            },{
+                "name": "04/25",
+                "hunan": 10254,
+                "hubei": 10289,
+                "gansu": 10289,
+                "shanxi": 10289,
+                "sanxi": 10289,
+                "shandong": 10289,
+                "jiangsu": 10289,
+                "shanghai": 10289,
+                "zhejiang": 10289,
+                "anhui": 10289,
+                "fujian": 10289,
+                "jiangxi": 10289,
+                "guangdong": 10289,
+                "guangxi": 10389,
+                "hainan": 10389,
+                "henan": 10389,
+                "neimenggu": 10389,
+                "ningxia": 10389,
+                "beijing": 10389,
+                "tianjin": 10389,
+                "hebei": 10389,
+                "qinghai": 10389,
+                "xinjiang": 10389,
+                "sichuan": 10389,
+                "guizhou": 10389,
+                "yunnan": 10389,
+                "chongqing": 10389,
+                "xizang": 10389,
+                "liaoning": 10389,
+                "jilin": 10389,
+                "heilongjiang": 10389,
+                "xianggang": 10389,
+                "aomen": 10389,
+                "taiwan": 10389,
+            },{
+                "name": "04/26",
+                "hunan": 7546,
+                "hubei": 10289,
+                "gansu": 10289,
+                "shanxi": 10289,
+                "sanxi": 10289,
+                "shandong": 10289,
+                "jiangsu": 10289,
+                "shanghai": 10289,
+                "zhejiang": 10289,
+                "anhui": 10289,
+                "fujian": 10289,
+                "jiangxi": 10289,
+                "guangdong": 10289,
+                "guangxi": 10389,
+                "hainan": 10389,
+                "henan": 10389,
+                "neimenggu": 10389,
+                "ningxia": 10389,
+                "beijing": 10389,
+                "tianjin": 10389,
+                "hebei": 10389,
+                "qinghai": 10389,
+                "xinjiang": 10389,
+                "sichuan": 10389,
+                "guizhou": 10389,
+                "yunnan": 10389,
+                "chongqing": 10389,
+                "xizang": 10389,
+                "liaoning": 10389,
+                "jilin": 10389,
+                "heilongjiang": 10389,
+                "xianggang": 10389,
+                "aomen": 10389,
+                "taiwan": 10389,
+            },{
+                "name": "04/27",
+                "hunan": 5648,
+                "hubei": 10289,
+                "gansu": 10289,
+                "shanxi": 10289,
+                "sanxi": 10289,
+                "shandong": 10289,
+                "jiangsu": 10289,
+                "shanghai": 10289,
+                "zhejiang": 10289,
+                "anhui": 10289,
+                "fujian": 10289,
+                "jiangxi": 10289,
+                "guangdong": 10289,
+                "guangxi": 10389,
+                "hainan": 10389,
+                "henan": 10389,
+                "neimenggu": 10389,
+                "ningxia": 10389,
+                "beijing": 10389,
+                "tianjin": 10389,
+                "hebei": 10389,
+                "qinghai": 10389,
+                "xinjiang": 10389,
+                "sichuan": 10389,
+                "guizhou": 10389,
+                "yunnan": 10389,
+                "chongqing": 10389,
+                "xizang": 10389,
+                "liaoning": 10389,
+                "jilin": 10389,
+                "heilongjiang": 10389,
+                "xianggang": 10389,
+                "aomen": 10389,
+                "taiwan": 10389,
+            },{
+                "name": "04/28",
+                "hunan": 8289,
+                "hubei": 10289,
+                "gansu": 10289,
+                "shanxi": 10289,
+                "sanxi": 10289,
+                "shandong": 10289,
+                "jiangsu": 10289,
+                "shanghai": 10289,
+                "zhejiang": 10289,
+                "anhui": 10289,
+                "fujian": 10289,
+                "jiangxi": 10289,
+                "guangdong": 10289,
+                "guangxi": 10389,
+                "hainan": 10389,
+                "henan": 10389,
+                "neimenggu": 10389,
+                "ningxia": 10389,
+                "beijing": 10389,
+                "tianjin": 10389,
+                "hebei": 10389,
+                "qinghai": 10389,
+                "xinjiang": 10389,
+                "sichuan": 10389,
+                "guizhou": 10389,
+                "yunnan": 10389,
+                "chongqing": 10389,
+                "xizang": 10389,
+                "liaoning": 10389,
+                "jilin": 10389,
+                "heilongjiang": 10389,
+                "xianggang": 10389,
+                "aomen": 10389,
+                "taiwan": 10389,
+            },{
+                "name": "04/29",
+                "hunan": 9812,
+                "hubei": 10289,
+                "gansu": 10289,
+                "shanxi": 10289,
+                "sanxi": 10289,
+                "shandong": 10289,
+                "jiangsu": 10289,
+                "shanghai": 10289,
+                "zhejiang": 10289,
+                "anhui": 10289,
+                "fujian": 10289,
+                "jiangxi": 10289,
+                "guangdong": 10289,
+                "guangxi": 10389,
+                "hainan": 10389,
+                "henan": 10389,
+                "neimenggu": 10389,
+                "ningxia": 10389,
+                "beijing": 10389,
+                "tianjin": 10389,
+                "hebei": 10389,
+                "qinghai": 10389,
+                "xinjiang": 10389,
+                "sichuan": 10389,
+                "guizhou": 10389,
+                "yunnan": 10389,
+                "chongqing": 10389,
+                "xizang": 10389,
+                "liaoning": 10389,
+                "jilin": 10389,
+                "heilongjiang": 10389,
+                "xianggang": 10389,
+                "aomen": 10389,
+                "taiwan": 10389,
+            },{
+                "name": "04/30",
+                "hunan": 7862,
+                "hubei": 10289,
+                "gansu": 10289,
+                "shanxi": 10289,
+                "sanxi": 10289,
+                "shandong": 10289,
+                "jiangsu": 10289,
+                "shanghai": 10289,
+                "zhejiang": 10289,
+                "anhui": 10289,
+                "fujian": 10289,
+                "jiangxi": 10289,
+                "guangdong": 10289,
+                "guangxi": 10389,
+                "hainan": 10389,
+                "henan": 10389,
+                "neimenggu": 10389,
+                "ningxia": 10389,
+                "beijing": 10389,
+                "tianjin": 10389,
+                "hebei": 10389,
+                "qinghai": 10389,
+                "xinjiang": 10389,
+                "sichuan": 10389,
+                "guizhou": 10389,
+                "yunnan": 10389,
+                "chongqing": 10389,
+                "xizang": 10389,
+                "liaoning": 10389,
+                "jilin": 10389,
+                "heilongjiang": 10389,
+                "xianggang": 10389,
+                "aomen": 10389,
+                "taiwan": 10389,
+            }]
+    });
+
+    $('#weather_panel_02').tourChartTablePanel({
+        chartId: 'chart_02',
+        chartTitle: '近30日省内各市州客流对比',
+        chartLegend: '客流量',
+        chartType: 'bar',
+        tableTitle: '近30日省内各市州客流对比',
+        columns: [{
+            "title": "日期",
+            "key": "name",
+            "fixed": "left",
+            "width": 150
+        }, {
+            "title": "长沙市",
+            "key": "changsha",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "株洲市",
+            "key": "zhuzhou",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "湘潭市",
+            "key": "xiangtan",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "衡阳市",
+            "key": "hengyang",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "邵阳市",
+            "key": "shaoyang",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "岳阳市",
+            "key": "yueyang",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "常德市",
+            "key": "changde",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "张家界市",
+            "key": "zhangjiajie",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "益阳市",
+            "key": "yiyang",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "娄底市",
+            "key": "loudi",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "郴州市",
+            "key": "chenzhou",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "永州市",
+            "key": "yongzhou",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "怀化市",
+            "key": "huaihua",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "土家族苗族自治州",
+            "key": "tujiazuzizhizhou",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }],
+        data: [{
+            "name": "04/01",
+            "changsha": 11289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/02",
+            "changsha": 8289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/03",
+            "changsha": 11289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/04",
+            "changsha": 8289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/05",
+            "changsha": 11289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/06",
+            "changsha": 8289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/07",
+            "changsha": 11289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/08",
+            "changsha": 8289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/09",
+            "changsha": 11289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/10",
+            "changsha": 8289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/11",
+            "changsha": 11289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/12",
+            "changsha": 8289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/13",
+            "changsha": 11289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/14",
+            "changsha": 8289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/15",
+            "changsha": 11289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/16",
+            "changsha": 8289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/17",
+            "changsha": 11289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/18",
+            "changsha": 8289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/19",
+            "changsha": 11289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/20",
+            "changsha": 8289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/21",
+            "changsha": 11289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/22",
+            "changsha": 8289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },{
+            "name": "04/23",
+            "changsha": 11289,
+            "zhuzhou": 10235,
+            "xiangtan": 11289,
+            "hengyang": 10829,
+            "shaoyang": 11289,
+            "yueyang": 10289,
+            "changde": 11289,
+            "zhangjiajie": 10289,
+            "yiyang": 11289,
+            "loudi": 10289,
+            "chenzhou": 11289,
+            "yongzhou": 10289,
+            "huaihua": 11289,
+            "tujiazuzizhizhou": 10389,
+        },
+            {
+                "name": "04/24",
+                "changsha": 8289,
+                "zhuzhou": 10235,
+                "xiangtan": 11289,
+                "hengyang": 10829,
+                "shaoyang": 11289,
+                "yueyang": 10289,
+                "changde": 11289,
+                "zhangjiajie": 10289,
+                "yiyang": 11289,
+                "loudi": 10289,
+                "chenzhou": 11289,
+                "yongzhou": 10289,
+                "huaihua": 11289,
+                "tujiazuzizhizhou": 10389,
+            },{
+                "name": "04/25",
+                "changsha": 11289,
+                "zhuzhou": 10235,
+                "xiangtan": 11289,
+                "hengyang": 10829,
+                "shaoyang": 11289,
+                "yueyang": 10289,
+                "changde": 11289,
+                "zhangjiajie": 10289,
+                "yiyang": 11289,
+                "loudi": 10289,
+                "chenzhou": 11289,
+                "yongzhou": 10289,
+                "huaihua": 11289,
+                "tujiazuzizhizhou": 10389,
+            },{
+                "name": "04/26",
+                "changsha": 8289,
+                "zhuzhou": 10235,
+                "xiangtan": 11289,
+                "hengyang": 10829,
+                "shaoyang": 11289,
+                "yueyang": 10289,
+                "changde": 11289,
+                "zhangjiajie": 10289,
+                "yiyang": 11289,
+                "loudi": 10289,
+                "chenzhou": 11289,
+                "yongzhou": 10289,
+                "huaihua": 11289,
+                "tujiazuzizhizhou": 10389,
+            },{
+                "name": "04/27",
+                "changsha": 11289,
+                "zhuzhou": 10235,
+                "xiangtan": 11289,
+                "hengyang": 10829,
+                "shaoyang": 11289,
+                "yueyang": 10289,
+                "changde": 11289,
+                "zhangjiajie": 10289,
+                "yiyang": 11289,
+                "loudi": 10289,
+                "chenzhou": 11289,
+                "yongzhou": 10289,
+                "huaihua": 11289,
+                "tujiazuzizhizhou": 10389,
+            },{
+                "name": "04/28",
+                "changsha": 8289,
+                "zhuzhou": 10235,
+                "xiangtan": 11289,
+                "hengyang": 10829,
+                "shaoyang": 11289,
+                "yueyang": 10289,
+                "changde": 11289,
+                "zhangjiajie": 10289,
+                "yiyang": 11289,
+                "loudi": 10289,
+                "chenzhou": 11289,
+                "yongzhou": 10289,
+                "huaihua": 11289,
+                "tujiazuzizhizhou": 10389,
+            },{
+                "name": "04/29",
+                "changsha": 11289,
+                "zhuzhou": 10235,
+                "xiangtan": 11289,
+                "hengyang": 10829,
+                "shaoyang": 11289,
+                "yueyang": 10289,
+                "changde": 11289,
+                "zhangjiajie": 10289,
+                "yiyang": 11289,
+                "loudi": 10289,
+                "chenzhou": 11289,
+                "yongzhou": 10289,
+                "huaihua": 11289,
+                "tujiazuzizhizhou": 10389,
+            },{
+                "name": "04/30",
+                "changsha": 8289,
+                "zhuzhou": 10235,
+                "xiangtan": 11289,
+                "hengyang": 10829,
+                "shaoyang": 11289,
+                "yueyang": 10289,
+                "changde": 11289,
+                "zhangjiajie": 10289,
+                "yiyang": 11289,
+                "loudi": 10289,
+                "chenzhou": 11289,
+                "yongzhou": 10289,
+                "huaihua": 11289,
+                "tujiazuzizhizhou": 10389,
+            }]
+    });
+
+    $('#weather_panel_03').tourChartTablePanel({
+        chartId: 'chart_03',
+        chartTitle: '近30日各区县(市)客流对比',
+        chartLegend: '客流量',
+        chartType: 'bar',
+        tableTitle: '近30日各区县(市)客流对比',
+        columns: [{
+            "title": "日期",
+            "key": "name",
+            "fixed": "left",
+            "width": 150
+        }, {
+            "title": "芙蓉区",
+            "key": "furong",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "天心区",
+            "key": "tianxin",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "岳麓区",
+            "key": "yuelu",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "开福区",
+            "key": "kaifu",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "雨花区",
+            "key": "yuhua",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "望城区",
+            "key": "wangcheng",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "浏阳市",
+            "key": "liuyang",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "宁乡市",
+            "key": "ningxiang",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }, {
+            "title": "长沙县",
+            "key": "changshaxian",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '客流总数',
+                value: '233,343'
+            }, {
+                key: '昨日客流数',
+                value: '233,343'
+            }]
+        }],
+        data: [{
+            "name": "04/01",
+            "furong": 8589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/02",
+            "furong": 10589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/03",
+            "furong": 8589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/04",
+            "furong": 6589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/05",
+            "furong": 9589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/06",
+            "furong": 11589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/07",
+            "furong": 8589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/08",
+            "furong": 11589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/09",
+            "furong": 7589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/10",
+            "furong": 11589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/11",
+            "furong": 9589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/12",
+            "furong": 8589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/13",
+            "furong": 5589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/14",
+            "furong": 6589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/15",
+            "furong": 8589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/16",
+            "furong": 11589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/17",
+            "furong": 9589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/18",
+            "furong": 7589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/19",
+            "furong": 6589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/20",
+            "furong": 9589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/21",
+            "furong": 8589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/22",
+            "furong": 11589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },{
+            "name": "04/23",
+            "furong": 5589,
+            "tianxin": 10235,
+            "yuelu": 11989,
+            "kaifu": 10129,
+            "yuhua": 10289,
+            "wangcheng": 11289,
+            "liuyang": 10289,
+            "ningxiang": 11989,
+            "changshaxian": 10289
+        },
+            {
+                "name": "04/24",
+                "furong": 7589,
+                "tianxin": 10235,
+                "yuelu": 11989,
+                "kaifu": 10129,
+                "yuhua": 10289,
+                "wangcheng": 11289,
+                "liuyang": 10289,
+                "ningxiang": 11989,
+                "changshaxian": 10289
+            },{
+                "name": "04/25",
+                "furong": 11589,
+                "tianxin": 10235,
+                "yuelu": 11989,
+                "kaifu": 10129,
+                "yuhua": 10289,
+                "wangcheng": 11289,
+                "liuyang": 10289,
+                "ningxiang": 11989,
+                "changshaxian": 10289
+            },{
+                "name": "04/26",
+                "furong": 8589,
+                "tianxin": 10235,
+                "yuelu": 11989,
+                "kaifu": 10129,
+                "yuhua": 10289,
+                "wangcheng": 11289,
+                "liuyang": 10289,
+                "ningxiang": 11989,
+                "changshaxian": 10289
+            },{
+                "name": "04/27",
+                "furong": 6589,
+                "tianxin": 10235,
+                "yuelu": 11989,
+                "kaifu": 10129,
+                "yuhua": 10289,
+                "wangcheng": 11289,
+                "liuyang": 10289,
+                "ningxiang": 11989,
+                "changshaxian": 10289
+            },{
+                "name": "04/28",
+                "furong": 9589,
+                "tianxin": 10235,
+                "yuelu": 11989,
+                "kaifu": 10129,
+                "yuhua": 10289,
+                "wangcheng": 11289,
+                "liuyang": 10289,
+                "ningxiang": 11989,
+                "changshaxian": 10289
+            },{
+                "name": "04/29",
+                "furong": 7589,
+                "tianxin": 10235,
+                "yuelu": 11989,
+                "kaifu": 10129,
+                "yuhua": 10289,
+                "wangcheng": 11289,
+                "liuyang": 10289,
+                "ningxiang": 11989,
+                "changshaxian": 10289
+            },{
+                "name": "04/30",
+                "furong": 11589,
+                "tianxin": 10235,
+                "yuelu": 11989,
+                "kaifu": 10129,
+                "yuhua": 10289,
+                "wangcheng": 11289,
+                "liuyang": 10289,
+                "ningxiang": 11989,
+                "changshaxian": 10289
+            }]
+    });
+
+    $('#inner_page_footer').tourInnerPageFooter({
+        source: '万维旅游云服务 ©wanwei.com.cn',
+        content: `<p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等。</p>`
+    });
+
+    $('#page_footer').tourFooter();
+
+    $('.filter-btn').click(function () {
+
+        weather.updateData([{
+            type: 'map',
+            mapType: 'china',
+            label: '标签标签1',
+            keyValue: [{
+                key: '累计关注',
+                value: '9人'
+            }, {
+                key: '新增关注',
+                value: '8人'
+            }, {
+                key: '净增关注',
+                value: '-3人'
+            }],
+            columns: [{
+                title: '省份',
+                key: 'province'
+            }, {
+                title: '关注人数',
+                key: 'num',
+                sortable: true
+            }],
+            data: [
+                {
+                    num: 9970,
+                    province: "甘肃"
+                },
+                {
+                    num: 1575,
+                    province: "广东"
+                },
+                {
+                    num: 1066,
+                    province: "浙江"
+                },
+                {
+                    num: 947,
+                    province: "江苏"
+                },
+                {
+                    num: 665,
+                    province: "北京"
+                },
+                {
+                    num: 607,
+                    province: "河南"
+                },
+                {
+                    num: 607,
+                    province: "山东"
+                },
+                {
+                    num: 543,
+                    province: "陕西"
+                },
+                {
+                    num: 519,
+                    province: "河北"
+                },
+                {
+                    num: 469,
+                    province: "上海"
+                },
+                {
+                    num: 417,
+                    province: "湖南"
+                },
+                {
+                    num: 410,
+                    province: "安徽"
+                },
+                {
+                    num: 408,
+                    province: "四川"
+                },
+                {
+                    num: 396,
+                    province: "福建"
+                },
+                {
+                    num: 369,
+                    province: "青海"
+                },
+                {
+                    num: 304,
+                    province: "山西"
+                },
+                {
+                    num: 259,
+                    province: "湖北"
+                },
+                {
+                    num: 237,
+                    province: "辽宁"
+                },
+                {
+                    num: 99999,
+                    province: "新疆"
+                },
+                {
+                    num: 216,
+                    province: "云南"
+                },
+                {
+                    num: 213,
+                    province: "黑龙江"
+                },
+                {
+                    num: 177,
+                    province: "吉林"
+                },
+                {
+                    num: 170,
+                    province: "宁夏"
+                },
+                {
+                    num: 166,
+                    province: "贵州"
+                },
+                {
+                    num: 160,
+                    province: "江西"
+                },
+                {
+                    num: 125,
+                    province: "重庆"
+                },
+                {
+                    num: 117,
+                    province: "内蒙古"
+                },
+                {
+                    num: 107,
+                    province: "广西"
+                },
+                {
+                    num: 95,
+                    province: "天津"
+                },
+                {
+                    num: 70,
+                    province: "西藏"
+                },
+                {
+                    num: 69,
+                    province: "海南"
+                },
+                {
+                    num: 28,
+                    province: "香港"
+                },
+                {
+                    num: 27,
+                    province: "澳门"
+                },
+                {
+                    num: 13,
+                    province: "台湾"
+                }
+            ]
+        }]);
+    });
+</script>

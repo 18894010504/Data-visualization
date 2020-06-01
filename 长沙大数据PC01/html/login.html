@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8"/>
+    <title>万维智慧旅游云平台</title>
+    <link rel="stylesheet" type="text/css" media="all" href="res/css/index.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="res/lib/font-awesome/css/font-awesome.min.css"/>
+    <script type="text/javascript" src="res/lib/jquery/jquery-1.11.3.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+        .conter {
+            position: relative;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            min-height: 380px;
+            min-width: 855px;
+            margin: 0;
+            padding: 0;
+            background: url("res/img/background.jpg") no-repeat center left;
+            background-size: cover;
+        }
+
+        .login {
+            margin: 0;
+            padding: 0;
+            width: 310px;
+            height: auto;
+            position: absolute;
+            left: 70%;
+            top: 30%;
+        }
+
+        .login-gui {
+            position: relative;
+            box-sizing: border-box;
+            padding: 20px 20px 25px 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2);
+            background: #fff;
+        }
+
+        .login-gui > span {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 25px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #1c2438;
+            text-align: left;
+            box-sizing: border-box;
+
+        }
+
+        .login-gui > span i {
+            margin-right: 5px;
+        }
+
+        .login-gui div input {
+            display: block;
+            border-radius: 4px;
+            width: 222px;
+            padding: 9px 12px 9px 34px;
+            height: 12px;
+            line-height: 12px;
+            margin: 20px 0;
+            border: 1px solid #dddee1;
+            font-size: 12px;
+            outline: none;
+            color: #495060;
+        }
+
+        .login-gui div input.fst {
+            border: 1px solid #e00000;
+        }
+
+        .login-gui div i {
+            width: 27px;
+            float: left;
+            border-radius: 4px 0 0 4px;
+            display: block;
+            height: 30px;
+            background: #fff;
+            margin-bottom: -36px;
+            margin-left: 1px;
+            font-size: 16px;
+            line-height: 32px;
+            text-align: center;
+            border-right: 1px solid #dddee1;
+            margin-top: 1px;
+            color: #495060;
+        }
+
+        .login-gui div i.over {
+
+            background-color: #eee;
+        }
+
+        .login-gui div input:nth-child(5) {
+            width: 132PX;
+            margin: 0;
+            display: inline-block;
+            padding: 9px 7px;
+        }
+
+        .code-num {
+            width: 40%;
+            float: right;
+            display: inline-block;
+            height: 32px;
+            background: url("res/img/code.jpg") no-repeat center left;
+            background-size: cover;
+        }
+
+        .login-btn {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 25px;
+            display: block;
+            border-radius: 4px;
+            width: 100%;
+            height: 32px;
+            line-height: 32px;
+            box-sizing: border-box;
+            color: #fff;
+            background-color: #2d8cf0;
+            border-color: #2d8cf0;
+
+        }
+
+        .login-btn:hover {
+            background-color: #57a3f3;!important;
+            border-color: #57a3f3; !important;
+
+        }
+        .line{
+
+            display: inline-block;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: #e9eaec;
+            top: 60px;
+z-index: 2;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+<div class="conter">
+    <div class="login">
+        <i class="line"></i>
+        <div class="login-gui">
+            <span><i class="fa fa-toggle-right"></i>欢迎登陆长沙旅游产业运行监测调度系统</span>
+            <div class="label">
+                <i class=" over fa fa-user ts"></i><input placeholder="请输入用户名" type="text" class="ts"/>
+                <i class=" over fa fa-lock ts"></i><input placeholder="请输入密码" type="password" class="ts"/>
+                <input placeholder="验证码" class="ts"/>
+                <em class="code-num"></em>
+            </div>
+            <a class="login-btn ts">登&nbsp;录</a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script type="text/javascript">
+    $('.label input').focus(
+        function () {
+            $(this).removeClass('fst')
+            $(this).prev().removeClass('over')
+        }
+    )
+    $('.label input').blur(
+        function () {
+            if ($(this).attr("value") == "") {
+                $(this).addClass('fst')
+            }
+            else {
+                $(this).removeClass('fst')
+                $(this).prev().addClass('over')
+            }
+        })
+    $('.login-btn').click(
+        function () {
+          var l = $('.label input').length
+
+            for(i=0;i<l;i++){
+                if ($('.label input').eq(i).attr("value") == "") {
+                    $('.label input').eq(i).addClass('fst')
+                }
+            }
+
+        }
+    )
+
+</script>
+</html>

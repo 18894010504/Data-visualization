@@ -1,0 +1,190 @@
+{
+    "name": "热门线路",
+    "children": [
+        {
+            "name": "长沙橘子洲",
+            "children": [
+            {
+                "name": "岳麓山",
+                "children": [
+                {
+                    "name": "第一师范",
+                    "children": [
+                    {
+                        "name": "天心阁",
+                        "children": [
+                        {
+                            "name": "爱晚亭",
+                            "value": 13
+                        }]
+                    }]
+                }]
+            }]
+        },
+        {
+            "name": "长沙橘子洲",
+            "children": [
+            {
+                "name": "韶山",
+                "children": [
+                {
+                    "name": "张家界",
+                    "children": [
+                    {
+                        "name": "袁家界",
+                        "children": [
+                        {
+                            "name": "天门山玻璃栈道",
+                            "children": [
+                            {
+                                "name": "黄龙洞",
+                                "value": 13
+                            }]
+                        }]
+                    }]
+                }]
+            }]
+        },
+        {
+            "name": "岳麓山",
+            "children": [
+            {
+                "name": "天门山玻璃栈道",
+                "children": [
+                {
+                    "name": "凤凰古城",
+                    "value": 14
+                }]
+            }]
+        },
+        {
+            "name": "世界之窗",
+            "children": [
+            {
+                "name": "张家界",
+                "children": [
+                {
+                    "name": "凤凰古城",
+                    "children": [
+                    {
+                        "name": "天门山",
+                        "children": [
+                        {
+                            "name": "袁家界",
+                            "value": 6
+                        }]
+                    }]
+                }]
+            }]
+        },
+        {
+            "name": "岳麓山 ",
+            "children": [
+            {
+                "name": "花明楼",
+                "children": [
+                {
+                    "name": "张家界",
+                    "children": [
+                    {
+                        "name": "凤凰古城",
+                        "value": 11
+                    }]
+                }]
+            }]
+        },
+        {
+            "name": "天心阁",
+            "children": [
+            {
+                "name": "袁家界",
+                "children": [
+                {
+                    "name": "天子山",
+                    "children": [
+                    {
+                        "name": "十里画廊",
+                        "children": [
+                        {
+                            "name": "天门山",
+                            "children": [
+                            {
+                                "name": "玻璃栈道",
+                                "value": 5
+                            }]
+                        }]
+                    }]
+                }]
+            }]
+        },
+        {
+            "name": "岳麓山",
+            "children": [
+            {
+                "name": "花明楼",
+                "children": [
+                {
+                    "name": "张家界森林公园",
+                    "value": 7
+                }]
+            }]
+        },
+        {
+            "name": "太平街",
+            "children": [
+            {
+                "name": "张家界森林公园",
+                "children": [
+                {
+                    "name": "袁家界",
+                    "children": [
+                    {
+                        "name": "天门山",
+                        "children": [
+                        {
+                            "name": "玻璃栈道",
+                            "value": 6
+                        }]
+                    }]
+                }]
+            }]
+        },
+        {
+            "name": "橘子洲",
+            "children": [
+            {
+                "name": "黄龙洞",
+                "children": [
+                {
+                    "name": "天门山玻璃栈道",
+                    "children": [
+                    {
+                        "name": "凤凰古城",
+                        "value": 9
+                    }]
+                }]
+            }]
+        },
+        {
+            "name": "岳麓山",
+            "children": [
+            {
+                "name": "韶山",
+                "children": [
+                {
+                    "name": "张家界",
+                    "children": [
+                    {
+                        "name": "天门山",
+                        "children": [
+                        {
+                            "name": "大峡谷玻璃桥",
+                            "value": 11
+                        }]
+                    }]
+                }]
+            }]
+        }
+
+    ]
+}

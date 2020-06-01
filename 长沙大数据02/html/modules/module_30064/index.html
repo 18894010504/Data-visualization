@@ -1,0 +1,66 @@
+<div class="title">
+    <div class="text">近30天游客投诉变化</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>近30天最高</h6>
+            <label class="down">7<span> 次</span></label>
+        </li>
+        <li>
+            <h6>近30天最低</h6>
+            <label class="down">1<span> 次</span></label>
+        </li>
+        <li>
+            <h6>近30天平均</h6>
+            <label class="down">2<span> 次</span></label>
+        </li>
+    </ul>
+    <div id="module_30064" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30064 = echarts.init(document.getElementById('module_30064'), theme);
+var option = {
+    grid: {
+        left: 0,
+        right: 0,
+        top: 20,
+        bottom: 20,
+    },
+    tooltip: {
+        triggerOn: 'none',
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: ["11月16日", "11月17日", "11月18日", "11月19日", "11月20日", "11月21日", "11月22日", "11月23日", "11月24日", "11月25日", "11月26日", "11月27日", "11月28日", "11月29日", "11月30日", "12月1日", "12月2日", "12月3日", "12月4日", "12月5日", "12月6日", "12月7日", "12月8日", "12月9日", "12月10日", "12月11日", "12月12日", "12月13日", "12月14日", "12月15日"]
+    },
+    yAxis: [{
+        type: 'value',
+        boundaryGap: true,
+        axisLabel: {
+            inside: true,
+            formatter: '{value}'
+        },
+    }],
+    series: [{
+        name: '过夜游客',
+        type: 'line',
+        label: {
+            normal: {
+                show: true,
+                position: 'top'
+            }
+        },
+        data: [3, 2, 4, 1, 1, 5, 2, 1, 5, 4, 1, 2, 3, 2, 2, 2, 2, 1, 1, 1, 5, 2, 4, 1, 7, 3, 2, 2, 2, 3]
+    }]
+};
+module_30064.setOption(option);
+
+$(window).resize(function() {
+    module_30064.resize();
+});
+</script>

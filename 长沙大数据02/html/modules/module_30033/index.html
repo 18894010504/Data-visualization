@@ -1,0 +1,319 @@
+<div id="module_30033" class="box-chart swiper-container002" style="width: 100%; height: 100%; overflow: hidden">
+    <div class="swiper-wrapper">
+        <div  class="swiper-slide page-item-box" style="width: 25%; height: 100%;">
+            <div class="title">
+            <div class="text">橘子洲景区客源TOP10</div>
+        </div>
+            <div class="inner-box module_100006">
+
+            <div id="module_30033_1" class="box-chart" style="width: 100%; height: 100%;"></div>
+        </div>
+        </div>
+        <div  class="swiper-slide page-item-box" style="width: 25%; height: 100%;">
+            <div class="title">
+                <div class="text">岳麓山景区客源TOP10</div>
+            </div>
+            <div class="inner-box module_100006">
+
+                <div id="module_30033_2" class="box-chart" style="width: 100%; height: 100%;"></div>
+            </div>
+        </div>
+        <div  class="swiper-slide page-item-box" style="width: 25%; height: 100%;">
+            <div class="title">
+                <div class="text">世界之窗景区客源TOP10</div>
+            </div>
+            <div class="inner-box module_100006">
+
+                <div id="module_30033_3" class="box-chart" style="width: 100%; height: 100%;"></div>
+            </div>
+        </div>
+        <div  class="swiper-slide page-item-box" style="width: 25%; height: 100%;">
+            <div class="title">
+                <div class="text">石燕湖景区客源TOP10</div>
+            </div>
+            <div class="inner-box module_100006">
+
+                <div id="module_30033_4" class="box-chart" style="width: 100%; height: 100%;"></div>
+            </div>
+        </div>
+        <div  class="swiper-slide page-item-box" style="width: 25%; height: 100%;">
+            <div class="title">
+                <div class="text">靖港古镇景区客源TOP10</div>
+            </div>
+            <div class="inner-box module_100006">
+
+                <div id="module_30033_5" class="box-chart" style="width: 100%; height: 100%;"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#module_30033').parent().parent().css("padding",'0px')
+        var swiper = new Swiper('.swiper-container002', {
+            slidesPerView: 4,
+            spaceBetween: 0,
+            autoplay:3000,
+        });
+
+    </script>
+</div>
+<script type="text/javascript">
+    var module_30033_1 = echarts.init(document.getElementById('module_30033_1'), 'BigDataPe');
+    var option1 = {
+        grid: {
+            left: 40,
+            right: 45,
+            top: 15,
+            bottom: 10,
+        },
+        tooltip: {
+            triggerOn: 'none',
+        },
+        xAxis: {
+            show: false
+        },
+        yAxis: [{
+            type: 'category',
+            boundaryGap: true,
+            splitLine: {
+                show: false,
+            },
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            data: ["贵州", "河南", "海南", "重庆", "广东", "江苏", "江西", "四川", "安徽", "湖北"]
+        }],
+        series: [{
+            name: '游客量',
+            type: 'bar',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'right',
+                    formatter: '{c}%'
+                }
+            },
+            itemStyle:{
+                normal:{
+                    barBorderRadius: [0,3,3,0]
+                }
+            },
+            data:[19,21.2,25,33.7,35,45.3,56,66,87.2,98.8]
+        }]
+
+    };
+
+    var module_30033_2 = echarts.init(document.getElementById('module_30033_2'), 'BigDataPe');
+    var option2 = {
+        grid: {
+            left: 40,
+            right: 45,
+            top: 15,
+            bottom: 10,
+        },
+        tooltip: {
+            triggerOn: 'none',
+        },
+        xAxis: {
+            show: false
+        },
+        yAxis: [{
+            type: 'category',
+            boundaryGap: true,
+            splitLine: {
+                show: false,
+            },
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            data: ["海南", "河南", "贵州", "西安", "重庆","浙江", "江西", "四川", "湖北", "广东",]
+        }],
+        series: [{
+            name: '近30日游客量',
+            type: 'bar',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'right',
+                    formatter: '{c}%'
+                }
+            },
+            itemStyle:{
+                normal:{
+                    barBorderRadius: [0,3,3,0]
+                }
+            },
+            data:[24, 30.5, 38.9,47.6,58,65.4,79.2,80.4,87,91.4]
+
+        }]
+
+    };
+
+    var module_30033_3 = echarts.init(document.getElementById('module_30033_3'), 'BigDataPe');
+    var option3 = {
+        grid: {
+            left: 40,
+            right: 45,
+            top: 15,
+            bottom: 10,
+        },
+        tooltip: {
+            triggerOn: 'none',
+        },
+        xAxis: {
+            show: false
+        },
+        yAxis: [{
+            type: 'category',
+            boundaryGap: true,
+            splitLine: {
+                show: false,
+            },
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            data: ["浙江","河南", "西安", "江西", "安徽", "河南", "湖北", "贵州", "广东","江苏"]
+        }],
+        series: [{
+            name: '近30日游客量',
+            type: 'bar',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'right',
+                    formatter: '{c}%'
+                }
+            },
+            itemStyle:{
+                normal:{
+                    barBorderRadius: [0,3,3,0]
+                }
+            },
+            data:[21.7, 29.1, 36.3,40.8,56.3,60.1,67.9,74,87.4,95.9]
+
+
+        }]
+
+    };
+
+    var module_30033_4 = echarts.init(document.getElementById('module_30033_4'), 'BigDataPe');
+    var option4 = {
+        grid: {
+            left: 40,
+            right: 45,
+            top: 15,
+            bottom: 10,
+        },
+        tooltip: {
+            triggerOn: 'none',
+        },
+        xAxis: {
+            show: false
+        },
+        yAxis: [{
+            type: 'category',
+            boundaryGap: true,
+            splitLine: {
+                show: false,
+            },
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            data: ["大连", "安徽", "西安", "福建", "湖北", "广东", "浙江", "江苏", "山东", "江西"]
+        }],
+        series: [{
+            name: '近30日游客量',
+            type: 'bar',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'right',
+                    formatter: '{c}%'
+                }
+            },
+            itemStyle:{
+                normal:{
+                    barBorderRadius: [0,3,3,0]
+                }
+            },
+            data:[18, 21.7, 38.9, 44.6, 56,65.9,73.2,75.8,86,90.7]
+        }]
+
+    };
+
+    var module_30033_5 = echarts.init(document.getElementById('module_30033_5'), 'BigDataPe');
+    var option5 = {
+        grid: {
+            left: 40,
+            right: 45,
+            top: 15,
+            bottom: 10,
+        },
+        tooltip: {
+            triggerOn: 'none',
+        },
+        xAxis: {
+            show: false
+        },
+        yAxis: [{
+            type: 'category',
+            boundaryGap: true,
+            splitLine: {
+                show: false,
+            },
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            data: ["贵州", "西安", "安徽", "重庆", "河南", "江西", "湖北", "广东", "福建","安徽"]
+        }],
+        series: [{
+            name: '近30日游客量',
+            type: 'bar',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'right',
+                    formatter: '{c}%'
+                }
+            },
+            itemStyle:{
+                normal:{
+                    barBorderRadius: [0,3,3,0]
+                }
+            },
+            data:[15,24.1,38.7,56.3,65.1,76.2,79.5,86.3,91,96]
+        }]
+
+    };
+
+    module_30033_1.setOption(option1);
+    module_30033_2.setOption(option2);
+    module_30033_3.setOption(option3);
+    module_30033_4.setOption(option4);
+    module_30033_5.setOption(option5);
+
+
+
+    $(window).resize(function () {
+        module_30033_1.resize();
+        module_30033_2.resize();
+        module_30033_3.resize();
+        module_30033_4.resize();
+        module_30033_5.resize();
+
+    });
+</script>

@@ -1,0 +1,86 @@
+<div class="title">
+    <div class="text">舆情重点关注用户</div>
+</div>
+<div class="inner-box mode_308-box">
+    <ul class="all_thing-show">
+        <li>
+            <div class="content_wrap">
+                <h6>做实做细扶贫攻坚 做精做美全域旅游</h6>
+                <div class="come_from">
+                    <p>用户：一剪梅</p>
+                    <p>转发分享：445次</p>
+                    <p>阅读：326次</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>湖南汝城县列入全国红色旅游经典景区建设项目</h6>
+                <div class="come_from">
+                    <p>用户：飞鹰</p>
+                    <p>转发分享：189次</p>
+                    <p>阅读：412次</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>2017麻阳冰糖橙暨武术文化节将于12月1日举行</h6>
+                <div class="come_from">
+                    <p>用户：相忘江湖</p>
+                    <p>转发分享：226次</p>
+                    <p>阅读：123次</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>整治洞庭湖 湖南省直九部门祭出“杀手锏”</h6>
+                <div class="come_from">
+                    <p>用户：再见康桥</p>
+                    <p>转发分享：463次</p>
+                    <p>阅读：526次</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>天岳幕阜山4A创建请专家把脉建筑美学</h6>
+                <div class="come_from">
+                    <p>用户：大漠</p>
+                    <p>转发分享：124次</p>
+                    <p>阅读：226次</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $(function() {
+    // var _wrap = $('.mode_308-box .all_thing-show'); //定义滚动区域
+    // var _interval = 5000; //定义滚动间隙时间
+    // var _moving; //需要清除的动画
+    // _wrap.hover(function() {
+    //     clearInterval(_moving); //当鼠标在滚动区域中时,停止滚动
+    // }, function() {
+    //     _moving = setInterval(function() {
+    //         var _field = _wrap.find('li:first'); //此变量不可放置于函数起始处,li:first取值是变化的
+    //         var _h = _field.height(); //取得每次滚动高度
+    //         _field.animate({
+    //             marginTop: -_h + 'px'
+    //         }, 500, function() { //通过取负margin值,隐藏第一行
+    //             _field.css('marginTop', 0).appendTo(_wrap); //隐藏后,将该行的margin值置零,并插入到最后,实现无缝滚动
+    //         })
+    //     }, _interval) //滚动间隔时间取决于_interval
+    // }).trigger('mouseleave'); //函数载入时,模拟执行mouseleave,即自动滚动
+
+    // 滚动条
+    $(".mode_308-box .all_thing-show").niceScroll({
+        cursorcolor: "#1f4866",
+        autohidemode: true,
+        cursorwidth: "4px",
+        cursorborderradius: 0
+    });
+});
+
+</script>

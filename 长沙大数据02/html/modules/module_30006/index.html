@@ -1,0 +1,195 @@
+<div class="inner-box module_100008">
+    <div class="map-info-box">
+        <div class="map-info-box-in">
+            <h5 class="info-title">累计关注</h5>
+            <p class="box">
+                <span class="dtnum">245,184<label>人</label></span>
+            </p>
+        </div>
+        <div class="map-info-box-in">
+            <h6 class="info-title">新增关注</h6>
+            <p class="box">
+                <span class="dtnum">5662<label>人</label></span>
+            </p>
+        </div>
+    </div>
+    <div id="module_100008" class="box-chart map-noborder"></div>
+</div>
+<script type="text/javascript">
+var module_100008 = echarts.init(document.getElementById('module_100008'), theme);
+
+$.get('res/lib/echarts/map/china.json', function(chinaJson) {
+    echarts.registerMap('china', chinaJson);
+
+    var option = {
+        tooltip: {
+            trigger: 'item',
+            formatter: '{b} {c}人'
+        },
+        visualMap: {
+            min: 0,
+            max: 3000,
+            text: ['高', '低'],
+            realtime: false,
+            calculable: true,
+        },
+        geo: {
+            map: 'china',
+            roam: true,
+            label: {
+                normal: {
+                    show: true,
+                }
+            }
+        },
+        series: [{
+            name: 'categoryA',
+            type: 'map',
+            geoIndex: 0,
+            data: [{
+                    name: '北京',
+                    value: 1080
+                },
+                {
+                    name: '天津',
+                    value: 1020
+                },
+                {
+                    name: '上海',
+                    value: 833
+                },
+                {
+                    name: '重庆',
+                    value: 1056
+                },
+                {
+                    name: '河北',
+                    value: 1390
+                },
+                {
+                    name: '河南',
+                    value: 1445
+                },
+                {
+                    name: '云南',
+                    value: 652
+                },
+                {
+                    name: '辽宁',
+                    value: 936
+                },
+                {
+                    name: '黑龙江',
+                    value: 1095
+                },
+                {
+                    name: '湖南',
+                    value: 2653
+                },
+                {
+                    name: '安徽',
+                    value: 1136
+                },
+                {
+                    name: '山东',
+                    value: 962
+                },
+                {
+                    name: '新疆',
+                    value: 365
+                },
+                {
+                    name: '江苏',
+                    value: 1456
+                },
+                {
+                    name: '浙江',
+                    value: 1195
+                },
+                {
+                    name: '江西',
+                    value:1593
+                },
+                {
+                    name: '湖北',
+                    value: 1662
+                },
+                {
+                    name: '广西',
+                    value: 652
+                },
+                {
+                    name: '甘肃',
+                    value: 660
+                },
+                {
+                    name: '山西',
+                    value: 565
+                },
+                {
+                    name: '内蒙古',
+                    value: 442
+                },
+                {
+                    name: '陕西',
+                    value: 661
+                },
+                {
+                    name: '吉林',
+                    value: 736
+                },
+                {
+                    name: '福建',
+                    value: 236
+                },
+                {
+                    name: '贵州',
+                    value: 269
+                },
+                {
+                    name: '广东',
+                    value: 1740
+                },
+                {
+                    name: '青海',
+                    value: 325
+                },
+                {
+                    name: '西藏',
+                    value: 254
+                },
+                {
+                    name: '四川',
+                    value: 1062
+                },
+                {
+                    name: '宁夏',
+                    value: 642
+                },
+                {
+                    name: '海南',
+                    value: 365
+                },
+                {
+                    name: '台湾',
+                    value: 165
+                },
+                {
+                    name: '香港',
+                    value: 264
+                },
+                {
+                    name: '澳门',
+                    value: 163
+                }
+            ]
+        }]
+    };
+
+    module_100008.setOption(option);
+});
+
+$(window).resize(function() {
+    module_100008.resize();
+});
+</script>

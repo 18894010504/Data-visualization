@@ -1,0 +1,71 @@
+<div id="layout_sidemenu"></div>
+<div class="side-page" id="side_page"></div>
+<script type="text/javascript">
+$('#layout_sidemenu').tourSideMenu({
+    oftenUse: [{
+        name: '文章管理'
+    }, {
+        name: '评论管理'
+    }, {
+        name: '举报管理'
+    }],
+    general: [{
+        sortName: '内容管理',
+        items: [{
+            name: '数据报告',
+            href: 'report-page'
+        }, {
+            name: '评论管理'
+        }, {
+            name: '举报管理'
+        }]
+    }, {
+        sortName: '公共服务监测',
+        items: [{
+            name: '天气环境分析',
+            href: 'weather-page',
+            badge: true
+        }, {
+            name: '评论管理'
+        }, {
+            name: '举报管理'
+        }]
+    }, {
+        sortName: '内容管理',
+        items: [{
+            name: '文章管理'
+        }, {
+            name: '评论管理',
+            badge: true
+        }, {
+            name: '举报管理'
+        }]
+    }, {
+        sortName: '内容管理',
+        items: [{
+            name: '文章管理'
+        }, {
+            name: '评论管理'
+        }, {
+            name: '举报管理'
+        }]
+    }, {
+        sortName: '内容管理',
+        items: [{
+            name: '文章管理'
+        }, {
+            name: '评论管理'
+        }, {
+            name: '举报管理'
+        }]
+    }]
+});
+
+// 页面跳转
+var page = $.getQueryString('page');
+if (page) {
+    $('#side_page').load(page + '.html?' + new Date().getTime());
+} else {
+    $('#side_page').load('report-page.html?' + new Date().getTime());
+}
+</script>

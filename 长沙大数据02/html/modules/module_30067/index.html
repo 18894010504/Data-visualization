@@ -1,0 +1,75 @@
+<div class="title">
+    <div class="text">互联网门户营销统计</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>携程</h6>
+            <label class="up">45.5<span>%</span></label>
+        </li>
+        <li>
+            <h6>驴妈妈</h6>
+            <label class="up">36.2<span>%</span></label>
+        </li>
+        <li>
+            <h6>飞猪</h6>
+            <label class="up">17.5<span>%</span></label>
+        </li>
+    </ul>
+    <div id="module_30067" class="box-chart" style="width: 100%; height: 100%;"></div>
+</div>
+<script type="text/javascript">
+var module_30067 = echarts.init(document.getElementById('module_30067'), 'BigDataPe');
+
+var option = {
+    grid: {
+        left: 60,
+        right: 30,
+        top: 10,
+        bottom: 0,
+    },
+    tooltip: {
+        triggerOn: 'none',
+    },
+    xAxis: {
+        show: false
+    },
+    yAxis: [{
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+        data: ["途牛", "携程", "飞猪", "去哪儿", "同程旅游", "驴妈妈"]
+    }],
+    series: [{
+        name: '占比',
+        type: 'bar',
+        label: {
+            normal: {
+                show: true,
+                position: 'right',
+                formatter: '{c}%'
+            }
+        },
+        itemStyle: {
+            normal: {
+                barBorderRadius: [0, 3, 3, 0]
+            }
+        },
+        data: [26, 98, 75, 68, 78, 36]
+    }]
+
+};
+module_30067.setOption(option);
+
+$(window).resize(function() {
+    module_30067.resize();
+});
+</script>

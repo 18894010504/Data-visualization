@@ -1,0 +1,917 @@
+<style>
+    .key-item-swiper .swiper-wrapper {
+        height: 60px;
+    }
+</style>
+
+<div class="page-container">
+    <div class="inner-page">
+        <div id="inner_page_header"></div>
+        <div id="alert_info"></div>
+        <div id="filter_panel">
+            <div class="filter-panel">
+                <date-picker type="daterange" :options="options" placement="bottom-start" placeholder="日期选择" style="width: 200px; margin-right: 8px;"></date-picker>
+                <i-select v-model="model1">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value" v-text="item.label"></i-option>
+                </i-select>
+                <i-select v-model="model2">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value" v-text="item.label"></i-option>
+                </i-select>
+                <i-select v-model="model3">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value" v-text="item.label"></i-option>
+                </i-select>
+                <i-button type="info" icon="funnel" class="filter-btn">筛选</i-button>
+            </div>
+        </div>
+        <div class="page-panel key-item-swiper-wrap">
+            <div id="key_item_swiper"></div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="guide_panel_01" class="ivu-col ivu-col-span-8"></div>
+                <div id="guide_panel_02" class="ivu-col ivu-col-span-8"></div>
+                <div id="guide_panel_03" class="ivu-col ivu-col-span-8"></div>
+            </div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="guide_panel_04"></div>
+            </div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="guide_panel_05"></div>
+            </div>
+        </div>
+        <div id="inner_page_footer"></div>
+    </div>
+    <div id="page_footer"></div>
+</div>
+<script type="text/javascript">
+new Vue({
+        el: '#filter_panel',
+        data: {
+            model1: '',
+            model2: '',
+            model3: '',
+            cityList: [{
+                value: 'beijing',
+                label: '北京市'
+            }, {
+                value: 'shanghai',
+                label: '上海市'
+            }, {
+                value: 'shenzhen',
+                label: '深圳市'
+            }, {
+                value: 'hangzhou',
+                label: '杭州市'
+            }, {
+                value: 'nanjing',
+                label: '南京市'
+            }, {
+                value: 'chongqing',
+                label: '重庆市'
+            }],
+            options: {
+                shortcuts: [
+                    {
+                        text: '近一周',
+                        value () {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                            return [start, end];
+                        }
+                    },
+                    {
+                        text: '近一月',
+                        value () {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                            return [start, end];
+                        }
+                    },
+                    {
+                        text: '近三月',
+                        value () {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                            return [start, end];
+                        }
+                    }
+                ]
+            }
+        }
+    });
+
+$('#inner_page_header').tourInnerPageHeader({
+    pageTitle: '微信用户分析',
+    btnSave: false,
+    btnNew: false,
+    btnPrintReport: false
+});
+
+$('#alert_info').tourAlert({
+    desc: '消息提示的描述文案消息提示的描述文案消息提示的描述文案消息提示的描述文案消息提示的描述文案',
+    href: '#'
+});
+
+$('#key_item_swiper').tourKeyItemSwiper({
+    data: [{
+        title: '导游总数',
+        value: '13,432',
+        subValue: 0.4,
+        selected: true
+    }, {
+        title: '上线导游数',
+        value: '9,432',
+        subValue: -0.4,
+        selected: true
+    }, {
+        title: '课程总数',
+        value: '32',
+        subValue: 0.4,
+        selected: true
+    }, {
+        title: '学完视频人数',
+        value: '2,432',
+        subValue: -0.4,
+        selected: true
+    }, {
+        title: '考试通过人数',
+        value: '1,432',
+        subValue: 0.4,
+        selected: true
+    }, {
+        title: '完成培训人数',
+        value: '432',
+        subValue: -0.4,
+        selected: true
+    }]
+});
+
+var guide = $('#guide_panel_01').tourChartPanel({
+    chartId: 'chart_01',
+    chartTitle: '导游性别占比',
+    viewHref: '#',
+    datas: [{
+        type: 'pie',
+        label: '标签标签1',
+        keyValue: [{
+            key: '男性导游数',
+            value: '233,343人'
+        }, {
+            key: '女性导游数',
+            value: '233,343人'
+        }],
+        columns: [{
+            title: '导游性别',
+            key: 'name'
+        }, {
+            title: '人数',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '男性',
+            value: 782
+        },{
+            name: '女性',
+            value: 325
+        }]
+    }]
+});
+
+$('#guide_panel_02').tourChartPanel({
+    chartId: 'chart_02',
+    chartTitle: '导游年龄占比',
+    viewHref: '#',
+    datas: [{
+        type: 'pie',
+        label: '标签标签1',
+        keyValue: [{
+            key: '50岁以上',
+            value: '3,343人'
+        }, {
+            key: '40-49岁',
+            value: '3,343人'
+        }, {
+            key: '20-39岁',
+            value: '3,343人'
+        },{
+            key: '20岁以下',
+            value: '3,343人'
+        }],
+        columns: [{
+            title: '导游年龄',
+            key: 'name'
+        }, {
+            title: '人数',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '50岁以上',
+            value: 782
+        },{
+            name: '40-49岁',
+            value: 325
+        },{
+            name: '20-39岁',
+            value: 325
+        },{
+            name: '20岁以下',
+            value: 325
+        }]
+    }]
+});
+
+$('#guide_panel_03').tourChartPanel({
+    chartId: 'chart_03',
+    chartTitle: '完成培训占比',
+    viewHref: '#',
+    datas: [{
+        type: 'pie',
+        label: '标签标签1',
+        keyValue: [{
+            key: '完成培训人数',
+            value: '3,343人'
+        }, {
+            key: '女性粉丝数',
+            value: '233,343人'
+        }],
+        columns: [{
+            title: '培训情况',
+            key: 'name'
+        }, {
+            title: '人数',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '已完成',
+            value: 782
+        },{
+            name: '未完成',
+            value: 325
+        }]
+    }]
+});
+
+$('#guide_panel_04').tourChartTablePanel({
+    chartId: 'chart_id',
+    chartTitle: '每日完成课程人数统计',
+    chartLegend: '完成人数',
+    chartType: 'line',
+    tableTitle: '每日完成课程人数统计',
+    columns: [{
+        "title": "日期",
+        "key": "name",
+        "fixed": "left",
+        "width": 200
+    }, {
+        "title": "课程名称1",
+        "key": "show",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总完成人数',
+            value: '1,343'
+        }, {
+            key: '昨日完成人数',
+            value: '343'
+        }, {
+            key: '完成占比',
+            value: '23%'
+        }],
+        filters: [{
+            label: '大于4000',
+            value: 1
+        }, {
+            label: '小于4000',
+            value: 2
+        }],
+        filterMultiple: false,
+        filterMethod(value, row) {
+            if (value === 1) {
+                return row.show > 4000;
+            } else if (value === 2) {
+                return row.show < 4000;
+            }
+        }
+    }, {
+        "title": "课程名称2",
+        "key": "weak",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总完成人数',
+            value: '1,343'
+        }, {
+            key: '昨日完成人数',
+            value: '343'
+        }, {
+            key: '完成占比',
+            value: '23%'
+        }]
+    }, {
+        "title": "课程名称3",
+        "key": "signin",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }]
+    }, {
+        "title": "课程名称4",
+        "key": "click",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }]
+    }, {
+        "title": "课程名称5",
+        "key": "active",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }]
+    }, {
+        "title": "课程名称6",
+        "key": "day7",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }]
+    }, {
+        "title": "课程名称7",
+        "key": "day30",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }]
+    }, {
+        "title": "课程名称8",
+        "key": "tomorrow",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }]
+    }, {
+        "title": "课程名称9",
+        "key": "day",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }]
+    }, {
+        "title": "课程名称10",
+        "key": "week",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }]
+    }, {
+        "title": "课程名称11",
+        "key": "month",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }, {
+            key: '关键数据1',
+            value: '233,343'
+        }]
+    }],
+    data: [{
+        "name": "03/28",
+        "fav": 0,
+        "show": 7302,
+        "weak": 5627,
+        "signin": 1563,
+        "click": 4254,
+        "active": 1438,
+        "day7": 274,
+        "day30": 285,
+        "tomorrow": 1727,
+        "day": 558,
+        "week": 4440,
+        "month": 5610
+    }, {
+        "name": "03/29",
+        "fav": 0,
+        "show": 4720,
+        "weak": 4086,
+        "signin": 3792,
+        "click": 8690,
+        "active": 8470,
+        "day7": 8172,
+        "day30": 5197,
+        "tomorrow": 1684,
+        "day": 2593,
+        "week": 2507,
+        "month": 1537
+    }, {
+        "name": "03/30",
+        "fav": 0,
+        "show": 7181,
+        "weak": 8007,
+        "signin": 8477,
+        "click": 1879,
+        "active": 16,
+        "day7": 2249,
+        "day30": 3450,
+        "tomorrow": 377,
+        "day": 1561,
+        "week": 3219,
+        "month": 1588
+    }, {
+        "name": "03/31",
+        "fav": 0,
+        "show": 9911,
+        "weak": 8976,
+        "signin": 8807,
+        "click": 8050,
+        "active": 7668,
+        "day7": 1547,
+        "day30": 2357,
+        "tomorrow": 7278,
+        "day": 5309,
+        "week": 1655,
+        "month": 9043
+    }, {
+        "name": "04/01",
+        "fav": 0,
+        "show": 934,
+        "weak": 1394,
+        "signin": 6463,
+        "click": 5278,
+        "active": 9256,
+        "day7": 209,
+        "day30": 3563,
+        "tomorrow": 8285,
+        "day": 1230,
+        "week": 4840,
+        "month": 9908
+    }, {
+        "name": "04/02",
+        "fav": 0,
+        "show": 6856,
+        "weak": 1608,
+        "signin": 457,
+        "click": 4949,
+        "active": 2909,
+        "day7": 4525,
+        "day30": 6171,
+        "tomorrow": 1920,
+        "day": 1966,
+        "week": 904,
+        "month": 6851
+    }, {
+        "name": "04/03",
+        "fav": 0,
+        "show": 5107,
+        "weak": 6407,
+        "signin": 4166,
+        "click": 7970,
+        "active": 1002,
+        "day7": 8701,
+        "day30": 9040,
+        "tomorrow": 7632,
+        "day": 4061,
+        "week": 4359,
+        "month": 3676
+    }, {
+        "name": "04/04",
+        "fav": 0,
+        "show": 862,
+        "weak": 6520,
+        "signin": 6696,
+        "click": 3209,
+        "active": 6801,
+        "day7": 6364,
+        "day30": 6850,
+        "tomorrow": 9408,
+        "day": 2481,
+        "week": 1479,
+        "month": 2346
+    }, {
+        "name": "04/05",
+        "fav": 0,
+        "show": 567,
+        "weak": 5859,
+        "signin": 128,
+        "click": 6593,
+        "active": 1971,
+        "day7": 7596,
+        "day30": 3546,
+        "tomorrow": 6641,
+        "day": 1611,
+        "week": 5534,
+        "month": 3190
+    }, {
+        "name": "04/06",
+        "fav": 0,
+        "show": 3651,
+        "weak": 1819,
+        "signin": 4595,
+        "click": 7499,
+        "active": 7405,
+        "day7": 8710,
+        "day30": 5518,
+        "tomorrow": 428,
+        "day": 9768,
+        "week": 2864,
+        "month": 5811
+    }]
+});
+
+$('#guide_panel_05').tourTablePanel({
+    tableTitle: '导游培训详情',
+    columns: [{
+        "title": "导游姓名",
+        "key": "name",
+        "fixed": "left",
+        "width": 100
+    }, {
+        "title": "课程名称1",
+        "key": "class1",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        filters: [{
+            label: '已完成',
+            value: 1
+        }, {
+            label: '未完成',
+            value: 2
+        }],
+        filterMultiple: false,
+        filterMethod(value, row) {
+            if (value === 1) {
+                return row.class1 == '已完成';
+            } else if (value === 2) {
+                return row.class1 == '未完成';
+            }
+        }
+    }, {
+        "title": "课程名称2",
+        "key": "class2",
+        "width": 150,
+        "sortable": true,
+        className: '',
+    }, {
+        "title": "课程名称3",
+        "key": "class3",
+        "width": 150,
+        "sortable": true,
+        className: '',
+    }, {
+        "title": "考试",
+        "key": "exam",
+        "width": 150,
+        "sortable": true,
+        className: '',
+    }, {
+        "title": "学习心得",
+        "key": "exp",
+        "width": 150,
+        "sortable": true,
+        className: '',
+    }, {
+        "title": "性别",
+        "key": "sex",
+        "width": 150,
+        "sortable": true,
+        className: '',
+    }, {
+        "title": "年龄",
+        "key": "age",
+        "width": 150,
+        "sortable": true,
+        className: '',
+    }, {
+        "title": "联系电话",
+        "key": "phone",
+        "width": 150,
+        "sortable": true,
+        className: '',
+    }, {
+        "title": "所属机构",
+        "key": "org",
+        "width": 150,
+        "sortable": true,
+        className: '',
+    }, {
+        "title": "导游证号",
+        "key": "guideId",
+        "width": 150,
+        "sortable": true,
+        className: '',
+    }, {
+        "title": "身份证号",
+        "key": "id",
+        "width": 180,
+        "sortable": true,
+        className: '',
+    }],
+    data: [{
+        "name": "王万明",
+        "class1": true,
+        "class2": true,
+        "class3": false,
+        "exam": true,
+        "exp": true,
+        "sex": '男',
+        "age": 25,
+        "phone": 17782945045,
+        "org": "甘肃万维",
+        "guideId": "3ejiw32313",
+        "id": "620103928578322931",
+        "cellClassName":{}
+    },{
+        "name": "秦伟国",
+        "class1": false,
+        "class2": true,
+        "class3": false,
+        "exam": false,
+        "exp": false,
+        "sex": '女',
+        "age": 26,
+        "phone": 17782945045,
+        "org": "甘肃万维",
+        "guideId": "3ejiw32313",
+        "id": "62010392857832293X",
+        "cellClassName":{}
+    }],
+    total: {
+        "name": "合计",
+        "class1": 34,
+        "class2": 44,
+        "class3": 66,
+        "exam": 56,
+        "exp": 34,
+        "sex": "",
+        "age": "",
+        "phone": "",
+        "org": "",
+        "guideId": "",
+        "id": "",
+    }
+});
+
+$('#inner_page_footer').tourInnerPageFooter({
+    source: '万维旅游云服务 ©wanwei.com.cn',
+    content: `<p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等。</p>`
+});
+
+$('#page_footer').tourFooter();
+
+$('.filter-btn').click(function () {
+    guide.updateData([{
+        type: 'map',
+        mapType: 'china',
+        label: '标签标签1',
+        keyValue: [{
+            key: '累计关注',
+            value: '9人'
+        }, {
+            key: '新增关注',
+            value: '8人'
+        }, {
+            key: '净增关注',
+            value: '-3人'
+        }],
+        columns: [{
+            title: '省份',
+            key: 'province'
+        }, {
+            title: '关注人数',
+            key: 'num',
+            sortable: true
+        }],
+        data: [
+            {
+                num: 9970,
+                province: "甘肃"
+            },
+            {
+                num: 1575,
+                province: "广东"
+            },
+            {
+                num: 1066,
+                province: "浙江"
+            },
+            {
+                num: 947,
+                province: "江苏"
+            },
+            {
+                num: 665,
+                province: "北京"
+            },
+            {
+                num: 607,
+                province: "河南"
+            },
+            {
+                num: 607,
+                province: "山东"
+            },
+            {
+                num: 543,
+                province: "陕西"
+            },
+            {
+                num: 519,
+                province: "河北"
+            },
+            {
+                num: 469,
+                province: "上海"
+            },
+            {
+                num: 417,
+                province: "湖南"
+            },
+            {
+                num: 410,
+                province: "安徽"
+            },
+            {
+                num: 408,
+                province: "四川"
+            },
+            {
+                num: 396,
+                province: "福建"
+            },
+            {
+                num: 369,
+                province: "青海"
+            },
+            {
+                num: 304,
+                province: "山西"
+            },
+            {
+                num: 259,
+                province: "湖北"
+            },
+            {
+                num: 237,
+                province: "辽宁"
+            },
+            {
+                num: 99999,
+                province: "新疆"
+            },
+            {
+                num: 216,
+                province: "云南"
+            },
+            {
+                num: 213,
+                province: "黑龙江"
+            },
+            {
+                num: 177,
+                province: "吉林"
+            },
+            {
+                num: 170,
+                province: "宁夏"
+            },
+            {
+                num: 166,
+                province: "贵州"
+            },
+            {
+                num: 160,
+                province: "江西"
+            },
+            {
+                num: 125,
+                province: "重庆"
+            },
+            {
+                num: 117,
+                province: "内蒙古"
+            },
+            {
+                num: 107,
+                province: "广西"
+            },
+            {
+                num: 95,
+                province: "天津"
+            },
+            {
+                num: 70,
+                province: "西藏"
+            },
+            {
+                num: 69,
+                province: "海南"
+            },
+            {
+                num: 28,
+                province: "香港"
+            },
+            {
+                num: 27,
+                province: "澳门"
+            },
+            {
+                num: 13,
+                province: "台湾"
+            }
+        ]
+    }]);
+});
+</script>

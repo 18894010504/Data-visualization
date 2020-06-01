@@ -1,0 +1,93 @@
+<div class="title">
+    <div class="text">互联网用户关注兴趣点</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>旅游资讯</h6>
+            <label class="up">41.79<span>%<span></label>
+        </li>
+        <li>
+            <h6>景点介绍</h6>
+            <label class="up">32.13<span>%<span></label>
+        </li>
+        <li>
+            <h6>特色旅游</h6>
+            <label class="up">33.6<span>%<span></label>
+        </li>
+        <li>
+            <h6>购物娱乐</h6>
+            <label class="up">28.79<span>%<span></label>
+        </li>
+        <li>
+            <h6>人文观光</h6>
+            <label class="up">25.13<span>%<span></label>
+        </li>
+        <li>
+            <h6>文化知识</h6>
+            <label class="up">35.72<span>%<span></label>
+        </li>
+    </ul>
+    <div id="module_30071" class="box-chart" style="width: 100%; height: 100%;"></div>
+</div>
+<script type="text/javascript">
+var module_30071 = echarts.init(document.getElementById('module_30071'), 'BigDataPe');
+
+var option = {
+    legend: {
+        top: 5,
+        left: 0,
+        padding: [6, 8],
+        itemGap: 5,
+        data: ['用户兴趣点']
+    },
+    grid: {
+        left: 0,
+        right: 5,
+        top: 40,
+        bottom: 50,
+    },
+    tooltip: {
+        triggerOn: 'none',
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        axisLabel: {
+            interval: 0, 
+            rotate: -45
+        },
+        data: ["旅游资讯", "景点介绍", "特色旅游", "观光农园", "人文观光", "文化知识", "工艺品", "互动交流", "古典园林", "电子商务", "购物娱乐", "生态/探险", "歌舞文艺", "野营度假", "文化知识", "登山"]
+    },
+    yAxis: [{
+        type: 'value',
+        boundaryGap: true,
+        axisLabel: {
+            inside: true,
+            formatter: '{value}'
+        },
+    }],
+    series: [{
+        name: '用户兴趣点',
+        type: 'bar',
+        barMaxWidth: 32,
+        label: {
+            normal: {
+                show: true,
+                position: 'top',
+                formatter: '{c}%'
+            }
+        },
+        data: [81.3, 96, 72.5, 67, 61.1, 59.4, 63, 46.6, 63.1, 48.5, 91, 59.7, 98, 79, 87, 63.6]
+    }]
+
+};
+module_30071.setOption(option);
+
+$(window).resize(function() {
+    module_30071.resize();
+});
+</script>

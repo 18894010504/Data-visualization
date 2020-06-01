@@ -1,0 +1,102 @@
+<div class="title">
+    <div class="text">互联网关注（游玩）</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>橘子洲</h6>
+            <label>21.76<span>%</span></label>
+        </li>
+        <li>
+            <h6>马王堆汉墓</h6>
+            <label>13.09<span>%</span></label>
+        </li>
+        <li>
+            <h6>花明楼</h6>
+            <label>12.12<span>%</span></label>
+        </li>
+    </ul>
+    <div id="module_30075" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30075 = echarts.init(document.getElementById('module_30075'), 'BigDataPe');
+var option = {
+    title: {
+        show: true,
+        text: '游',
+        x: 'center',
+        y: 'center',
+        textStyle: {
+            color: '#2de7ff',
+            fontSize: 18,
+        },
+    },
+    grid: {
+        left: 25,
+        right: 25,
+        top: 125,
+        bottom: 36,
+    },
+    series: [{
+        name: '游',
+        type: 'pie',
+        silent: true,
+        label: {
+            normal: {
+                position: 'outside',
+                formatter: '{b}\n{d}%'
+            }
+        },
+        data: [{
+                value: 81.9,
+                name: '橘子洲'
+            },
+            {
+                value: 45.69,
+                name: '岳麓书院'
+            },
+            {
+                value: 42.13,
+                name: '世界之窗'
+            },
+            {
+                value: 56,
+                name: '周洛大峡谷'
+            },
+            {
+                value: 31,
+                name: '雷锋纪念馆'
+            },
+            {
+                value: 46.7,
+                name: '新民学会成立会旧址'
+            },
+            {
+                value: 76.13,
+                name: '马王堆汉墓'
+            },
+            {
+                value: 66.9,
+                name: '杜甫江阁'
+            },
+            {
+                value: 29.8,
+                name: '贾谊故居'
+            },
+            {
+                value: 34.9,
+                name: '市博物馆'
+            },
+            {
+                value: 70.5,
+                name: '花明楼'
+            }
+        ]
+    }, ]
+};
+module_30075.setOption(option);
+
+$(window).resize(function() {
+    module_30075.resize();
+});
+</script>

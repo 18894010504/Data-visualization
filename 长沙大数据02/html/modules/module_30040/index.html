@@ -1,0 +1,71 @@
+<div class="title">
+    <div class="text">游客驻留时间占比</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>1天以内</h6>
+            <label>48.08<span> %</span></label>
+        </li>
+        <li>
+            <h6>1-3天</h6>
+            <label>32.35<span> %</span></label>
+        </li>
+        <li>
+            <h6>3-5天</h6>
+            <label>10.77<span> %</span></label>
+        </li>
+    </ul>
+    <div id="module_30040" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30040 = echarts.init(document.getElementById('module_30040'), 'BigDataPe');
+var option = {
+    title: {
+        show: true,
+        text: '驻留\n时间',
+        x: 'center',
+        y: 'center',
+        textStyle: {
+            color: '#2de7ff',
+            fontSize: 16
+        },
+        textBaseline: 'top',
+        itemGap: 0,
+    },
+    grid: {
+        left: 25,
+        right: 25,
+        top: 130,
+        bottom: 36,
+    },
+    series: [{
+        type: 'pie',
+        silent: true,
+        label: {
+            normal: {
+                position: 'outside',
+                formatter: '{b}\n{d}%'
+            }
+        },
+        data: [{
+            value: 48.08,
+            name: '1天以内'
+        }, {
+            value: 32.35,
+            name: '1-3天'
+        }, {
+            value: 10.77,
+            name: '3-5天'
+        }, {
+            value: 8.80,
+            name: '5天以上'
+        }]
+    }]
+};
+module_30040.setOption(option);
+
+$(window).resize(function() {
+    module_30040.resize();
+});
+</script>

@@ -1,0 +1,884 @@
+<div class="title">
+    <div class="text">重点景区客流</div>
+</div>
+<div class="inner-box">
+    <div class="module_30013-scroll">
+        <ul>
+            <li>
+                <div class="info">
+                    <div class="num">
+                        <span>5228</span>
+                        <em><i class="fa fa-sign-in"></i>9971</em>
+                        <em><i class="fa fa-sign-out"></i>4743</em>
+                    </div>
+                    <div class="name">岳麓山</div>
+                </div>
+                <div class="chart" id="module_30013_01"></div>
+            </li>
+            <li>
+                <div class="info">
+                    <div class="num">
+                        <span>3917</span>
+                        <em><i class="fa fa-sign-in"></i>6520</em>
+                        <em><i class="fa fa-sign-out"></i>2603</em>
+                    </div>
+                    <div class="name">橘子洲</div>
+                </div>
+                <div class="chart" id="module_30013_02"></div>
+            </li>
+            <li>
+                <div class="info">
+                    <div class="num">
+                        <span>1703</span>
+                        <em><i class="fa fa-sign-in"></i>3046</em>
+                        <em><i class="fa fa-sign-out"></i>2343</em>
+                    </div>
+                    <div class="name">大围山国家森林公园</div>
+                </div>
+                <div class="chart" id="module_30013_03"></div>
+            </li>
+            <li>
+                <div class="info">
+                    <div class="num">
+                        <span>5051</span>
+                        <em><i class="fa fa-sign-in"></i>8997</em>
+                        <em><i class="fa fa-sign-out"></i>3946</em>
+                    </div>
+                    <div class="name">太平街</div>
+                </div>
+                <div class="chart" id="module_30013_04"></div>
+            </li>
+            <li>
+                <div class="info">
+                    <div class="num">
+                        <span>3267</span>
+                        <em><i class="fa fa-sign-in"></i>5961</em>
+                        <em><i class="fa fa-sign-out"></i>2694</em>
+                    </div>
+                    <div class="name">靖港古镇</div>
+                </div>
+                <div class="chart" id="module_30013_05"></div>
+            </li>
+
+            <li>
+                <div class="info">
+                    <div class="num">
+                        <span>3180</span>
+                        <em><i class="fa fa-sign-in"></i>6373</em>
+                        <em><i class="fa fa-sign-out"></i>3293</em>
+                    </div>
+                    <div class="name">世界之窗</div>
+                </div>
+                <div class="chart" id="module_30013_06"></div>
+            </li>
+            <li>
+                <div class="info">
+                    <div class="num">
+                        <span>2501</span>
+                        <em><i class="fa fa-sign-in"></i>3654</em>
+                        <em><i class="fa fa-sign-out"></i>1153</em>
+                    </div>
+                    <div class="name">宁乡炭河古城</div>
+                </div>
+                <div class="chart" id="module_30013_07"></div>
+            </li>
+            <li>
+                <div class="info">
+                    <div class="num">
+                        <span>2701</span>
+                        <em><i class="fa fa-sign-in"></i>5356</em>
+                        <em><i class="fa fa-sign-out"></i>2655</em>
+                    </div>
+                    <div class="name">杜甫江阁</div>
+                </div>
+                <div class="chart" id="module_30013_08"></div>
+            </li>
+            <li>
+                <div class="info">
+                    <div class="num">
+                        <span>2017</span>
+                        <em><i class="fa fa-sign-in"></i>4418</em>
+                        <em><i class="fa fa-sign-out"></i>2401</em>
+                    </div>
+                    <div class="name">贾谊故居</div>
+                </div>
+                <div class="chart" id="module_30013_09"></div>
+            </li>
+            <li>
+                <div class="info">
+                    <div class="num">
+                        <span>1817</span>
+                        <em><i class="fa fa-sign-in"></i>5540</em>
+                        <em><i class="fa fa-sign-out"></i>3723</em>
+                    </div>
+                    <div class="name">马王堆汉墓</div>
+                </div>
+                <div class="chart" id="module_30013_10"></div>
+            </li>
+            <li>
+                <div class="info">
+                    <div class="num">
+                        <span>1320</span>
+                        <em><i class="fa fa-sign-in"></i>2348</em>
+                        <em><i class="fa fa-sign-out"></i>1028</em>
+                    </div>
+                    <div class="name">湘江风光带</div>
+                </div>
+                <div class="chart" id="module_30013_11"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+$(function() {
+    var _wrap = $('.module_30013-scroll ul'); //定义滚动区域
+    var _interval = 5000; //定义滚动间隙时间
+    var _moving; //需要清除的动画
+    _wrap.hover(function() {
+        clearInterval(_moving); //当鼠标在滚动区域中时,停止滚动
+    }, function() {
+        _moving = setInterval(function() {
+            var _field = _wrap.find('li:first'); //此变量不可放置于函数起始处,li:first取值是变化的
+            var _h = _field.height(); //取得每次滚动高度
+            _field.animate({
+                marginTop: -_h + 'px'
+            }, 500, function() { //通过取负margin值,隐藏第一行
+                _field.css('marginTop', 0).appendTo(_wrap); //隐藏后,将该行的margin值置零,并插入到最后,实现无缝滚动
+            })
+        }, _interval) //滚动间隔时间取决于_interval
+    }).trigger('mouseleave'); //函数载入时,模拟执行mouseleave,即自动滚动
+
+    // 滚动条
+    $(".module_30013-scroll").niceScroll({
+        cursorcolor: "#1f4866",
+        autohidemode: true,
+        cursorwidth: "4px",
+        cursorborderradius: 0
+    });
+});
+
+var module_30013_01 = echarts.init(document.getElementById('module_30013_01'), theme);
+var module_30013_02 = echarts.init(document.getElementById('module_30013_02'), theme);
+var module_30013_03 = echarts.init(document.getElementById('module_30013_03'), theme);
+var module_30013_04 = echarts.init(document.getElementById('module_30013_04'), theme);
+var module_30013_05 = echarts.init(document.getElementById('module_30013_05'), theme);
+var module_30013_06 = echarts.init(document.getElementById('module_30013_06'), theme);
+var module_30013_07 = echarts.init(document.getElementById('module_30013_07'), theme);
+var module_30013_08 = echarts.init(document.getElementById('module_30013_08'), theme);
+var module_30013_09 = echarts.init(document.getElementById('module_30013_09'), theme);
+var module_30013_10 = echarts.init(document.getElementById('module_30013_10'), theme);
+var module_30013_11 = echarts.init(document.getElementById('module_30013_11'), theme);
+
+
+var option1 = {
+    grid: {
+        left: 0,
+        right: 0,
+        top: 10,
+        bottom: 0
+    },
+    tooltip: {
+        triggerOn: 'none'
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: ["8月1日", "8月2日", "8月3日", "8月4日", "8月5日", "8月6日", "8月7日", "8月8日", "8月9日", "8月10日", "8月11日", "8月12日", "8月13日", "8月14日", "8月15日", "8月16日", "8月17日", "8月18日", "8月19日", "8月20日", "8月21日", "8月22日", "8月23日", "8月24日", "8月25日", "8月26日", "8月27日", "8月28日", "8月29日", "8月30日", "8月31日"]
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: [0, '40%'],
+        splitLine: {
+            show: false,
+        }
+    },
+    series: [{
+        name: '客流量',
+        type: 'line',
+        symbol: 'none',
+        sampling: 'average',
+        areaStyle: {
+            normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgba(45, 231, 255, 1)'
+                }, {
+                    offset: 1,
+                    color: 'rgba(45, 231, 255, 0)'
+                }])
+            }
+        },
+        data: [1490, 1602, 2998, 2743, 3507, 2750, 3022, 742, 719, 873, 701, 758, 787, 1292, 2008, 2033, 3254, 3067, 3579, 2600, 3301, 3953, 4098, 3783, 3739, 4362, 3907, 5295, 3320, 2964, 1605],
+        markPoint: {
+            symbol: 'circle',
+            symbolSize: 10,
+            itemStyle: {
+                normal: {
+                    color: '#fff',
+                    borderColor: '#2DE7FF',
+                    borderWidth: 3
+                }
+            },
+            label: {
+                normal: {
+                    position: 'top',
+                    color: '#2DE7FF'
+                }
+            },
+            data: [{ type: 'max', name: '最大值' }]
+        }
+    }]
+};
+var option2 = {
+    grid: {
+        left: 0,
+        right: 0,
+        top: 10,
+        bottom: 0
+    },
+    tooltip: {
+        triggerOn: 'none'
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: ["8月1日", "8月2日", "8月3日", "8月4日", "8月5日", "8月6日", "8月7日", "8月8日", "8月9日", "8月10日", "8月11日", "8月12日", "8月13日", "8月14日", "8月15日", "8月16日", "8月17日", "8月18日", "8月19日", "8月20日", "8月21日", "8月22日", "8月23日", "8月24日", "8月25日", "8月26日", "8月27日", "8月28日", "8月29日", "8月30日", "8月31日"]
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: [0, '40%'],
+        splitLine: {
+            show: false,
+        }
+    },
+    series: [{
+        name: '客流量',
+        type: 'line',
+        symbol: 'none',
+        sampling: 'average',
+        areaStyle: {
+            normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgba(45, 231, 255, 1)'
+                }, {
+                    offset: 1,
+                    color: 'rgba(45, 231, 255, 0)'
+                }])
+            }
+        },
+        data: [953, 1243, 1507, 1119, 1523, 2001, 1258, 287, 92, 208, 233, 654, 867, 990, 1002, 1298, 1566, 1100, 1301, 1750, 2022, 2342, 2398, 2783, 1739, 2362, 2907, 2495, 1320, 1964, 905],
+        markPoint: {
+            symbol: 'circle',
+            symbolSize: 10,
+            itemStyle: {
+                normal: {
+                    color: '#fff',
+                    borderColor: '#2DE7FF',
+                    borderWidth: 3
+                }
+            },
+            label: {
+                normal: {
+                    position: 'top',
+                    color: '#2DE7FF'
+                }
+            },
+            data: [{ type: 'max', name: '最大值' }]
+        }
+    }]
+};
+var option3 = {
+    grid: {
+        left: 0,
+        right: 0,
+        top: 10,
+        bottom: 0
+    },
+    tooltip: {
+        triggerOn: 'none'
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: ["8月1日", "8月2日", "8月3日", "8月4日", "8月5日", "8月6日", "8月7日", "8月8日", "8月9日", "8月10日", "8月11日", "8月12日", "8月13日", "8月14日", "8月15日", "8月16日", "8月17日", "8月18日", "8月19日", "8月20日", "8月21日", "8月22日", "8月23日", "8月24日", "8月25日", "8月26日", "8月27日", "8月28日", "8月29日", "8月30日", "8月31日"]
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: [0, '40%'],
+        splitLine: {
+            show: false,
+        }
+    },
+    series: [{
+        name: '客流量',
+        type: 'line',
+        symbol: 'none',
+        sampling: 'average',
+        areaStyle: {
+            normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgba(45, 231, 255, 1)'
+                }, {
+                    offset: 1,
+                    color: 'rgba(45, 231, 255, 0)'
+                }])
+            }
+        },
+        data: [0, 0, 0, 10, 143, 321, 50, 207, 295, 220, 559, 690, 801, 1064, 2005, 2601, 2958, 2787, 2392, 2408, 2033, 2654, 2067, 2953, 2798, 2183, 1739, 2062, 1490, 1202, 998, ],
+        markPoint: {
+            symbol: 'circle',
+            symbolSize: 10,
+            itemStyle: {
+                normal: {
+                    color: '#fff',
+                    borderColor: '#2DE7FF',
+                    borderWidth: 3
+                }
+            },
+            label: {
+                normal: {
+                    position: 'top',
+                    color: '#2DE7FF'
+                }
+            },
+            data: [{ type: 'max', name: '最大值' }]
+        }
+    }]
+};
+var option4 = {
+    grid: {
+        left: 0,
+        right: 0,
+        top: 10,
+        bottom: 0
+    },
+    tooltip: {
+        triggerOn: 'none'
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: ["8月1日", "8月2日", "8月3日", "8月4日", "8月5日", "8月6日", "8月7日", "8月8日", "8月9日", "8月10日", "8月11日", "8月12日", "8月13日", "8月14日", "8月15日", "8月16日", "8月17日", "8月18日", "8月19日", "8月20日", "8月21日", "8月22日", "8月23日", "8月24日", "8月25日", "8月26日", "8月27日", "8月28日", "8月29日", "8月30日", "8月31日"]
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: [0, '40%'],
+        splitLine: {
+            show: false,
+        }
+    },
+    series: [{
+        name: '客流量',
+        type: 'line',
+        symbol: 'none',
+        sampling: 'average',
+        areaStyle: {
+            normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgba(45, 231, 255, 1)'
+                }, {
+                    offset: 1,
+                    color: 'rgba(45, 231, 255, 0)'
+                }])
+            }
+        },
+        data: [840, 802, 672, 919, 936, 495, 898, 643, 507, 750, 602, 1120, 564, 320, 423, 501, 698, 707, 877, 939, 1008, 1633, 1054, 1867, 1579, 1290, 1301, 953, 798, 783],
+        markPoint: {
+            symbol: 'circle',
+            symbolSize: 10,
+            itemStyle: {
+                normal: {
+                    color: '#fff',
+                    borderColor: '#2DE7FF',
+                    borderWidth: 3
+                }
+            },
+            label: {
+                normal: {
+                    position: 'top',
+                    color: '#2DE7FF'
+                }
+            },
+            data: [{ type: 'max', name: '最大值' }]
+        }
+    }]
+};
+var option5 = {
+    grid: {
+        left: 0,
+        right: 0,
+        top: 10,
+        bottom: 0
+    },
+    tooltip: {
+        triggerOn: 'none'
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: ["8月1日", "8月2日", "8月3日", "8月4日", "8月5日", "8月6日", "8月7日", "8月8日", "8月9日", "8月10日", "8月11日", "8月12日", "8月13日", "8月14日", "8月15日", "8月16日", "8月17日", "8月18日", "8月19日", "8月20日", "8月21日", "8月22日", "8月23日", "8月24日", "8月25日", "8月26日", "8月27日", "8月28日", "8月29日", "8月30日", "8月31日"]
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: [0, '40%'],
+        splitLine: {
+            show: false,
+        }
+    },
+    series: [{
+        name: '客流量',
+        type: 'line',
+        symbol: 'none',
+        sampling: 'average',
+        areaStyle: {
+            normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgba(45, 231, 255, 1)'
+                }, {
+                    offset: 1,
+                    color: 'rgba(45, 231, 255, 0)'
+                }])
+            }
+        },
+        data: [840, 602, 898, 643, 507, 750, 832, 1007, 595, 602, 642, 919, 823, 601, 958, 787, 939, 1020, 1264, 1205, 1148, 903, 864, 807, 1159, 1290, 1101, 1153, 998, 673, 479, ],
+        markPoint: {
+            symbol: 'circle',
+            symbolSize: 10,
+            itemStyle: {
+                normal: {
+                    color: '#fff',
+                    borderColor: '#2DE7FF',
+                    borderWidth: 3
+                }
+            },
+            label: {
+                normal: {
+                    position: 'top',
+                    color: '#2DE7FF'
+                }
+            },
+            data: [{ type: 'max', name: '最大值' }]
+        }
+    }]
+};
+var option6 = {
+    grid: {
+        left: 0,
+        right: 0,
+        top: 10,
+        bottom: 0
+    },
+    tooltip: {
+        triggerOn: 'none'
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: ["8月1日", "8月2日", "8月3日", "8月4日", "8月5日", "8月6日", "8月7日", "8月8日", "8月9日", "8月10日", "8月11日", "8月12日", "8月13日", "8月14日", "8月15日", "8月16日", "8月17日", "8月18日", "8月19日", "8月20日", "8月21日", "8月22日", "8月23日", "8月24日", "8月25日", "8月26日", "8月27日", "8月28日", "8月29日", "8月30日", "8月31日"]
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: [0, '40%'],
+        splitLine: {
+            show: false,
+        }
+    },
+    series: [{
+        name: '客流量',
+        type: 'line',
+        symbol: 'none',
+        sampling: 'average',
+        areaStyle: {
+            normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgba(45, 231, 255, 1)'
+                }, {
+                    offset: 1,
+                    color: 'rgba(45, 231, 255, 0)'
+                }])
+            }
+        },
+        data: [490, 602, 898, 673, 550, 370, 302, 472, 319, 453, 401, 695, 777, 792, 948, 633, 854, 807, 825, 990, 1001, 1193, 1478, 1673, 1473, 1332, 1097, 549, 520, 594, 505],
+        markPoint: {
+            symbol: 'circle',
+            symbolSize: 10,
+            itemStyle: {
+                normal: {
+                    color: '#fff',
+                    borderColor: '#2DE7FF',
+                    borderWidth: 3
+                }
+            },
+            label: {
+                normal: {
+                    position: 'top',
+                    color: '#2DE7FF'
+                }
+            },
+            data: [{ type: 'max', name: '最大值' }]
+        }
+    }]
+};
+var option7 = {
+    grid: {
+        left: 0,
+        right: 0,
+        top: 10,
+        bottom: 0
+    },
+    tooltip: {
+        triggerOn: 'none'
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: ["8月1日", "8月2日", "8月3日", "8月4日", "8月5日", "8月6日", "8月7日", "8月8日", "8月9日", "8月10日", "8月11日", "8月12日", "8月13日", "8月14日", "8月15日", "8月16日", "8月17日", "8月18日", "8月19日", "8月20日", "8月21日", "8月22日", "8月23日", "8月24日", "8月25日", "8月26日", "8月27日", "8月28日", "8月29日", "8月30日", "8月31日"]
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: [0, '40%'],
+        splitLine: {
+            show: false,
+        }
+    },
+    series: [{
+        name: '客流量',
+        type: 'line',
+        symbol: 'none',
+        sampling: 'average',
+        areaStyle: {
+            normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgba(45, 231, 255, 1)'
+                }, {
+                    offset: 1,
+                    color: 'rgba(45, 231, 255, 0)'
+                }])
+            }
+        },
+        data: [849, 595, 1130, 1064, 1005, 1002, 498, 543, 407, 450, 622, 687, 639, 748, 833, 864, 867, 957, 1072, 1011, 1053, 1201, 1258, 1000, 1201, 1193, 1198, 678, 579, 462, 397],
+        markPoint: {
+            symbol: 'circle',
+            symbolSize: 10,
+            itemStyle: {
+                normal: {
+                    color: '#fff',
+                    borderColor: '#2DE7FF',
+                    borderWidth: 3
+                }
+            },
+            label: {
+                normal: {
+                    position: 'top',
+                    color: '#2DE7FF'
+                }
+            },
+            data: [{ type: 'max', name: '最大值' }]
+        }
+    }]
+};
+var option8 = {
+    grid: {
+        left: 0,
+        right: 0,
+        top: 10,
+        bottom: 0
+    },
+    tooltip: {
+        triggerOn: 'none'
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: ["8月1日", "8月2日", "8月3日", "8月4日", "8月5日", "8月6日", "8月7日", "8月8日", "8月9日", "8月10日", "8月11日", "8月12日", "8月13日", "8月14日", "8月15日", "8月16日", "8月17日", "8月18日", "8月19日", "8月20日", "8月21日", "8月22日", "8月23日", "8月24日", "8月25日", "8月26日", "8月27日", "8月28日", "8月29日", "8月30日", "8月31日"]
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: [0, '40%'],
+        splitLine: {
+            show: false,
+        }
+    },
+    series: [{
+        name: '客流量',
+        type: 'line',
+        symbol: 'none',
+        sampling: 'average',
+        areaStyle: {
+            normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgba(45, 231, 255, 1)'
+                }, {
+                    offset: 1,
+                    color: 'rgba(45, 231, 255, 0)'
+                }])
+            }
+        },
+        data: [770, 1022, 672, 119, 853, 461, 458, 490, 598, 643, 507, 677, 632, 548, 633, 654, 667, 769, 802, 900, 1031, 1153, 1178, 1183, 1079, 832, 607, 595, 430, 394, 305],
+        markPoint: {
+            symbol: 'circle',
+            symbolSize: 10,
+            itemStyle: {
+                normal: {
+                    color: '#fff',
+                    borderColor: '#2DE7FF',
+                    borderWidth: 3
+                }
+            },
+            label: {
+                normal: {
+                    position: 'top',
+                    color: '#2DE7FF'
+                }
+            },
+            data: [{ type: 'max', name: '最大值' }]
+        }
+    }]
+};
+var option9 = {
+    grid: {
+        left: 0,
+        right: 0,
+        top: 10,
+        bottom: 0
+    },
+    tooltip: {
+        triggerOn: 'none'
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: ["8月1日", "8月2日", "8月3日", "8月4日", "8月5日", "8月6日", "8月7日", "8月8日", "8月9日", "8月10日", "8月11日", "8月12日", "8月13日", "8月14日", "8月15日", "8月16日", "8月17日", "8月18日", "8月19日", "8月20日", "8月21日", "8月22日", "8月23日", "8月24日", "8月25日", "8月26日", "8月27日", "8月28日", "8月29日", "8月30日", "8月31日"]
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: [0, '40%'],
+        splitLine: {
+            show: false,
+        }
+    },
+    series: [{
+        name: '客流量',
+        type: 'line',
+        symbol: 'none',
+        sampling: 'average',
+        areaStyle: {
+            normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgba(45, 231, 255, 1)'
+                }, {
+                    offset: 1,
+                    color: 'rgba(45, 231, 255, 0)'
+                }])
+            }
+        },
+        data: [643, 507, 750, 602, 642, 898, 411, 453, 561, 598, 600, 602, 787, 632, 648, 667, 731, 893, 978, 1083, 1003, 1205, 1254, 1039, 1279, 1100, 1295, 1120, 862, 697, 564],
+        markPoint: {
+            symbol: 'circle',
+            symbolSize: 10,
+            itemStyle: {
+                normal: {
+                    color: '#fff',
+                    borderColor: '#2DE7FF',
+                    borderWidth: 3
+                }
+            },
+            label: {
+                normal: {
+                    position: 'top',
+                    color: '#2DE7FF'
+                }
+            },
+            data: [{ type: 'max', name: '最大值' }]
+        }
+    }]
+};
+var option10 = {
+    grid: {
+        left: 0,
+        right: 0,
+        top: 10,
+        bottom: 0
+    },
+    tooltip: {
+        triggerOn: 'none'
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: ["8月1日", "8月2日", "8月3日", "8月4日", "8月5日", "8月6日", "8月7日", "8月8日", "8月9日", "8月10日", "8月11日", "8月12日", "8月13日", "8月14日", "8月15日", "8月16日", "8月17日", "8月18日", "8月19日", "8月20日", "8月21日", "8月22日", "8月23日", "8月24日", "8月25日", "8月26日", "8月27日", "8月28日", "8月29日", "8月30日", "8月31日"]
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: [0, '40%'],
+        splitLine: {
+            show: false,
+        }
+    },
+    series: [{
+        name: '客流量',
+        type: 'line',
+        symbol: 'none',
+        sampling: 'average',
+        areaStyle: {
+            normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgba(45, 231, 255, 1)'
+                }, {
+                    offset: 1,
+                    color: 'rgba(45, 231, 255, 0)'
+                }])
+            }
+        },
+        data: [853, 601, 638, 678, 690, 601, 653, 692, 648, 603, 840, 902, 998, 943, 907, 854, 1067, 1279, 1298, 1073, 1170, 1022, 994, 1005, 972, 819, 1039, 1032, 997, 895, 630],
+        markPoint: {
+            symbol: 'circle',
+            symbolSize: 10,
+            itemStyle: {
+                normal: {
+                    color: '#fff',
+                    borderColor: '#2DE7FF',
+                    borderWidth: 3
+                }
+            },
+            label: {
+                normal: {
+                    position: 'top',
+                    color: '#2DE7FF'
+                }
+            },
+            data: [{ type: 'max', name: '最大值' }]
+        }
+    }]
+};
+var option11 = {
+    grid: {
+        left: 0,
+        right: 0,
+        top: 10,
+        bottom: 0
+    },
+    tooltip: {
+        triggerOn: 'none'
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: ["8月1日", "8月2日", "8月3日", "8月4日", "8月5日", "8月6日", "8月7日", "8月8日", "8月9日", "8月10日", "8月11日", "8月12日", "8月13日", "8月14日", "8月15日", "8月16日", "8月17日", "8月18日", "8月19日", "8月20日", "8月21日", "8月22日", "8月23日", "8月24日", "8月25日", "8月26日", "8月27日", "8月28日", "8月29日", "8月30日", "8月31日"]
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: [0, '40%'],
+        splitLine: {
+            show: false,
+        }
+    },
+    series: [{
+        name: '客流量',
+        type: 'line',
+        symbol: 'none',
+        sampling: 'average',
+        areaStyle: {
+            normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgba(45, 231, 255, 1)'
+                }, {
+                    offset: 1,
+                    color: 'rgba(45, 231, 255, 0)'
+                }])
+            }
+        },
+        data: [0, 0, 0, 10, 143, 321, 50, 207, 295, 220, 559, 690, 801, 1064, 2005, 2601, 2958, 2787, 2392, 2408, 2033, 2654, 2067, 2953, 2798, 2183, 1739, 2062, 1490, 1202, 998, ],
+        markPoint: {
+            symbol: 'circle',
+            symbolSize: 10,
+            itemStyle: {
+                normal: {
+                    color: '#fff',
+                    borderColor: '#2DE7FF',
+                    borderWidth: 3
+                }
+            },
+            label: {
+                normal: {
+                    position: 'top',
+                    color: '#2DE7FF'
+                }
+            },
+            data: [{ type: 'max', name: '最大值' }]
+        }
+    }]
+};
+
+
+module_30013_01.setOption(option1);
+module_30013_02.setOption(option2);
+module_30013_03.setOption(option3);
+module_30013_04.setOption(option4);
+module_30013_05.setOption(option5);
+module_30013_06.setOption(option6);
+module_30013_07.setOption(option7);
+module_30013_08.setOption(option8);
+module_30013_09.setOption(option9);
+module_30013_10.setOption(option10);
+module_30013_11.setOption(option11);
+
+
+$(window).resize(function() {
+    module_30013_01.resize();
+    module_30013_02.resize();
+    module_30013_03.resize();
+    module_30013_04.resize();
+    module_30013_05.resize();
+    module_30013_06.resize();
+    module_30013_07.resize();
+    module_30013_08.resize();
+    module_30013_09.resize();
+    module_30013_10.resize();
+    module_30013_11.resize();
+
+});
+</script>

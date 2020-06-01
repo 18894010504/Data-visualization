@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://cdn.webfont.youziku.com/webfonts/nomal/89018/37039/5992e3aaf629d818205ef6a8.css">
+    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/89018/47031/599e94abf629d819a06b4f21.css' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="res/lib/bootstrap-3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="res/lib/gridstack/gridstack.css" />
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_340747_cajvw8tap02ro1or.css" />
+    <link rel="stylesheet" href="res/lib/smoke/css/smoke.min.css" />
+    <link rel="stylesheet" href="res/lib/swiper/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="res/css/index.css">
+    <title></title>
+</head>
+
+<body>
+    <div class="page-container theme-02" id="page_container">
+        <!-- 头部 -->
+        <div class="header">
+            <div class="title" :style="'background-image: url(' + configureDatas.basics.imgName + ');'"></div>
+            <div class="time">
+                <span v-text="headerTime.date"></span><em v-text="headerTime.time"></em>
+            </div>
+            <div class="oprate">
+                <a class="btn setup setup-close" href="javascript:void(0);" role="button" @click="setup">
+                    <i class="icon ncicon-setup_fill"></i>
+                    <i class="icon ncicon-close"></i>
+                </a>
+            </div>
+        </div>get
+        <!-- 左侧菜单 -->
+        <nav class="page-menu">
+            <div class="nav-icons">
+                <a class="nav-list" v-for="(item, index) in configureDatas.pages" @mouseenter="openGroupList(index,item);">
+                    <i :class="'icon ' + item.icon"></i>
+                    <span v-text="item.typeName"></span>
+                </a>
+                <!--<a class="nav-list" v-for="(item, index) in configureDatas.pages[0].data" @click="hrefPage(index)">
+                    <i :class="'icon ' + item.icon"></i>
+                    <span v-text="item.name"></span>
+                </a>-->
+            </div>
+        </nav>
+        <!-- 左侧二级菜单 -->
+        <ul class="nav-links" @mouseleave="closeGroupList();">
+            <li v-for="(item, index) in pageList.data" @click="hrefPage(pageList.index,index);" :class="pageList.index==getQueryString('groupNum')&&index==getQueryString('pageNum')?'active':''">
+                <span v-text="item.name"></span>
+                <p v-text="item.desc"></p>
+            </li>
+        </ul>
+        <!-- 页面 -->
+        <div class="page">
+            <div class="edit-area" data-bind="component: {name: 'dashboard-grid', params: $data}"></div>
+        </div>
+        <!-- 页面底部 -->
+        <footer>
+            <span v-text="configureDatas.basics.copyright"></span>
+        </footer>
+        <!-- 页面列表 -->
+        <div class="page-list side-bar">
+            <div class="box-wrap">
+                <a href="javascript:void(0);" class="page-add" @click="groupBasics();"><i class="icon ncicon-add"></i>新建分类</a>
+                <div class="type-box" v-for="(group, groupIndex) in configureDatas.pages">
+                    <div class="type-name">
+                        <span v-text="group.typeName"></span>
+                        <i class="icon ncicon-unfold"></i>
+                        <a href="javascript:void(0);" class="icon ncicon-empty" @click.stop="deleteGroup(group)"></a>
+                        <a href="javascript:void(0);" class="icon ncicon-editor" @click.stop="groupBasics(group)"></a>
+                        <em class="badge" v-text="group.data.length"></em>
+                    </div>
+                    <ul>
+                        <li v-for="(page, pageIndex) in group.data" :class="editObj.groupIndex == groupIndex && editObj.pageIndex == pageIndex ? 'active' : ''">
+                            <div class="layout-wrap">
+                                <div class="layout">
+                                    <div class="item" v-for="item in page.widgets" :data-width="item.width" :data-height="item.height" :data-x="item.x" :data-y="item.y">
+                                        <div class="box"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 v-text="page.name"></h2>
+                            <div class="oprate-box">
+                                <a class="btn btn-sm btn-danger" role="button" @click="deletePage(groupIndex, pageIndex)">删除</a>
+                                <a class="btn btn-sm btn-warning" role="button" @click="editPage(groupIndex, group, pageIndex, page)">编辑</a>
+                                <a class="btn btn-sm btn-primary" role="button" @click="pageUp(groupIndex, pageIndex)">上移</a>
+                                <a class="btn btn-sm btn-primary" role="button" @click="pageDown(groupIndex, pageIndex)">下移</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="add-page-wrap">
+                <div class="add-page" @click="addPage">
+                    <i class="icon ncicon-add"></i>
+                </div>
+            </div>
+            <div class="handle">
+                <i class="icon ncicon-return"></i>
+                <i class="icon ncicon-enter"></i>
+            </div>
+        </div>
+        <!-- 模块列表 -->
+        <div class="module-list side-bar">
+            <div class="search">
+                <i class="icon ncicon-search"></i>
+                <input class="form-control input-sm" type="text" placeholder="选择分类或输入名称" />
+                <ul class="select-type">
+                    <li>信令数据</li>
+                    <li>信令数据</li>
+                    <li>信令数据</li>
+                    <li>信令数据</li>
+                    <li>信令数据</li>
+                </ul>
+            </div>
+            <div class="box-wrap">
+                <div class="type-box" v-for="(module, idx1) in configureDatas.modules">
+                    <div class="type-name">
+                        <span v-text="module.typeName"></span>
+                        <i class="icon ncicon-unfold"></i>
+                        <em class="badge" v-text="module.data.length"></em>
+                    </div>
+                    <ul>
+                        <li v-for="(item, idx2) in module.data" :id="item.folderName">
+                            <div class="select-operate">
+                                <div class="module-pic">
+                                    <img :src="'modules/' + item.folderName + '/pic.png'" alt="">
+                                </div>
+                                <h2 v-text="item.name"></h2>
+                            </div>
+                            <div class="oprate-box">
+                                <i class="icon ncicon-right"></i>
+                                <a class="btn btn-sm btn-primary add" role="button" @click="selectModule(idx1, idx2)">添加</a>
+                                <a class="btn btn-sm btn-danger delete" role="button" @click="deleteModule(idx1, idx2)">删除</a>
+                                <a class="btn btn-sm btn-warning desc" role="button" @click="moduleDesc(idx1, idx2)">说明</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bottom-btns">
+                <a class="btn btn-primary" role="button" @click="clearPage">清空页面</a>
+                <a class="btn btn-primary" role="button" @click="pageBasics">下一步</a>
+            </div>
+            <div class="handle">
+                <i class="icon ncicon-return"></i>
+                <i class="icon ncicon-enter"></i>
+            </div>
+        </div>
+        <!-- 模块说明 Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 页面基础信息配置 Modal -->
+        <div class="modal fade" id="pageBasicsModal" tabindex="-1" role="dialog" aria-labelledby="pageBasicsModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="pageBasicsModalLabel">页面基础信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="page_name" class="col-sm-2 control-label">页面名称</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="page_name" placeholder="页面名称">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="page_group" class="col-sm-2 control-label">页面分类</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="page_group">
+                                        <option v-for="(item, index) in configureDatas.pages" v-text="item.typeName" :value="index"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="page_desc" class="col-sm-2 control-label">页面简介</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" rows="3" id="page_desc"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" data-bind="click: saveWidget">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 分类基础信息配置 Modal -->
+        <div class="modal fade" id="groupBasicsModal" tabindex="-1" role="dialog" aria-labelledby="pageBasicsModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="groupBasicsModalLabel">分类基础信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="group_name" class="col-sm-2 control-label">分类名称</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="group_name" placeholder="分类名称">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">菜单图标</label>
+                                <div class="col-sm-10">
+                                    <ul class="page-icons">
+                                        <li v-for="item in configureDatas.icons" :data-name="item.name">
+                                            <i :class="'icon ' + item.name"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary"  data-bind="click: saveGroup">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript -->
+    <script src="res/lib/jquery/jquery-1.11.3.min.js"></script>
+    <script src="res/lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="res/lib/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="res/lib/gridstack/jquery-ui.min.js"></script>
+    <script src="res/lib/gridstack/lodash.min.js"></script>
+    <script src="res/lib/gridstack/knockout-min.js"></script>
+    <script src="res/lib/gridstack/gridstack.js"></script>
+    <script src="res/lib/gridstack/gridstack.jQueryUI.min.js"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=D4739134efb9184fccbaec0ecf825c15"></script>
+    <script src="http://api.map.baidu.com/library/TrafficControl/1.4/src/TrafficControl_min.js"></script>
+    <script src="res/lib/echarts/echarts.min.3.8.4.js"></script>
+    <script src="res/lib/echarts/echarts-wordcloud.min.js"></script>
+    <script src="res/lib/echarts/bmap.min.js"></script>
+    <script src="res/lib/echarts/theme/theme.js"></script>
+    <script src="res/lib/swiper/swiper-3.4.2.jquery.min.js"></script>
+    <script src="res/lib/vue/vue.min.js"></script>
+    <script src="res/lib/smoke/js/smoke.js"></script>
+    <script src="res/js/index.js"></script>
+</body>
+
+</html>

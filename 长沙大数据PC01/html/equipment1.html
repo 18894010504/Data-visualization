@@ -1,0 +1,1129 @@
+<div id="map_page"></div>
+<script type="text/javascript">
+$('#map_page').tourMapPage({
+    mapLevel: 15,
+    mapCenter: {
+        lng: 116.424,
+        lat: 39.925
+    },
+    analyse: [{
+        keyValue: [{
+            key: '关键数据1',
+            value: '3,343',
+            subValue: 0.4,
+            unit: 'MB'
+        }, {
+            key: '关键数据1',
+            value: '3,343',
+            subValue: -0.4,
+            unit: 'MB'
+        }, {
+            key: '关键数据1',
+            value: '3,343',
+            subValue: 0.4,
+            unit: 'MB'
+        }, {
+            key: '关键数据1',
+            value: '3,343',
+            subValue: 0.4,
+            unit: 'MB'
+        }],
+        axisData: ["甘肃", "陕西", "青海", "新疆", "四川", "甘肃", "陕西", "青海", "新疆", "四川"],
+        data: [{
+            name: '图例',
+            type: 'line',
+            data: [6325, 5230, 2336, 1510, 610, 6325, 5230, 2336, 1510, 610]
+        }]
+    }, {
+        keyValue: [{
+            key: '关键数据2',
+            value: '3,343',
+            subValue: 0.4,
+            unit: 'MB'
+        }, {
+            key: '关键数据2',
+            value: '3,343',
+            subValue: -0.4,
+            unit: 'MB'
+        }, {
+            key: '关键数据2',
+            value: '3,343',
+            subValue: 0.4,
+            unit: 'MB'
+        }, {
+            key: '关键数据2',
+            value: '3,343',
+            subValue: 0.4,
+            unit: 'MB'
+        }],
+        axisData: ["甘肃", "陕西", "青海", "新疆", "四川", "甘肃", "陕西", "青海", "新疆", "四川"],
+        data: [{
+            name: '图例',
+            type: 'bar',
+            data: [6325, 5230, 2336, 1510, 610, 6325, 5230, 2336, 1510, 610]
+        }]
+    }],
+    datas: [{
+        type: '设备类型1',
+        items: [{
+            runState: true,
+            title: '设备名称设备名称设备名称1',
+            subTitle: '景区名称景区名称',
+            desc: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述',
+            lng: 116.424,
+            lat: 39.925,
+            abnormal: '2017年9月23日 17:32 发生断电',
+            info: [{
+                infoItems: [{
+                    colSpan: 12,
+                    key: '部署位置',
+                    value: '部署位置部署位置部署位置部署位置'
+                }, {
+                    colSpan: 6,
+                    key: '安装时间',
+                    value: '2017年9月20日'
+                }, {
+                    colSpan: 6,
+                    key: '厂商/品牌',
+                    value: '厂商品牌厂商品牌'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 24,
+                    key: '所有单位',
+                    value: '所有单位所有单位所有单位'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 12,
+                    key: '维护单位',
+                    value: '维护单位维护单位维护单位维护单位'
+                }, {
+                    colSpan: 6,
+                    key: '联系人',
+                    value: '联系人'
+                }, {
+                    colSpan: 6,
+                    key: '联系方式',
+                    value: '18937384749'
+                }]
+            }],
+            logs: {
+                columns: [{
+                    key: 'name',
+                    title: '姓名',
+                    width: '20%'
+                }, {
+                    key: 'age',
+                    title: '年龄',
+                    width: '15%'
+                }, {
+                    key: 'address',
+                    title: '住址',
+                    width: '45%'
+                }, {
+                    key: 'date',
+                    title: '生日',
+                    width: '20%'
+                }],
+                values: [{
+                    name: '姓名1',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名2',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名3',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名4',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名5',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名6',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名7',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名8',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }]
+            }
+        }, {
+            runState: false,
+            title: '设备名称设备名称设备名称2',
+            subTitle: '景区名称景区名称',
+            desc: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述',
+            lng: 116.424,
+            lat: 39.928,
+            abnormal: '2017年9月23日 17:32 发生断电',
+            info: [{
+                infoItems: [{
+                    colSpan: 12,
+                    key: '部署位置',
+                    value: '部署位置部署位置部署位置部署位置'
+                }, {
+                    colSpan: 6,
+                    key: '安装时间',
+                    value: '2017年9月20日'
+                }, {
+                    colSpan: 6,
+                    key: '厂商/品牌',
+                    value: '厂商品牌厂商品牌'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 24,
+                    key: '所有单位',
+                    value: '所有单位所有单位所有单位'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 12,
+                    key: '维护单位',
+                    value: '维护单位维护单位维护单位维护单位'
+                }, {
+                    colSpan: 6,
+                    key: '联系人',
+                    value: '联系人'
+                }, {
+                    colSpan: 6,
+                    key: '联系方式',
+                    value: '18937384749'
+                }]
+            }],
+            logs: {
+                columns: [{
+                    key: 'name',
+                    title: '姓名',
+                    width: '20%'
+                }, {
+                    key: 'age',
+                    title: '年龄',
+                    width: '15%'
+                }, {
+                    key: 'address',
+                    title: '住址',
+                    width: '45%'
+                }, {
+                    key: 'date',
+                    title: '生日',
+                    width: '20%'
+                }],
+                values: [{
+                    name: '姓名1',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名2',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }]
+            }
+        }, {
+            runState: true,
+            title: '设备名称设备名称设备名称',
+            subTitle: '景区名称景区名称',
+            desc: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述',
+            lng: 116.424,
+            lat: 39.918,
+            abnormal: '2017年9月23日 17:32 发生断电',
+            info: [{
+                infoItems: [{
+                    colSpan: 12,
+                    key: '部署位置',
+                    value: '部署位置部署位置部署位置部署位置'
+                }, {
+                    colSpan: 6,
+                    key: '安装时间',
+                    value: '2017年9月20日'
+                }, {
+                    colSpan: 6,
+                    key: '厂商/品牌',
+                    value: '厂商品牌厂商品牌'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 24,
+                    key: '所有单位',
+                    value: '所有单位所有单位所有单位'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 12,
+                    key: '维护单位',
+                    value: '维护单位维护单位维护单位维护单位'
+                }, {
+                    colSpan: 6,
+                    key: '联系人',
+                    value: '联系人'
+                }, {
+                    colSpan: 6,
+                    key: '联系方式',
+                    value: '18937384749'
+                }]
+            }],
+            logs: {
+                columns: [{
+                    key: 'name',
+                    title: '姓名',
+                    width: '20%'
+                }, {
+                    key: 'age',
+                    title: '年龄',
+                    width: '15%'
+                }, {
+                    key: 'address',
+                    title: '住址',
+                    width: '45%'
+                }, {
+                    key: 'date',
+                    title: '生日',
+                    width: '20%'
+                }],
+                values: [{
+                    name: '姓名1',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名2',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }]
+            }
+        }, {
+            runState: true,
+            title: '设备名称设备名称设备名称',
+            subTitle: '景区名称景区名称',
+            desc: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述',
+            lng: 116.414,
+            lat: 39.918,
+            abnormal: '2017年9月23日 17:32 发生断电',
+            info: [{
+                infoItems: [{
+                    colSpan: 12,
+                    key: '部署位置',
+                    value: '部署位置部署位置部署位置部署位置'
+                }, {
+                    colSpan: 6,
+                    key: '安装时间',
+                    value: '2017年9月20日'
+                }, {
+                    colSpan: 6,
+                    key: '厂商/品牌',
+                    value: '厂商品牌厂商品牌'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 24,
+                    key: '所有单位',
+                    value: '所有单位所有单位所有单位'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 12,
+                    key: '维护单位',
+                    value: '维护单位维护单位维护单位维护单位'
+                }, {
+                    colSpan: 6,
+                    key: '联系人',
+                    value: '联系人'
+                }, {
+                    colSpan: 6,
+                    key: '联系方式',
+                    value: '18937384749'
+                }]
+            }],
+            logs: {
+                columns: [{
+                    key: 'name',
+                    title: '姓名',
+                    width: '20%'
+                }, {
+                    key: 'age',
+                    title: '年龄',
+                    width: '15%'
+                }, {
+                    key: 'address',
+                    title: '住址',
+                    width: '45%'
+                }, {
+                    key: 'date',
+                    title: '生日',
+                    width: '20%'
+                }],
+                values: [{
+                    name: '姓名1',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名2',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }]
+            }
+        }, {
+            runState: true,
+            title: '设备名称设备名称设备名称',
+            subTitle: '景区名称景区名称',
+            desc: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述',
+            lng: 116.404,
+            lat: 39.918,
+            abnormal: '2017年9月23日 17:32 发生断电',
+            info: [{
+                infoItems: [{
+                    colSpan: 12,
+                    key: '部署位置',
+                    value: '部署位置部署位置部署位置部署位置'
+                }, {
+                    colSpan: 6,
+                    key: '安装时间',
+                    value: '2017年9月20日'
+                }, {
+                    colSpan: 6,
+                    key: '厂商/品牌',
+                    value: '厂商品牌厂商品牌'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 24,
+                    key: '所有单位',
+                    value: '所有单位所有单位所有单位'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 12,
+                    key: '维护单位',
+                    value: '维护单位维护单位维护单位维护单位'
+                }, {
+                    colSpan: 6,
+                    key: '联系人',
+                    value: '联系人'
+                }, {
+                    colSpan: 6,
+                    key: '联系方式',
+                    value: '18937384749'
+                }]
+            }],
+            logs: {
+                columns: [{
+                    key: 'name',
+                    title: '姓名',
+                    width: '20%'
+                }, {
+                    key: 'age',
+                    title: '年龄',
+                    width: '15%'
+                }, {
+                    key: 'address',
+                    title: '住址',
+                    width: '45%'
+                }, {
+                    key: 'date',
+                    title: '生日',
+                    width: '20%'
+                }],
+                values: [{
+                    name: '姓名1',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名2',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }]
+            }
+        }, {
+            runState: true,
+            title: '设备名称设备名称设备名称',
+            subTitle: '景区名称景区名称',
+            desc: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述',
+            lng: 116.404,
+            lat: 39.908,
+            abnormal: '2017年9月23日 17:32 发生断电',
+            info: [{
+                infoItems: [{
+                    colSpan: 12,
+                    key: '部署位置',
+                    value: '部署位置部署位置部署位置部署位置'
+                }, {
+                    colSpan: 6,
+                    key: '安装时间',
+                    value: '2017年9月20日'
+                }, {
+                    colSpan: 6,
+                    key: '厂商/品牌',
+                    value: '厂商品牌厂商品牌'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 24,
+                    key: '所有单位',
+                    value: '所有单位所有单位所有单位'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 12,
+                    key: '维护单位',
+                    value: '维护单位维护单位维护单位维护单位'
+                }, {
+                    colSpan: 6,
+                    key: '联系人',
+                    value: '联系人'
+                }, {
+                    colSpan: 6,
+                    key: '联系方式',
+                    value: '18937384749'
+                }]
+            }],
+            logs: {
+                columns: [{
+                    key: 'name',
+                    title: '姓名',
+                    width: '20%'
+                }, {
+                    key: 'age',
+                    title: '年龄',
+                    width: '15%'
+                }, {
+                    key: 'address',
+                    title: '住址',
+                    width: '45%'
+                }, {
+                    key: 'date',
+                    title: '生日',
+                    width: '20%'
+                }],
+                values: [{
+                    name: '姓名1',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名2',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }]
+            }
+        }, {
+            runState: true,
+            title: '设备名称设备名称设备名称',
+            subTitle: '景区名称景区名称',
+            desc: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述',
+            lng: 116.414,
+            lat: 39.928,
+            abnormal: '2017年9月23日 17:32 发生断电',
+            info: [{
+                infoItems: [{
+                    colSpan: 12,
+                    key: '部署位置',
+                    value: '部署位置部署位置部署位置部署位置'
+                }, {
+                    colSpan: 6,
+                    key: '安装时间',
+                    value: '2017年9月20日'
+                }, {
+                    colSpan: 6,
+                    key: '厂商/品牌',
+                    value: '厂商品牌厂商品牌'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 24,
+                    key: '所有单位',
+                    value: '所有单位所有单位所有单位'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 12,
+                    key: '维护单位',
+                    value: '维护单位维护单位维护单位维护单位'
+                }, {
+                    colSpan: 6,
+                    key: '联系人',
+                    value: '联系人'
+                }, {
+                    colSpan: 6,
+                    key: '联系方式',
+                    value: '18937384749'
+                }]
+            }],
+            logs: {
+                columns: [{
+                    key: 'name',
+                    title: '姓名',
+                    width: '20%'
+                }, {
+                    key: 'age',
+                    title: '年龄',
+                    width: '15%'
+                }, {
+                    key: 'address',
+                    title: '住址',
+                    width: '45%'
+                }, {
+                    key: 'date',
+                    title: '生日',
+                    width: '20%'
+                }],
+                values: [{
+                    name: '姓名1',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名2',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }]
+            }
+        }, {
+            runState: true,
+            title: '设备名称设备名称设备名称',
+            subTitle: '景区名称景区名称',
+            desc: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述',
+            lng: 116.404,
+            lat: 39.938,
+            abnormal: '2017年9月23日 17:32 发生断电',
+            info: [{
+                infoItems: [{
+                    colSpan: 12,
+                    key: '部署位置',
+                    value: '部署位置部署位置部署位置部署位置'
+                }, {
+                    colSpan: 6,
+                    key: '安装时间',
+                    value: '2017年9月20日'
+                }, {
+                    colSpan: 6,
+                    key: '厂商/品牌',
+                    value: '厂商品牌厂商品牌'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 24,
+                    key: '所有单位',
+                    value: '所有单位所有单位所有单位'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 12,
+                    key: '维护单位',
+                    value: '维护单位维护单位维护单位维护单位'
+                }, {
+                    colSpan: 6,
+                    key: '联系人',
+                    value: '联系人'
+                }, {
+                    colSpan: 6,
+                    key: '联系方式',
+                    value: '18937384749'
+                }]
+            }],
+            logs: {
+                columns: [{
+                    key: 'name',
+                    title: '姓名',
+                    width: '20%'
+                }, {
+                    key: 'age',
+                    title: '年龄',
+                    width: '15%'
+                }, {
+                    key: 'address',
+                    title: '住址',
+                    width: '45%'
+                }, {
+                    key: 'date',
+                    title: '生日',
+                    width: '20%'
+                }],
+                values: [{
+                    name: '姓名1',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名2',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }]
+            }
+        }, {
+            runState: true,
+            title: '设备名称设备名称设备名称',
+            subTitle: '景区名称景区名称',
+            desc: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述',
+            lng: 116.394,
+            lat: 39.938,
+            abnormal: '2017年9月23日 17:32 发生断电',
+            info: [{
+                infoItems: [{
+                    colSpan: 12,
+                    key: '部署位置',
+                    value: '部署位置部署位置部署位置部署位置'
+                }, {
+                    colSpan: 6,
+                    key: '安装时间',
+                    value: '2017年9月20日'
+                }, {
+                    colSpan: 6,
+                    key: '厂商/品牌',
+                    value: '厂商品牌厂商品牌'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 24,
+                    key: '所有单位',
+                    value: '所有单位所有单位所有单位'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 12,
+                    key: '维护单位',
+                    value: '维护单位维护单位维护单位维护单位'
+                }, {
+                    colSpan: 6,
+                    key: '联系人',
+                    value: '联系人'
+                }, {
+                    colSpan: 6,
+                    key: '联系方式',
+                    value: '18937384749'
+                }]
+            }],
+            logs: {
+                columns: [{
+                    key: 'name',
+                    title: '姓名',
+                    width: '20%'
+                }, {
+                    key: 'age',
+                    title: '年龄',
+                    width: '15%'
+                }, {
+                    key: 'address',
+                    title: '住址',
+                    width: '45%'
+                }, {
+                    key: 'date',
+                    title: '生日',
+                    width: '20%'
+                }],
+                values: [{
+                    name: '姓名1',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名2',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }]
+            }
+        }, {
+            runState: true,
+            title: '设备名称设备名称设备名称',
+            subTitle: '景区名称景区名称',
+            desc: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述',
+            lng: 116.394,
+            lat: 39.928,
+            abnormal: '2017年9月23日 17:32 发生断电',
+            info: [{
+                infoItems: [{
+                    colSpan: 12,
+                    key: '部署位置',
+                    value: '部署位置部署位置部署位置部署位置'
+                }, {
+                    colSpan: 6,
+                    key: '安装时间',
+                    value: '2017年9月20日'
+                }, {
+                    colSpan: 6,
+                    key: '厂商/品牌',
+                    value: '厂商品牌厂商品牌'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 24,
+                    key: '所有单位',
+                    value: '所有单位所有单位所有单位'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 12,
+                    key: '维护单位',
+                    value: '维护单位维护单位维护单位维护单位'
+                }, {
+                    colSpan: 6,
+                    key: '联系人',
+                    value: '联系人'
+                }, {
+                    colSpan: 6,
+                    key: '联系方式',
+                    value: '18937384749'
+                }]
+            }],
+            logs: {
+                columns: [{
+                    key: 'name',
+                    title: '姓名',
+                    width: '20%'
+                }, {
+                    key: 'age',
+                    title: '年龄',
+                    width: '15%'
+                }, {
+                    key: 'address',
+                    title: '住址',
+                    width: '45%'
+                }, {
+                    key: 'date',
+                    title: '生日',
+                    width: '20%'
+                }],
+                values: [{
+                    name: '姓名1',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名2',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }]
+            }
+        }, {
+            runState: true,
+            title: '设备名称设备名称设备名称',
+            subTitle: '景区名称景区名称',
+            desc: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述',
+            lng: 116.394,
+            lat: 39.918,
+            abnormal: '2017年9月23日 17:32 发生断电',
+            info: [{
+                infoItems: [{
+                    colSpan: 12,
+                    key: '部署位置',
+                    value: '部署位置部署位置部署位置部署位置'
+                }, {
+                    colSpan: 6,
+                    key: '安装时间',
+                    value: '2017年9月20日'
+                }, {
+                    colSpan: 6,
+                    key: '厂商/品牌',
+                    value: '厂商品牌厂商品牌'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 24,
+                    key: '所有单位',
+                    value: '所有单位所有单位所有单位'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 12,
+                    key: '维护单位',
+                    value: '维护单位维护单位维护单位维护单位'
+                }, {
+                    colSpan: 6,
+                    key: '联系人',
+                    value: '联系人'
+                }, {
+                    colSpan: 6,
+                    key: '联系方式',
+                    value: '18937384749'
+                }]
+            }],
+            logs: {
+                columns: [{
+                    key: 'name',
+                    title: '姓名',
+                    width: '20%'
+                }, {
+                    key: 'age',
+                    title: '年龄',
+                    width: '15%'
+                }, {
+                    key: 'address',
+                    title: '住址',
+                    width: '45%'
+                }, {
+                    key: 'date',
+                    title: '生日',
+                    width: '20%'
+                }],
+                values: [{
+                    name: '姓名1',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名2',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }]
+            }
+        }]
+    }, {
+        type: '设备类型2',
+        items: [{
+            runState: true,
+            title: '设备名称设备名称设备名称3',
+            subTitle: '景区名称景区名称',
+            desc: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述',
+            lng: 116.434,
+            lat: 39.928,
+            abnormal: '2017年9月23日 17:32 发生断电',
+            info: [{
+                infoItems: [{
+                    colSpan: 12,
+                    key: '部署位置',
+                    value: '部署位置部署位置部署位置部署位置'
+                }, {
+                    colSpan: 6,
+                    key: '安装时间',
+                    value: '2017年9月20日'
+                }, {
+                    colSpan: 6,
+                    key: '厂商/品牌',
+                    value: '厂商品牌厂商品牌'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 24,
+                    key: '所有单位',
+                    value: '所有单位所有单位所有单位'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 12,
+                    key: '维护单位',
+                    value: '维护单位维护单位维护单位维护单位'
+                }, {
+                    colSpan: 6,
+                    key: '联系人',
+                    value: '联系人'
+                }, {
+                    colSpan: 6,
+                    key: '联系方式',
+                    value: '18937384749'
+                }]
+            }],
+            logs: {
+                columns: [{
+                    key: 'name',
+                    title: '姓名',
+                    width: '20%'
+                }, {
+                    key: 'age',
+                    title: '年龄',
+                    width: '15%'
+                }, {
+                    key: 'address',
+                    title: '住址',
+                    width: '45%'
+                }, {
+                    key: 'date',
+                    title: '生日',
+                    width: '20%'
+                }],
+                values: [{
+                    name: '姓名1',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名2',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }]
+            }
+        }, {
+            runState: true,
+            title: '设备名称设备名称设备名称4',
+            subTitle: '景区名称景区名称',
+            desc: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述',
+            lng: 116.434,
+            lat: 39.924,
+            abnormal: '2017年9月23日 17:32 发生断电',
+            info: [{
+                infoItems: [{
+                    colSpan: 12,
+                    key: '部署位置',
+                    value: '部署位置部署位置部署位置部署位置'
+                }, {
+                    colSpan: 6,
+                    key: '安装时间',
+                    value: '2017年9月20日'
+                }, {
+                    colSpan: 6,
+                    key: '厂商/品牌',
+                    value: '厂商品牌厂商品牌'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 24,
+                    key: '所有单位',
+                    value: '所有单位所有单位所有单位'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 12,
+                    key: '维护单位',
+                    value: '维护单位维护单位维护单位维护单位'
+                }, {
+                    colSpan: 6,
+                    key: '联系人',
+                    value: '联系人'
+                }, {
+                    colSpan: 6,
+                    key: '联系方式',
+                    value: '18937384749'
+                }]
+            }],
+            logs: {
+                columns: [{
+                    key: 'name',
+                    title: '姓名',
+                    width: '20%'
+                }, {
+                    key: 'age',
+                    title: '年龄',
+                    width: '15%'
+                }, {
+                    key: 'address',
+                    title: '住址',
+                    width: '45%'
+                }, {
+                    key: 'date',
+                    title: '生日',
+                    width: '20%'
+                }],
+                values: [{
+                    name: '姓名1',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名2',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }]
+            }
+        }]
+    }, {
+        type: '设备类型3',
+        items: [{
+            runState: true,
+            title: '设备名称设备名称设备名称5',
+            subTitle: '景区名称景区名称',
+            desc: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述',
+            lng: 116.444,
+            lat: 39.928,
+            abnormal: '2017年9月23日 17:32 发生断电',
+            info: [{
+                infoItems: [{
+                    colSpan: 12,
+                    key: '部署位置',
+                    value: '部署位置部署位置部署位置部署位置'
+                }, {
+                    colSpan: 6,
+                    key: '安装时间',
+                    value: '2017年9月20日'
+                }, {
+                    colSpan: 6,
+                    key: '厂商/品牌',
+                    value: '厂商品牌厂商品牌'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 24,
+                    key: '所有单位',
+                    value: '所有单位所有单位所有单位'
+                }]
+            }, {
+                infoItems: [{
+                    colSpan: 12,
+                    key: '维护单位',
+                    value: '维护单位维护单位维护单位维护单位'
+                }, {
+                    colSpan: 6,
+                    key: '联系人',
+                    value: '联系人'
+                }, {
+                    colSpan: 6,
+                    key: '联系方式',
+                    value: '18937384749'
+                }]
+            }],
+            logs: {
+                columns: [{
+                    key: 'name',
+                    title: '姓名',
+                    width: '20%'
+                }, {
+                    key: 'age',
+                    title: '年龄',
+                    width: '15%'
+                }, {
+                    key: 'address',
+                    title: '住址',
+                    width: '45%'
+                }, {
+                    key: 'date',
+                    title: '生日',
+                    width: '20%'
+                }],
+                values: [{
+                    name: '姓名1',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }, {
+                    name: '姓名2',
+                    age: 18,
+                    address: '住址住址住址住址住址住址住址',
+                    date: '2016-10-03'
+                }]
+            }
+        }]
+    }]
+});
+</script>

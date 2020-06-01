@@ -1,0 +1,1530 @@
+<div class="page-container">
+    <div class="inner-page">
+        <div id="inner_page_header"></div>
+        <div id="alert_info"></div>
+        <div id="filter_panel">
+            <div class="filter-panel">
+                <date-picker type="daterange" :options="options" placement="bottom-start" placeholder="日期选择" style="width: 200px; margin-right: 8px;"></date-picker>
+                <i-select v-model="model1">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value" v-text="item.label"></i-option>
+                </i-select>
+                <i-select v-model="model2">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value" v-text="item.label"></i-option>
+                </i-select>
+                <i-select v-model="model3">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value" v-text="item.label"></i-option>
+                </i-select>
+                <i-button type="info" icon="funnel" class="filter-btn">筛选</i-button>
+            </div>
+        </div>
+        <div class="page-panel key-item-swiper-wrap">
+            <div id="key_item_swiper"></div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="weather_panel_01" class="ivu-col ivu-col-span-12"></div>
+                <div id="weather_panel_02" class="ivu-col ivu-col-span-12"></div>
+            </div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="weather_panel_05" class="ivu-col ivu-col-span-12"></div>
+                <div id="weather_panel_06" class="ivu-col ivu-col-span-12"></div>
+            </div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="weather_panel_03" class="ivu-col ivu-col-span-24"></div>
+            </div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="weather_panel_04"></div>
+            </div>
+        </div>
+        <div id="inner_page_footer"></div>
+    </div>
+    <div id="page_footer"></div>
+</div>
+<script type="text/javascript">
+new Vue({
+        el: '#filter_panel',
+        data: {
+            model1: '',
+            model2: '',
+            model3: '',
+            cityList: [{
+                value: 'beijing',
+                label: '北京市'
+            }, {
+                value: 'shanghai',
+                label: '上海市'
+            }, {
+                value: 'shenzhen',
+                label: '深圳市'
+            }, {
+                value: 'hangzhou',
+                label: '杭州市'
+            }, {
+                value: 'nanjing',
+                label: '南京市'
+            }, {
+                value: 'chongqing',
+                label: '重庆市'
+            }],
+            options: {
+                shortcuts: [
+                    {
+                        text: '近一周',
+                        value () {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                            return [start, end];
+                        }
+                    },
+                    {
+                        text: '近一月',
+                        value () {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                            return [start, end];
+                        }
+                    },
+                    {
+                        text: '近三月',
+                        value () {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                            return [start, end];
+                        }
+                    }
+                ]
+            }
+        }
+    });
+
+$('#inner_page_header').tourInnerPageHeader({
+    pageTitle: '互联网分析',
+    btnSave: false,
+    btnNew: false,
+    btnPrintReport: false
+});
+
+$('#alert_info').tourAlert({
+    desc: '消息提示的描述文案消息提示的描述文案消息提示的描述文案消息提示的描述文案消息提示的描述文案',
+    href: '#'
+});
+
+
+$('#key_item_swiper').tourKeyItemSwiper({
+    data: [{
+        title: '近30日日均搜索指数',
+        value: '98,232,432',
+        subValue: 0.4,
+        selected: true
+    }, {
+        title: '昨日搜索指数',
+        value: '98,232,432',
+        subValue: 0.4,
+        selected: true
+    }, {
+        title: '昨日PC搜索指数',
+        value: '98,232,432',
+        subValue: 0.4,
+        selected: true
+    }, {
+        title: '昨日PC搜索占比',
+        value: '40.56',
+        subValue: 0.4,
+        selected: true
+    }, {
+        title: '昨日移动搜索指数',
+        value: '98,232,432',
+        subValue: 0.4,
+        selected: true
+    }, {
+        title: '昨日移动搜索占比',
+        value: '59.44',
+        subValue: 0.4,
+        selected: true
+    }]
+});
+
+$('#weather_panel_01').tourChartPanel({
+    chartId: 'chart_01',
+    chartTitle: '互联网搜索国内分布',
+    viewHref: '#',
+    datas: [{
+        type: 'map',
+        mapType: 'china',
+        label: '标签标签1',
+        keyValue: [{
+            key: '整体搜索',
+            value: '52766'
+        }, {
+            key: 'PC搜索',
+            value: '8'
+        }, {
+            key: '移动搜索',
+            value: '3'
+        }],
+        columns: [{
+            title: '省份',
+            key: 'province'
+        }, {
+            title: '搜索指数',
+            key: 'num',
+            sortable: true
+        }],
+        data: [
+            {
+                num: 9970,
+                province: "甘肃"
+            },
+            {
+                num: 1575,
+                province: "广东"
+            },
+            {
+                num: 1066,
+                province: "浙江"
+            },
+            {
+                num: 947,
+                province: "江苏"
+            },
+            {
+                num: 665,
+                province: "北京"
+            },
+            {
+                num: 607,
+                province: "河南"
+            },
+            {
+                num: 607,
+                province: "山东"
+            },
+            {
+                num: 543,
+                province: "陕西"
+            },
+            {
+                num: 519,
+                province: "河北"
+            },
+            {
+                num: 469,
+                province: "上海"
+            },
+            {
+                num: 417,
+                province: "湖南"
+            },
+            {
+                num: 410,
+                province: "安徽"
+            },
+            {
+                num: 408,
+                province: "四川"
+            },
+            {
+                num: 396,
+                province: "福建"
+            },
+            {
+                num: 369,
+                province: "青海"
+            },
+            {
+                num: 304,
+                province: "山西"
+            },
+            {
+                num: 259,
+                province: "湖北"
+            },
+            {
+                num: 237,
+                province: "辽宁"
+            },
+            {
+                num: 229,
+                province: "新疆"
+            },
+            {
+                num: 216,
+                province: "云南"
+            },
+            {
+                num: 213,
+                province: "黑龙江"
+            },
+            {
+                num: 177,
+                province: "吉林"
+            },
+            {
+                num: 170,
+                province: "宁夏"
+            },
+            {
+                num: 166,
+                province: "贵州"
+            },
+            {
+                num: 160,
+                province: "江西"
+            },
+            {
+                num: 125,
+                province: "重庆"
+            },
+            {
+                num: 117,
+                province: "内蒙古"
+            },
+            {
+                num: 107,
+                province: "广西"
+            },
+            {
+                num: 95,
+                province: "天津"
+            },
+            {
+                num: 70,
+                province: "西藏"
+            },
+            {
+                num: 69,
+                province: "海南"
+            },
+            {
+                num: 28,
+                province: "香港"
+            },
+            {
+                num: 27,
+                province: "澳门"
+            },
+            {
+                num: 13,
+                province: "台湾"
+            }
+        ]
+    }]
+});
+
+$('#weather_panel_02').tourChartPanel({
+    chartId: 'chart_02',
+    chartTitle: '互联网搜索用户年龄占比',
+    viewHref: '#',
+    datas: [{
+        type: 'pie',
+        label: '标签标签1',
+        keyValue: [{
+            key: '50岁以上',
+            value: '3,343人'
+        }, {
+            key: '40-49岁',
+            value: '3,343人'
+        }, {
+            key: '20-39岁',
+            value: '3,343人'
+        },{
+            key: '20岁以下',
+            value: '3,343人'
+        }],
+        columns: [{
+            title: '用户年龄',
+            key: 'name'
+        }, {
+            title: '人数',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '50岁以上',
+            value: 782
+        },{
+            name: '40-49岁',
+            value: 325
+        },{
+            name: '20-39岁',
+            value: 325
+        },{
+            name: '20岁以下',
+            value: 325
+        }]
+    }]
+});
+
+$('#weather_panel_03').tourChartPanel({
+    chartId: 'chart_04',
+    chartTitle: '互联网搜索关键词',
+    viewHref: '#',
+    datas: [{
+        type: 'wordCloud',
+        label: '标签标签1',
+        keyValue: [],
+        columns: [{
+            title: '关键词',
+            key: 'name'
+        }, {
+            title: '搜索次数',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '牛肉面',
+            value: 10000
+        },
+            {
+                name: '黄河',
+                value: 6181
+            },
+            {
+                name: '中山桥',
+                value: 4386
+            },
+            {
+                name: '黄河母亲',
+                value: 4055
+            },
+            {
+                name: '读者',
+                value: 2467
+            },
+            {
+                name: '兴隆山',
+                value: 2244
+            },
+            {
+                name: '甘肃省博物馆',
+                value: 1898
+            },
+            {
+                name: '黄河奇石',
+                value: 1484
+            },
+            {
+                name: '宝兰高铁',
+                value: 1360
+            },
+            {
+                name: '吐鲁沟',
+                value: 1112
+            },
+            {
+                name: '五泉山',
+                value: 965
+            },
+            {
+                name: '灰豆子',
+                value: 847
+            },
+            {
+                name: '白塔山',
+                value: 582
+            },
+            {
+                name: '兰山',
+                value: 555
+            },
+            {
+                name: '仁寿山',
+                value: 550
+            },
+            {
+                name: '西部欢乐园',
+                value: 342
+            },
+            {
+                name: '西部恐龙水世界',
+                value: 462
+            },
+            {
+                name: '水车博览园',
+                value: 366
+            },
+            {
+                name: '兰州动物园',
+                value: 282
+            },
+            {
+                name: '甘肃大剧院',
+                value: 273
+            },
+            {
+                name: '兰州地铁',
+                value: 265
+            },
+            {
+                name: '官滩沟',
+                value: 219
+            },
+            {
+                name: '兰州大学',
+                value: 826
+            },
+            {
+                name: '徐家山',
+                value: 386
+            },
+            {
+                name: '兰州碑林',
+                value: 259
+            },
+            {
+                name: '酿皮',
+                value: 752
+            },
+            {
+                name: '黄家园肥肠面',
+                value: 936
+            },
+            {
+                name: '张掖路甜食店',
+                value: 1026
+            },
+            {
+                name: '拔丝洋芋',
+                value: 2231
+            },
+            {
+                name: '百花全鸡',
+                value: 531
+            },
+            {
+                name: '静宁烧鸡',
+                value: 1335
+            },
+            {
+                name: '臊子面',
+                value: 1537
+            },
+            {
+                name: '烤全羊',
+                value: 718
+            },
+            {
+                name: '大众巷',
+                value: 1018
+            },
+            {
+                name: '西关清真大寺',
+                value: 418
+            },
+            {
+                name: '滨河路绿色长廊',
+                value: 1608
+            },
+            {
+                name: '白云观',
+                value: 301
+            },
+            {
+                name: '兰州城隍庙',
+                value: 272
+            },
+            {
+                name: '八路军办事处纪念馆',
+                value: 2017
+            },
+            {
+                name: '猪驮山',
+                value: 239
+            },
+            {
+                name: '金城公园',
+                value: 1239
+            },
+            {
+                name: '兰州植物园',
+                value: 1266
+            },
+            {
+                name: '青城镇',
+                value: 2230
+            },
+            {
+                name: '石佛沟国家森林公园',
+                value: 3036
+            },
+            {
+                name: '苦水玫瑰 ',
+                value: 230
+            },
+            {
+                name: '安宁白凤桃 ',
+                value: 1530
+            },
+            {
+                name: '皋兰软儿梨',
+                value: 2036
+            },
+            {
+                name: '榆中大白菜',
+                value: 936
+            }]
+    }]
+});
+
+$('#weather_panel_04').tourChartTablePanel({
+    chartId: 'chart_id',
+    chartTitle: '搜索来源省份详情',
+    chartLegend: '搜索次数',
+    chartType: 'bar',
+    tableTitle: '标题标题标题标题标题标题',
+    columns: [{
+        "title": "日期",
+        "key": "name",
+        "fixed": "left",
+        "width": 150
+    }, {
+        "title": "湖南",
+        "key": "hunan",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "湖北",
+        "key": "hubei",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "甘肃",
+        "key": "gansu",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }],
+        filters: [{
+            label: '大于4000',
+            value: 1
+        }, {
+            label: '小于4000',
+            value: 2
+        }]
+    }, {
+        "title": "陕西",
+        "key": "shanxi",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "山西",
+        "key": "sanxi",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "山东",
+        "key": "shandong",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "江苏",
+        "key": "jiangsu",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "上海",
+        "key": "shanghai",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "浙江",
+        "key": "zhejiang",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "安徽",
+        "key": "anhui",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "福建",
+        "key": "fujian",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "江西",
+        "key": "jiangxi",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "广东",
+        "key": "guangdong",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "广西",
+        "key": "guangxi",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "海南",
+        "key": "hainan",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "河南",
+        "key": "henan",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "内蒙古",
+        "key": "neimenggu",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "宁夏",
+        "key": "ningxia",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "北京",
+        "key": "beijing",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "天津",
+        "key": "tianjin",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "河北",
+        "key": "hebei",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }, {
+        "title": "青海",
+        "key": "qinghai",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    },{
+        "title": "新疆",
+        "key": "xinjiang",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    },{
+        "title": "四川",
+        "key": "sichuan",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    },{
+        "title": "贵州",
+        "key": "guizhou",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    },{
+        "title": "云南",
+        "key": "yunnan",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    },{
+        "title": "重庆",
+        "key": "chongqing",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    },{
+        "title": "西藏",
+        "key": "xizang",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    },{
+        "title": "辽宁",
+        "key": "liaoning",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    },{
+        "title": "吉林",
+        "key": "jilin",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    },{
+        "title": "黑龙江",
+        "key": "heilongjiang",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    },{
+        "title": "香港",
+        "key": "xianggang",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    },{
+        "title": "澳门",
+        "key": "aomen",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    },{
+        "title": "台湾",
+        "key": "taiwan",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总搜索次数',
+            value: '233,343'
+        }, {
+            key: '最高日搜索次数',
+            value: '233,343'
+        }, {
+            key: '昨日搜索次数',
+            value: '233,343'
+        }]
+    }],
+    data: [{
+        "name": "04/20",
+        "hunan": 10289,
+        "hubei": 10289,
+        "gansu": 10289,
+        "shanxi": 10289,
+        "sanxi": 10289,
+        "shandong": 10289,
+        "jiangsu": 10289,
+        "shanghai": 10289,
+        "zhejiang": 10289,
+    },{
+        "name": "04/21",
+        "hunan": 23424,
+        "hubei": 23424,
+        "gansu": 23424,
+        "shanxi": 23424,
+        "sanxi": 23424,
+        "shandong": 23424,
+        "jiangsu": 23424,
+        "shanghai": 23424,
+        "zhejiang": 23424,
+    },{
+        "name": "04/22",
+        "hunan": 23490,
+        "hubei": 23490,
+        "gansu": 23490,
+        "shanxi": 23490,
+        "sanxi": 23490,
+        "shandong": 23490,
+        "jiangsu": 23490,
+        "shanghai": 23490,
+        "zhejiang": 23490,
+    },{
+        "name": "04/23",
+        "hunan": 18234,
+        "hubei": 18234,
+        "gansu": 18234,
+        "shanxi": 18234,
+        "sanxi": 18234,
+        "shandong": 18234,
+        "jiangsu": 18234,
+        "shanghai": 18234,
+        "zhejiang": 18234,
+    },{
+        "name": "04/24",
+        "hunan": 9284,
+        "hubei": 9284,
+        "gansu": 9284,
+        "shanxi": 9284,
+        "shandong": 9284,
+        "sanxi": 9284,
+        "jiangsu": 9284,
+        "shanghai": 9284,
+        "zhejiang": 9284,
+    },{
+        "name": "04/25",
+        "hunan": 12384,
+        "hubei": 12384,
+        "gansu": 12384,
+        "shanxi": 12384,
+        "sanxi": 12384,
+        "shandong": 12384,
+        "jiangsu": 12384,
+        "shanghai": 12384,
+        "zhejiang": 12384,
+    },{
+        "name": "04/26",
+        "hunan": 59211,
+        "hubei": 59211,
+        "gansu": 59211,
+        "shanxi": 59211,
+        "sanxi": 59211,
+        "shandong": 59211,
+        "jiangsu": 59211,
+        "shanghai": 59211,
+        "zhejiang": 59211,
+    },{
+        "name": "04/27",
+        "hunan": 39212,
+        "hubei": 39212,
+        "gansu": 39212,
+        "shanxi": 39212,
+        "sanxi": 39212,
+        "shandong": 39212,
+        "jiangsu": 39212,
+        "shanghai": 39212,
+        "zhejiang": 39212,
+    }]
+});
+
+$('#weather_panel_05').tourChartPanel({
+    chartId: 'chart_05',
+    chartTitle: '近30日互联网搜索变化趋势',
+    viewHref: '#',
+    datas: [{
+        label: '整体搜索',
+        keyValue: [{
+            key: '昨日整体搜索量',
+            value: '233,343'
+        }, {
+            key: '昨日PC搜索量',
+            value: '233,343'
+        }, {
+            key: '昨日移动搜索量',
+            value: '233,343'
+        }],
+        columns: [{
+            title: '日期',
+            key: 'province'
+        }, {
+            title: '整体搜索',
+            key: 'all',
+            sortable: true,
+            chartType: 'line'
+        }, {
+            title: 'PC搜索',
+            key: 'pc',
+            sortable: true,
+            chartType: 'line'
+        }, {
+            title: '移动搜索',
+            key: 'pad',
+            sortable: true,
+            chartType: 'line'
+        }],
+        data: [{
+            province: '03/27',
+            all: 19,
+            pc: 12,
+            pad: 7
+        }, {
+            province: '03/28',
+            all: 20,
+            pc: 12,
+            pad: 8
+        }, {
+            province: '03/29',
+            all: 21,
+            pc: 11,
+            pad: 10
+        }, {
+            province: '03/30',
+            all: 23,
+            pc: 12,
+            pad: 11
+        }, {
+            province: '03/31',
+            all: 21,
+            pc: 13,
+            pad: 8
+        }, {
+            province: '04/01',
+            all: 22,
+            pc: 13,
+            pad: 9
+        }, {
+            province: '04/02',
+            all: 21,
+            pc: 12,
+            pad: 9
+        }]
+    }]
+});
+
+$('#weather_panel_06').tourChartPanel({
+    chartId: 'chart_06',
+    chartTitle: '重点景区旅游指数',
+    viewHref: '#',
+    datas: [{
+        label: '整体搜索',
+        keyValue: [{
+            key: '爱晚亭',
+            value: '88'
+        }, {
+            key: '橘子洲头',
+            value: '84'
+        }, {
+            key: '岳麓山',
+            value: '80'
+        }],
+        columns: [{
+            title: '景区',
+            key: 'province'
+        }, {
+            title: '旅游指数',
+            key: 'value',
+            sortable: true,
+            chartType: 'bar'
+        }],
+        data: [{
+            province: '爱晚亭',
+            value: 88
+        }, {
+            province: '橘子洲头',
+            value: 84
+        }, {
+            province: '岳麓山',
+            value: 80
+        }, {
+            province: '太平街',
+            value: 77
+        }, {
+            province: '天心阁',
+            value: 76
+        }, {
+            province: '回龙山',
+            value: 73
+        }, {
+            province: '石燕湖',
+            value: 71
+        }]
+    }]
+});
+
+$('#inner_page_footer').tourInnerPageFooter({
+    source: '万维旅游云服务 ©wanwei.com.cn',
+    content: `<p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等。</p>`
+});
+
+$('#page_footer').tourFooter();
+
+$('.filter-btn').click(function () {
+
+    weather.updateData([{
+        type: 'map',
+        mapType: 'china',
+        label: '标签标签1',
+        keyValue: [{
+            key: '累计关注',
+            value: '9人'
+        }, {
+            key: '新增关注',
+            value: '8人'
+        }, {
+            key: '净增关注',
+            value: '-3人'
+        }],
+        columns: [{
+            title: '省份',
+            key: 'province'
+        }, {
+            title: '关注人数',
+            key: 'num',
+            sortable: true
+        }],
+        data: [
+            {
+                num: 9970,
+                province: "甘肃"
+            },
+            {
+                num: 1575,
+                province: "广东"
+            },
+            {
+                num: 1066,
+                province: "浙江"
+            },
+            {
+                num: 947,
+                province: "江苏"
+            },
+            {
+                num: 665,
+                province: "北京"
+            },
+            {
+                num: 607,
+                province: "河南"
+            },
+            {
+                num: 607,
+                province: "山东"
+            },
+            {
+                num: 543,
+                province: "陕西"
+            },
+            {
+                num: 519,
+                province: "河北"
+            },
+            {
+                num: 469,
+                province: "上海"
+            },
+            {
+                num: 417,
+                province: "湖南"
+            },
+            {
+                num: 410,
+                province: "安徽"
+            },
+            {
+                num: 408,
+                province: "四川"
+            },
+            {
+                num: 396,
+                province: "福建"
+            },
+            {
+                num: 369,
+                province: "青海"
+            },
+            {
+                num: 304,
+                province: "山西"
+            },
+            {
+                num: 259,
+                province: "湖北"
+            },
+            {
+                num: 237,
+                province: "辽宁"
+            },
+            {
+                num: 99999,
+                province: "新疆"
+            },
+            {
+                num: 216,
+                province: "云南"
+            },
+            {
+                num: 213,
+                province: "黑龙江"
+            },
+            {
+                num: 177,
+                province: "吉林"
+            },
+            {
+                num: 170,
+                province: "宁夏"
+            },
+            {
+                num: 166,
+                province: "贵州"
+            },
+            {
+                num: 160,
+                province: "江西"
+            },
+            {
+                num: 125,
+                province: "重庆"
+            },
+            {
+                num: 117,
+                province: "内蒙古"
+            },
+            {
+                num: 107,
+                province: "广西"
+            },
+            {
+                num: 95,
+                province: "天津"
+            },
+            {
+                num: 70,
+                province: "西藏"
+            },
+            {
+                num: 69,
+                province: "海南"
+            },
+            {
+                num: 28,
+                province: "香港"
+            },
+            {
+                num: 27,
+                province: "澳门"
+            },
+            {
+                num: 13,
+                province: "台湾"
+            }
+        ]
+    }]);
+});
+</script>

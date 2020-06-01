@@ -1,0 +1,91 @@
+<div class="title">
+    <div class="text">互联网关注（住宿）</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>快捷酒店</h6>
+            <label>30.85<span>%<span></label>
+        </li>
+        <li>
+            <h6>星级酒店</h6>
+            <label>22.22<span>%<span></label>
+        </li>
+        <li>
+            <h6>风情民宿</h6>
+            <label>17.84<span>%<span></label>
+        </li>
+    </ul>
+    <div id="module_30073" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+    var module_30073 = echarts.init(document.getElementById('module_30073'), 'BigDataPe');
+    var option = {
+        title: {
+            show: true,
+            text: '住',
+            x: 'center',
+            y: 'center',
+            textStyle: {
+                color: '#2de7ff',
+                fontSize: 18,
+            },
+        },
+        grid: {
+            left: 25,
+            right: 25,
+            top: 125,
+            bottom: 36,
+        },
+        series: [{
+            name: '住',
+            type: 'pie',
+            silent: true,
+            label: {
+                normal: {
+                    position: 'outside',
+                    formatter: '{b}\n{d}%'
+                }
+            },
+            data: [
+                {
+                    value: 50.6,
+                    name: '星级酒店'
+                },
+                {
+                    value: 18.14,
+                    name: '豪华公寓'
+                },
+                {
+                    value: 39.8,
+                    name: '风情民宿'
+                },
+                {
+                    value: 70.25,
+                    name: '快捷酒店'
+                },
+                {
+                    value: 4.2,
+                    name: '露宿'
+                },
+                {
+                    value: 12.36,
+                    name: '青年旅馆'
+                },
+                {
+                    value: 5.7,
+                    name: '借宿'
+                },
+                {
+                    value: 26.7,
+                    name: '普通旅社'
+                }
+            ]
+        },]
+    };
+    module_30073.setOption(option);
+
+    $(window).resize(function () {
+        module_30073.resize();
+    });
+</script>

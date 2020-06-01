@@ -1,0 +1,94 @@
+<div class="title">
+    <div class="text">互联网关注（娱乐）</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>游乐场</h6>
+            <label>17.74<span>%</span></label>
+        </li>
+        <li>
+            <h6>海底世界</h6>
+            <label>16.43<span>%</span></label>
+        </li>
+        <li>
+            <h6>靖港古镇</h6>
+            <label>14.67<span>%</span></label>
+        </li>
+    </ul>
+    <div id="module_30077" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30077 = echarts.init(document.getElementById('module_30077'), 'BigDataPe');
+var option = {
+    title: {
+        show: true,
+        text: '娱',
+        x: 'center',
+        y: 'center',
+        textStyle: {
+            color: '#2de7ff',
+            fontSize: 18,
+        },
+    },
+    grid: {
+        left: 25,
+        right: 25,
+        top: 125,
+        bottom: 36,
+    },
+    series: [{
+        name: '娱',
+        type: 'pie',
+        silent: true,
+        label: {
+            normal: {
+                position: 'outside',
+                formatter: '{b}\n{d}%'
+            }
+        },
+        data: [{
+                value: 60.18,
+                name: '游乐场'
+            },
+            {
+                value: 36.9,
+                name: '游泳馆'
+            },
+            {
+                value: 39.67,
+                name: '咖啡厅'
+            },
+            {
+                value: 19.8,
+                name: '酒吧'
+            },
+            {
+                value: 40.9,
+                name: 'KTV'
+            },
+            {
+                value: 55.73,
+                name: '海底世界'
+            },
+            {
+                value: 20.19,
+                name: '公园'
+            },
+            {
+                value: 49.78,
+                name: '靖港古镇'
+            },
+            {
+                value: 16.12,
+                name: '世界之窗'
+            }
+        ]
+    }, ]
+};
+module_30077.setOption(option);
+
+$(window).resize(function() {
+    module_30077.resize();
+});
+</script>

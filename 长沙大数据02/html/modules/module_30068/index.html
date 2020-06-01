@@ -1,0 +1,82 @@
+<div class="title">
+    <div class="text">互联网门户营销占比</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>携程</h6>
+            <label>26.89<span>%</span></label>
+        </li>
+        <li>
+            <h6>去哪儿</h6>
+            <label>21.76<span>%</span></label>
+        </li>
+        <li>
+            <h6>途牛</h6>
+            <label>17.11<span>%</span></label>
+        </li>
+    </ul>
+    <div id="module_30068" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30068 = echarts.init(document.getElementById('module_30068'), 'BigDataPe');
+var option = {
+    title: {
+        show: true,
+        text: '门户\n营销',
+        x: 'center',
+        y: 'center',
+        textStyle: {
+            color: '#2de7ff',
+            fontSize: 18,
+        },
+    },
+    grid: {
+        left: 25,
+        right: 25,
+        top: 125,
+        bottom: 36,
+    },
+    series: [{
+        name: '互联网门户营销占比',
+        type: 'pie',
+        silent: true,
+        label: {
+            normal: {
+                position: 'outside',
+                formatter: '{b}({d}%)'
+            }
+        },
+        data: [{
+                value: 11.47,
+                name: '途牛'
+            },
+            {
+                value: 18.03,
+                name: '携程'
+            },
+            {
+                value: 14.59,
+                name: '去哪儿'
+            },
+            {
+                value: 8.2,
+                name: '驴妈妈'
+            },
+            {
+                value: 8.2,
+                name: '同程旅游'
+            },
+            {
+                value: 6.56,
+                name: '飞猪'
+            }
+        ]
+    }, ]
+};
+module_30068.setOption(option);
+
+$(window).resize(function() {
+    module_30068.resize();
+});
+</script>

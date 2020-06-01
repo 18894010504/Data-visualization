@@ -1,0 +1,86 @@
+<div class="title">
+    <div class="text">互联网关注（购物）</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>沩山毛尖茶</h6>
+            <label>21.73<span>%</span></label>
+        </li>
+        <li>
+            <h6>浏阳金桔</h6>
+            <label>18.36<span>%</span></label>
+        </li>
+        <li>
+            <h6>湘绣</h6>
+            <label>16.93<span>%</span></label>
+        </li>
+    </ul>
+    <div id="module_30076" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30076 = echarts.init(document.getElementById('module_30076'), 'BigDataPe');
+var option = {
+    title: {
+        show: true,
+        text: '购',
+        x: 'center',
+        y: 'center',
+        textStyle: {
+            color: '#2de7ff',
+            fontSize: 18,
+        },
+    },
+    grid: {
+        left: 25,
+        right: 25,
+        top: 125,
+        bottom: 36,
+    },
+    series: [{
+        name: '购',
+        type: 'pie',
+        silent: true,
+        label: {
+            normal: {
+                position: 'outside',
+                formatter: '{b}\n{d}%'
+            }
+        },
+        data: [{
+                value: 70.6,
+                name: '浏阳金桔'
+            },
+            {
+                value: 83.6,
+                name: '沩山毛尖茶'
+            },
+            {
+                value: 65.13,
+                name: '湘绣'
+            },
+            {
+                value: 45.6,
+                name: '大围山梨'
+            },
+            {
+                value: 36.9,
+                name: '柑桔'
+            },
+            {
+                value: 26.7,
+                name: '菊花石雕'
+            },
+            {
+                value: 56.12,
+                name: '中国红瓷'
+            }
+        ]
+    }, ]
+};
+module_30076.setOption(option);
+
+$(window).resize(function() {
+    module_30076.resize();
+});
+</script>

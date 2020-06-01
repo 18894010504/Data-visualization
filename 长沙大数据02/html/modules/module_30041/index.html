@@ -1,0 +1,77 @@
+<div class="title">
+    <div class="text">游客人均消费占比</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>1000元以下</h6>
+            <label>31.58<span> %</span></label>
+        </li>
+        <li>
+            <h6>1000-2000元</h6>
+            <label>26.82<span> %</span></label>
+        </li>
+        <li>
+            <h6>2000-3000元</h6>
+            <label>17.22<span> %</span></label>
+        </li>
+    </ul>
+    <div id="module_30041" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30041 = echarts.init(document.getElementById('module_30041'), 'BigDataPe');
+var option = {
+    title: {
+        show: true,
+        text: '人均\n消费',
+        x: 'center',
+        y: 'center',
+        textStyle: {
+            color: '#2de7ff',
+            fontSize: 16
+        },
+        textBaseline: 'top',
+        itemGap: 0,
+    },
+    grid: {
+        left: 25,
+        right: 25,
+        top: 130,
+        bottom: 36,
+    },
+    series: [{
+        type: 'pie',
+        silent: true,
+        label: {
+            normal: {
+                position: 'outside',
+                formatter: '{b}\n{d}%'
+            }
+        },
+        data: [{
+            value: 38.08,
+            name: '1000元以下'
+        }, {
+            value: 32.35,
+            name: '1000-2000元'
+        }, {
+            value: 20.77,
+            name: '2000-3000元'
+        }, {
+            value: 10.80,
+            name: '3000-4000元'
+        }, {
+            value: 9.80,
+            name: '4000-5000元'
+        }, {
+            value: 8.80,
+            name: '5000元以上'
+        }]
+    }]
+};
+module_30041.setOption(option);
+
+$(window).resize(function() {
+    module_30041.resize();
+});
+</script>

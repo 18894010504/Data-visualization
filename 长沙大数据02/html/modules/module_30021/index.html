@@ -1,0 +1,71 @@
+<div class="title">
+    <div class="text">本地游客消费方式占比</div>
+</div>
+<div class="inner-box module_100035">
+    <ul class="box-info">
+        <li>
+            <h6>吃</h6>
+            <label class="up">28<span> %</span></label>
+        </li>
+        <li>
+            <h6>行</h6>
+            <label class="up">20<span> %</span></label>
+        </li>
+        <li>
+            <h6>住</h6>
+            <label class="up">17<span> %</span></label>
+        </li>
+    </ul>
+    <div id="module_30021" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30021 = echarts.init(document.getElementById('module_30021'), 'BigDataPe');
+var option = {
+    title: {
+        show: true,
+        text: '消费\n方式',
+        x: 'center',
+        y: 'center',
+        textStyle: {
+            color: '#2de7ff',
+            fontSize: 16
+        },
+        textBaseline: 'top',
+        itemGap: 0
+    },
+    series: [{
+        type: 'pie',
+        silent: true,
+        label: {
+            normal: {
+                position: 'outside',
+                formatter: '{b}\n{d}%'
+            }
+        },
+        data: [{
+            value: 28,
+            name: '吃'
+        }, {
+            value: 20,
+            name: '住'
+        }, {
+            value: 17,
+            name: '行'
+        }, {
+            value: 16,
+            name: '游'
+        }, {
+            value: 10,
+            name: '购'
+        }, {
+            value: 9,
+            name: '娱'
+        }]
+    }]
+};
+module_30021.setOption(option);
+
+$(window).resize(function() {
+    module_30021.resize();
+});
+</script>

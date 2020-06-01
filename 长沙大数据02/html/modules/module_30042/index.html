@@ -1,0 +1,78 @@
+<div class="title">
+    <div class="text">游客消费方式占比</div>
+</div>
+<div class="inner-box module_30042 module_100035">
+    <ul class="box-info">
+        <li>
+            <h6>住</h6>
+            <label class="up">23.08<span> %</span></label>
+        </li>
+        <li>
+            <h6>行</h6>
+            <label class="up">20.85<span> %</span></label>
+        </li>
+        <li>
+            <h6>吃</h6>
+            <label class="up">18.47<span> 2%</span></label>
+        </li>
+    </ul>
+    <div id="module_30042" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30042 = echarts.init(document.getElementById('module_30042'), 'BigDataPe');
+var option = {
+    title: {
+        show: true,
+        text: '消费\n方式',
+        x: 'center',
+        y: 'center',
+        textStyle: {
+            color: '#2de7ff',
+            fontSize: 16
+        },
+        textBaseline: 'top',
+        itemGap: 0,
+    },
+    grid: {
+        left: 25,
+        right: 25,
+        top: 130,
+        bottom: 36,
+    },
+    series: [{
+        name: '节假日游客驻留时间占比',
+        type: 'pie',
+        silent: true,
+        label: {
+            normal: {
+                position: 'outside',
+                formatter: '{b}\n{d}%'
+            }
+        },
+        data: [{
+            value: 248,
+            name: '吃'
+        }, {
+            value: 310,
+            name: '住'
+        }, {
+            value: 280,
+            name: '行'
+        }, {
+            value: 215,
+            name: '游'
+        }, {
+            value: 155,
+            name: '购'
+        }, {
+            value: 135,
+            name: '娱'
+        }]
+    }]
+};
+module_30042.setOption(option);
+
+$(window).resize(function() {
+    module_30042.resize();
+});
+</script>

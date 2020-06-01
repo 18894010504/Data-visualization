@@ -1,0 +1,187 @@
+<div class="page-container">
+    <div class="inner-page">
+        <div id="inner_page_header"></div>
+        <div id="alert_info"></div>
+        <div id="filter_panel">
+            <div class="filter-panel">
+                <date-picker type="daterange" :options="options" placement="bottom-start" placeholder="日期选择"
+                             style="width: 200px; margin-right: 8px;"></date-picker>
+                <i-select v-model="model1">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value"
+                              v-text="item.label"></i-option>
+                </i-select>
+                <i-select v-model="model2">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value"
+                              v-text="item.label"></i-option>
+                </i-select>
+                <i-select v-model="model3">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value"
+                              v-text="item.label"></i-option>
+                </i-select>
+                <i-button type="info" icon="funnel" class="filter-btn">筛选</i-button>
+            </div>
+        </div>
+
+
+        <div class="page-panel">
+            <div class="ivu-row-2">
+                <div id="touristPortrait_panel_05" class="ivu-col ivu-col-span-24"></div>
+            </div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="portraitMonitor_map_01"></div>
+            </div>
+        </div>
+        <div id="inner_page_footer"></div>
+    </div>
+    <div id="page_footer"></div>
+</div>
+<script type="text/javascript">
+    new Vue({
+        el: '#filter_panel',
+        data: {
+            model1: '',
+            model2: '',
+            model3: '',
+            cityList: [{
+                value: 'beijing',
+                label: '北京市'
+            }, {
+                value: 'shanghai',
+                label: '上海市'
+            }, {
+                value: 'shenzhen',
+                label: '深圳市'
+            }, {
+                value: 'hangzhou',
+                label: '杭州市'
+            }, {
+                value: 'nanjing',
+                label: '南京市'
+            }, {
+                value: 'chongqing',
+                label: '重庆市'
+            }],
+            options: {
+                shortcuts: [
+                    {
+                        text: '近一周',
+                        value() {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                            return [start, end];
+                        }
+                    },
+                    {
+                        text: '近一月',
+                        value() {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                            return [start, end];
+                        }
+                    },
+                    {
+                        text: '近三月',
+                        value() {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                            return [start, end];
+                        }
+                    }
+                ]
+            }
+        }
+    });
+
+    $('#inner_page_header').tourInnerPageHeader({
+        pageTitle: '运营商客流监控',
+        btnSave: false,
+        btnNew: false,
+        btnPrintReport: false
+    });
+
+    $('#alert_info').tourAlert({
+        desc: '消息提示的描述文案消息提示的描述文案消息提示的描述文案消息提示的描述文案消息提示的描述文案',
+        href: '#'
+    });
+
+
+
+
+    var random_heatmap = function(xbace,ybace) {
+        var points = [];
+        for (i = 0; i < 4000; i++) {
+            var a = {};
+            var s = Math.floor(Math.random() * 101   );
+            var y = ((Math.floor(Math.random() * 400) / 1920));
+            var x = ((Math.floor(Math.random() * 400) / 1080));
+            a.lng = xbace + x;
+            a.lat = ybace + y;
+            a.count = s
+            points.push(a);
+        }
+        return points
+    };
+
+
+    $('#portraitMonitor_map_01').tourMapPanel({
+        mapId: 'all_map',
+        mapLevel: 15,
+        mapTitle: '标题标题标题标题标题标题',
+        viewHref: '#',
+
+        datas: [{
+            label: '区域1',
+            mapCenter: {
+                lng: 113.02,
+                lat: 28.21
+
+            },
+            keyValue: [{
+                key: '关键数据1',
+                value: '233,343'
+            }, {
+                key: '关键数据1',
+                value: '233,343'
+            }, {
+                key: '关键数据1',
+                value: '233,343'
+            }],
+            points: random_heatmap(112.87, 28.10)
+        }, {
+            label: '区域2',
+            mapCenter: {
+                lng: 112.916,
+                lat: 28.216
+            },
+            keyValue: [{
+                key: '关键数据2',
+                value: '233,343'
+            }, {
+                key: '关键数据2',
+                value: '233,343'
+            }, {
+                key: '关键数据2',
+                value: '233,343'
+            }],
+            points: random_heatmap(112.77,28.10)
+        }]
+    });
+
+    $('#inner_page_footer').tourInnerPageFooter({
+        source: '万维旅游云服务 ©wanwei.com.cn',
+        content: `<p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等。</p>`
+    });
+
+    $('#page_footer').tourFooter();
+
+
+</script>
+

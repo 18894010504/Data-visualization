@@ -1,0 +1,186 @@
+<div class="title">
+    <div class="text">用户热搜词</div>
+</div>
+<div class="inner-box hotSearch">
+    <ul class="all_thing-show hotSearch">
+        <li>
+            <div class="content_wrap">
+                <h6>长沙旅游攻略</h6>
+                <p>
+                    <span>热度</span>
+                    <s><b style="width: 87%;"></b></s>
+                </p>
+                <em>9% <label class="up"></label></em>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>景点</h6>
+                <p>
+                    <span>热度</span>
+                    <s><b style="width: 83%;"></b></s>
+                </p>
+                <em>6% <label class="up"></label></em>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>湖南旅游</h6>
+                <p>
+                    <span>热度</span>
+                    <s><b style="width: 80%;"></b></s>
+                </p>
+                <em>1% <label class="down"></label></em>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>小吃街哪里最出名</h6>
+                <p>
+                    <span>热度</span>
+                    <s><b style="width: 77%;"></b></s>
+                </p>
+                <em>2% <label class="up"></label></em>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>长沙景点介绍</h6>
+                <p>
+                    <span>热度</span>
+                    <s><b style="width: 72%;"></b></s>
+                </p>
+                <em>10% <label class="up"></label></em>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>岳麓山</h6>
+                <p>
+                    <span>热度</span>
+                    <s><b style="width: 61%;"></b></s>
+                </p>
+                <em>8% <label class="up"></label></em>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>攻略</h6>
+                <p>
+                    <span>热度</span>
+                    <s><b style="width: 53%;"></b></s>
+                </p>
+                <em>1% <label class="down"></label></em>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>长沙天气</h6>
+                <p>
+                    <span>热度</span>
+                    <s><b style="width: 48%;"></b></s>
+                </p>
+                <em>1% <label class="up"></label></em>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>出名</h6>
+                <p>
+                    <span>热度</span>
+                    <s><b style="width: 45%;"></b></s>
+                </p>
+                <em>3% <label class="up"></label></em>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>长沙到张家界</h6>
+                <p>
+                    <span>热度</span>
+                    <s><b style="width: 44%;"></b></s>
+                </p>
+                <em>2% <label class="up"></label></em>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>小吃</h6>
+                <p>
+                    <span>热度</span>
+                    <s><b style="width: 38%;"></b></s>
+                </p>
+                <em>1% <label class="up"></label></em>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>长沙步行街</h6>
+                <p>
+                    <span>热度</span>
+                    <s><b style="width: 36%;"></b></s>
+                </p>
+                <em>4% <label class="up"></label></em>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>长沙地图</h6>
+                <p>
+                    <span>热度</span>
+                    <s><b style="width: 33%;"></b></s>
+                </p>
+                <em>1% <label class="up"></label></em>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>长沙旅游网官网</h6>
+                <p>
+                    <span>热度</span>
+                    <s><b style="width: 30%;"></b></s>
+                </p>
+                <em>1% <label class="down"></label></em>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>花明楼</h6>
+                <p>
+                    <span>热度</span>
+                    <s><b style="width: 27%;"></b></s>
+                </p>
+                <em>1% <label class="up"></label></em>
+            </div>
+        </li>
+
+    </ul>
+</div>
+<script type="text/javascript">
+$(function() {
+    var _wrap = $('.hotSearch'); //定义滚动区域
+    var _interval = 5000; //定义滚动间隙时间
+    var _moving; //需要清除的动画
+    _wrap.hover(function() {
+        clearInterval(_moving); //当鼠标在滚动区域中时,停止滚动
+    }, function() {
+        _moving = setInterval(function() {
+            var _field = _wrap.find('li:first'); //此变量不可放置于函数起始处,li:first取值是变化的
+            var _h = _field.height(); //取得每次滚动高度
+            _field.animate({
+                marginTop: -_h + 'px'
+            }, 500, function() { //通过取负margin值,隐藏第一行
+                _field.css('marginTop', 0).appendTo(_wrap); //隐藏后,将该行的margin值置零,并插入到最后,实现无缝滚动
+            })
+        }, _interval) //滚动间隔时间取决于_interval
+    }).trigger('mouseleave'); //函数载入时,模拟执行mouseleave,即自动滚动
+
+    // 滚动条
+    $(".hotSearch").niceScroll({
+        cursorcolor: "#1f4866",
+        autohidemode: true,
+        cursorwidth: "4px",
+        cursorborderradius: 0
+    });
+});
+</script>

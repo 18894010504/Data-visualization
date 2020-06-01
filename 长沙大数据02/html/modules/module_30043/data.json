@@ -1,0 +1,260 @@
+{
+    "name": "长沙",
+    "children": [
+    {
+        "name": "岳麓书院",
+        "value": 12,
+        "children": [
+        {
+            "name": "动物园",
+            "value": 22,
+            "children": [
+            {
+                "name": "周洛大峡谷",
+                "value": 8,
+                "children": [
+                {
+                    "name": "世界之窗",
+                    "value": 40
+                },
+                {
+                    "name": "关山古镇",
+                    "value": 16
+                },
+                {
+                    "name": "马王堆汉墓",
+                    "value": 22
+                }]
+            },
+            {
+                "name": "洋湖湿地公园",
+                "value": 18
+            },
+            {
+                "name": "天心公园",
+                "value": 15
+            }]
+        },
+        {
+            "name": "靖港古镇",
+            "value": 27
+        }]
+    },
+    {
+        "name": "橘子洲",
+        "value": 18,
+        "children": [
+        {
+            "name": "铜官窑",
+            "value": 18,
+            "children": [
+            {
+                "name": "月亮岛",
+                "value": 7,
+                "children": [
+                {
+                    "name": "宁乡千佛洞",
+                    "value": 19
+                },
+                {
+                    "name": "月湖公园",
+                    "value": 14
+                }]
+            },
+            {
+                "name": "爱晚亭",
+                "value": 42
+            },
+            {
+                "name": "橘子洲大桥",
+                "value": 55
+            },
+            {
+                "name": "森林植物园",
+                "value": 13
+            }]
+        },
+        {
+            "name": "天心公园",
+            "value": 13
+        },
+        {
+            "name": "岳麓山风景区 ",
+            "value": 70,
+            "children": [
+            {
+                "name": "雷锋纪念馆",
+                "value": 24,
+                "children": [
+                {
+                    "name": "黑麋峰",
+                    "value": 17
+                },
+                {
+                    "name": "杜甫江阁",
+                    "value": 20
+                },
+                {
+                    "name": "花明楼",
+                    "value": 18
+                },
+                {
+                    "name": "岳麓书院",
+                    "value": 27
+                }]
+            }]
+        }]
+    },
+    {
+        "name": "雷锋纪念馆",
+        "value":9,
+        "children": [
+        {
+            "name": "烈士公园",
+            "value": 6
+        }]
+    },
+    {
+        "name": "花明楼",
+        "value": 14,
+        "children": [
+        {
+            "name": "化龙池",
+            "value": 12,
+            "children": [
+            {
+                "name": "橘子洲大桥",
+                "value": 52,
+                "children": [
+                {
+                    "name": "橘子洲游乐园",
+                    "value": 43
+                }]
+            },
+            {
+                "name": "长沙海底世界",
+                "value": 28
+            },
+            {
+                "name": "新民学会成立会旧址",
+                "value": 23
+            }]
+        },
+        {
+            "name": "杜甫江阁",
+            "value": 32
+        },
+        {
+            "name": "橘子洲游乐园",
+            "value": 33
+        }]
+    },
+    {
+        "name": "湖南第一师范",
+        "value": 14,
+        "children": [
+        {
+            "name": "清水塘",
+            "value": 59
+        }]
+    },
+    {
+        "name": "世界之窗",
+        "value": 17,
+        "children": [
+        {
+            "name": "市博物馆",
+            "value": 23,
+            "children": [
+            {
+                "name": "道吾山风景区",
+                "value": 36,
+                "children": [
+                {
+                    "name": "爱晚亭",
+                    "value": 22
+                },
+                {
+                    "name": "灰汤温泉",
+                    "value": 28
+                },
+                {
+                    "name": "彩陶源村",
+                    "value": 13
+                },
+                {
+                    "name": "周洛大峡谷",
+                    "value":17
+                },
+                {
+                    "name": "酷贝拉",
+                    "value": 18
+                },
+                {
+                    "name": "湘绣博物馆",
+                    "value": 22
+                }]
+            },
+            {
+                "name": "云麓宫",
+                "value": 28
+            },
+            {
+                "name": "古麓山寺",
+                "value": 26
+            }]
+        },
+        {
+            "name": "关山古镇",
+            "value": 28
+        },
+        {
+            "name": "天际岭",
+            "value": 16
+        }]
+    },
+    {
+        "name": "石燕湖",
+        "value": 12,
+        "children": [
+        {
+            "name": "开福寺",
+            "value": 15
+        }]
+    },
+    {
+        "name": "烈士公园",
+        "value": 2,
+        "children": [
+        {
+            "name": "刘少奇纪念馆",
+            "value": 27,
+            "children": [
+            {
+                "name": "宁乡千佛洞",
+                "value": 24,
+                "children": [
+                {
+                    "name": "云麓宫",
+                    "value": 18
+                },
+                {
+                    "name": "世界之窗",
+                    "value": 27
+                },
+                {
+                    "name": "市博物馆",
+                    "value": 23
+                },
+                {
+                    "name": "湖南第一师范",
+                    "value": 20
+                }]
+            },
+            {
+                "name": "雷锋纪念馆",
+                "value": 25
+            }]
+        }]
+    }]
+}

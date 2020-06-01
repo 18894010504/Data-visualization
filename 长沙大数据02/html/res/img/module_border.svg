@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96px" height="95px" viewBox="0 0 96 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#DBF7C1" stop-opacity="0.3" offset="0%"></stop>
+            <stop stop-color="#8DECD8" stop-opacity="0.3" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="87" height="87"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3">
+            <polygon id="Path-3" stroke="url(#linearGradient-1)" points="9.01988901 86.93088 9.01988901 94 95.019889 94 95.019889 7 86.568582 7 86.568582 86.3656954 9 86.3656954"></polygon>
+            <g id="Group-2">
+                <rect id="Rectangle-3" stroke="url(#linearGradient-1)" x="0.5" y="0.5" width="86" height="86"></rect>
+                <polyline id="Path-2" stroke="#C1E8ED" stroke-width="2" points="1 73 1 86 14 86"></polyline>
+                <polyline id="Path-2" stroke="#C1E8ED" stroke-width="2" transform="translate(79.500000, 79.500000) rotate(-90.000000) translate(-79.500000, -79.500000) " points="73 73 73 86 86 86"></polyline>
+                <polyline id="Path-2" stroke="#C1E8ED" stroke-width="2" transform="translate(7.500000, 7.500000) rotate(-270.000000) translate(-7.500000, -7.500000) " points="1 1 1 14 14 14"></polyline>
+                <polyline id="Path-2" stroke="#C1E8ED" stroke-width="2" transform="translate(79.500000, 7.500000) rotate(-180.000000) translate(-79.500000, -7.500000) " points="73 1 73 14 86 14"></polyline>
+            </g>
+            <g id="Rectangle-3">
+                <use fill-opacity="0.03" fill="#000000" fill-rule="evenodd" xlink:href="#path-2"></use>
+                <rect stroke="url(#linearGradient-1)" stroke-width="1" x="0.5" y="0.5" width="86" height="86"></rect>
+            </g>
+            <polyline id="Path-2" stroke="#C1E8ED" stroke-width="2" points="1 73 1 86 14 86"></polyline>
+            <polyline id="Path-2" stroke="#C1E8ED" stroke-width="2" transform="translate(79.500000, 79.500000) rotate(-90.000000) translate(-79.500000, -79.500000) " points="73 73 73 86 86 86"></polyline>
+            <polyline id="Path-2" stroke="#C1E8ED" stroke-width="2" transform="translate(7.500000, 7.500000) rotate(-270.000000) translate(-7.500000, -7.500000) " points="1 1 1 14 14 14"></polyline>
+            <polyline id="Path-2" stroke="#C1E8ED" stroke-width="2" transform="translate(79.500000, 7.500000) rotate(-180.000000) translate(-79.500000, -7.500000) " points="73 1 73 14 86 14"></polyline>
+        </g>
+    </g>
+</svg>

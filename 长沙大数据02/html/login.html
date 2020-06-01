@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="res/lib/bootstrap-3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_340747_cajvw8tap02ro1or.css">
+    <link rel="stylesheet" href="res/css/index.css">
+    <script src="res/lib/jquery/jquery-1.11.3.min.js"></script>
+    <script src="res/lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="res/lib/vue/vue.min.js"></script>
+    <title></title>
+</head>
+
+<body>
+    <div class="login-wrap" id="login_container">
+        <div class="login-header">
+            <div class="box">
+                <i class="icon ncicon-dashujumofang"></i>
+                <h1 v-text="configureDatas.basics.txtName"></h1>
+            </div>
+        </div>
+        <div class="login-box">
+            <h5>用户登录</h5>
+            <div class="input-box">
+                <i class="icon ncicon-people_fill"></i>
+                <input id="username" type="text" placeholder="用户名" />
+            </div>
+            <div class="input-box">
+                <i class="icon ncicon-lock_fill"></i>
+                <input id="password" type="password" placeholder="密码" />
+            </div>
+            <a class="login-btn" @click="login">登录</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+    const datas = JSON.parse(localStorage.getItem('configure'));
+    const vm = new Vue({
+        el: '#login_container',
+        data: {
+            configureDatas: datas ? datas : {}
+        },
+        created: function() {
+            document.title = this.configureDatas.basics.txtName;
+        },
+        mounted: function() {
+            const that = this;
+            $("body").keydown(function() {
+                if (event.keyCode == "13") {
+                    that.login();
+                }
+            });
+        },
+        methods: {
+            login: function() {
+                if ($('.login-wrap #username').val() == 'admin' && $('.login-wrap #password').val() == '123456') {
+                    sessionStorage.setItem('hasLogin', true);
+                    window.location.href = 'index.html?pageNum=0&timestamp=' + new Date().getTime();
+                } else {
+                    alert('登录失败！');
+                }
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>

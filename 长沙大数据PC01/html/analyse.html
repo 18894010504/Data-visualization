@@ -1,0 +1,100 @@
+<div id="layout_sidemenu"></div>
+<div class="side-page" id="side_page"></div>
+<script type="text/javascript">
+$('#layout_sidemenu').tourSideMenu({
+    oftenUse: [{
+        name: '文章管理',
+        href: 'analyse-page'
+    }, {
+        name: '数据观象',
+        href: 'explore-page',
+    }, {
+        name: '举报管理'
+    }],
+    general: [{
+        sortName: '天气环境分析',
+        items: [{
+            name: '今日天气环境分析',
+            href: 'weather-page'
+        }, {
+            name: '近7日天气环境分析',
+            href: 'weather7-page'
+        }]
+    }, {
+        sortName: '网络营销分析',
+        items: [{
+            name: '微信用户分析',
+            href: 'wechat-page'
+        }, {
+            name: '网站流量数据分析',
+            href: 'netflow-page'
+        }]
+    }, {
+        sortName: '导游培训分析',
+        items: [{
+            name: '导游培训分析',
+            href: 'guide-page'
+        }, {
+            name: '评论管理'
+        }, {
+            name: '举报管理'
+        }]
+    }, {
+        sortName: '旅行社接待分析',
+        items: [{
+            name: '旅行社接待分析',
+            href: 'travel-page'
+        }, {
+            name: '评论管理'
+        }, {
+            name: '举报管理'
+        }]
+    }, {
+        sortName: '旅游资源分析',
+        items: [{
+            name: '旅游资源分析',
+            href: 'resources-page'
+        }, {
+            name: '评论管理'
+        }, {
+            name: '举报管理'
+        }]
+    }, {
+        sortName: '互联网分析',
+        items: [{
+            name: '互联网分析',
+            href: 'internet-page'
+        }, {
+            name: '评论管理'
+        }, {
+            name: '举报管理'
+        }]
+    }, {
+        sortName: '信令数据分析',
+        items: [{
+            name: '游客画像',
+            href: 'portrait-page'
+        }, {
+            name: '节假日统计',
+            href: 'holiday-page'
+        }, {
+            name: '客流对比分析',
+            href:'contrast-page'
+        }, {
+            name: '运营商客流监控',
+            href:'portraitMonitor-page'
+        }, {
+            name: '游客客源分析',
+            href:'source-page'
+        }]
+    }]
+});
+
+// 页面跳转
+var page = $.getQueryString('page');
+if (page) {
+    $('#side_page').load(page + '.html?' + new Date().getTime());
+} else {
+    $('#side_page').load('analyse-page.html?' + new Date().getTime());
+}
+</script>

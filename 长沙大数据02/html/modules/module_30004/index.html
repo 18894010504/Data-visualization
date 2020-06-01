@@ -1,0 +1,60 @@
+<div class="title">
+    <div class="text">旅游话题热度</div>
+</div>
+<div class="inner-box">
+    <div id="module_30004" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30004 = echarts.init(document.getElementById('module_30004'), theme);
+var option = {
+    grid: {
+        left: 95,
+        right: 20,
+        top: 10,
+        bottom: 10,
+    },
+    tooltip: {
+        triggerOn: 'none',
+    },
+    xAxis: {
+        show: false
+    },
+    yAxis: [{
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+        data: ["毛主席青年雕像", "旅游专场推介会", "长沙旅游节", "长沙旅游景点", "至长沙高铁", "长沙名小吃", "长沙历史", "橘子洲头", "长沙天气", "岳麓书院"]
+    }],
+    series: [{
+        name: '占比',
+        type: 'bar',
+        label: {
+            normal: {
+                show: true,
+                position: 'right',
+                formatter: '{c}%'
+            }
+        },
+        itemStyle: {
+            normal: {
+                barBorderRadius: [0, 3, 3, 0]
+            }
+        },
+        data: [43.5, 39.6, 9.5, 8.7, 12, 30.5, 10.9, 21, 13.7, 41.1]
+    }]
+
+};
+module_30004.setOption(option);
+
+$(window).resize(function() {
+    module_30004.resize();
+});
+</script>

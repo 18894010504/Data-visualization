@@ -1,0 +1,77 @@
+<div class="title">
+    <div class="text">游客整体满意度</div>
+</div>
+<div class="inner-box module_30034  module_100005">
+    <ul class="box-info">
+        <li>
+            <h6>非常满意</h6>
+            <label>69.53<span class="ratio_numb ups up">%</span></label>
+        </li>
+        <li>
+            <h6>满意</h6>
+            <label>23.67<span class="ratio_numb ups up">%</span></label>
+        </li>
+        <li>
+            <h6>一般</h6>
+            <label>5.03<span class="ratio_numb downs down">%</span></label>
+        </li>
+    </ul>
+    <div id="module_30034" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30034 = echarts.init(document.getElementById('module_30034'), 'BigDataPe');
+var option = {
+    title: {
+        show: true,
+        text: '89',
+        x: 'center',
+        y: 'center',
+        textStyle: {
+            color: '#2de7ff',
+            fontSize: 24,
+        },
+        subtext: '评价指数',
+        textBaseline: 'top',
+        itemGap: 0,
+    },
+    grid: {
+        left: 25,
+        right: 25,
+        top: 125,
+        bottom: 36,
+    },
+    series: [{
+        name: '评价指数',
+        type: 'pie',
+        silent: true,
+        label: {
+            normal: {
+                position: 'outside',
+                formatter: '{b}\n{d}%'
+            }
+        },
+        data: [{
+                value: 149.21,
+                name: '非常满意',
+            },
+            {
+                value: 50.79,
+                name: '满意'
+            },
+            {
+                value: 10.79,
+                name: '一般'
+            },
+            {
+                value: 3.79,
+                name: '不满意'
+            }
+        ]
+    }, ]
+};
+module_30034.setOption(option);
+
+$(window).resize(function() {
+    module_30034.resize();
+});
+</script>

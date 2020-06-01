@@ -1,0 +1,60 @@
+<div class="title">
+    <div class="text">游客投诉原因</div>
+</div>
+<div class="inner-box">
+    <div id="module_30062" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30062 = echarts.init(document.getElementById('module_30062'), theme);
+var option = {
+    grid: {
+        left: 105,
+        right: 20,
+        top: 10,
+        bottom: 10,
+    },
+    tooltip: {
+        triggerOn: 'none',
+    },
+    xAxis: {
+        show: false
+    },
+    yAxis: [{
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+        data: ["交通不便", "不文明旅游行为", "导游骂游客", "旅游宰客", "服务待改进", "设施故障", "强迫消费", "门票管理", "设备老化", "旅途延误"]
+    }],
+    series: [{
+        name: '占比',
+        type: 'bar',
+        label: {
+            normal: {
+                show: true,
+                position: 'right',
+                formatter: '{c}%'
+            }
+        },
+        itemStyle: {
+            normal: {
+                barBorderRadius: [0, 3, 3, 0]
+            }
+        },
+        data: [5.5, 25.5, 2.9, 3.6, 2.1, 14.3, 7.8, 12.6, 7.6, 18.1]
+    }]
+
+};
+module_30062.setOption(option);
+
+$(window).resize(function() {
+    module_30062.resize();
+});
+</script>

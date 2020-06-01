@@ -1,0 +1,116 @@
+<div class="title">
+    <div class="text">近90天本地游客客流变化</div>
+</div>
+<div class="inner-box module_100009">
+    <ul class="box-info">
+        <li>
+            <h6>国庆节</h6>
+            <label>8784809</label>
+        </li>
+        <li>
+            <h6>国庆节客流增幅</h6>
+            <label class="up">16.6%</label>
+        </li>
+        <li>
+            <h6>2017/10/3 最大</h6>
+            <label>1508827</label>
+        </li>
+        <li>
+            <h6>2017/10/19 最小</h6>
+            <label>300677</label>
+        </li>
+    </ul>
+    <div id="module_30022" class="box-chart" style="width: 100%; height: 100%;"></div>
+</div>
+<script type="text/javascript">
+var module_30022 = echarts.init(document.getElementById('module_30022'), theme);
+var base = +new Date(2017, 8, 17);
+var oneDay = 24 * 3600 * 1000;
+var date = [];
+
+
+for (var i = 1; i < 90; i++) {
+    var now = new Date(base += oneDay);
+    date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'));
+
+}
+
+var option = {
+    tooltip: {
+        trigger: 'axis',
+        position: function(pt) {
+            return [pt[0], '10%'];
+        }
+    },
+    grid: {
+        left: 0,
+        right: 5,
+        top: 40,
+        bottom: 20
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        data: date,
+
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: true,
+        axisLabel: {
+            inside: true,
+            formatter: '{value}'
+        },
+        scale: true,
+        axisLine: {
+            onZero: false,
+        }
+
+
+    },
+    series: [{
+        name: '客流量',
+        type: 'line',
+        smooth: true,
+        sampling: 'average',
+        data: [450085,325586,313724,323337,328914,311211,462937,416967,507253,368483,506341,596092,673813,        997492,1209321,1508827,1472806,1428940,1100075,967491,888101,344574,595239,554225,531857,409216,482991,366883,483405,376309,560472,300677,311897,318507,446635,389039,413715,384874,495195,539276,409222,370716,527080,356388,443309,360335,420211,593687,562736,320462,572576,538232,431902,413111,315888,494562,443571,411150,468800,552972,598537,396263,588695,558356,501526,427455,595857,344273,420260,336879,508589,562793,475547,400949,423696,494084,493183,459341,305172,504816,377912,344995,558461,543423,418746,456896,525063,447572,593620,313282],
+        markPoint: {
+            symbol: 'rect',
+            symbolSize: 15,
+            label: {
+                normal: {
+                    position: 'right',
+                    distance: 5,
+                    formatter: '{b}:\n {c}',
+                    textborderWidth: 4,
+                    textBorderColor: '#000'
+                }
+            },
+            data: [{
+                name: '最大值',
+                type: 'max'
+            }, {
+                name: '最小值',
+                type: 'min'
+            }]
+        },
+        markArea: {
+            silent: true,
+            label: {},
+            data: [
+                [{
+                    name: '国庆节',
+                    xAxis: '2017/10/1'
+                }, {
+                    xAxis: '2017/10/8'
+                }]
+            ]
+        }
+    }]
+};
+module_30022.setOption(option);
+
+$(window).resize(function() {
+    module_30022.resize();
+});
+</script>

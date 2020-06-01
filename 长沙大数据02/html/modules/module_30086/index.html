@@ -1,0 +1,60 @@
+<div class="title">
+    <div class="text">未来30天景区热度TOP10预测</div>
+</div>
+<div class="inner-box">
+    <div id="module_30086" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30086 = echarts.init(document.getElementById('module_30086'), theme);
+var option = {
+    grid: {
+        left: 80,
+        right: 20,
+        top: 10,
+        bottom: 10,
+    },
+    tooltip: {
+        triggerOn: 'none',
+    },
+    xAxis: {
+        show: false
+    },
+    yAxis: [{
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false
+        },
+        axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+        data: ["雷锋纪念馆", "关山古镇", "杜甫江阁", "湖南第一师范", "太平街", "马王堆", "大围山滑雪场", "灰汤温泉", "浏阳飞天温泉", "岳麓山"]
+    }],
+    series: [{
+        name: '占比',
+        type: 'bar',
+        label: {
+            normal: {
+                show: true,
+                position: 'right',
+                formatter: '{c}%'
+            }
+        },
+        itemStyle: {
+            normal: {
+                barBorderRadius: [0, 3, 3, 0]
+            }
+        },
+        data: [2.9, 4.6, 6.5, 8.7, 12.4, 15.5, 27.3, 32.2, 38.7, 43.3]
+    }]
+
+};
+module_30086.setOption(option);
+
+$(window).resize(function() {
+    module_30086.resize();
+});
+</script>

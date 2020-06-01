@@ -1,0 +1,330 @@
+<div class="inner-box module_100001 module_30019">
+    <div class="map-info-box">
+        <div class="map-info-box-in">
+            <p class="box">
+                <span class="dtnum" style="font-size: 16px; padding: 12px 0 8px 0;">本地游客分布</span>
+            </p>
+        </div>
+    </div>
+    <div id="module_30027" class="box-chart map-noborder"></div>
+    <div class="map-shawd-t"></div>
+    <div class="map-shawd-b"></div>
+    <div class="map-shawd-r"></div>
+    <div class="map-shawd-l"></div>
+</div>
+<script type="text/javascript">
+var module_30027 = echarts.init(document.getElementById('module_30027'), theme);
+module_30027.showLoading({
+    text: '拼命加载中',
+    color: '#1abdd2',
+    textColor: '#1abdd2',
+    maskColor: 'rgba(6, 34, 54, 0.9)',
+    zlevel: 9
+});
+
+$.get('modules/module_30027/data.json', function(data) {
+    var baseStation = {};
+    var base = [];
+    var ba = function() {
+        for (i = 0; i < 500; i++) {
+            var a = {};
+            var s = Math.floor(Math.random() * 1000).toString();
+            var x = ((Math.floor(Math.random() * 120) / 600));
+            var y = ((Math.floor(Math.random() * 150) / 300));
+            a.serial = parseInt('46003001769' + s);
+            a.coord = [];
+            a.coord[0] = 112.73 + y;
+            a.coord[1] = 28.119 + x;
+            base.push(a);
+        }
+        return baseStation = { "baseStation": base }
+    };
+    ba();
+    data = $.extend(data, baseStation)
+
+    var baseStationRandom = function() {
+        var r = Math.round(Math.random() * 10000) + 2000;
+        return r;
+    }
+
+    var baseStationConvertData = function() {
+        return data.baseStation.map(function(item) {
+            return item.coord.concat(baseStationRandom());
+        });
+    }
+
+    option = {
+        baseOption: {
+            bmap: {
+                center: [113.00, 28.21],
+                zoom: 13,
+                roam: true,
+                mapStyle: {
+                    styleJson: [{
+                            "featureType": "water",
+                            "elementType": "all",
+                            "stylers": {
+                                "color": "#021019"
+                            }
+                        },
+                        {
+                            "featureType": "highway",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#2f0000"
+                            }
+                        },
+                        {
+                            "featureType": "highway",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#6b0000"
+                            }
+                        },
+                        {
+                            "featureType": "arterial",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#073763"
+                            }
+                        },
+                        {
+                            "featureType": "arterial",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#145b89"
+                            }
+                        },
+                        {
+                            "featureType": "local",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#0f486d"
+                            }
+                        },
+                        {
+                            "featureType": "land",
+                            "elementType": "all",
+                            "stylers": {
+                                "color": "#062236"
+                            }
+                        },
+                        {
+                            "featureType": "railway",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#0b5394"
+                            }
+                        },
+                        {
+                            "featureType": "railway",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#000000"
+                            }
+                        },
+                        {
+                            "featureType": "subway",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#073763"
+                            }
+                        },
+                        {
+                            "featureType": "building",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#000000"
+                            }
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels.text.fill",
+                            "stylers": {
+                                "color": "#857f7f"
+                            }
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels.text.stroke",
+                            "stylers": {
+                                "color": "#000000"
+                            }
+                        },
+                        {
+                            "featureType": "building",
+                            "elementType": "geometry",
+                            "stylers": {
+                                "color": "#013a5e"
+                            }
+                        },
+                        {
+                            "featureType": "green",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#0d2700"
+                            }
+                        },
+                        {
+                            "featureType": "boundary",
+                            "elementType": "all",
+                            "stylers": {
+                                "color": "#1e1c1c"
+                            }
+                        },
+                        {
+                            "featureType": "manmade",
+                            "elementType": "all",
+                            "stylers": {
+                                "color": "#022338"
+                            }
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        },
+                        {
+                            "featureType": "local",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#1770aa"
+                            }
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        },
+                        {
+                            "featureType": "arterial",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "on"
+                            }
+                        },
+                        {
+                            "featureType": "railway",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "on"
+                            }
+                        },
+                        {
+                            "featureType": "subway",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "on"
+                            }
+                        },
+                        {
+                            "featureType": "highway",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "on"
+                            }
+                        },
+                        {
+                            "featureType": "green",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#38761d"
+                            }
+                        }
+                    ]
+                }
+            },
+            timeline: {
+                axisType: 'category',
+                orient: 'vertical',
+                autoPlay: true,
+                inverse: true,
+                playInterval: 3000,
+                right: 20,
+                top: 20,
+                z: 1000,
+                bottom: 20,
+                width: 60,
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'rgba(26, 189, 210, .6)'
+                        }
+                    },
+                    emphasis: {
+                        textStyle: {
+                            color: 'rgba(26, 189, 210, 1)'
+                        }
+                    }
+                },
+                symbol: 'none',
+                lineStyle: {
+                    color: 'rgba(26, 189, 210, .6)',
+                    width: 4,
+                },
+                checkpointStyle: {
+                    color: '#fff',
+                    borderColor: 'rgba(26, 189, 210, .9)',
+                    borderWidth: 5
+                },
+                controlStyle: {
+                    showNextBtn: false,
+                    showPrevBtn: false,
+                    normal: {
+                        color: '#1abdd2',
+                        borderColor: '#1abdd2'
+                    },
+                    emphasis: {
+                        color: '#aaa',
+                        borderColor: '#aaa'
+                    }
+                },
+                data: []
+            },
+            visualMap: {
+                show: false,
+                left: 16,
+                bottom: 36,
+                min: 0,
+                max: 10000,
+                seriesIndex: 0,
+                calculable: true,
+                text: ['高', '低'],
+                inRange: {
+                    color: ['blue', 'blue', 'green', 'yellow', 'red']
+                }
+            },
+            series: [{
+                type: 'heatmap',
+                coordinateSystem: 'bmap',
+                data: baseStationConvertData(),
+                pointSize: 16,
+                blurSize: 30
+            }],
+            animationDurationUpdate: 500,
+            animationEasingUpdate: 'quinticInOut'
+        },
+        options: []
+    };
+
+    for (var n = 0; n < data.timeline.length; n++) {
+        option.baseOption.timeline.data.push(data.timeline[n]);
+        option.options.push({
+            series: [{
+                data: baseStationConvertData()
+            }]
+        });
+    }
+
+    module_30027.setOption(option);
+    module_30027.hideLoading();
+});
+
+$(window).resize(function() {
+    module_30027.resize();
+});
+</script>

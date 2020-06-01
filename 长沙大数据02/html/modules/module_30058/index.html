@@ -1,0 +1,60 @@
+<div class="title">
+    <div class="text">关注用户系统环境占比</div>
+</div>
+<div class="inner-box">
+    <div id="module_30058" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+    var module_30058 = echarts.init(document.getElementById('module_30058'), theme);
+    var option = {
+        grid: {
+            left: 70,
+            right: 20,
+            top: 10,
+            bottom: 10,
+        },
+        tooltip: {
+            triggerOn: 'none',
+        },
+        xAxis: {
+            show: false
+        },
+        yAxis: [{
+            type: 'category',
+            boundaryGap: true,
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            data: ["未知", "OS X", "Windows", "Android", "IOS", "WP", "Symbian", "BlackBerry"]
+        }],
+        series: [{
+            name: '占比',
+            type: 'bar',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'right',
+                    formatter: '{c}%'
+                }
+            },
+            itemStyle: {
+                normal: {
+                    barBorderRadius: [0, 3, 3, 0]
+                }
+            },
+            data: [7.55, 5.1, 27.36, 44.31, 11.99, 0.97, 2.41, 0.4]
+        }]
+
+    };
+    module_30058.setOption(option);
+
+    $(window).resize(function() {
+        module_30058.resize();
+    });
+</script>

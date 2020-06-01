@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="res/lib/iview-2.6.0/iview.css">
+    <link rel="stylesheet" href="res/lib/swiper/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="res/css/index.css">
+    <script src="res/lib/jquery/jquery-2.1.4.min.js"></script>
+    <script src="res/lib/vue/vue.min.js"></script>
+    <script src="res/lib/iview-2.6.0/iview.min.js"></script>
+    <script src="res/lib/swiper/swiper-3.4.2.jquery.min.js"></script>
+    <script src="res/lib/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=D4739134efb9184fccbaec0ecf825c15"></script>
+    <script src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
+    <script src="res/lib/echarts/echarts.min.3.7.0.js"></script>
+    <script src="res/lib/echarts/echarts-wordcloud.min.js"></script>
+    <script src="res/lib/echarts/theme/theme.js"></script>
+    <script src="res/lib/peity/jquery.peity.min.js"></script>
+    <script src="res/js/index.js"></script>
+    <title>万维智慧旅游云平台</title>
+</head>
+
+<body>
+    <div class="layout">
+        <div id="layout_header"></div>
+        <div class="layout-page" id="layout_page"></div>
+    </div>
+    <script type="text/javascript">
+    $('#layout_header').tourHeader({
+        productName: [{
+            title: '产业运行监测',
+            label: '服务正常',
+            desc: '这里是对这个系统的简要说明',
+            selected: true
+        }, {
+            title: '产业运行监测',
+            desc: '这里是对这个系统的简要说明'
+        }, {
+            title: '产业运行监测',
+            desc: '这里是对这个系统的简要说明'
+        }],
+        serviceTel: '4008 000 000',
+        search: [{
+            title: '类型1',
+            children: [{
+                title: '搜索结果搜索结果搜索结果'
+            }, {
+                title: '搜索结果搜索结果搜索结果'
+            }]
+        }, {
+            title: '类型2',
+            children: [{
+                title: '搜索结果搜索结果搜索结果'
+            }, {
+                title: '搜索结果搜索结果搜索结果'
+            }]
+        }],
+        shortcut: [{
+            title: '快捷菜单'
+        }, {
+            title: '快捷菜单',
+            divided: true
+        }, {
+            title: '快捷菜单'
+        }, {
+            title: '快捷菜单'
+        }],
+        userSet: {
+            avatar: 'https://91manxing.com/apps/app/core/upload/image/2017/08/07/1502087712967_small.jpg',
+            menu: [{
+                title: '账号设置'
+            }, {
+                title: '账号设置'
+            }, {
+                title: '账号设置'
+            }, {
+                title: '账号设置',
+                divided: true
+            }]
+        },
+        nav: [{
+            title: '首页',
+            href: 'home'
+        }, {
+            title: '设备监测',
+            href: 'equipment'
+        }, {
+            title: '分析预测',
+            href: 'analyse'
+        }, {
+            title: '数据报告',
+            href: 'report'
+        }]
+    });
+
+    // 页面跳转
+    var nav = $.getQueryString('nav');
+    if (nav) {
+        $('#layout_page').load(nav + '.html?' + new Date().getTime());
+    } else {
+        $('#layout_page').load('home.html?' + new Date().getTime());
+    }
+    </script>
+</body>
+
+</html>

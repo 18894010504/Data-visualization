@@ -1,0 +1,73 @@
+<div class="title">
+    <div class="text">舆情关注趋势</div>
+</div>
+<div class="inner-box module_30007">
+    <div id="module_30007" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30007 = echarts.init(document.getElementById('module_30007'), 'BigDataPe');
+var dataTime = ["11月16日", "11月17日", "11月18日", "11月19日", "11月20日", "11月21日", "11月22日", "11月23日", "11月24日", "11月25日", "11月26日", "11月27日", "11月28日", "11月29日", "11月30日", "12月1日", "12月2日", "12月3日", "12月4日", "12月5日", "12月6日", "12月7日", "12月8日", "12月9日", "12月10日", "12月11日", "12月12日","12月13日", "12月14日", "12月15日", ];
+var option = {
+    legend: {
+        top: 5,
+        left: 0,
+        padding: [6, 8],
+        itemGap: 5,
+        data: ['做精做美全域旅游', '天岳幕阜山4A工作', '汝城打造旅游精品', '冰糖橙暨武术文化节']
+    },
+    grid: {
+        left: 0,
+        right: 0,
+        top: 40,
+        bottom: 20
+    },
+    tooltip: {
+        triggerOn: 'none'
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: dataTime
+    },
+    yAxis: [{
+        type: 'value',
+        boundaryGap: true,
+        axisLabel: {
+            inside: true,
+            formatter: '{value}'
+        },
+    }],
+    series: [{
+        name: '做精做美全域旅游',
+        type: 'line',
+        label: {
+            normal: {
+                show: true,
+                position: 'top',
+            }
+        },
+        data: [418, 1579, 2020, 3125, 3830, 5325, 3430, 2820, 2703, 2632, 2610, 2403, 2210, 2011, 1896, 1725, 1530, 1128, 1036, 990, 852, 764, 667, 535, 421, 368, 354, 325, 230, 136]
+    }, {
+        name: '天岳幕阜山4A工作',
+        type: 'line',
+        data: [825, 901, 936, 975, 993, 1211, 1826, 2165, 2425, 2537, 3023, 4810, 3616, 2800, 2513, 2236, 1390, 1206, 1023, 896, 756, 536, 496, 456, 443, 389, 365, 355, 312, 301]
+    }, {
+        name: '汝城打造旅游精品',
+        type: 'line',
+        data: [458, 532, 586, 612, 635, 675, 785, 856, 932, 1195, 1286, 1689, 1810, 2365, 5036, 2536, 2103, 2046, 1829, 1746, 1622, 1069, 991, 998, 856, 705, 620, 556, 486, 281]
+    }, {
+        name: '冰糖橙暨武术文化节',
+        type: 'line',
+        data: [235, 287, 345, 478, 510, 635, 660, 696, 753, 875, 842, 756, 653, 541, 412, 398, 419, 796, 887, 1036, 1120, 1137, 1856, 2107, 2836, 5561, 1783, 1346, 833, 563]
+    }]
+
+};
+module_30007.setOption(option);
+
+$(window).resize(function() {
+    module_30007.resize();
+});
+</script>

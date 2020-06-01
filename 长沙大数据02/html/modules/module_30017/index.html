@@ -1,0 +1,61 @@
+<div class="title">
+    <div class="text">游客负面情绪</div>
+</div>
+<div class="inner-box">
+    <div id="module_30017" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30017 = echarts.init(document.getElementById('module_30017'), theme);
+var option = {
+    grid: {
+        left: 95,
+        right: 20,
+        top: 10,
+        bottom: 10
+    },
+    tooltip: {
+        triggerOn: 'none'
+    },
+    xAxis: {
+        show: false
+    },
+    yAxis: [{
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+        data: ["公共场所乱停放", "游客服务态度差", "交通不便", "景区强制消费", "市区交通拥挤", "黑导游", "私家车坑游客", "商家自调物价", "小吃城卫生差", "管理混乱"]
+    }],
+    series: [{
+        name: '占比',
+        type: 'bar',
+        label: {
+            normal: {
+                show: true,
+                position: 'right',
+                formatter: '{c}%'
+            }
+        },
+        itemStyle: {
+            normal: {
+                barBorderRadius: [0, 3, 3, 0]
+            }
+        },
+        
+        data: [25.5,5.5, 14.3,  3.6, 18.1,  2.9, 7.8, 12.6, 7.6, 2.1]
+    }]
+
+};
+module_30017.setOption(option);
+
+$(window).resize(function() {
+    module_30017.resize();
+});
+</script>

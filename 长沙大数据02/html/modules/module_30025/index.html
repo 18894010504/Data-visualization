@@ -1,0 +1,61 @@
+<div class="title">
+    <div class="text">本地游客外出城市TOP10</div>
+</div>
+<div class="inner-box">
+    <div id="module_30025" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30025 = echarts.init(document.getElementById('module_30025'), theme);
+var option = {
+
+    grid: {
+        left: 52,
+        right: 20,
+        top: 10,
+        bottom: 10,
+    },
+    tooltip: {
+        triggerOn: 'none',
+    },
+    xAxis: {
+        show: false
+    },
+    yAxis: [{
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+        data: ["景德镇", "南昌", "郴州", "韶关", "岳阳", "湘潭", "株洲", "湘西", "衡阳", "张家界"]
+    }],
+    series: [{
+        name: '占比',
+        type: 'bar',
+        label: {
+            normal: {
+                show: true,
+                position: 'right',
+                formatter: '{c}%'
+            }
+        },
+        itemStyle: {
+            normal: {
+                barBorderRadius: [0, 3, 3, 0]
+            }
+        },
+        data: [2.6, 5.3, 7.3, 11.9, 12.2, 15.4, 16.8, 18.5, 25.3, 31.6]
+    }]
+
+};
+module_30025.setOption(option);
+
+$(window).resize(function() {
+    module_30025.resize();
+});
+</script>

@@ -1,0 +1,1767 @@
+<style>
+    .key-item-swiper .swiper-wrapper {
+        height: 60px;
+    }
+    #guide_panel_04 .table-bottom {
+        display: none;
+    }
+</style>
+
+<div class="page-container">
+    <div class="inner-page">
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="guide_panel_04"></div>
+            </div>
+        </div>
+        <div id="inner_page_footer"></div>
+    </div>
+    <div id="page_footer"></div>
+</div>
+<script type="text/javascript">
+new Vue({
+        el: '#filter_panel',
+        data: {
+            model1: '',
+            model2: '',
+            model3: '',
+            cityList: [{
+                value: 'beijing',
+                label: '北京市'
+            }, {
+                value: 'shanghai',
+                label: '上海市'
+            }, {
+                value: 'shenzhen',
+                label: '深圳市'
+            }, {
+                value: 'hangzhou',
+                label: '杭州市'
+            }, {
+                value: 'nanjing',
+                label: '南京市'
+            }, {
+                value: 'chongqing',
+                label: '重庆市'
+            }],
+            options: {
+                shortcuts: [
+                    {
+                        text: '近一周',
+                        value () {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                            return [start, end];
+                        }
+                    },
+                    {
+                        text: '近一月',
+                        value () {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                            return [start, end];
+                        }
+                    },
+                    {
+                        text: '近三月',
+                        value () {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                            return [start, end];
+                        }
+                    }
+                ]
+            }
+        }
+    });
+
+$('#inner_page_header').tourInnerPageHeader({
+    pageTitle: '旅游资源分析',
+    btnSave: false,
+    btnNew: false,
+    btnPrintReport: false
+});
+
+$('#alert_info').tourAlert({
+    desc: '消息提示的描述文案消息提示的描述文案消息提示的描述文案消息提示的描述文案消息提示的描述文案',
+    href: '#'
+});
+
+$('#key_item_swiper').tourKeyItemSwiper({
+    data: [{
+        title: '全部旅游资源',
+        value: '13,432',
+        subValue: 0.4,
+        selected: true
+    }, {
+        title: '旅行社',
+        value: '9,432',
+        subValue: -0.4,
+        selected: true
+    }, {
+        title: '景区',
+        value: '32',
+        subValue: 0.4,
+        selected: true
+    }, {
+        title: '酒店',
+        value: '2,432',
+        subValue: -0.4,
+        selected: true
+    }, {
+        title: '餐饮',
+        value: '2,432',
+        subValue: -0.4,
+        selected: true
+    }, {
+        title: '娱乐',
+        value: '2,432',
+        subValue: -0.4,
+        selected: true
+    }, {
+        title: '购物',
+        value: '2,432',
+        subValue: -0.4,
+        selected: true
+    },
+        {
+        title: '交通站',
+        value: '2,432',
+        subValue: -0.4,
+        selected: true
+    }, {
+        title: '服务',
+        value: '2,432',
+        subValue: -0.4,
+        selected: true
+    }]
+});
+
+$('#guide_panel_01').tourChartPanel({
+    chartId: 'chart_01',
+    chartTitle: '各区县(市)旅游资源分布占比',
+    viewHref: '#',
+    datas: [{
+        type: 'pie',
+        label: '芙蓉区',
+        keyValue: [{
+            key: '旅行社',
+            value: '233,343家'
+        }, {
+            key: '景区',
+            value: '233,343个'
+        }, {
+            key: '酒店',
+            value: '233,343家'
+        }, {
+            key: '餐饮',
+            value: '233,343家'
+        }, {
+            key: '娱乐',
+            value: '233,343家'
+        }, {
+            key: '购物',
+            value: '233,343家'
+        }, {
+            key: '交通站',
+            value: '233,343家'
+        }, {
+            key: '服务',
+            value: '233,343家'
+        }],
+        columns: [{
+            title: '类别',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '旅行社',
+            value: 782
+        },{
+            name: '景区',
+            value: 325
+        },{
+            name: '酒店',
+            value: 325
+        },{
+            name: '餐饮',
+            value: 325
+        },{
+            name: '娱乐',
+            value: 325
+        },{
+            name: '购物',
+            value: 325
+        },{
+            name: '交通站',
+            value: 325
+        },{
+            name: '服务',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '天心区',
+        keyValue: [{
+            key: '旅行社',
+            value: '233,343家'
+        }, {
+            key: '景区',
+            value: '233,343个'
+        }, {
+            key: '酒店',
+            value: '233,343家'
+        }, {
+            key: '餐饮',
+            value: '233,343家'
+        }, {
+            key: '娱乐',
+            value: '233,343家'
+        }, {
+            key: '购物',
+            value: '233,343家'
+        }, {
+            key: '交通站',
+            value: '233,343家'
+        }, {
+            key: '服务',
+            value: '233,343家'
+        }],
+        columns: [{
+            title: '类别',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '旅行社',
+            value: 782
+        },{
+            name: '景区',
+            value: 325
+        },{
+            name: '酒店',
+            value: 325
+        },{
+            name: '餐饮',
+            value: 325
+        },{
+            name: '娱乐',
+            value: 325
+        },{
+            name: '购物',
+            value: 325
+        },{
+            name: '交通站',
+            value: 325
+        },{
+            name: '服务',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '岳麓区',
+        keyValue: [{
+            key: '旅行社',
+            value: '233,343家'
+        }, {
+            key: '景区',
+            value: '233,343个'
+        }, {
+            key: '酒店',
+            value: '233,343家'
+        }, {
+            key: '餐饮',
+            value: '233,343家'
+        }, {
+            key: '娱乐',
+            value: '233,343家'
+        }, {
+            key: '购物',
+            value: '233,343家'
+        }, {
+            key: '交通站',
+            value: '233,343家'
+        }, {
+            key: '服务',
+            value: '233,343家'
+        }],
+        columns: [{
+            title: '类别',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '旅行社',
+            value: 782
+        },{
+            name: '景区',
+            value: 325
+        },{
+            name: '酒店',
+            value: 325
+        },{
+            name: '餐饮',
+            value: 325
+        },{
+            name: '娱乐',
+            value: 325
+        },{
+            name: '购物',
+            value: 325
+        },{
+            name: '交通站',
+            value: 325
+        },{
+            name: '服务',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '开福区',
+        keyValue: [{
+            key: '旅行社',
+            value: '233,343家'
+        }, {
+            key: '景区',
+            value: '233,343个'
+        }, {
+            key: '酒店',
+            value: '233,343家'
+        }, {
+            key: '餐饮',
+            value: '233,343家'
+        }, {
+            key: '娱乐',
+            value: '233,343家'
+        }, {
+            key: '购物',
+            value: '233,343家'
+        }, {
+            key: '交通站',
+            value: '233,343家'
+        }, {
+            key: '服务',
+            value: '233,343家'
+        }],
+        columns: [{
+            title: '类别',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '旅行社',
+            value: 782
+        },{
+            name: '景区',
+            value: 325
+        },{
+            name: '酒店',
+            value: 325
+        },{
+            name: '餐饮',
+            value: 325
+        },{
+            name: '娱乐',
+            value: 325
+        },{
+            name: '购物',
+            value: 325
+        },{
+            name: '交通站',
+            value: 325
+        },{
+            name: '服务',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '雨花区',
+        keyValue: [{
+            key: '旅行社',
+            value: '233,343家'
+        }, {
+            key: '景区',
+            value: '233,343个'
+        }, {
+            key: '酒店',
+            value: '233,343家'
+        }, {
+            key: '餐饮',
+            value: '233,343家'
+        }, {
+            key: '娱乐',
+            value: '233,343家'
+        }, {
+            key: '购物',
+            value: '233,343家'
+        }, {
+            key: '交通站',
+            value: '233,343家'
+        }, {
+            key: '服务',
+            value: '233,343家'
+        }],
+        columns: [{
+            title: '类别',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '旅行社',
+            value: 782
+        },{
+            name: '景区',
+            value: 325
+        },{
+            name: '酒店',
+            value: 325
+        },{
+            name: '餐饮',
+            value: 325
+        },{
+            name: '娱乐',
+            value: 325
+        },{
+            name: '购物',
+            value: 325
+        },{
+            name: '交通站',
+            value: 325
+        },{
+            name: '服务',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '望城区',
+        keyValue: [{
+            key: '旅行社',
+            value: '233,343家'
+        }, {
+            key: '景区',
+            value: '233,343个'
+        }, {
+            key: '酒店',
+            value: '233,343家'
+        }, {
+            key: '餐饮',
+            value: '233,343家'
+        }, {
+            key: '娱乐',
+            value: '233,343家'
+        }, {
+            key: '购物',
+            value: '233,343家'
+        }, {
+            key: '交通站',
+            value: '233,343家'
+        }, {
+            key: '服务',
+            value: '233,343家'
+        }],
+        columns: [{
+            title: '类别',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '旅行社',
+            value: 782
+        },{
+            name: '景区',
+            value: 325
+        },{
+            name: '酒店',
+            value: 325
+        },{
+            name: '餐饮',
+            value: 325
+        },{
+            name: '娱乐',
+            value: 325
+        },{
+            name: '购物',
+            value: 325
+        },{
+            name: '交通站',
+            value: 325
+        },{
+            name: '服务',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '浏阳市',
+        keyValue: [{
+            key: '旅行社',
+            value: '233,343家'
+        }, {
+            key: '景区',
+            value: '233,343个'
+        }, {
+            key: '酒店',
+            value: '233,343家'
+        }, {
+            key: '餐饮',
+            value: '233,343家'
+        }, {
+            key: '娱乐',
+            value: '233,343家'
+        }, {
+            key: '购物',
+            value: '233,343家'
+        }, {
+            key: '交通站',
+            value: '233,343家'
+        }, {
+            key: '服务',
+            value: '233,343家'
+        }],
+        columns: [{
+            title: '类别',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '旅行社',
+            value: 782
+        },{
+            name: '景区',
+            value: 325
+        },{
+            name: '酒店',
+            value: 325
+        },{
+            name: '餐饮',
+            value: 325
+        },{
+            name: '娱乐',
+            value: 325
+        },{
+            name: '购物',
+            value: 325
+        },{
+            name: '交通站',
+            value: 325
+        },{
+            name: '服务',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '宁乡市',
+        keyValue: [{
+            key: '旅行社',
+            value: '233,343家'
+        }, {
+            key: '景区',
+            value: '233,343个'
+        }, {
+            key: '酒店',
+            value: '233,343家'
+        }, {
+            key: '餐饮',
+            value: '233,343家'
+        }, {
+            key: '娱乐',
+            value: '233,343家'
+        }, {
+            key: '购物',
+            value: '233,343家'
+        }, {
+            key: '交通站',
+            value: '233,343家'
+        }, {
+            key: '服务',
+            value: '233,343家'
+        }],
+        columns: [{
+            title: '类别',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '旅行社',
+            value: 782
+        },{
+            name: '景区',
+            value: 325
+        },{
+            name: '酒店',
+            value: 325
+        },{
+            name: '餐饮',
+            value: 325
+        },{
+            name: '娱乐',
+            value: 325
+        },{
+            name: '购物',
+            value: 325
+        },{
+            name: '交通站',
+            value: 325
+        },{
+            name: '服务',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '长沙县',
+        keyValue: [{
+            key: '旅行社',
+            value: '233,343家'
+        }, {
+            key: '景区',
+            value: '233,343个'
+        }, {
+            key: '酒店',
+            value: '233,343家'
+        }, {
+            key: '餐饮',
+            value: '233,343家'
+        }, {
+            key: '娱乐',
+            value: '233,343家'
+        }, {
+            key: '购物',
+            value: '233,343家'
+        }, {
+            key: '交通站',
+            value: '233,343家'
+        }, {
+            key: '服务',
+            value: '233,343家'
+        }],
+        columns: [{
+            title: '类别',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '旅行社',
+            value: 782
+        },{
+            name: '景区',
+            value: 325
+        },{
+            name: '酒店',
+            value: 325
+        },{
+            name: '餐饮',
+            value: 325
+        },{
+            name: '娱乐',
+            value: 325
+        },{
+            name: '购物',
+            value: 325
+        },{
+            name: '交通站',
+            value: 325
+        },{
+            name: '服务',
+            value: 325
+        }]
+    }]
+});
+
+$('#guide_panel_02').tourChartPanel({
+    chartId: 'chart_02',
+    chartTitle: '旅游资源各区县(市)分布占比',
+    viewHref: '#',
+    datas: [{
+        type: 'pie',
+        label: '旅行社',
+        keyValue: [{
+            key: '芙蓉区',
+            value: '3,343家'
+        }, {
+            key: '天心区',
+            value: '3,343家'
+        }, {
+            key: '岳麓区',
+            value: '3,343家'
+        },{
+            key: '开福区',
+            value: '3,343家'
+        },{
+            key: '雨花区',
+            value: '3,343家'
+        },{
+            key: '望城区',
+            value: '3,343家'
+        },{
+            key: '浏阳市',
+            value: '3,343家'
+        },{
+            key: '宁乡市',
+            value: '3,343家'
+        },{
+            key: '长沙县',
+            value: '3,343家'
+        }],
+        columns: [{
+            title: '区县(市)',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '芙蓉区',
+            value: 782
+        },{
+            name: '天心区',
+            value: 325
+        },{
+            name: '出境游',
+            value: 325
+        },{
+            name: '岳麓区',
+            value: 325
+        },{
+            name: '开福区',
+            value: 325
+        },{
+            name: '雨花区',
+            value: 325
+        },{
+            name: '望城区',
+            value: 325
+        },{
+            name: '浏阳市',
+            value: 325
+        },{
+            name: '宁乡市',
+            value: 325
+        },{
+            name: '长沙县',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '景区',
+        keyValue: [{
+            key: '芙蓉区',
+            value: '3,343个'
+        }, {
+            key: '天心区',
+            value: '3,343个'
+        }, {
+            key: '岳麓区',
+            value: '3,343个'
+        },{
+            key: '开福区',
+            value: '3,343个'
+        },{
+            key: '雨花区',
+            value: '3,343个'
+        },{
+            key: '望城区',
+            value: '3,343个'
+        },{
+            key: '浏阳市',
+            value: '3,343个'
+        },{
+            key: '宁乡市',
+            value: '3,343个'
+        },{
+            key: '长沙县',
+            value: '3,343个'
+        }],
+        columns: [{
+            title: '区县(市)',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '芙蓉区',
+            value: 782
+        },{
+            name: '天心区',
+            value: 325
+        },{
+            name: '出境游',
+            value: 325
+        },{
+            name: '岳麓区',
+            value: 325
+        },{
+            name: '开福区',
+            value: 325
+        },{
+            name: '雨花区',
+            value: 325
+        },{
+            name: '望城区',
+            value: 325
+        },{
+            name: '浏阳市',
+            value: 325
+        },{
+            name: '宁乡市',
+            value: 325
+        },{
+            name: '长沙县',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '酒店',
+        keyValue: [{
+            key: '芙蓉区',
+            value: '3,343家'
+        }, {
+            key: '天心区',
+            value: '3,343家'
+        }, {
+            key: '岳麓区',
+            value: '3,343家'
+        },{
+            key: '开福区',
+            value: '3,343家'
+        },{
+            key: '雨花区',
+            value: '3,343家'
+        },{
+            key: '望城区',
+            value: '3,343家'
+        },{
+            key: '浏阳市',
+            value: '3,343家'
+        },{
+            key: '宁乡市',
+            value: '3,343家'
+        },{
+            key: '长沙县',
+            value: '3,343家'
+        }],
+        columns: [{
+            title: '区县(市)',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '芙蓉区',
+            value: 782
+        },{
+            name: '天心区',
+            value: 325
+        },{
+            name: '出境游',
+            value: 325
+        },{
+            name: '岳麓区',
+            value: 325
+        },{
+            name: '开福区',
+            value: 325
+        },{
+            name: '雨花区',
+            value: 325
+        },{
+            name: '望城区',
+            value: 325
+        },{
+            name: '浏阳市',
+            value: 325
+        },{
+            name: '宁乡市',
+            value: 325
+        },{
+            name: '长沙县',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '餐饮',
+        keyValue: [{
+            key: '芙蓉区',
+            value: '3,343家'
+        }, {
+            key: '天心区',
+            value: '3,343家'
+        }, {
+            key: '岳麓区',
+            value: '3,343家'
+        },{
+            key: '开福区',
+            value: '3,343家'
+        },{
+            key: '雨花区',
+            value: '3,343家'
+        },{
+            key: '望城区',
+            value: '3,343家'
+        },{
+            key: '浏阳市',
+            value: '3,343家'
+        },{
+            key: '宁乡市',
+            value: '3,343家'
+        },{
+            key: '长沙县',
+            value: '3,343家'
+        }],
+        columns: [{
+            title: '区县(市)',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '芙蓉区',
+            value: 782
+        },{
+            name: '天心区',
+            value: 325
+        },{
+            name: '出境游',
+            value: 325
+        },{
+            name: '岳麓区',
+            value: 325
+        },{
+            name: '开福区',
+            value: 325
+        },{
+            name: '雨花区',
+            value: 325
+        },{
+            name: '望城区',
+            value: 325
+        },{
+            name: '浏阳市',
+            value: 325
+        },{
+            name: '宁乡市',
+            value: 325
+        },{
+            name: '长沙县',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '娱乐',
+        keyValue: [{
+            key: '芙蓉区',
+            value: '3,343家'
+        }, {
+            key: '天心区',
+            value: '3,343家'
+        }, {
+            key: '岳麓区',
+            value: '3,343家'
+        },{
+            key: '开福区',
+            value: '3,343家'
+        },{
+            key: '雨花区',
+            value: '3,343家'
+        },{
+            key: '望城区',
+            value: '3,343家'
+        },{
+            key: '浏阳市',
+            value: '3,343家'
+        },{
+            key: '宁乡市',
+            value: '3,343家'
+        },{
+            key: '长沙县',
+            value: '3,343家'
+        }],
+        columns: [{
+            title: '区县(市)',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '芙蓉区',
+            value: 782
+        },{
+            name: '天心区',
+            value: 325
+        },{
+            name: '出境游',
+            value: 325
+        },{
+            name: '岳麓区',
+            value: 325
+        },{
+            name: '开福区',
+            value: 325
+        },{
+            name: '雨花区',
+            value: 325
+        },{
+            name: '望城区',
+            value: 325
+        },{
+            name: '浏阳市',
+            value: 325
+        },{
+            name: '宁乡市',
+            value: 325
+        },{
+            name: '长沙县',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '购物',
+        keyValue: [{
+            key: '芙蓉区',
+            value: '3,343家'
+        }, {
+            key: '天心区',
+            value: '3,343家'
+        }, {
+            key: '岳麓区',
+            value: '3,343家'
+        },{
+            key: '开福区',
+            value: '3,343家'
+        },{
+            key: '雨花区',
+            value: '3,343家'
+        },{
+            key: '望城区',
+            value: '3,343家'
+        },{
+            key: '浏阳市',
+            value: '3,343家'
+        },{
+            key: '宁乡市',
+            value: '3,343家'
+        },{
+            key: '长沙县',
+            value: '3,343家'
+        }],
+        columns: [{
+            title: '区县(市)',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '芙蓉区',
+            value: 782
+        },{
+            name: '天心区',
+            value: 325
+        },{
+            name: '出境游',
+            value: 325
+        },{
+            name: '岳麓区',
+            value: 325
+        },{
+            name: '开福区',
+            value: 325
+        },{
+            name: '雨花区',
+            value: 325
+        },{
+            name: '望城区',
+            value: 325
+        },{
+            name: '浏阳市',
+            value: 325
+        },{
+            name: '宁乡市',
+            value: 325
+        },{
+            name: '长沙县',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '交通站',
+        keyValue: [{
+            key: '芙蓉区',
+            value: '3,343家'
+        }, {
+            key: '天心区',
+            value: '3,343家'
+        }, {
+            key: '岳麓区',
+            value: '3,343家'
+        },{
+            key: '开福区',
+            value: '3,343家'
+        },{
+            key: '雨花区',
+            value: '3,343家'
+        },{
+            key: '望城区',
+            value: '3,343家'
+        },{
+            key: '浏阳市',
+            value: '3,343家'
+        },{
+            key: '宁乡市',
+            value: '3,343家'
+        },{
+            key: '长沙县',
+            value: '3,343家'
+        }],
+        columns: [{
+            title: '区县(市)',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '芙蓉区',
+            value: 782
+        },{
+            name: '天心区',
+            value: 325
+        },{
+            name: '出境游',
+            value: 325
+        },{
+            name: '岳麓区',
+            value: 325
+        },{
+            name: '开福区',
+            value: 325
+        },{
+            name: '雨花区',
+            value: 325
+        },{
+            name: '望城区',
+            value: 325
+        },{
+            name: '浏阳市',
+            value: 325
+        },{
+            name: '宁乡市',
+            value: 325
+        },{
+            name: '长沙县',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '服务',
+        keyValue: [{
+            key: '芙蓉区',
+            value: '3,343家'
+        }, {
+            key: '天心区',
+            value: '3,343家'
+        }, {
+            key: '岳麓区',
+            value: '3,343家'
+        },{
+            key: '开福区',
+            value: '3,343家'
+        },{
+            key: '雨花区',
+            value: '3,343家'
+        },{
+            key: '望城区',
+            value: '3,343家'
+        },{
+            key: '浏阳市',
+            value: '3,343家'
+        },{
+            key: '宁乡市',
+            value: '3,343家'
+        },{
+            key: '长沙县',
+            value: '3,343家'
+        }],
+        columns: [{
+            title: '区县(市)',
+            key: 'name'
+        }, {
+            title: '数量',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '芙蓉区',
+            value: 782
+        },{
+            name: '天心区',
+            value: 325
+        },{
+            name: '出境游',
+            value: 325
+        },{
+            name: '岳麓区',
+            value: 325
+        },{
+            name: '开福区',
+            value: 325
+        },{
+            name: '雨花区',
+            value: 325
+        },{
+            name: '望城区',
+            value: 325
+        },{
+            name: '浏阳市',
+            value: 325
+        },{
+            name: '宁乡市',
+            value: 325
+        },{
+            name: '长沙县',
+            value: 325
+        }]
+    }]
+});
+
+$('#guide_panel_04').tourChartTablePanel({
+    chartId: 'chart_id',
+    chartTitle: '客流对比分析',
+    chartLegend: '数量',
+    chartType: 'bar',
+    tableTitle: '客流对比分析',
+    columns: [{
+        "title": "区县(市)",
+        "key": "name",
+        "fixed": "left",
+        "width": 150
+    }, {
+        "title": "甘肃",
+        "key": "lxs",
+        "width": 170,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总数',
+            value: '1,343'
+        }, {
+            key: '芙蓉区',
+            value: '1,343'
+        }, {
+            key: '天心区',
+            value: '1,343'
+        }, {
+            key: '岳麓区',
+            value: '1,343'
+        }, {
+            key: '开福区',
+            value: '1,343'
+        }, {
+            key: '雨花区',
+            value: '1,343'
+        }, {
+            key: '望城区',
+            value: '1,343'
+        }, {
+            key: '浏阳市',
+            value: '1,343'
+        }, {
+            key: '宁乡市',
+            value: '1,343'
+        }, {
+            key: '长沙县',
+            value: '1,343'
+        }],
+        filters: [{
+            label: '大于4000',
+            value: 1
+        }, {
+            label: '小于4000',
+            value: 2
+        }],
+        filterMultiple: false,
+        filterMethod(value, row) {
+            if (value === 1) {
+                return row.lxs > 4000;
+            } else if (value === 2) {
+                return row.lxs < 4000;
+            }
+        }
+    },{
+        "title": "景区",
+        "key": "jq",
+        "width": 170,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总数',
+            value: '1,343'
+        }, {
+            key: '芙蓉区',
+            value: '1,343'
+        }, {
+            key: '天心区',
+            value: '1,343'
+        }, {
+            key: '岳麓区',
+            value: '1,343'
+        }, {
+            key: '开福区',
+            value: '1,343'
+        }, {
+            key: '雨花区',
+            value: '1,343'
+        }, {
+            key: '望城区',
+            value: '1,343'
+        }, {
+            key: '浏阳市',
+            value: '1,343'
+        }, {
+            key: '宁乡市',
+            value: '1,343'
+        }, {
+            key: '长沙县',
+            value: '1,343'
+        }]
+    },{
+        "title": "酒店",
+        "key": "jd",
+        "width": 170,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总数',
+            value: '1,343'
+        }, {
+            key: '芙蓉区',
+            value: '1,343'
+        }, {
+            key: '天心区',
+            value: '1,343'
+        }, {
+            key: '岳麓区',
+            value: '1,343'
+        }, {
+            key: '开福区',
+            value: '1,343'
+        }, {
+            key: '雨花区',
+            value: '1,343'
+        }, {
+            key: '望城区',
+            value: '1,343'
+        }, {
+            key: '浏阳市',
+            value: '1,343'
+        }, {
+            key: '宁乡市',
+            value: '1,343'
+        }, {
+            key: '长沙县',
+            value: '1,343'
+        }]
+    },{
+        "title": "餐饮",
+        "key": "cy",
+        "width": 170,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总数',
+            value: '1,343'
+        }, {
+            key: '芙蓉区',
+            value: '1,343'
+        }, {
+            key: '天心区',
+            value: '1,343'
+        }, {
+            key: '岳麓区',
+            value: '1,343'
+        }, {
+            key: '开福区',
+            value: '1,343'
+        }, {
+            key: '雨花区',
+            value: '1,343'
+        }, {
+            key: '望城区',
+            value: '1,343'
+        }, {
+            key: '浏阳市',
+            value: '1,343'
+        }, {
+            key: '宁乡市',
+            value: '1,343'
+        }, {
+            key: '长沙县',
+            value: '1,343'
+        }]
+    },{
+        "title": "娱乐",
+        "key": "yl",
+        "width": 170,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总数',
+            value: '1,343'
+        }, {
+            key: '芙蓉区',
+            value: '1,343'
+        }, {
+            key: '天心区',
+            value: '1,343'
+        }, {
+            key: '岳麓区',
+            value: '1,343'
+        }, {
+            key: '开福区',
+            value: '1,343'
+        }, {
+            key: '雨花区',
+            value: '1,343'
+        }, {
+            key: '望城区',
+            value: '1,343'
+        }, {
+            key: '浏阳市',
+            value: '1,343'
+        }, {
+            key: '宁乡市',
+            value: '1,343'
+        }, {
+            key: '长沙县',
+            value: '1,343'
+        }]
+    },{
+        "title": "购物",
+        "key": "gw",
+        "width": 170,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总数',
+            value: '1,343'
+        }, {
+            key: '芙蓉区',
+            value: '1,343'
+        }, {
+            key: '天心区',
+            value: '1,343'
+        }, {
+            key: '岳麓区',
+            value: '1,343'
+        }, {
+            key: '开福区',
+            value: '1,343'
+        }, {
+            key: '雨花区',
+            value: '1,343'
+        }, {
+            key: '望城区',
+            value: '1,343'
+        }, {
+            key: '浏阳市',
+            value: '1,343'
+        }, {
+            key: '宁乡市',
+            value: '1,343'
+        }, {
+            key: '长沙县',
+            value: '1,343'
+        }]
+    },{
+        "title": "交通站",
+        "key": "jtz",
+        "width": 170,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总数',
+            value: '1,343'
+        }, {
+            key: '芙蓉区',
+            value: '1,343'
+        }, {
+            key: '天心区',
+            value: '1,343'
+        }, {
+            key: '岳麓区',
+            value: '1,343'
+        }, {
+            key: '开福区',
+            value: '1,343'
+        }, {
+            key: '雨花区',
+            value: '1,343'
+        }, {
+            key: '望城区',
+            value: '1,343'
+        }, {
+            key: '浏阳市',
+            value: '1,343'
+        }, {
+            key: '宁乡市',
+            value: '1,343'
+        }, {
+            key: '长沙县',
+            value: '1,343'
+        }]
+    },{
+        "title": "服务",
+        "key": "fw",
+        "width": 170,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '总数',
+            value: '1,343'
+        }, {
+            key: '芙蓉区',
+            value: '1,343'
+        }, {
+            key: '天心区',
+            value: '1,343'
+        }, {
+            key: '岳麓区',
+            value: '1,343'
+        }, {
+            key: '开福区',
+            value: '1,343'
+        }, {
+            key: '雨花区',
+            value: '1,343'
+        }, {
+            key: '望城区',
+            value: '1,343'
+        }, {
+            key: '浏阳市',
+            value: '1,343'
+        }, {
+            key: '宁乡市',
+            value: '1,343'
+        }, {
+            key: '长沙县',
+            value: '1,343'
+        }]
+    } ],
+    data: [{
+        "name": "芙蓉区",
+        "lxs": 7302,
+        "jq": 5627,
+        "jd": 1563,
+        "cy": 4254,
+        "yl": 1438,
+        "gw": 274,
+        "jtz": 285,
+        "fw": 285
+    }, {
+        "name": "天心区",
+        "lxs": 4720,
+        "jq": 4086,
+        "jd": 3792,
+        "cy": 8690,
+        "yl": 8470,
+        "gw": 8172,
+        "jtz": 5197,
+        "fw": 5197
+    }, {
+        "name": "岳麓区",
+        "lxs": 7181,
+        "jq": 8007,
+        "jd": 8477,
+        "cy": 1879,
+        "yl": 16,
+        "gw": 2249,
+        "jtz": 3450,
+        "fw": 3450
+    }, {
+        "name": "开福区",
+        "lxs": 9911,
+        "jq": 8976,
+        "jd": 8807,
+        "cy": 8050,
+        "yl": 7668,
+        "gw": 1547,
+        "jtz": 2357,
+        "fw": 2357
+    }, {
+        "name": "雨花区",
+        "lxs": 934,
+        "jq": 1394,
+        "jd": 6463,
+        "cy": 5278,
+        "yl": 9256,
+        "gw": 209,
+        "jtz": 3563
+    }, {
+        "name": "望城区",
+        "lxs": 6856,
+        "jq": 1608,
+        "jd": 457,
+        "cy": 4949,
+        "yl": 2909,
+        "gw": 4525,
+        "jtz": 6171,
+        "fw": 6171
+    }, {
+        "name": "浏阳市",
+        "lxs": 5107,
+        "jq": 6407,
+        "jd": 4166,
+        "cy": 7970,
+        "yl": 1002,
+        "gw": 8701,
+        "jtz": 9040,
+        "fw": 9040
+    }, {
+        "name": "宁乡市",
+        "lxs": 862,
+        "jq": 6520,
+        "jd": 6696,
+        "cy": 3209,
+        "yl": 6801,
+        "gw": 6364,
+        "jtz": 6850,
+        "fw": 6850
+    }, {
+        "name": "长沙县",
+        "lxs": 567,
+        "jq": 5859,
+        "jd": 128,
+        "cy": 6593,
+        "yl": 1971,
+        "gw": 7596,
+        "jtz": 3546
+    }]
+});
+
+$('#guide_panel_05').tourTablePanel({
+    tableTitle: '旅游资源分布详情',
+    columns: [{
+        "title": "商家名称",
+        "key": "name",
+        "fixed": "left",
+        "width": 150
+    }, {
+        "title": "所在区县(市)",
+        "key": "county",
+        "width": 150,
+        "sortable": true,
+        className: ''
+    }, {
+        "title": "详细地址",
+        "key": "addr",
+        "width": 600,
+        "sortable": true,
+        className: ''
+    }, {
+        "title": "联系电话",
+        "key": "phone",
+        "width": 150,
+        "sortable": true,
+        className: ''
+    }, {
+        "title": "企业编码",
+        "key": "code",
+        "width": 150,
+        "sortable": true,
+        className: ''
+    }],
+    data: [{
+        "name": "神龙国际旅行社",
+        "county": '芙蓉区',
+        "addr": '湖南省长沙市雨花区中意一路69号全家园大酒楼六、七楼(韶山南路井湾子南50米)',
+        "phone": 13619380948,
+        "code": 'AEF9382823F23'
+    }, {
+        "name": "神龙国际旅行社",
+        "county": '芙蓉区',
+        "addr": '湖南省长沙市雨花区中意一路69号全家园大酒楼六、七楼(韶山南路井湾子南50米)',
+        "phone": 13619380948,
+        "code": 'AEF9382823F23'
+    }, {
+        "name": "神龙国际旅行社",
+        "county": '芙蓉区',
+        "addr": '湖南省长沙市雨花区中意一路69号全家园大酒楼六、七楼(韶山南路井湾子南50米)',
+        "phone": 13619380948,
+        "code": 'AEF9382823F23'
+    }, {
+        "name": "神龙国际旅行社",
+        "county": '芙蓉区',
+        "addr": '湖南省长沙市雨花区中意一路69号全家园大酒楼六、七楼(韶山南路井湾子南50米)',
+        "phone": 13619380948,
+        "code": 'AEF9382823F23'
+    }, {
+        "name": "神龙国际旅行社",
+        "county": '芙蓉区',
+        "addr": '湖南省长沙市雨花区中意一路69号全家园大酒楼六、七楼(韶山南路井湾子南50米)',
+        "phone": 13619380948,
+        "code": 'AEF9382823F23'
+    }, {
+        "name": "神龙国际旅行社",
+        "county": '芙蓉区',
+        "addr": '湖南省长沙市雨花区中意一路69号全家园大酒楼六、七楼(韶山南路井湾子南50米)',
+        "phone": 13619380948,
+        "code": 'AEF9382823F23'
+    }, {
+        "name": "神龙国际旅行社",
+        "county": '芙蓉区',
+        "addr": '湖南省长沙市雨花区中意一路69号全家园大酒楼六、七楼(韶山南路井湾子南50米)',
+        "phone": 13619380948,
+        "code": 'AEF9382823F23'
+    }]
+});
+
+$('#inner_page_footer').tourInnerPageFooter({
+    source: '万维旅游云服务 ©wanwei.com.cn',
+    content: `<p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等。</p>`
+});
+
+$('#page_footer').tourFooter();
+
+</script>

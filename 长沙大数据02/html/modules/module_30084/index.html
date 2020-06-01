@@ -1,0 +1,1115 @@
+<div class="inner-box module_30084">
+    <div class="map-info-box">
+        <div class="map-info-box-in">
+            <h5 class="info-title">预计上升最快省份</h5>
+            <p class="box">
+                <span class="dtnum" style="font-size: 24px; padding: 12px 0 4px 0;">广东 <label class="upup" style="font-size: 24px;">32.6 %</label></span>
+            </p>
+            <br>
+            <p class="box">
+                <span class="dtnum" style="font-size: 24px; padding: 12px 0 4px 0;">湖北 <label class="upup" style="font-size: 24px;">30.2 %</label></span>
+            </p>
+            <br>
+            <p class="box">
+                <span class="dtnum" style="font-size: 24px; padding: 12px 0 4px 0;">江西 <label class="upup" style="font-size: 24px;">27.5 %</label><span>
+            </p>
+        </div>
+    </div>
+    <div id="module_30084" class="box-chart map-noborder"></div>
+</div>
+<script type="text/javascript">
+var module_30084 = echarts.init(document.getElementById('module_30084'), theme);
+
+$.get('res/lib/echarts/map/china.json', function(chinaJson) {
+    echarts.registerMap('china', chinaJson);
+    var timeline = ['12月13日', '12月14日', '12月15日', '12月16日', '12月17日', '12月18日', '12月19日'];
+    var option = {
+        baseOption: {
+            timeline: {
+                axisType: 'category',
+                orient: 'vertical',
+                autoPlay: true,
+                inverse: true,
+                playInterval: 3000,
+                right: 20,
+                top: 20,
+                z: 1000,
+                bottom: 20,
+                width: 80,
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'rgba(26, 189, 210, 1)'
+                        }
+                    },
+                    emphasis: {
+                        textStyle: {
+                            color: '#2de7ff'
+                        }
+                    }
+                },
+                symbol: 'none',
+                lineStyle: {
+                    color: 'rgba(26, 189, 210, .6)',
+                    width: 4,
+                },
+                checkpointStyle: {
+                    color: '#fff',
+                    borderColor: 'rgba(26, 189, 210, .9)',
+                    borderWidth: 5
+                },
+                controlStyle: {
+                    showNextBtn: false,
+                    showPrevBtn: false,
+                    normal: {
+                        color: '#1abdd2',
+                        borderColor: '#1abdd2'
+                    },
+                    emphasis: {
+                        color: '#aaa',
+                        borderColor: '#aaa'
+                    }
+                },
+                data: timeline
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{b} {c}人'
+            },
+            visualMap: {
+                min: 2000,
+                max: 4000,
+                text: ['高', '低'],
+                realtime: false,
+                calculable: true,
+            },
+            series: [{
+                name: '',
+                type: 'map',
+                map: 'china',
+                geoIndex: 0
+            }],
+            geo: {
+                map: 'china',
+                roam: true,
+                label: {
+                    normal: {
+                        show: true,
+                    }
+                }
+            },
+            animationDurationUpdate: 500,
+            animationEasingUpdate: 'quinticInOut'
+        },
+        options: [
+            {
+                series: [{
+                    name: '12月13日',
+                    map: 'china',
+                    data: [{
+                            name: '北京',
+                            value: 3865
+                        },
+                        {
+                            name: '天津',
+                            value: 3152
+                        },
+                        {
+                            name: '上海',
+                            value:3540
+                        },
+                        {
+                            name: '重庆',
+                            value:3569
+                        },
+                        {
+                            name: '河北',
+                            value: 2968
+                        },
+                        {
+                            name: '河南',
+                            value: 2864
+                        },
+                        {
+                            name: '云南',
+                            value:2633
+                        },
+                        {
+                            name: '辽宁',
+                            value: 2136
+                        },
+                        {
+                            name: '黑龙江',
+                            value: 2098
+                        },
+                        {
+                            name: '湖南',
+                            value: 3642
+                        },
+                        {
+                            name: '安徽',
+                            value: 3398
+                        },
+                        {
+                            name: '山东',
+                            value:3218
+                        },
+                        {
+                            name: '新疆',
+                            value: 2111
+                        },
+                        {
+                            name: '江苏',
+                            value: 3760
+                        },
+                        {
+                            name: '浙江',
+                            value: 3632
+                        },
+                        {
+                            name: '江西',
+                            value:3544
+                        },
+                        {
+                            name: '湖北',
+                            value: 3571
+                        },
+                        {
+                            name: '广西',
+                            value: 3321
+                        },
+                        {
+                            name: '甘肃',
+                            value:3082
+                        },
+                        {
+                            name: '山西',
+                            value: 2861
+                        },
+                        {
+                            name: '内蒙古',
+                            value:2131
+                        },
+                        {
+                            name: '陕西',
+                            value: 3391
+                        },
+                        {
+                            name: '吉林',
+                            value: 2512
+                        },
+                        {
+                            name: '福建',
+                            value:3419
+                        },
+                        {
+                            name: '贵州',
+                            value: 3027
+                        },
+                        {
+                            name: '广东',
+                            value: 3999
+                        },
+                        {
+                            name: '青海',
+                            value:2754
+                        },
+                        {
+                            name: '西藏',
+                            value: 2654
+                        },
+                        {
+                            name: '四川',
+                            value: 3269
+                        },
+                        {
+                            name: '宁夏',
+                            value:2851
+                        },
+                        {
+                            name: '海南',
+                            value:3018
+                        },
+                        {
+                            name: '台湾',
+                            value: 2000
+                        },
+                        {
+                            name: '香港',
+                            value: 2000
+                        },
+                        {
+                            name: '澳门',
+                            value:2000
+                        }
+                    ]
+                }]
+            },
+            {
+                series: [{
+                    name: '12月14日',
+                    map: 'china',
+                    data: [{
+                        name: '北京',
+                        value:3851
+                    },
+                        {
+                            name: '天津',
+                            value: 3698
+                        },
+                        {
+                            name: '上海',
+                            value:3654
+                        },
+                        {
+                            name: '重庆',
+                            value: 3569
+                        },
+                        {
+                            name: '河北',
+                            value: 3421
+                        },
+                        {
+                            name: '河南',
+                            value:3362
+                        },
+                        {
+                            name: '云南',
+                            value: 3319
+                        },
+                        {
+                            name: '辽宁',
+                            value: 2894
+                        },
+                        {
+                            name: '黑龙江',
+                            value: 2613
+                        },
+                        {
+                            name: '湖南',
+                            value: 3698
+                        },
+                        {
+                            name: '安徽',
+                            value: 3425
+                        },
+                        {
+                            name: '山东',
+                            value: 3479
+                        },
+                        {
+                            name: '新疆',
+                            value: 2268
+                        },
+                        {
+                            name: '江苏',
+                            value: 3794
+                        },
+                        {
+                            name: '浙江',
+                            value: 3647
+                        },
+                        {
+                            name: '江西',
+                            value: 3623
+                        },
+                        {
+                            name: '湖北',
+                            value: 3412
+                        },
+                        {
+                            name: '广西',
+                            value: 3421
+                        },
+                        {
+                            name: '甘肃',
+                            value:2996
+                        },
+                        {
+                            name: '山西',
+                            value: 2841
+                        },
+                        {
+                            name: '内蒙古',
+                            value: 2119
+                        },
+                        {
+                            name: '陕西',
+                            value: 3358
+                        },
+                        {
+                            name: '吉林',
+                            value: 2841
+                        },
+                        {
+                            name: '福建',
+                            value: 3542
+                        },
+                        {
+                            name: '贵州',
+                            value: 3219
+                        },
+                        {
+                            name: '广东',
+                            value: 3941
+                        },
+                        {
+                            name: '青海',
+                            value: 2412
+                        },
+                        {
+                            name: '西藏',
+                            value: 2351
+                        },
+                        {
+                            name: '四川',
+                            value: 3214
+                        },
+                        {
+                            name: '宁夏',
+                            value: 2964
+                        },
+                        {
+                            name: '海南',
+                            value: 3102
+                        },
+                        {
+                            name: '台湾',
+                            value: 2908
+                        },
+                        {
+                            name: '香港',
+                            value:2000
+                        },
+                        {
+                            name: '澳门',
+                            value: 2000
+                        }
+                    ]
+                }]
+            },
+            {
+                series: [{
+                    name: '12月15日',
+                    map: 'china',
+                    data: [{
+                        name: '北京',
+                        value: 3896
+                    },
+                        {
+                            name: '天津',
+                            value: 3215
+                        },
+                        {
+                            name: '上海',
+                            value: 3624
+                        },
+                        {
+                            name: '重庆',
+                            value: 3521
+                        },
+                        {
+                            name: '河北',
+                            value: 3106
+                        },
+                        {
+                            name: '河南',
+                            value: 3248
+                        },
+                        {
+                            name: '云南',
+                            value: 3222
+                        },
+                        {
+                            name: '辽宁',
+                            value: 2621
+                        },
+                        {
+                            name: '黑龙江',
+                            value: 2265
+                        },
+                        {
+                            name: '湖南',
+                            value: 3416
+                        },
+                        {
+                            name: '安徽',
+                            value: 3444
+                        },
+                        {
+                            name: '山东',
+                            value: 3331
+                        },
+                        {
+                            name: '新疆',
+                            value: 2018
+                        },
+                        {
+                            name: '江苏',
+                            value: 3765
+                        },
+                        {
+                            name: '浙江',
+                            value: 3549
+                        },
+                        {
+                            name: '江西',
+                            value: 3651
+                        },
+                        {
+                            name: '湖北',
+                            value: 3559
+                        },
+                        {
+                            name: '广西',
+                            value: 3367
+                        },
+                        {
+                            name: '甘肃',
+                            value: 3118
+                        },
+                        {
+                            name: '山西',
+                            value: 3129
+                        },
+                        {
+                            name: '内蒙古',
+                            value: 2187
+                        },
+                        {
+                            name: '陕西',
+                            value: 3294
+                        },
+                        {
+                            name: '吉林',
+                            value: 2741
+                        },
+                        {
+                            name: '福建',
+                            value: 3349
+                        },
+                        {
+                            name: '贵州',
+                            value: 3214
+                        },
+                        {
+                            name: '广东',
+                            value: 3945
+                        },
+                        {
+                            name: '青海',
+                            value: 2234
+                        },
+                        {
+                            name: '西藏',
+                            value: 2041
+                        },
+                        {
+                            name: '四川',
+                            value: 3314
+                        },
+                        {
+                            name: '宁夏',
+                            value: 2756
+                        },
+                        {
+                            name: '海南',
+                            value: 3120
+                        },
+                        {
+                            name: '台湾',
+                            value: 2000
+                        },
+                        {
+                            name: '香港',
+                            value: 2000
+                        },
+                        {
+                            name: '澳门',
+                            value: 2000
+                        }
+                    ]
+                }]
+            },
+            {
+                series: [{
+                    name: '12月16日',
+                    map: 'china',
+                    data: [{
+                        name: '北京',
+                        value: 3875
+                    },
+                        {
+                            name: '天津',
+                            value: 3658
+                        },
+                        {
+                            name: '上海',
+                            value:3598
+                        },
+                        {
+                            name: '重庆',
+                            value: 3542
+                        },
+                        {
+                            name: '河北',
+                            value: 3340
+                        },
+                        {
+                            name: '河南',
+                            value: 3403
+                        },
+                        {
+                            name: '云南',
+                            value: 3200
+                        },
+                        {
+                            name: '辽宁',
+                            value: 2809
+                        },
+                        {
+                            name: '黑龙江',
+                            value: 2410
+                        },
+                        {
+                            name: '湖南',
+                            value: 3609
+                        },
+                        {
+                            name: '安徽',
+                            value: 3409
+                        },
+                        {
+                            name: '山东',
+                            value: 3331
+                        },
+                        {
+                            name: '新疆',
+                            value: 2109
+                        },
+                        {
+                            name: '江苏',
+                            value: 3754
+                        },
+                        {
+                            name: '浙江',
+                            value: 3621
+                        },
+                        {
+                            name: '江西',
+                            value: 3521
+                        },
+                        {
+                            name: '湖北',
+                            value: 3502
+                        },
+                        {
+                            name: '广西',
+                            value: 3419
+                        },
+                        {
+                            name: '甘肃',
+                            value: 2906
+                        },
+                        {
+                            name: '山西',
+                            value:2990
+                        },
+                        {
+                            name: '内蒙古',
+                            value: 2300
+                        },
+                        {
+                            name: '陕西',
+                            value: 3421
+                        },
+                        {
+                            name: '吉林',
+                            value:2709
+                        },
+                        {
+                            name: '福建',
+                            value: 3316
+                        },
+                        {
+                            name: '贵州',
+                            value: 2906
+                        },
+                        {
+                            name: '广东',
+                            value: 3914
+                        },
+                        {
+                            name: '青海',
+                            value: 2201
+                        },
+                        {
+                            name: '西藏',
+                            value:2011
+                        },
+                        {
+                            name: '四川',
+                            value: 3210
+                        },
+                        {
+                            name: '宁夏',
+                            value:2890
+                        },
+                        {
+                            name: '海南',
+                            value: 3109
+                        },
+                        {
+                            name: '台湾',
+                            value: 2000
+                        },
+                        {
+                            name: '香港',
+                            value: 2000
+                        },
+                        {
+                            name: '澳门',
+                            value: 2000
+                        }
+                    ]
+                }]
+            },
+            {
+                series: [{
+                    name: '12月17日',
+                    map: 'china',
+                    data: [{
+                        name: '北京',
+                        value: 3867
+                    },
+                        {
+                            name: '天津',
+                            value: 3756
+                        },
+                        {
+                            name: '上海',
+                            value: 3698
+                        },
+                        {
+                            name: '重庆',
+                            value:3669
+                        },
+                        {
+                            name: '河北',
+                            value: 3584
+                        },
+                        {
+                            name: '河南',
+                            value: 3458
+                        },
+                        {
+                            name: '云南',
+                            value: 2994
+                        },
+                        {
+                            name: '辽宁',
+                            value: 2898
+                        },
+                        {
+                            name: '黑龙江',
+                            value: 2306
+                        },
+                        {
+                            name: '湖南',
+                            value: 3733
+                        },
+                        {
+                            name: '安徽',
+                            value: 3654
+                        },
+                        {
+                            name: '山东',
+                            value: 3315
+                        },
+                        {
+                            name: '新疆',
+                            value: 2150
+                        },
+                        {
+                            name: '江苏',
+                            value: 3750
+                        },
+                        {
+                            name: '浙江',
+                            value: 3657
+                        },
+                        {
+                            name: '江西',
+                            value: 3108
+                        },
+                        {
+                            name: '湖北',
+                            value: 3654
+                        },
+                        {
+                            name: '广西',
+                            value: 3117
+                        },
+                        {
+                            name: '甘肃',
+                            value: 2873
+                        },
+                        {
+                            name: '山西',
+                            value:2854
+                        },
+                        {
+                            name: '内蒙古',
+                            value: 2215
+                        },
+                        {
+                            name: '陕西',
+                            value: 3665
+                        },
+                        {
+                            name: '吉林',
+                            value: 3101
+                        },
+                        {
+                            name: '福建',
+                            value: 3612
+                        },
+                        {
+                            name: '贵州',
+                            value:2970
+                        },
+                        {
+                            name: '广东',
+                            value: 3958
+                        },
+                        {
+                            name: '青海',
+                            value: 2121
+                        },
+                        {
+                            name: '西藏',
+                            value: 2091
+                        },
+                        {
+                            name: '四川',
+                            value:3131
+                        },
+                        {
+                            name: '宁夏',
+                            value: 2882
+                        },
+                        {
+                            name: '海南',
+                            value: 2992
+                        },
+                        {
+                            name: '台湾',
+                            value: 2000
+                        },
+                        {
+                            name: '香港',
+                            value:2000
+                        },
+                        {
+                            name: '澳门',
+                            value: 2000
+                        }
+                    ]
+                }]
+            },
+            {
+                series: [{
+                    name: '12月18日',
+                    map: 'china',
+                    data: [{
+                        name: '北京',
+                        value: 3864
+                    },
+                        {
+                            name: '天津',
+                            value: 3754
+                        },
+                        {
+                            name: '上海',
+                            value: 3654
+                        },
+                        {
+                            name: '重庆',
+                            value: 3752
+                        },
+                        {
+                            name: '河北',
+                            value: 3546
+                        },
+                        {
+                            name: '河南',
+                            value: 3561
+                        },
+                        {
+                            name: '云南',
+                            value: 3223
+                        },
+                        {
+                            name: '辽宁',
+                            value: 3209
+                        },
+                        {
+                            name: '黑龙江',
+                            value: 2516
+                        },
+                        {
+                            name: '湖南',
+                            value: 3752
+                        },
+                        {
+                            name: '安徽',
+                            value: 3631
+                        },
+                        {
+                            name: '山东',
+                            value: 3441
+                        },
+                        {
+                            name: '新疆',
+                            value: 2316
+                        },
+                        {
+                            name: '江苏',
+                            value: 3802
+                        },
+                        {
+                            name: '浙江',
+                            value: 3549
+                        },
+                        {
+                            name: '江西',
+                            value: 3650
+                        },
+                        {
+                            name: '湖北',
+                            value: 3690
+                        },
+                        {
+                            name: '广西',
+                            value: 3251
+                        },
+                        {
+                            name: '甘肃',
+                            value: 3198
+                        },
+                        {
+                            name: '山西',
+                            value: 3097
+                        },
+                        {
+                            name: '内蒙古',
+                            value: 2306
+                        },
+                        {
+                            name: '陕西',
+                            value: 3504
+                        },
+                        {
+                            name: '吉林',
+                            value: 3119
+                        },
+                        {
+                            name: '福建',
+                            value:3462
+                        },
+                        {
+                            name: '贵州',
+                            value: 3264
+                        },
+                        {
+                            name: '广东',
+                            value: 3971
+                        },
+                        {
+                            name: '青海',
+                            value: 2259
+                        },
+                        {
+                            name: '西藏',
+                            value:2260
+                        },
+                        {
+                            name: '四川',
+                            value:3570
+                        },
+                        {
+                            name: '宁夏',
+                            value:3105
+                        },
+                        {
+                            name: '海南',
+                            value: 3017
+                        },
+                        {
+                            name: '台湾',
+                            value: 2000
+                        },
+                        {
+                            name: '香港',
+                            value: 2000
+                        },
+                        {
+                            name: '澳门',
+                            value: 2000
+                        }
+                    ]
+                }]
+            },
+            {
+                series: [{
+                    name: '12月19日',
+                    map: 'china',
+                    data: [{
+                        name: '北京',
+                        value: 3716
+                    },
+                        {
+                            name: '天津',
+                            value: 3542
+                        },
+                        {
+                            name: '上海',
+                            value: 3591
+                        },
+                        {
+                            name: '重庆',
+                            value: 3540
+                        },
+                        {
+                            name: '河北',
+                            value:3409
+                        },
+                        {
+                            name: '河南',
+                            value: 3465
+                        },
+                        {
+                            name: '云南',
+                            value: 3102
+                        },
+                        {
+                            name: '辽宁',
+                            value: 2994
+                        },
+                        {
+                            name: '黑龙江',
+                            value:2210
+                        },
+                        {
+                            name: '湖南',
+                            value: 3701
+                        },
+                        {
+                            name: '安徽',
+                            value: 3544
+                        },
+                        {
+                            name: '山东',
+                            value: 3321
+                        },
+                        {
+                            name: '新疆',
+                            value:2109
+                        },
+                        {
+                            name: '江苏',
+                            value: 3744
+                        },
+                        {
+                            name: '浙江',
+                            value: 3548
+                        },
+                        {
+                            name: '江西',
+                            value: 3310
+                        },
+                        {
+                            name: '湖北',
+                            value: 3420
+                        },
+                        {
+                            name: '广西',
+                            value: 3215
+                        },
+                        {
+                            name: '甘肃',
+                            value: 3110
+                        },
+                        {
+                            name: '山西',
+                            value: 3101
+                        },
+                        {
+                            name: '内蒙古',
+                            value: 2123
+                        },
+                        {
+                            name: '陕西',
+                            value:3452
+                        },
+                        {
+                            name: '吉林',
+                            value: 2755
+                        },
+                        {
+                            name: '福建',
+                            value:3365
+                        },
+                        {
+                            name: '贵州',
+                            value: 2906
+                        },
+                        {
+                            name: '广东',
+                            value: 3970
+                        },
+                        {
+                            name: '青海',
+                            value: 2219
+                        },
+                        {
+                            name: '西藏',
+                            value: 2108
+                        },
+                        {
+                            name: '四川',
+                            value: 3460
+                        },
+                        {
+                            name: '宁夏',
+                            value: 2921
+                        },
+                        {
+                            name: '海南',
+                            value: 2541
+                        },
+                        {
+                            name: '台湾',
+                            value: 2000
+                        },
+                        {
+                            name: '香港',
+                            value: 2000
+                        },
+                        {
+                            name: '澳门',
+                            value:2000
+                        }
+                    ]
+                }]
+            }
+        ]
+    };
+
+    module_30084.setOption(option);
+});
+
+$(window).resize(function() {
+    module_30084.resize();
+});
+</script>

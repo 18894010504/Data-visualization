@@ -1,0 +1,89 @@
+<div class="title">
+    <div class="text">未来30天旅游收入结构预测</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>旅游</h6>
+            <label class="up">41.55<span>%</span></label>
+        </li>
+        <li>
+            <h6>餐饮</h6>
+            <label class="up">23.8<span>%</span></label>
+        </li>
+        <li>
+            <h6>购物</h6>
+            <label class="up">17.1<span>%</span></label>
+        </li>
+    </ul>
+    <div id="module_30087" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30087 = echarts.init(document.getElementById('module_30087'), theme);
+var option = {
+    legend: {
+        top: 5,
+        left: 0,
+        padding: [6, 8],
+        itemGap: 5,
+        data: ['近30天', '未来30天']
+    },
+    grid: {
+        left: 0,
+        right: 5,
+        top: 40,
+        bottom: 20,
+    },
+    tooltip: {
+        triggerOn: 'none',
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: ["餐饮","住宿","交通","游玩","购物","娱乐"]
+    },
+    yAxis: [{
+        type: 'value',
+        boundaryGap: true,
+        axisLabel: {
+            inside: true,
+            formatter: '{value}'
+        },
+    }],
+    series: [{
+            name: '近30天',
+            type: 'bar',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top',
+                    formatter: '{c}%'
+                }
+            },
+
+            data: [81.3, 69.2, 72.5, 90.5, 58,79.2]
+        },
+        {
+            name: '未来30天',
+            type: 'bar',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top',
+                    formatter: '{c}%'
+                }
+            },
+            data: [90.6, 53, 61, 96.1, 70.3, 71.5]
+        }
+    ]
+
+};
+module_30087.setOption(option);
+
+$(window).resize(function() {
+    module_30087.resize();
+});
+</script>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="151px" height="151px" viewBox="0 0 151 151" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 14</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="73.5" cy="64.5" r="57.5"></circle>
+        <filter x="-21.7%" y="-21.7%" width="143.5%" height="143.5%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="3.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="6.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.246065444 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-24.3%" y="-24.3%" width="148.7%" height="148.7%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="10" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0452332428 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#B4EC51" offset="0%"></stop>
+            <stop stop-color="#429321" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#FAD961" offset="0%"></stop>
+            <stop stop-color="#F76B1C" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-14" transform="translate(2.000000, 11.000000)">
+            <g id="Oval">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#FFF5E4" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                <use stroke="#FFFFFF" stroke-width="5" xlink:href="#path-1"></use>
+            </g>
+            <g id="摄像头"></g>
+            <path d="M31.8253301,76.5257164 C33.4946563,81.0974103 38.4982233,83.4587983 43.0260664,81.7904562 L64.8881466,74.2722441 L67.9855986,87.2075897 C68.6563813,90.3273692 73.0992141,93.1660907 76.3702635,93.1660907 L88.8277934,93.1660907 C91.2101094,93.1660907 93.1608162,95.1162064 93.1608162,97.4996545 L93.1608162,98.5832242 C93.1608162,101.573147 95.5876046,104 98.5771542,104 C101.566704,104 103.993492,101.573147 103.993492,98.5832242 L103.993492,87.7491956 L103.993492,76.915167 C103.993492,73.9252441 101.566704,71.4979142 98.5771542,71.4979142 C95.5876046,71.4979142 93.1608162,73.9251249 93.1608162,76.915167 L93.1608162,77.9983791 C93.1608162,80.3823043 91.2101094,82.3319429 88.8277934,82.3319429 L82.3282592,82.3319429 C79.9459432,82.3319429 78.5791012,80.3174355 77.9952364,77.9983791 L76.0657525,70.4358084 L98.2514204,62.8097999 C102.779263,61.1411 105.119134,56.0701317 103.473177,51.4763777 L87.0506841,5.80105458 C85.4046077,1.2293607 80.3987752,-1.13298124 75.8709322,0.535241577 L20.6455782,19.5162555 C16.1179735,21.1857901 13.7778647,26.2554468 15.4259681,30.84932 L19.1515187,41.2285522 L10.9638203,44.2395813 L10.5725105,43.199774 C9.55489042,40.3400656 6.41296603,38.8659718 3.5968947,39.9062561 C0.757454473,40.9460633 -0.693920922,44.1096053 0.325845184,46.9917317 L10.0308528,73.9688875 C11.0484729,76.8508946 14.1903972,78.3235574 17.0276914,77.2833924 C19.8459089,76.222479 21.3182686,73.0589368 20.2775181,70.1979167 L19.498833,68.2480396 L22.7486597,66.4283768 L26.7346067,65.4095565 L31.8253301,76.5257164 Z M69.3290717,18.4114603 C69.3290717,15.4215374 71.7558601,12.994446 74.7454097,12.994446 C77.7349594,12.994446 80.1617478,15.4215374 80.1617478,18.4114603 C80.1617478,21.4013832 77.7349594,23.8284746 74.7454097,23.8284746 C71.7558601,23.8284746 69.3290717,21.4013832 69.3290717,18.4114603 Z" id="Shape" stroke="#FFFFFF" stroke-width="4" fill="url(#linearGradient-5)" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

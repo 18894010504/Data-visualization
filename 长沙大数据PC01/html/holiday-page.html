@@ -1,0 +1,1186 @@
+<div class="page-container">
+    <div class="inner-page">
+        <div id="inner_page_header"></div>
+        <div id="alert_info"></div>
+        <div id="filter_panel"></div>
+        <div class="page-panel key-item-swiper-wrap">
+            <div id="key_holidey_swiper"></div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="holidy_panel_01" class="ivu-col ivu-col-span-12"></div>
+                <div id="holidy_panel_02" class="ivu-col ivu-col-span-12"></div>
+            </div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="holidy_panel_03" class="ivu-col ivu-col-span-24"></div>
+            </div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="holidy_panel_04" class="ivu-col ivu-col-span-24"></div>
+            </div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="holidy_panel_05" class="ivu-col ivu-col-span-24"></div>
+            </div>
+        </div>
+        <div id="inner_page_footer"></div>
+    </div>
+    <div id="page_footer"></div>
+</div>
+<script type="text/javascript">
+    $('#inner_page_header').tourInnerPageHeader({
+        pageTitle: '节假日统计',
+        btnSave: false,
+        btnNew: false,
+        btnPrintReport: false
+    });
+
+    $('#alert_info').tourAlert({
+        desc: '消息提示的描述文案消息提示的描述文案消息提示的描述文案消息提示的描述文案消息提示的描述文案',
+        href: '#'
+    });
+
+    $('#filter_panel').tourFilterPanel();
+
+    $('#key_holidey_swiper').tourKeyItemSwiper({
+        data: [{
+            title: '五一游客总量',
+            value: '98,232,432',
+            subValue: 0.4,
+            selected: true
+        }, {
+            title: '五一一日游',
+            value: '98,232,432',
+            subValue: -0.4,
+            selected: true
+        }, {
+            title: '端午游客总量',
+            value: '98,232,432',
+            subValue: 0.4,
+            selected: true
+        }, {
+            title: '端午一日游',
+            value: '98,232,432',
+            subValue: -0.4,
+            selected: true
+        }, {
+            title: '中秋游客总量',
+            value: '98,232,432',
+            subValue: 0.4,
+            selected: true
+        }, {
+            title: '中秋一日游',
+            value: '98,232,432',
+            subValue: 13.4,
+            selected: true
+        }, {
+            title: '国庆游客总量',
+            value: '98,232,432',
+            subValue: 0.4,
+            selected: true
+        }, {
+            title: '国庆一日游',
+            value: '98,232,432',
+            subValue: 12.4,
+            selected: true
+        }, {
+            title: '元旦游客总量',
+            value: '98,232,432',
+            subValue: 0.4,
+            selected: true
+        }, {
+            title: '元旦一日游',
+            value: '98,232,432',
+            subValue: -0.4,
+            selected: true
+        }, {
+            title: '春节游客总量',
+            value: '98,232,432',
+            subValue: 0.4,
+            selected: true
+        }, {
+            title: '春节一日游',
+            value: '98,232,432',
+            subValue: 17.4,
+            selected: true
+        }, {
+            title: '清明游客总量',
+            value: '98,232,432',
+            subValue: 0.4,
+            selected: true
+        }, {
+            title: '清明一日游',
+            value: '98,232,432',
+            subValue: 13.4,
+            selected: true
+        }]
+    });
+    $('#holidy_panel_01').tourChartPanel({
+        chartId: 'chart_01',
+        chartTitle: '一日游游客来源统计',
+        chartType: 'bar',
+        viewHref: '#',
+        datas: [{
+            label: '五一',
+            keyValue: [{
+                key: '游客总数',
+                value: '21482'
+            }],
+            columns: [{
+                title: '游客量',
+                key: 'province'
+            }, {
+                title: '游客量',
+                key: 'value',
+                sortable: true,
+                chartType: 'bar'
+            }],
+            data: [{
+                province: '四川',
+                value: 88
+            }, {
+                province: '青海',
+                value: 56
+            }, {
+                province: '新疆',
+                value: 70
+            }, {
+                province: '陕西',
+                value: 67
+            }, {
+                province: '宁夏',
+                value: 76
+            }, {
+                province: '河南',
+                value: 88
+            }, {
+                province: '河北',
+                value: 58
+            }]
+        },{
+            label: '端午',
+            keyValue: [{
+                key: '四川',
+                value: '41482'
+            }, {
+                key: '青海',
+                value: '16882'
+            }, {
+                key: '新疆',
+                value: '25660'
+            }],
+            columns: [{
+                title: '游客量',
+                key: 'province'
+            }, {
+                title: '游客量',
+                key: 'value',
+                sortable: true,
+                chartType: 'bar'
+            }],
+            data: [{
+                province: '四川',
+                value: 34
+            }, {
+                province: '青海',
+                value: 86
+            }, {
+                province: '新疆',
+                value: 76
+            }, {
+                province: '陕西',
+                value: 45
+            }, {
+                province: '宁夏',
+                value: 66
+            }, {
+                province: '河南',
+                value: 75
+            }, {
+                province: '河北',
+                value: 54
+            }]
+        },{
+            label: '中秋',
+            keyValue: [{
+                key: '四川',
+                value: '71482'
+            }, {
+                key: '青海',
+                value: '20882'
+            }, {
+                key: '新疆',
+                value: '22660'
+            }],
+            columns: [{
+                title: '游客量',
+                key: 'province'
+            }, {
+                title: '游客量',
+                key: 'value',
+                sortable: true,
+                chartType: 'bar'
+            }],
+            data: [{
+                province: '四川',
+                value: 78
+            }, {
+                province: '青海',
+                value: 45
+            }, {
+                province: '新疆',
+                value: 78
+            }, {
+                province: '陕西',
+                value: 23
+            }, {
+                province: '宁夏',
+                value: 56
+            }, {
+                province: '河南',
+                value: 78
+            }, {
+                province: '河北',
+                value: 80
+            }]
+        }, {
+            label: '国庆',
+            keyValue: [{
+                key: '四川',
+                value: '71482'
+            }, {
+                key: '青海',
+                value: '20882'
+            }, {
+                key: '新疆',
+                value: '21260'
+            }],
+            columns: [{
+                title: '游客量',
+                key: 'province'
+            }, {
+                title: '游客量',
+                key: 'value',
+                sortable: true,
+                chartType: 'bar'
+            }],
+            data: [{
+                province: '四川',
+                value: 67
+            }, {
+                province: '青海',
+                value: 84
+            }, {
+                province: '新疆',
+                value: 88
+            }, {
+                province: '陕西',
+                value: 56
+            }, {
+                province: '宁夏',
+                value: 67
+            }, {
+                province: '河南',
+                value: 69
+            }, {
+                province: '河北',
+                value: 34
+            }]
+        }]
+    });
+$('#holidy_panel_02').tourChartPanel({
+    chartId: 'chart_02',
+    chartTitle: '区县游客数量统计',
+    chartType: 'bar',
+    viewHref: '#',
+    datas: [{
+        label: '五一',
+        keyValue: [{
+            key: '城关区',
+            value: '81482'
+        }, {
+            key: '七里河区',
+            value: '26882'
+        }, {
+            key: '榆中',
+            value: '25660'
+        }],
+        columns: [{
+            title: '游客量',
+            key: 'province'
+        }, {
+            title: '游客量',
+            key: 'value',
+            sortable: true,
+            chartType: 'bar'
+        }],
+        data: [{
+            province: '安宁区',
+            value: 65
+        }, {
+            province: '城关区',
+            value: 80
+        }, {
+            province: '七里河区',
+            value: 80
+        }, {
+            province: '皋兰',
+            value: 77
+        }, {
+            province: '榆中',
+            value: 56
+        }, {
+            province: '西固区',
+            value: 73
+        }, {
+            province: '红古区',
+            value: 71
+        }]
+    },{
+        label: '端午',
+        keyValue: [{
+            key: '城关区',
+            value: '8482'
+        }, {
+            key: '七里河区',
+            value: '2688'
+        }, {
+            key: '榆中',
+            value: '2660'
+        }],
+        columns: [{
+            title: '游客量',
+            key: 'province'
+        }, {
+            title: '游客量',
+            key: 'value',
+            sortable: true,
+            chartType: 'bar'
+        }],
+        data: [{
+            province: '安宁区',
+            value: 88
+        }, {
+            province: '城关区',
+            value: 84
+        }, {
+            province: '七里河区',
+            value: 56
+        }, {
+            province: '皋兰',
+            value: 65
+        }, {
+            province: '榆中',
+            value: 76
+        }, {
+            province: '西固区',
+            value: 73
+        }, {
+            province: '红古区',
+            value: 99
+        }]
+    }, {
+        label: '中秋',
+        keyValue: [{
+            key: '城关区',
+            value: '482'
+        }, {
+            key: '七里河区',
+            value: '22882'
+        }, {
+            key: '榆中',
+            value: '10660'
+        }],
+        columns: [{
+            title: '游客量',
+            key: 'province'
+        }, {
+            title: '游客量',
+            key: 'value',
+            sortable: true,
+            chartType: 'bar'
+        }],
+        data: [{
+            province: '安宁区',
+            value: 45
+        }, {
+            province: '城关区',
+            value: 84
+        }, {
+            province: '七里河区',
+            value: 76
+        }, {
+            province: '皋兰',
+            value: 77
+        }, {
+            province: '榆中',
+            value: 46
+        }, {
+            province: '西固区',
+            value: 73
+        }, {
+            province: '红古区',
+            value: 69
+        }]
+    }]
+});
+
+$('#holidy_panel_03').tourChartTablePanel({
+    chartId: 'chart_03',
+    chartTitle: '市内重点景区接待排行',
+    chartLegend: '游客量',
+    chartType: 'bar',
+    tableTitle: '市内重点景区接待排行',
+    columns: [{
+        "title": "景区",
+        "key": "name",
+        "fixed": "left",
+        "width": 150
+    }, {
+        "title": "五一",
+        "key": "wqs",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '累计接待',
+            value: '233,343'
+        }, {
+            key: '五泉山同比增长',
+            value: '18.75%'
+        }, {
+            key: '兴隆山同比增长',
+            value: '-17.98%'
+        }]
+    }, {
+        "title": "端午",
+        "key": "qcgz",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '累计接待',
+            value: '233,343'
+        }, {
+            key: '五泉山同比增长',
+            value: '10.75%'
+        }, {
+            key: '青城古镇同比增长',
+            value: '18.75%'
+        }]
+    }, {
+        "title": "中秋",
+        "key": "xls",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '累计接待',
+            value: '233,343'
+        }, {
+            key: '青城古镇同比增长',
+            value: '16%'
+        }, {
+            key: '五泉山同比增长',
+            value: '17.3%'
+        }]
+    }, {
+        "title": "国庆",
+        "key": "scly",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '累计接待',
+            value: '233,343'
+        }, {
+            key: '青城古镇同比增长',
+            value: '32.8%'
+        }, {
+            key: '五泉山同比增长',
+            value: '15%'
+        }]
+    }, {
+        "title": "元旦",
+        "key": "scbly",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '累计接待',
+            value: '233,343'
+        }, {
+            key: '青城古镇同比增长',
+            value: '19%'
+        }, {
+            key: '五泉山同比增长',
+            value: '20.7%'
+        }]
+    }, {
+        "title": "清明",
+        "key": "tlg",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '累计接待',
+            value: '233,343'
+        }, {
+            key: '青城古镇同比增长',
+            value: '-12%'
+        }, {
+            key: '五泉山同比增长',
+            value: '10%'
+        }]
+    }, {
+        "title": "春节",
+        "key": "bts",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '白银',
+            value: '38275'
+        }, {
+            key: '定西',
+            value: '1875'
+        }, {
+            key: '临夏',
+            value: '1298'
+        }]
+    }],
+    data: [{
+        "name": "五泉山",
+        "wqs": 10289,
+        "qcgz": 10289,
+        "xls": 10289,
+        "scly": 10289,
+        "scbly": 10289,
+        "tlg": 10289,
+        "bts": 10289
+    },{
+        "name": "青城古镇",
+        "wqs": 40289,
+        "qcgz": 18289,
+        "xls": 18289,
+        "scly": 36289,
+        "scbly": 40289,
+        "tlg": 30289,
+        "bts": 20289
+    },{
+        "name": "兴隆山",
+        "wqs": 30289,
+        "qcgz": 10289,
+        "xls": 18289,
+        "scly": 10289,
+        "scbly": 10289,
+        "tlg": 30289,
+        "bts": 10289
+    },{
+        "name": "什川梨园",
+        "wqs": 10289,
+        "qcgz": 20289,
+        "xls": 10289,
+        "scly": 18289,
+        "scbly": 10289,
+        "tlg": 30289,
+        "bts": 10289
+    },{
+        "name": "水车博览园",
+        "wqs": 19289,
+        "qcgz": 10289,
+        "xls": 20289,
+        "scly": 10289,
+        "scbly": 40289,
+        "tlg": 10289,
+        "bts": 10289
+    },{
+        "name": "吐鲁沟",
+        "wqs": 29289,
+        "qcgz": 10289,
+        "xls": 20289,
+        "scly": 10289,
+        "scbly": 30289,
+        "tlg": 18289,
+        "bts": 10289
+    },{
+        "name": "白塔山",
+        "wqs": 20289,
+        "qcgz": 10289,
+        "xls": 18289,
+        "scly": 10289,
+        "scbly": 20289,
+        "tlg": 30289,
+        "bts": 16289
+    },{
+        "name": "植物园",
+        "wqs": 28289,
+        "qcgz": 10289,
+        "xls": 12289,
+        "scly": 21289,
+        "scbly": 20289,
+        "tlg": 26289,
+        "bts": 18289
+    },{
+        "name": "动物园",
+        "wqs": 20289,
+        "qcgz": 18289,
+        "xls": 12289,
+        "scly": 31289,
+        "scbly": 20289,
+        "tlg": 16289,
+        "bts": 28289
+    },{
+        "name": "仁寿山",
+        "wqs": 28289,
+        "qcgz": 18289,
+        "xls": 17289,
+        "scly": 21289,
+        "scbly": 13289,
+        "tlg": 16289,
+        "bts": 28289
+    }]
+});
+
+$('#holidy_panel_04').tourChartTablePanel({
+    chartId: 'chart_04',
+    chartTitle: '客源地省内城市排行',
+    chartLegend: '游客量',
+    chartType: 'bar',
+    tableTitle: '客源地省内城市排行',
+    columns: [{
+        "title": "城市",
+        "key": "name",
+        "fixed": "left",
+        "width": 150
+    }, {
+        "title": "五一",
+        "key": "baiyin",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '白银',
+            value: '18275'
+        }, {
+            key: '定西',
+            value: '1875'
+        }, {
+            key: '临夏',
+            value: '1798'
+        }]
+    }, {
+        "title": "端午",
+        "key": "dingxi",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '白银',
+            value: '48275'
+        }, {
+            key: '定西',
+            value: '4575'
+        }, {
+            key: '临夏',
+            value: '3998'
+        }]
+    }, {
+        "title": "中秋",
+        "key": "linxia",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '白银',
+            value: '18275'
+        }, {
+            key: '定西',
+            value: '1875'
+        }, {
+            key: '临夏',
+            value: '1798'
+        }]
+    }, {
+        "title": "国庆",
+        "key": "wuwei",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '白银',
+            value: '32275'
+        }, {
+            key: '定西',
+            value: '1875'
+        }, {
+            key: '临夏',
+            value: '1798'
+        }]
+    }, {
+        "title": "元旦",
+        "key": "tianshui",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '白银',
+            value: '22275'
+        }, {
+            key: '定西',
+            value: '2075'
+        }, {
+            key: '临夏',
+            value: '1798'
+        }]
+    }, {
+        "title": "清明",
+        "key": "pingliang",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '白银',
+            value: '38275'
+        }, {
+            key: '定西',
+            value: '1875'
+        }, {
+            key: '临夏',
+            value: '1298'
+        }]
+    }, {
+        "title": "春节",
+        "key": "jinchang",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '白银',
+            value: '38275'
+        }, {
+            key: '定西',
+            value: '1875'
+        }, {
+            key: '临夏',
+            value: '1298'
+        }]
+    }],
+    data: [{
+        "name": "白银",
+        "baiyin": 10289,
+        "dingxi": 18289,
+        "linxia": 10289,
+        "wuwei": 18289,
+        "tianshui": 30289,
+        "pingliang": 10289,
+        "jinchang": 19289,
+        "jiayuguan": 10289,
+        "qingyang": 10289,
+        "jiuquan": 20289,
+        "zhangye": 18289
+    },{
+        "name": "定西",
+        "baiyin": 10289,
+        "dingxi": 40289,
+        "linxia": 13289,
+        "wuwei": 10289,
+        "tianshui": 10289,
+        "pingliang": 20289,
+        "jinchang": 17289,
+        "jiayuguan": 10289,
+        "qingyang": 27289,
+        "jiuquan": 10289,
+        "zhangye": 19289
+    },{
+        "name": "临夏",
+        "baiyin": 10289,
+        "dingxi": 30289,
+        "linxia": 10289,
+        "wuwei": 17289,
+        "tianshui": 10289,
+        "pingliang": 10289,
+        "jinchang": 10289,
+        "jiayuguan": 10289,
+        "qingyang": 20289,
+        "jiuquan": 16289,
+        "zhangye": 22289
+    },{
+        "name": "武威",
+        "baiyin": 20289,
+        "dingxi": 10289,
+        "linxia": 10289,
+        "wuwei": 10289,
+        "tianshui": 30289,
+        "pingliang": 10289,
+        "jinchang": 10289,
+        "jiayuguan": 15289,
+        "qingyang": 10289,
+        "jiuquan": 11289,
+        "zhangye": 20289
+    },{
+        "name": "天水",
+        "baiyin": 10289,
+        "dingxi": 30289,
+        "linxia": 10289,
+        "wuwei": 18289,
+        "tianshui": 13289,
+        "pingliang": 10289,
+        "jinchang": 20289,
+        "jiayuguan": 10289,
+        "qingyang": 18289,
+        "jiuquan": 16289,
+        "zhangye": 10289
+    },{
+        "name": "平凉",
+        "baiyin": 31289,
+        "dingxi": 10289,
+        "linxia": 10289,
+        "wuwei": 21289,
+        "tianshui": 19289,
+        "pingliang": 10289,
+        "jinchang": 10289,
+        "jiayuguan": 40289,
+        "qingyang": 10289,
+        "jiuquan": 10289,
+        "zhangye": 13289
+    },{
+        "name": "金昌",
+        "baiyin": 10289,
+        "dingxi": 25289,
+        "linxia": 10289,
+        "wuwei": 10289,
+        "tianshui": 10289,
+        "pingliang": 10289,
+        "jinchang": 31289,
+        "jiayuguan": 20289,
+        "qingyang": 10289,
+        "jiuquan": 16289,
+        "zhangye": 10289
+    },{
+        "name": "嘉峪关",
+        "baiyin": 10289,
+        "dingxi": 31289,
+        "linxia": 10289,
+        "wuwei": 10289,
+        "tianshui": 10289,
+        "pingliang": 10289,
+        "jinchang": 10289,
+        "jiayuguan": 13289,
+        "qingyang": 19289,
+        "jiuquan": 10289,
+        "zhangye": 10289
+    },{
+        "name": "庆阳",
+        "baiyin": 10289,
+        "dingxi": 20289,
+        "linxia": 19289,
+        "wuwei": 10289,
+        "tianshui": 10289,
+        "pingliang": 10289,
+        "jinchang": 15289,
+        "jiayuguan": 10289,
+        "qingyang": 10289,
+        "jiuquan": 30289,
+        "zhangye": 40289
+    },{
+        "name": "酒泉",
+        "baiyin": 10289,
+        "dingxi": 19289,
+        "linxia": 17289,
+        "wuwei": 10289,
+        "tianshui": 10289,
+        "pingliang": 17289,
+        "jinchang": 10289,
+        "jiayuguan": 30289,
+        "qingyang": 40289,
+        "jiuquan": 20289,
+        "zhangye": 10289
+    },{
+        "name": "张掖",
+        "baiyin": 31289,
+        "dingxi": 16289,
+        "linxia": 10289,
+        "wuwei": 10289,
+        "tianshui": 17289,
+        "pingliang": 10289,
+        "jinchang": 24289,
+        "jiayuguan": 10289,
+        "qingyang": 27289,
+        "jiuquan": 10289,
+        "zhangye": 10289
+    }]
+});
+$('#holidy_panel_05').tourChartTablePanel({
+    chartId: 'chart_05',
+    chartTitle: '客源地省份排行',
+    chartLegend: '游客量',
+    chartType: 'bar',
+    tableTitle: '客源地省份排行',
+    columns: [{
+        "title": "城市",
+        "key": "name",
+        "fixed": "left",
+        "width": 150
+    }, {
+        "title": "五一",
+        "key": "qinghai",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '青海',
+            value: '18275'
+        }, {
+            key: '四川',
+            value: '1875'
+        }, {
+            key: '新疆',
+            value: '1798'
+        }]
+    }, {
+        "title": "端午",
+        "key": "sichuan",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '青海',
+            value: '48275'
+        }, {
+            key: '四川',
+            value: '4575'
+        }, {
+            key: '新疆',
+            value: '3998'
+        }]
+    }, {
+        "title": "中秋",
+        "key": "shanxi",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '青海',
+            value: '18275'
+        }, {
+            key: '四川',
+            value: '1875'
+        }, {
+            key: '新疆',
+            value: '1798'
+        }]
+    }, {
+        "title": "国庆",
+        "key": "xinjiang",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '青海',
+            value: '32275'
+        }, {
+            key: '四川',
+            value: '1875'
+        }, {
+            key: '新疆',
+            value: '1798'
+        }]
+    }, {
+        "title": "元旦",
+        "key": "ningxia",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '青海',
+            value: '22275'
+        }, {
+            key: '四川',
+            value: '2075'
+        }, {
+            key: '新疆',
+            value: '1798'
+        }]
+    }, {
+        "title": "清明",
+        "key": "jiangsu",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '青海',
+            value: '38275'
+        }, {
+            key: '四川',
+            value: '1875'
+        }, {
+            key: '新疆',
+            value: '1298'
+        }]
+    }, {
+        "title": "春节",
+        "key": "shanghai",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '青海',
+            value: '38275'
+        }, {
+            key: '四川',
+            value: '1875'
+        }, {
+            key: '新疆',
+            value: '1298'
+        }]
+    }],
+    data: [{
+        "name": "青海",
+        "qinghai": 20289,
+        "sichuan": 18289,
+        "shanxi": 17289,
+        "xinjiang": 18289,
+        "ningxia": 30289,
+        "jiangsu": 10289,
+        "shanghai": 19289,
+        "henan": 10289,
+        "beijing": 10289,
+        "hebei": 20289
+    },{
+        "name": "四川",
+        "qinghai": 10289,
+        "sichuan": 18289,
+        "shanxi": 30289,
+        "xinjiang": 18289,
+        "ningxia": 30289,
+        "jiangsu": 10289,
+        "shanghai": 19289,
+        "henan": 10289,
+        "beijing": 15289,
+        "hebei": 20289
+    },{
+        "name": "陕西",
+        "qinghai": 10289,
+        "sichuan": 28289,
+        "shanxi": 10289,
+        "xinjiang": 18289,
+        "ningxia": 30289,
+        "jiangsu": 10289,
+        "shanghai": 19289,
+        "henan": 10289,
+        "beijing": 10289,
+        "hebei": 20289
+    },{
+        "name": "新疆",
+        "qinghai": 18289,
+        "sichuan": 18289,
+        "shanxi": 30289,
+        "xinjiang": 18289,
+        "ningxia": 30289,
+        "jiangsu": 17289,
+        "shanghai": 19289,
+        "henan": 10289,
+        "beijing": 10289,
+        "hebei": 20289
+    },{
+        "name": "宁夏",
+        "qinghai": 10289,
+        "sichuan": 28289,
+        "shanxi": 10289,
+        "xinjiang": 18289,
+        "ningxia": 30289,
+        "jiangsu": 10289,
+        "shanghai": 19289,
+        "henan": 10289,
+        "beijing": 10289,
+        "hebei": 20289
+    },{
+        "name": "江苏",
+        "qinghai": 10289,
+        "sichuan": 18289,
+        "shanxi": 19289,
+        "xinjiang": 18289,
+        "ningxia": 30289,
+        "jiangsu": 10289,
+        "shanghai": 19289,
+        "henan": 10289,
+        "beijing": 10289,
+        "hebei": 20289
+    },{
+        "name": "上海",
+        "qinghai": 10289,
+        "sichuan": 28289,
+        "shanxi": 10289,
+        "xinjiang": 18289,
+        "ningxia": 30289,
+        "jiangsu": 10289,
+        "shanghai": 19289,
+        "henan": 19289,
+        "beijing": 10289,
+        "hebei": 20289
+    },{
+        "name": "河南",
+        "qinghai": 10289,
+        "sichuan": 18289,
+        "shanxi": 20289,
+        "xinjiang": 18289,
+        "ningxia": 30289,
+        "jiangsu": 10289,
+        "shanghai": 19289,
+        "henan": 18289,
+        "beijing": 10289,
+        "hebei": 20289
+    },{
+        "name": "北京",
+        "qinghai": 10289,
+        "sichuan": 18289,
+        "shanxi": 19289,
+        "xinjiang": 18289,
+        "ningxia": 30289,
+        "jiangsu": 10289,
+        "shanghai": 19289,
+        "henan": 10289,
+        "beijing": 10289,
+        "hebei": 20289
+    },{
+        "name": "河北",
+        "qinghai": 20289,
+        "sichuan": 18289,
+        "shanxi": 10289,
+        "xinjiang": 18289,
+        "ningxia": 30289,
+        "jiangsu": 10289,
+        "shanghai": 19289,
+        "henan": 10289,
+        "beijing": 10289,
+        "hebei": 20289
+    },{
+        "name": "山东",
+        "qinghai": 10289,
+        "sichuan": 18289,
+        "shanxi": 18289,
+        "xinjiang": 18289,
+        "ningxia": 30289,
+        "jiangsu": 10289,
+        "shanghai": 19289,
+        "henan": 10289,
+        "beijing": 10289,
+        "hebei": 28289
+    }]
+});
+
+$('#inner_page_footer').tourInnerPageFooter({
+    source: '万维旅游云服务 ©wanwei.com.cn',
+    content: `<p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+    <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+    <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+    <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等。</p>`
+});
+
+$('#page_footer').tourFooter();
+</script>

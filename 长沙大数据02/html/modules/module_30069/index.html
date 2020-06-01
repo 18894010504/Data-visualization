@@ -1,0 +1,79 @@
+<div class="title">
+    <div class="text">市区（县）关注指数</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>岳麓区</h6>
+            <label class="up">95<span>%</span></label>
+        </li>
+        <li>
+            <h6>宁乡县</h6>
+            <label class="up">76<span>%</span></label>
+        </li>
+        <li>
+            <h6>芙蓉区</h6>
+            <label class="up">55<span>%</span></label>
+        </li>
+    </ul>
+    <div id="module_30069" class="box-chart" style="width: 100%; height: 100%;"></div>
+</div>
+<script type="text/javascript">
+var module_30069 = echarts.init(document.getElementById('module_30069'), 'BigDataPe');
+
+var option = {
+    legend: {
+        top: 5,
+        left: 0,
+        padding: [6, 8],
+        itemGap: 5,
+        data: ['关注指数']
+    },
+    grid: {
+        left: 0,
+        right: 5,
+        top: 40,
+        bottom: 20,
+    },
+    tooltip: {
+        triggerOn: 'none',
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        axisLabel: {
+            interval: 0
+        },
+        data: ["芙蓉区", "开福区", "雨花区", "岳麓区", "天心区", "望城区", "长沙县", "宁乡县"]
+    },
+    yAxis: [{
+        type: 'value',
+        boundaryGap: true,
+        axisLabel: {
+            inside: true,
+            formatter: '{value}'
+        },
+    }],
+    series: [{
+        name: '关注指数',
+        type: 'bar',
+        label: {
+            normal: {
+                show: true,
+                position: 'top',
+                formatter: '{c}%'
+            }
+        },
+        data: [55, 46, 39, 95, 83, 91, 79, 76]
+    }]
+
+};
+module_30069.setOption(option);
+
+$(window).resize(function() {
+    module_30069.resize();
+});
+</script>

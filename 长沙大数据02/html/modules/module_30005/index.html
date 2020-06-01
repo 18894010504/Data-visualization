@@ -1,0 +1,238 @@
+<div class="title">
+    <div class="text">旅游关键字</div>
+</div>
+<div class="inner-box">
+    <div class="box-chart">
+        <div id="module_30005" class="yun-chart_box"></div>
+    </div>
+</div>
+<script type="text/javascript">
+var module_30005 = echarts.init(document.getElementById('module_30005'), theme);
+var colors = ["#ff715e", "#E87C25", "#ffaf51", "#FCCE10", "#715c87", "#D7504B", "#B5C334", "#27727B", "#C6E579", "#F4E001", "#26C0C0", "#C1232B", "#FAD860"];
+var option = {
+    "grid": {
+        "top": 35,
+        "containLabel": true
+    },
+    series: [{
+        type: 'wordCloud',
+        gridSize: 2,
+        sizeRange: [12, 50],
+        rotationRange: [-90, 90],
+        shape: 'pentagon',
+        width: 600,
+        height: 400,
+        drawOutOfBound: true,
+        textStyle: {
+            normal: {
+                color: function() {
+                    return colors[parseInt(Math.random() * 13)];
+                }
+            },
+            emphasis: {
+                shadowBlur: 10,
+                shadowColor: '#333'
+            }
+        },
+        data: [{
+                name: '橘子洲头',
+                value: 10000
+            },
+            {
+                name: '岳麓书院',
+                value: 6181
+            },
+            {
+                name: '毛主席青年雕像',
+                value: 4386
+            },
+            {
+                name: '长沙市博物馆',
+                value: 4055
+            },
+            {
+                name: '关山古镇',
+                value: 2467
+            },
+            {
+                name: '大围山国家森林公园',
+                value: 2244
+            },
+            {
+                name: '周洛大峡谷',
+                value: 1898
+            },
+            {
+                name: '长沙铜官窑',
+                value: 1484
+            },
+            {
+                name: '宁乡沩山毛尖茶',
+                value: 1360
+            },
+            {
+                name: '杜甫江阁',
+                value: 1112
+            },
+            {
+                name: '剁椒鱼头',
+                value: 965
+            },
+            {
+                name: '大围山梨',
+                value: 847
+            },
+            {
+                name: '臭豆腐',
+                value: 582
+            },
+            {
+                name: '口味虾 ',
+                value: 555
+            },
+            {
+                name: '浏阳红桎木',
+                value: 550
+            },
+            {
+                name: '君山金龟',
+                value: 342
+            },
+            {
+                name: '周洛大峡谷',
+                value: 462
+            },
+            {
+                name: '铜官陶器',
+                value: 366
+            },
+            {
+                name: '长沙动物园',
+                value: 282
+            },
+            {
+                name: '湖南第一师范',
+                value: 273
+            },
+            {
+                name: '华天大酒店紫东阁店美食广场',
+                value: 265
+            },
+            {
+                name: '云麓宫',
+                value: 219
+            },
+            {
+                name: '湖南大学',
+                value: 826
+            },
+            {
+                name: '梅干菜扣肉饼',
+                value: 386
+            },
+            {
+                name: '长沙县星沙渔铺美食城',
+                value: 259
+            },
+            {
+                name: '糖油粑粑',
+                value: 752
+            },
+            {
+                name: '脆皮玉米',
+                value: 936
+            },
+            {
+                name: '猪脑壳凉面',
+                value: 1026
+            },
+            {
+                name: '佶福祥包点',
+                value: 2231
+            },
+            {
+                name: '口味蟹',
+                value: 531
+            },
+            {
+                name: '嗦螺',
+                value: 1335
+            },
+            {
+                name: '嗦酱板鸭',
+                value: 1537
+            },
+            {
+                name: '红烧猪脚',
+                value: 718
+            },
+            {
+                name: '米粉',
+                value: 1018
+            },
+            {
+                name: '长沙公交',
+                value: 418
+            },
+            {
+                name: '绿色长廊',
+                value: 1608
+            },
+            {
+                name: '宁乡千佛洞',
+                value: 301
+            },
+            {
+                name: '裕湘纱厂',
+                value: 272
+            },
+            {
+                name: '长沙地铁',
+                value: 2017
+            },
+            {
+                name: '至长沙高铁',
+                value: 239
+            },
+            {
+                name: '道吾山风景名胜区',
+                value: 1239
+            },
+            {
+                name: '新民学会成立会旧址',
+                value: 1266
+            },
+            {
+                name: '月亮岛',
+                value: 2230
+            },
+            {
+                name: '雷锋纪念馆',
+                value: 3036
+            },
+            {
+                name: '湖南师范大学',
+                value: 230
+            },
+            {
+                name: '黑麋峰森林公园 ',
+                value: 1530
+            },
+            {
+                name: '长沙月湖公园',
+                value: 2036
+            },
+            {
+                name: '贺龙体育场',
+                value: 936
+            }
+        ]
+    }]
+};
+
+module_30005.setOption(option);
+
+$(window).resize(function() {
+    module_30005.resize();
+});
+</script>

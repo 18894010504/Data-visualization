@@ -1,0 +1,87 @@
+<div class="title">
+	<div class="text">近30天游客客源城市TOP5</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>武汉</h6>
+            <label class="up">27.15<span> %</span></label>
+        </li>
+        <li>
+            <h6>江门</h6>
+            <label class="up">18.8<span> %</span></label>
+        </li>
+        <li>
+            <h6>广州</h6>
+            <label class="up">16.7<span> %</span></label>
+        </li>
+    </ul>
+    <div id="module_30029" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+	var module_30029 = echarts.init(document.getElementById('module_30029'), theme);
+    var option = {
+        legend: {
+            top: 5,
+            left: 0,
+            padding: [6, 8],
+            itemGap: 5,
+            data: ['近30天', '同期']
+        },
+        grid: {
+            left: 0,
+            right: 5,
+            top: 40,
+            bottom: 20,
+        },
+        tooltip: {
+            triggerOn: 'none',
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: true,
+            splitLine: {
+                show: false,
+            },
+            data: ["江门", "武汉", "顺德", "深圳", "广州"]
+        },
+        yAxis: [{
+            type: 'value',
+            boundaryGap: true,
+            axisLabel: {
+                inside: true,
+                formatter: '{value}'
+            },
+        }],
+        series: [{
+            name: '近30天',
+            type: 'bar',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top',
+                    formatter: '{c}%'
+                }
+            },
+            data: [92.1,91.2,83,75.5,71,68]
+        },
+        {
+            name: '同期',
+            type: 'bar',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top',
+                    formatter: '{c}%'
+                }
+            },
+            data: [83.7,78,71.5,58.1,51,47]
+        }]
+
+    };
+    module_30029.setOption(option);
+
+    $(window).resize(function() {
+      module_30029.resize();
+  });
+</script>

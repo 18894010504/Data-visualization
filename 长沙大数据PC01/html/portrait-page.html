@@ -1,0 +1,1150 @@
+<style>
+    #touristPortrait_panel_06 .table-bottom {
+        display: none;
+    }
+</style>
+<div class="page-container">
+    <div class="inner-page">
+        <div id="inner_page_header"></div>
+        <div id="alert_info"></div>
+        <div id="filter_panel">
+            <div class="filter-panel">
+                <date-picker type="daterange" :options="options" placement="bottom-start" placeholder="日期选择"
+                             style="width: 200px; margin-right: 8px;"></date-picker>
+                <i-select v-model="model1">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value"
+                              v-text="item.label"></i-option>
+                </i-select>
+                <i-select v-model="model2">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value"
+                              v-text="item.label"></i-option>
+                </i-select>
+                <i-select v-model="model3">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value"
+                              v-text="item.label"></i-option>
+                </i-select>
+                <i-button type="info" icon="funnel" class="filter-btn">筛选</i-button>
+            </div>
+        </div>
+
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="touristPortrait_panel_01" class="ivu-col ivu-col-span-12"></div>
+                <div id="touristPortrait_panel_02" class="ivu-col ivu-col-span-12"></div>
+            </div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="touristPortrait_panel_03" class="ivu-col ivu-col-span-12"></div>
+                <div id="touristPortrait_panel_04" class="ivu-col ivu-col-span-12"></div>
+            </div>
+        </div>
+
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="touristPortrait_panel_05" class="ivu-col ivu-col-span-24"></div>
+            </div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="touristPortrait_panel_06"></div>
+            </div>
+        </div>
+        <div id="inner_page_footer"></div>
+    </div>
+    <div id="page_footer"></div>
+</div>
+<script type="text/javascript">
+    new Vue({
+        el: '#filter_panel',
+        data: {
+            model1: '',
+            model2: '',
+            model3: '',
+            cityList: [{
+                value: 'beijing',
+                label: '北京市'
+            }, {
+                value: 'shanghai',
+                label: '上海市'
+            }, {
+                value: 'shenzhen',
+                label: '深圳市'
+            }, {
+                value: 'hangzhou',
+                label: '杭州市'
+            }, {
+                value: 'nanjing',
+                label: '南京市'
+            }, {
+                value: 'chongqing',
+                label: '重庆市'
+            }],
+            options: {
+                shortcuts: [
+                    {
+                        text: '近一周',
+                        value() {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                            return [start, end];
+                        }
+                    },
+                    {
+                        text: '近一月',
+                        value() {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                            return [start, end];
+                        }
+                    },
+                    {
+                        text: '近三月',
+                        value() {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                            return [start, end];
+                        }
+                    }
+                ]
+            }
+        }
+    });
+
+    $('#inner_page_header').tourInnerPageHeader({
+        pageTitle: '游客画像',
+        btnSave: false,
+        btnNew: false,
+        btnPrintReport: false
+    });
+
+    $('#alert_info').tourAlert({
+        desc: '消息提示的描述文案消息提示的描述文案消息提示的描述文案消息提示的描述文案消息提示的描述文案',
+        href: '#'
+    });
+
+
+
+
+
+    $('#touristPortrait_panel_01').tourChartPanel({
+        chartId: 'chart_01',
+        chartTitle: '游客性别占比',
+        viewHref: '#',
+        datas: [{
+            type: 'pie',
+            label: '标签标签1',
+            keyValue: [{
+                key: '男性游客',
+                value: '4,634人'
+            }, {
+                key: '女性游客',
+                value: '5,366人'
+            }],
+            columns: [{
+                title: '游客性别',
+                key: 'name'
+            }, {
+                title: '人数',
+                key: 'value',
+                sortable: true
+            }],
+            data: [{
+                name: '男性',
+                value: 4634
+            }, {
+                name: '女性',
+                value: 5366
+            }]
+        }]
+    });
+    $('#touristPortrait_panel_02').tourChartPanel({
+        chartId: 'chart_02',
+        chartTitle: '游客出行方式占比',
+        viewHref: '#',
+        datas: [{
+            type: 'pie',
+            label: '标签标签1',
+            keyValue: [{
+                key: '火车',
+                value: '2,310人'
+            }, {
+                key: '高铁',
+                value: '3,366人'
+            }, {
+                key: '自驾',
+                value: '2,990人'
+            }, {
+                key: '飞机',
+                value: '1,334人'
+            }],
+            columns: [{
+                title: '出行方式',
+                key: 'name'
+            }, {
+                title: '人数',
+                key: 'value',
+                sortable: true
+            }],
+            data: [{
+                name: '火车',
+                value: 782
+            }, {
+                name: '高铁',
+                value: 325
+            }, {
+                name: '自驾',
+                value: 325
+            }, {
+                name: '飞机',
+                value: 325
+            }]
+        }]
+    });
+    $('#touristPortrait_panel_03').tourChartPanel({
+        chartId: 'chart_03',
+        chartTitle: '游客驻留时间占比',
+        viewHref: '#',
+        datas: [{
+            type: 'pie',
+            label: '标签标签1',
+            keyValue: [{
+                key: '1天以内',
+                value: '3,343人'
+            }, {
+                key: '1-3天',
+                value: '3,343人'
+            }, {
+                key: '3-5天',
+                value: '3,343人'
+            }, {
+                key: '5天以上',
+                value: '3,343人'
+            }],
+            columns: [{
+                title: '用户年龄',
+                key: 'name'
+            }, {
+                title: '人数',
+                key: 'value',
+                sortable: true
+            }],
+            data: [{
+                name: '1天以内',
+                value: 782
+            }, {
+                name: '1-3天',
+                value: 325
+            }, {
+                name: '3-5天',
+                value: 325
+            }, {
+                name: '5天以上',
+                value: 325
+            }]
+        }]
+    });
+    $('#touristPortrait_panel_04').tourChartPanel({
+        chartId: 'chart_04',
+        chartTitle: '游客年龄占比',
+        viewHref: '#',
+        datas: [{
+            type: 'pie',
+            label: '标签标签1',
+            keyValue: [{
+                key: '50岁以上',
+                value: '3,343人'
+            }, {
+                key: '40-49岁',
+                value: '3,343人'
+            }, {
+                key: '20-39岁',
+                value: '3,343人'
+            }, {
+                key: '20岁以下',
+                value: '3,343人'
+            }],
+            columns: [{
+                title: '用户年龄',
+                key: 'name'
+            }, {
+                title: '人数',
+                key: 'value',
+                sortable: true
+            }],
+            data: [{
+                name: '50岁以上',
+                value: 782
+            }, {
+                name: '40-49岁',
+                value: 325
+            }, {
+                name: '20-39岁',
+                value: 325
+            }, {
+                name: '20岁以下',
+                value: 325
+            }]
+        }]
+    });
+
+    $('#touristPortrait_panel_05').tourChartPanel({
+        chartId: 'chart_05',
+        chartTitle: '各省游客平均驻留时间',
+        viewHref: '#',
+        datas: [{
+            label: '平均驻留时间',
+            keyValue: [{
+                key: '全国平均驻留时间',
+                value: '1.99天'
+            }, {
+                key: '全省平均驻留时间',
+                value: '1.99天'
+            }, {
+                key: '全市平均驻留时间',
+                value: '1.98天'
+            }],
+            columns: [{
+                title: '省份',
+                key: 'province'
+            }, {
+                title: '平均驻留时间',
+                key: 'value',
+                sortable: true,
+                chartType: 'bar'
+            }],
+            data: [{
+                province: '吉林',
+                value: 1.99
+            }, {
+                province: '湖北',
+                value: 1.99
+            }, {
+                province: '海南',
+                value: 1.98
+            }, {
+                province: '江苏',
+                value: 1.95
+            }, {
+                province: '云南',
+                value: 1.95
+            }, {
+                province: '北京',
+                value: 1.95
+            }, {
+                province: '重庆',
+                value: 1.95
+            },{
+                province: '江西',
+                value: 1.94
+            }, {
+                province: '福建',
+                value: 1.93
+            }, {
+                province: '天津',
+                value: 1.93
+            }, {
+                province: '贵州',
+                value: 1.92
+            }, {
+                province: '广西',
+                value: 1.92
+            }, {
+                province: '广东',
+                value: 1.91
+            }, {
+                province: '湖南',
+                value: 1.90
+            },{
+                province: '浙江',
+                value: 1.90
+            }, {
+                province: '西藏',
+                value: 1.89
+            }, {
+                province: '河南',
+                value: 1.88
+            }, {
+                province: '辽宁',
+                value: 1.87
+            }, {
+                province: '安徽',
+                value: 1.86
+            }, {
+                province: '山西',
+                value: 1.84
+            }, {
+                province: '新疆',
+                value: 1.84
+            }, {
+                province: '陕西',
+                value: 1.84
+            }, {
+                province: '山东',
+                value: 1.83
+            }, {
+                province: '四川',
+                value: 1.82
+            },{
+                province: '河北',
+                value: 1.81
+            }, {
+                province: '内蒙古',
+                value: 1.79
+            }, {
+                province: '黑龙江',
+                value: 1.77
+            }, {
+                province: '上海',
+                value: 1.77
+            }, {
+                province: '青海',
+                value: 1.76
+            }, {
+                province: '宁夏',
+                value: 1.75
+            }, {
+                province: '甘肃',
+                value: 1.71
+            }, {
+                province: '台湾',
+                value: 1.61
+            }, {
+                province: '香港',
+                value: 1.60
+            }, {
+                province: '澳门',
+                value: 1.51
+            }]
+        }]
+    });
+
+
+    $('#touristPortrait_panel_06').tourChartTablePanel({
+        chartId: 'chart_id',
+        chartTitle: '各省游客到达方式详情',
+        chartLegend: '到达方式',
+        chartType: 'bar',
+        tableTitle: '标题标题标题标题标题标题',
+        columns: [{
+            "title": "日期",
+            "key": "name",
+            "fixed": "left",
+            "width": 150
+        }, {
+            "title": "湖南",
+            "key": "hunan",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "湖北",
+            "key": "hubei",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '273,343人'
+            }, {
+                key: '高铁',
+                value: '233,333人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "甘肃",
+            "key": "gansu",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '213,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '203,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }],
+            filters: [{
+                label: '大于4000',
+                value: 1
+            }, {
+                label: '小于4000',
+                value: 2
+            }]
+        }, {
+            "title": "陕西",
+            "key": "shanxi",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '230,343人'
+            }, {
+                key: '自驾',
+                value: '203,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "山西",
+            "key": "sanxi",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,043人'
+            }, {
+                key: '自驾',
+                value: '203,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "山东",
+            "key": "shandong",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '203,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '203,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "江苏",
+            "key": "jiangsu",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '239,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '293,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "上海",
+            "key": "shanghai",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,349人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '293,343人'
+            }]
+        }, {
+            "title": "浙江",
+            "key": "zhejiang",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '293,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '239,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "安徽",
+            "key": "anhui",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '293,343人'
+            }, {
+                key: '自驾',
+                value: '239,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "福建",
+            "key": "fujian",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '237,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,373人'
+            }]
+        }, {
+            "title": "江西",
+            "key": "jiangxi",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "广东",
+            "key": "guangdong",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "广西",
+            "key": "guangxi",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "海南",
+            "key": "hainan",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "河南",
+            "key": "henan",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "内蒙古",
+            "key": "neimenggu",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "宁夏",
+            "key": "ningxia",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "北京",
+            "key": "beijing",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "天津",
+            "key": "tianjin",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "河北",
+            "key": "hebei",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "青海",
+            "key": "qinghai",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "新疆",
+            "key": "xinjiang",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "四川",
+            "key": "sichuan",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "贵州",
+            "key": "guizhou",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "云南",
+            "key": "yunnan",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "重庆",
+            "key": "chongqing",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "西藏",
+            "key": "xizang",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "辽宁",
+            "key": "liaoning",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "吉林",
+            "key": "jilin",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "黑龙江",
+            "key": "heilongjiang",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "香港",
+            "key": "xianggang",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "澳门",
+            "key": "aomen",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }, {
+            "title": "台湾",
+            "key": "taiwan",
+            "width": 150,
+            "sortable": true,
+            className: '',
+            keyValue: [{
+                key: '火车',
+                value: '233,343人'
+            }, {
+                key: '高铁',
+                value: '233,343人'
+            }, {
+                key: '自驾',
+                value: '233,343人'
+            }, {
+                key: '飞机',
+                value: '203,343人'
+            }]
+        }],
+        data: [{
+            "name": "火车",
+            "hunan": 9289,
+            "hubei": 10489,
+            "gansu": 10289,
+            "shanxi": 10889,
+            "sanxi": 10289,
+            "shandong": 10289,
+            "jiangsu": 10219,
+            "shanghai": 10289,
+            "zhejiang": 12289,
+        }, {
+            "name": "高铁",
+            "hunan": 20424,
+            "hubei": 26424,
+            "gansu": 23424,
+            "shanxi": 23924,
+            "sanxi": 23424,
+            "shandong": 23424,
+            "jiangsu": 23024,
+            "shanghai": 23424,
+            "zhejiang": 23524,
+        }, {
+            "name": "自驾",
+            "hunan": 23190,
+            "hubei": 23490,
+            "gansu": 23290,
+            "shanxi": 23790,
+            "sanxi": 23420,
+            "shandong": 23390,
+            "jiangsu": 23494,
+            "shanghai": 25490,
+            "zhejiang": 23440,
+        }, {
+            "name": "飞机",
+            "hunan": 23190,
+            "hubei": 20490,
+            "gansu": 23490,
+            "shanxi": 23890,
+            "sanxi": 23490,
+            "shandong": 24490,
+            "jiangsu": 23490,
+            "shanghai": 25490,
+            "zhejiang": 23490,
+        }]
+    });
+
+
+    $('#inner_page_footer').tourInnerPageFooter({
+        source: '万维旅游云服务 ©wanwei.com.cn',
+        content: `<p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等。</p>`
+    });
+
+    $('#page_footer').tourFooter();
+
+
+</script>

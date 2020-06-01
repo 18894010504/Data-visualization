@@ -1,0 +1,80 @@
+<div class="title">
+    <div class="text">舆情综合监测</div>
+</div>
+<div class="inner-box inner_30001-box">
+    <ul class="all_thing-show">
+        <li>
+            <div class="content_wrap">
+                <h6>长沙励步定王台校区急功近利、管理混乱</h6>
+                <div class="come_from">
+                    <p>来源：长沙都市</p>
+                    <p>2017-12-08 08:11:00</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>高桥新雨路车辆乱停乱放无人管</h6>
+                <div class="come_from">
+                    <p>来源：长沙都市</p>
+                    <p>2017-12-06 09:12:00</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>801路公交车早班车太挤、发车太迟</h6>
+                <div class="come_from">
+                    <p>来源：长沙都市</p>
+                    <p>2017-12-05 07:10:00</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>长沙明年将推15个“城市双修”示范片</h6>
+                <div class="come_from">
+                    <p>来源：今日头条</p>
+                    <p>2017-12-04 08:11:00</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="content_wrap">
+                <h6>长沙大幅提升教育信息化水平 将建成1000个“智慧教室”</h6>
+                <div class="come_from">
+                    <p>来源：搜狐</p>
+                    <p>2017-12-03 09:12:00</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+$(function() {
+    var _wrap = $('.all_thing-show'); //定义滚动区域
+    var _interval = 5000; //定义滚动间隙时间
+    var _moving; //需要清除的动画
+    _wrap.hover(function() {
+        clearInterval(_moving); //当鼠标在滚动区域中时,停止滚动
+    }, function() {
+        _moving = setInterval(function() {
+            var _field = _wrap.find('li:first'); //此变量不可放置于函数起始处,li:first取值是变化的
+            var _h = _field.height(); //取得每次滚动高度
+            _field.animate({
+                marginTop: -_h + 'px'
+            }, 500, function() { //通过取负margin值,隐藏第一行
+                _field.css('marginTop', 0).appendTo(_wrap); //隐藏后,将该行的margin值置零,并插入到最后,实现无缝滚动
+            })
+        }, _interval) //滚动间隔时间取决于_interval
+    }).trigger('mouseleave'); //函数载入时,模拟执行mouseleave,即自动滚动
+
+    // 滚动条
+    $(".all_thing-show").niceScroll({
+        cursorcolor: "#1f4866",
+        autohidemode: true,
+        cursorwidth: "4px",
+        cursorborderradius: 0
+    });
+});
+</script>

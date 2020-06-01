@@ -1,0 +1,77 @@
+<div class="title">
+    <div class="text">舆情媒体指数</div>
+</div>
+<div class="inner-box module_100006">
+    <ul class="box-info">
+        <li>
+            <h6>百度</h6>
+            <label>97</label>
+        </li>
+        <li>
+            <h6>搜狐</h6>
+            <label>96</label>
+        </li>
+        <li>
+            <h6>新浪</h6>
+            <label>93</label>
+        </li>
+    </ul>
+    <div id="module_10067" class="box-chart" style="width: 100%; height: 100%;"></div>
+</div>
+<script type="text/javascript">
+var module_10067 = echarts.init(document.getElementById('module_10067'), 'BigDataPe');
+
+var option = {
+    legend: {
+        top: 5,
+        left: 0,
+        padding: [6, 8],
+        itemGap: 5,
+        data: ['媒体指数']
+    },
+    grid: {
+        left: 0,
+        right: 5,
+        top: 40,
+        bottom: 20,
+    },
+    tooltip: {
+        triggerOn: 'none',
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: ["百度", "新浪", "搜狐", "去哪", "携程", "搜狗", "美团", "其他"]
+    },
+    yAxis: [{
+        type: 'value',
+        max: 100,
+        splitNumber: 5,
+        boundaryGap: true,
+        axisLabel: {
+            inside: true,
+            formatter: '{value}'
+        },
+    }],
+    series: [{
+        name: '媒体指数',
+        type: 'bar',
+        label: {
+            normal: {
+                show: true,
+                position: 'top',
+            }
+        },
+        data: [93, 63, 97, 53, 96, 88, 66, 75, ]
+    }]
+
+};
+module_10067.setOption(option);
+
+$(window).resize(function() {
+    module_10067.resize();
+});
+</script>

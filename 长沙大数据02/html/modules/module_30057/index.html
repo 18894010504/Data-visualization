@@ -1,0 +1,60 @@
+<div class="title">
+    <div class="text">关注用户行业占比</div>
+</div>
+<div class="inner-box">
+    <div id="module_30057" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30057 = echarts.init(document.getElementById('module_30057'), theme);
+var option = {
+    grid: {
+        left: 60,
+        right: 20,
+        top: 10,
+        bottom: 10,
+    },
+    tooltip: {
+        triggerOn: 'none',
+    },
+    xAxis: {
+        show: false
+    },
+    yAxis: [{
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false
+        },
+        axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+        data: ["其他", "公共事业", "交通", "流通", "能源", "制造", "电信", "金融", "教育", "政府"]
+    }],
+    series: [{
+        name: '占比',
+        type: 'bar',
+        label: {
+            normal: {
+                show: true,
+                position: 'right',
+                formatter: '{c}%'
+            }
+        },
+        itemStyle: {
+            normal: {
+                barBorderRadius: [0, 3, 3, 0]
+            }
+        },
+        data: [5.9, 12.6, 9.5, 8.7, 12, 10.5, 10, 6, 13.7, 11.1]
+    }]
+
+};
+module_30057.setOption(option);
+
+$(window).resize(function() {
+    module_30057.resize();
+});
+</script>

@@ -1,0 +1,83 @@
+<div class="title">
+    <div class="text">未来30天客源市场占比预测</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>华东地区</h6>
+            <label>17.01<span> %</span></label>
+        </li>
+        <li>
+            <h6>华南地区</h6>
+            <label>16.12<span> %</span></label>
+        </li>
+        <li>
+            <h6>西南地区</h6>
+            <label>9.32<span> %</span></label>
+        </li>
+    </ul>
+    <div id="module_30081" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30081 = echarts.init(document.getElementById('module_30081'), 'BigDataPe');
+var option = {
+    title: {
+        show: true,
+        text: '客源\n占比',
+        x: 'center',
+        y: 'center',
+        textStyle: {
+            color: '#2de7ff',
+            fontSize: 16
+        },
+        textBaseline: 'top',
+        itemGap: 0,
+    },
+    grid: {
+        left: 25,
+        right: 25,
+        top: 130,
+        bottom: 36,
+    },
+    series: [{
+        type: 'pie',
+        silent: true,
+        label: {
+            normal: {
+                position: 'outside',
+                formatter: '{b}\n{d}%'
+            }
+        },
+        data: [{
+            value: 17.01,
+            name: '华东地区'
+        }, {
+            value: 16.12,
+            name: '华南地区'
+        }, {
+            value: 19.01,
+            name: '华中地区'
+        }, {
+            value: 14.06,
+            name: '华北地区'
+        }, {
+            value: 10.05,
+            name: '西北地区'
+        }, {
+            value: 9.32,
+            name: '西南地区'
+        }, {
+            value: 13.02,
+            name: '东北地区'
+        }, {
+            value: 1.41,
+            name: '港澳台地区'
+        }]
+    }]
+};
+module_30081.setOption(option);
+
+$(window).resize(function() {
+    module_30081.resize();
+});
+</script>

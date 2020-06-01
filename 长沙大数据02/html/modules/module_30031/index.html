@@ -1,0 +1,92 @@
+<div class="title">
+    <div class="text">近30天游客客源省份增幅TOP5</div>
+</div>
+<div class="inner-box">
+    <div id="module_30031" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30031 = echarts.init(document.getElementById('module_30031'), theme);
+
+module_30031.setOption({
+
+    tooltip: {
+        show: true,
+        trigger: 'axis',
+        formatter: '{b}<br/>{a0}：{c0}' + '人次<br/>' + '{a1}：{c1}' + '人次<br/>' + '{a2}：{c2}' + '%'
+    },
+    grid: {
+        top: 35,
+        bottom: 20,
+        left: 0,
+        right: 5,
+        containLabel: false
+    },
+    legend: {
+        data: ['近30天', '同期']
+    },
+    xAxis: [{
+        type: 'category',
+        axisTick: false,
+        axisLabel: {
+            interval: 0
+        },
+        splitLine: false,
+        data: ['广东', '湖北', '江西', '河南', '辽宁']
+    }],
+    yAxis: [{
+        show: false,
+        type: 'value',
+        boundaryGap: ['0%', '40%']
+    }, {
+        show: false,
+        type: 'value',
+        min: -88500,
+        max: 11500
+    }],
+    series: [{
+        name: '近30天',
+        type: 'bar',
+        barWidth: 'auto',
+        barMaxWidth: 24,
+        data: [5033, 3929, 2460, 2039, 1840]
+    }, {
+        name: '同期',
+        type: 'bar',
+        barWidth: 'auto',
+        barMaxWidth: 24,
+        data: [4230, 3521, 2112, 1834, 1738]
+    }, {
+        name: '增幅',
+        type: 'line',
+        yAxisIndex: 1,
+        data: [8.3, 4.5, 3.3, 2.9, 2.3],
+        lineStyle: {
+            normal: {
+                color: 'rgba(0, 0, 0, 0)'
+            }
+        },
+        symbol: "Rectangle",
+        symbolSize: [56, 24],
+        label: {
+            normal: {
+                show: true,
+                offset: [0, 0],
+                position: 'inside',
+                formatter: '{c}%',
+                textStyle: {
+                    color: '#fff',
+                    fontSize: 14,
+                    textBorderWidth: 0,
+                    textShadowBlur: 4,
+                    textShadowColor:'rgba(0,0,0,0.6)'
+                }
+            }
+        }
+
+    }]
+});
+
+$(window).resize(function() {
+    module_30031.resize();
+});
+</script>

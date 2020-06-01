@@ -1,0 +1,157 @@
+<div class="title">
+    <div class="text">关注用户性别占比</div>
+</div>
+<div class="inner-box module_30056">
+    <ul class="box-info">
+        <li>
+            <h6>女性</h6>
+            <label>53.58 %</label>
+        </li>
+        <li>
+            <h6>男性</h6>
+            <label>46.42 %</label>
+        </li>
+    </ul>
+    <div id="module_30056" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var male = 'image://res/img/male.svg';
+var female = 'image://res/img/female.svg';
+
+var maxData = 100;
+var module_30056 = echarts.init(document.getElementById('module_30056'), 'BigDataPe');
+var option = {
+    grid: [{
+        left: 0,
+        right: 0,
+        top: '10%',
+        bottom: '50%',
+    }, {
+        left: 0,
+        right: 0,
+        top: '50%',
+        bottom: '10%',
+    }],
+    tooltip: {
+        triggerOn: 'none',
+    },
+    xAxis: [{
+        gridIndex: 0,
+        max: maxData,
+        splitLine: { show: false },
+        offset: 10,
+        axisLine: {
+            lineStyle: {
+                color: '#999'
+            }
+        },
+        axisLabel: {
+            show: false
+        }
+    }, {
+        gridIndex: 1,
+        max: maxData,
+        splitLine: { show: false },
+        offset: 10,
+        axisLine: {
+            lineStyle: {
+                color: '#999'
+            }
+        },
+        axisLabel: {
+            show: false
+        }
+    }],
+    yAxis: [{
+        gridIndex: 0,
+        data: ['女性'],
+        inverse: true,
+        axisTick: { show: false },
+        axisLine: { show: false },
+        axisLabel: {
+            margin: 10,
+            textStyle: {
+                color: '#999',
+                fontSize: 16
+            }
+        }
+    }, {
+        gridIndex: 1,
+        data: ['男性'],
+        inverse: true,
+        axisTick: { show: false },
+        axisLine: { show: false },
+        axisLabel: {
+            margin: 10,
+            textStyle: {
+                color: '#999',
+                fontSize: 16
+            }
+        }
+    }],
+    series: [{
+        yAxisIndex: 0,
+        xAxisIndex: 0,
+        type: 'pictorialBar',
+        symbol: female,
+        symbolRepeat: 'fixed',
+        symbolMargin: '5%',
+        symbolClip: true,
+        symbolSize: [24, 36],
+        symbolBoundingData: maxData,
+        data: [53.58],
+        z: 10
+    }, {
+        yAxisIndex: 0,
+        xAxisIndex: 0,
+        type: 'pictorialBar',
+        itemStyle: {
+            normal: {
+                opacity: 0.2
+            }
+        },
+        animationDuration: 0,
+        symbolRepeat: 'fixed',
+        symbolMargin: '5%',
+        symbol: female,
+        symbolSize: [24, 36],
+        symbolBoundingData: maxData,
+        data: [46.42],
+        z: 5
+    }, {
+        yAxisIndex: 1,
+        xAxisIndex: 1,
+        type: 'pictorialBar',
+        symbol: male,
+        symbolRepeat: 'fixed',
+        symbolMargin: '5%',
+        symbolClip: true,
+        symbolSize: [24, 36],
+        symbolBoundingData: maxData,
+        data: [46.42],
+        z: 10
+    }, {
+        yAxisIndex: 1,
+        xAxisIndex: 1,
+        type: 'pictorialBar',
+        itemStyle: {
+            normal: {
+                opacity: 0.2
+            }
+        },
+        animationDuration: 0,
+        symbolRepeat: 'fixed',
+        symbolMargin: '5%',
+        symbol: male,
+        symbolSize: [24, 36],
+        symbolBoundingData: maxData,
+        data: [53.58],
+        z: 5
+    }]
+};
+module_30056.setOption(option);
+
+$(window).resize(function() {
+    module_30056.resize();
+});
+</script>

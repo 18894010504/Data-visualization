@@ -1,0 +1,90 @@
+<div class="title">
+    <div class="text">游客投诉类型</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>酒店</h6>
+            <label>18.03<span> %</span></label>
+        </li>
+        <li>
+            <h6>娱乐</h6>
+            <label>13.11<span> %</span></label>
+        </li>
+        <li>
+            <h6>交通</h6>
+            <label>11.47 <span>%</span></label>
+        </li>
+    </ul>
+    <div id="module_30063" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30063 = echarts.init(document.getElementById('module_30063'), 'BigDataPe');
+var option = {
+    title: {
+        show: true,
+        text: '投诉\n类型',
+        x: 'center',
+        y: 'center',
+        textStyle: {
+            color: '#2de7ff',
+            fontSize: 16
+        }
+    },
+    grid: {
+        left: 25,
+        right: 25,
+        top: 125,
+        bottom: 36
+    },
+    series: [{
+        name: '投诉类型占比',
+        type: 'pie',
+        silent: true,
+        label: {
+            normal: {
+                position: 'outside',
+                formatter: '{b}({d}%)'
+            }
+        },
+        data: [{
+                value: 11.47,
+                name: '交通'
+            },
+            {
+                value: 18.03,
+                name: '酒店'
+            },
+            {
+                value: 14.59,
+                name: '旅馆'
+            },
+            {
+                value: 8.2,
+                name: '餐饮'
+            },
+            {
+                value: 8.2,
+                name: '购物'
+            },
+            {
+                value: 6.56,
+                name: '娱乐'
+            },
+            {
+                value: 9.84,
+                name: '景区'
+            },
+            {
+                value: 13.11,
+                name: '其他',
+            }
+        ]
+    }]
+};
+module_30063.setOption(option);
+
+$(window).resize(function() {
+    module_30063.resize();
+});
+</script>

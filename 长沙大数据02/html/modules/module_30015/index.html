@@ -1,0 +1,83 @@
+<div class="title">
+    <div class="text">近30天过夜游客</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>近30天最高</h6>
+            <label class="up">9.6<span> 万</span></label>
+        </li>
+        <li>
+            <h6>近30天最低</h6>
+            <label class="up">5.8<span> 万</span></label>
+        </li>
+        <li>
+            <h6>近30天平均</h6>
+            <label class="up">7.3<span> 万</span></label>
+        </li>
+    </ul>
+    <div id="module_30015" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30015 = echarts.init(document.getElementById('module_30015'), 'BigDataPe');
+var option = {
+    grid: {
+        left: 0,
+        right: 0,
+        top: 20,
+        bottom: 20,
+    },
+    tooltip: {
+        triggerOn: 'none',
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: [ "11月16日", "11月17日", "11月18日", "11月19日", "11月20日", "11月21日", "11月22日", "11月23日", "11月24日", "11月25日", "11月26日", "11月27日", "11月28日", "11月29日", "11月30日", "12月1日", "12月2日", "12月3日", "12月4日", "12月5日", "12月6日", "12月7日", "12月8日", "12月9日", "12月10日", "12月11日", "12月12日", "12月13日", "12月14日", "12月15日"]
+    },
+    yAxis: [{
+        type: 'value',
+        scale: true,
+        boundaryGap: ['60%', '60%'],
+        axisLabel: {
+            inside: true,
+            formatter: '{value}万'
+        },
+    }],
+    series: [{
+        name: '过夜游客',
+        type: 'line',
+        label: {
+            normal: {
+                show: true,
+                position: 'top'
+            }
+        },
+        data: [9.6,6.8,5.6,9.1,5.3,8,8.9,7.7,6.5,8.1,9.6,5.5,5.4,6.7,8.2,8.4,7.6,5.7,6.6,7.5,7.5,7.7,8.2,8.6,6,7.6,6.4,7.9,8.2,6.3],
+        markLine: {
+            label: {
+                normal: {
+                    position: 'middle'
+                }
+            },
+            lineStyle: {
+                normal: {
+                    color: '#fa792e'
+                }
+            },
+            data: [
+                { type: 'average', name: '平均值' }
+            ]
+        }
+    }]
+
+};
+module_30015.setOption(option);
+
+$(window).resize(function() {
+    module_30015.resize();
+});
+</script>

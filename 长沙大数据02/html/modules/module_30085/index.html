@@ -1,0 +1,99 @@
+<div class="title">
+    <div class="text">未来7天旅游收入预测</div>
+</div>
+<div class="inner-box module_100042">
+    <ul class="box-info">
+        <li>
+            <h6>12月16日</h6>
+            <label class="up">28270</label>
+        </li>
+        <li>
+            <h6>12月17日</h6>
+            <label class="up">29210</label>
+        </li>
+        <li>
+            <h6>12月18日</h6>
+            <label class="up">30002</label>
+        </li>
+    </ul>
+    <div id="module_30085" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30085 = echarts.init(document.getElementById('module_30085'), theme);
+
+var module_100042_option = {
+    legend: {
+        top: 5,
+        left: 0,
+        padding: [6, 8],
+        itemGap: 5,
+        data: ['实际收入', '预测收入']
+    },
+    grid: {
+        left: 0,
+        right: 5,
+        top: 40,
+        bottom: 20
+    },
+    tooltip: {
+        trigger: 'axis',
+
+
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false
+        },
+        data: ["11月15日", "11月16日", "11月17日", "11月18日", "11月19日", "11月20日", "11月21日", "11月22日", "11月23日", "11月24日", "11月25日", "11月26日", "11月27日", "11月28日", "11月29日", "11月30日", "12月1日", "12月2日", "12月3日", "12月4日", "12月5日", "12月6日", "12月7日", "12月8日", "12月9日", "12月10日", "12月11日", "12月12日", "12月13日", "12月14日", "12月15日", "12月16日", "12月17日", "12月18日", "12月19日", "12月20日", "12月21日", "12月22日"]
+    },
+    yAxis: [{
+        type: 'value',
+        boundaryGap: true,
+        scale: true,
+        boundaryGap: ['60%', '60%'],
+        axisLabel: {
+            inside: true,
+            formatter: '{value}'
+        }
+    }],
+    series: [{
+            name: '实际收入',
+            type: 'line',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'top'
+                }
+            },
+
+            data: [31280, 29204, 28200, 29201, 30180, 29900, 29280, 29800, 31040, 31020, 30603, 30220, 29207, 30300, 29290, 30250, 31240, 31060, 30108, 29203, 28200, 27060, 28200, 29202, 28300, 29200, 30000, 31021, 31210, 29270, 28300]
+        },
+        {
+            name: '预测收入',
+            type: 'line',
+            itemStyle:{
+                normal: {
+                    color: '#FFA409'
+                },
+            },
+            label: {
+                normal: {
+                    show: false,
+                    position: 'top'
+                }
+            },
+            data: [31901, 29000, 28202, 28018, 29080, 30201, 30906, 30280, 31207, 31000, 31002, 30008, 30200, 30240, 29093, 31003, 30204, 29200, 29001, 29202, 28200, 29270, 29202, 28900, 29320, 30630, 30230, 29940, 30081, 29905, 28534, 28370, 28310, 28092, 28060, 27900, 27800, 27850]
+        }
+    ]
+};
+
+module_30085.setOption(module_100042_option);
+
+
+
+$(window).resize(function() {
+    module_30085.resize();
+});
+</script>

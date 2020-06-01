@@ -1,0 +1,714 @@
+<div class="inner-box module_100001 module_30009">
+    <div class="map-info-box">
+        <div class="map-info-box-in">
+            <h5 class="info-title">今日累计游客</h5>
+            <p class="box">
+                <span class="dtnum">32,753<label>人次</label></span>
+            </p>
+        </div>
+        <div class="map-info-box-in">
+            <h6 class="info-title">当前在园游客</h6>
+            <p class="box">
+                <span class="dtnum">11,695<label>人次</label></span>
+            </p>
+        </div>
+        <div class="map-info-box-in">
+            <h6 class="info-title">昨日过夜游客</h6>
+            <p class="box">
+                <span class="dtnum">59,233<label>人次</label></span>
+            </p>
+        </div>
+    </div>
+    <div class="early-warning-map-info">
+        <div class="weather newweather fn-clear">
+            <div class="item">
+                <span>23<i></i></span>
+                <em>景点</em>
+            </div>
+            <div class="item">
+                <span>57<i></i></span>
+                <em>酒店</em>
+            </div>
+            <div class="item">
+                <span>18<i></i></span>
+                <em>美食</em>
+            </div>
+            <div class="item">
+                <span>5<i></i></span>
+                <em>交通</em>
+            </div>
+            <div class="item">
+                <span>16<i></i></span>
+                <em>购物</em>
+            </div>
+        </div>
+        <div class="event-list-box">
+            <ul class="event-list eventlist">
+                <li>
+                    <div class="info">
+                        <span>橘子洲</span>
+                        <em>湖南省长沙市岳麓区橘子洲头2号</em>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">
+                        <span>岳麓山风景名胜区</span>
+                        <em>湖南省长沙市岳麓区登高路40号</em>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">
+                        <span>道吾山风景名胜区</span>
+                        <em>湖南省浏阳市集里街道道吾山风景名胜区 </em>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">
+                        <span>雷锋纪念馆 </span>
+                        <em>长沙市望城县今雷锋镇雷锋村简家塘</em>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">
+                        <span>靖港古镇</span>
+                        <em>长沙市望城县靖港古镇(距市中心24km) </em>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">
+                        <span>天心阁 </span>
+                        <em>长沙市天心路4号（城南路与天心路交会处）</em>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">
+                        <span>世界之窗</span>
+                        <em>长沙市开福区三一大道485号(湖南电视台对面)</em>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">
+                        <span>贾谊故居</span>
+                        <em>天心区太平街28号（解放西路与太平街交汇处）</em>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">
+                        <span>马王堆汉墓</span>
+                        <em>长沙市开福区东风路50号湖南省博物馆内 </em>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">
+                        <span>湘江风光带</span>
+                        <em>天心区湘江东岸（湘江中路风光带）</em>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">
+                        <span>长沙市博物馆 </span>
+                        <em> 湖南省长沙市开福区新河三角洲滨江文化园内  </em>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">
+                        <span>大围山国家森林公园</span>
+                        <em>湖南省浏阳市大围山镇（距长沙118km）</em>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">
+                        <span>周洛大峡谷</span>
+                        <em>湖南长沙市浏阳社港镇周洛大峡谷风景区</em>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">
+                        <span>石燕湖生态公园</span>
+                        <em>湖南省长沙市长沙县跳马乡石燕湖 </em>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">
+                        <span>长沙南郊公园</span>
+                        <em>长沙市天心区南二环新开铺路109号</em>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">
+                        <span>长沙生态动物园</span>
+                        <em>长沙市长沙县暮云镇西湖村（芙蓉南路） </em>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="module_30009" class="box-chart map-noborder"></div>
+    <div class="map-shawd-t"></div>
+    <div class="map-shawd-b"></div>
+    <div class="map-shawd-r"></div>
+    <div class="map-shawd-l"></div>
+</div>
+<script type="text/javascript">
+$(function() {
+    var ul = parseInt($('.event-list').css("height"))
+    var box = parseInt($('.event-list-box').css("height"))
+    if (ul >= box) {
+        var _wrap = $('.early-warning-map-info .event-list'); //定义滚动区域
+        var _interval = 5000; //定义滚动间隙时间
+        var _moving; //需要清除的动画
+        _wrap.hover(function() {
+            clearInterval(_moving); //当鼠标在滚动区域中时,停止滚动
+        }, function() {
+            _moving = setInterval(function() {
+                var _field = _wrap.find('li:first'); //此变量不可放置于函数起始处,li:first取值是变化的
+                var _h = _field.height(); //取得每次滚动高度
+                _field.animate({
+                    marginTop: -_h + 'px'
+                }, 500, function() { //通过取负margin值,隐藏第一行
+                    _field.css('marginTop', 0).appendTo(_wrap); //隐藏后,将该行的margin值置零,并插入到最后,实现无缝滚动
+                })
+            }, _interval) //滚动间隔时间取决于_interval
+        }).trigger('mouseleave'); //函数载入时,模拟执行mouseleave,即自动滚动
+    }
+    // 滚动条
+    $(".early-warning-map-info .event-list-box").niceScroll({
+        cursorcolor: "#1f4866",
+        autohidemode: true,
+        cursorwidth: "4px",
+        cursorborderradius: 0
+    });
+});
+
+var module_30009 = echarts.init(document.getElementById('module_30009'), theme);
+module_30009.showLoading({
+    text: '拼命加载中',
+    color: '#1abdd2',
+    textColor: '#1abdd2',
+    maskColor: 'rgba(6, 34, 54, 0.9)',
+    zlevel: 9
+});
+
+$.get('modules/module_30009/data.json', function(data) {
+
+    var baseStationRandom = function() {
+        var r = Math.round(Math.random() * 10000) + 1000;
+        return r;
+    }
+
+    var baseStationConvertData = function() {
+        return data.baseStation.map(function(item) {
+            return item.coord.concat(baseStationRandom());
+        });
+    }
+
+    var richStyle = {
+        title: {
+            backgroundColor: '#000',
+            height: 30,
+            fontSize: 14,
+            borderRadius: [3, 0, 0, 0],
+            padding: [0, 10, 0, 10],
+            width: 120,
+            color: '#fff'
+        },
+        time: {
+            backgroundColor: '#000',
+            height: 30,
+            fontSize: 14,
+            borderRadius: [0, 3, 0, 0],
+            padding: [0, 10, 0, 10],
+            color: '#fff'
+        },
+        addr: {
+            width: '100%',
+            fontSize: 14,
+            color: '#fff',
+            padding: [12, 10, 12, 10]
+        }
+    };
+    var richStyle01 = {
+        title: {
+            color: '#ffffff',
+            fontSize: 16,
+            textBorderWidth: 3,
+            padding: [0, 4, 0, 0],
+            textBorderColor: '#000000'
+        },
+        time: {
+            backgroundColor: '#000',
+            height: 30,
+            fontSize: 14,
+            borderRadius: [0, 3, 0, 0],
+            padding: [0, 10, 0, 10],
+            color: '#fff'
+        },
+        enter: {
+            fontSize: 12,
+            backgroundColor: '#ff001f',
+            color: '#fff',
+            borderRadius: 4,
+            fontFamily: 'Microsoft YaHei',
+            padding: [2, 4],
+            align: 'right'
+        },
+        leave: {
+            fontSize: 12,
+            backgroundColor: '#1abdd2',
+            color: '#fff',
+            borderRadius: 4,
+            fontFamily: 'Microsoft YaHei',
+            padding: [2, 4],
+            align: 'right'
+        }
+    };
+
+    var richStyle02 = {
+        titleBg: {
+            backgroundColor: '#000',
+            height: 30,
+            fontSize: 14,
+            borderRadius: [3, 0, 0, 0],
+            padding: [0, 10, 0, 10],
+            width: 100,
+            color: '#fff'
+        },
+        time: {
+            backgroundColor: '#000',
+            height: 30,
+            fontSize: 14,
+            borderRadius: [0, 3, 0, 0],
+            padding: [0, 10, 0, 10],
+            color: '#fff'
+        },
+        tc: {
+            align: 'center',
+            color: '#eee'
+        },
+        hr: {
+            borderColor: 'rgba(255,255,255,.4)',
+            width: '100%',
+            borderWidth: 0.5,
+            height: 0
+        },
+        titlelable: {
+            width: 30,
+            fontSize: 12,
+            color: '#fff',
+            padding: [0, 15, 0, 10]
+        },
+        imlable: {
+            fontSize: 24,
+            color: '#fff',
+            padding: [5, 15, 5, 5]
+        }
+    };
+
+    option = {
+        baseOption: {
+            legend: {
+                left: 45,
+                bottom: 45,
+                orient: 'vertical',
+                align: 'left',
+                itemWidth: 17,
+                itemHeight: 17,
+                textStyle: {
+                    color: 'rgba(255,255,255,.8)'
+                },
+                data: ['景点', '酒店', '交通', '美食', '购物']
+            },
+            bmap: {
+                center: [113.00, 28.21],
+                zoom: 13,
+                roam: true,
+                mapStyle: {
+                    styleJson: [{
+                            "featureType": "water",
+                            "elementType": "all",
+                            "stylers": {
+                                "color": "#021019"
+                            }
+                        },
+                        {
+                            "featureType": "highway",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#2f0000"
+                            }
+                        },
+                        {
+                            "featureType": "highway",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#6b0000"
+                            }
+                        },
+                        {
+                            "featureType": "arterial",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#073763"
+                            }
+                        },
+                        {
+                            "featureType": "arterial",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#145b89"
+                            }
+                        },
+                        {
+                            "featureType": "local",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#0f486d"
+                            }
+                        },
+                        {
+                            "featureType": "land",
+                            "elementType": "all",
+                            "stylers": {
+                                "color": "#062236"
+                            }
+                        },
+                        {
+                            "featureType": "railway",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#0b5394"
+                            }
+                        },
+                        {
+                            "featureType": "railway",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#000000"
+                            }
+                        },
+                        {
+                            "featureType": "subway",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#073763"
+                            }
+                        },
+                        {
+                            "featureType": "building",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#000000"
+                            }
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels.text.fill",
+                            "stylers": {
+                                "color": "#857f7f"
+                            }
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels.text.stroke",
+                            "stylers": {
+                                "color": "#000000"
+                            }
+                        },
+                        {
+                            "featureType": "building",
+                            "elementType": "geometry",
+                            "stylers": {
+                                "color": "#013a5e"
+                            }
+                        },
+                        {
+                            "featureType": "green",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#0d2700"
+                            }
+                        },
+                        {
+                            "featureType": "boundary",
+                            "elementType": "all",
+                            "stylers": {
+                                "color": "#1e1c1c"
+                            }
+                        },
+                        {
+                            "featureType": "manmade",
+                            "elementType": "all",
+                            "stylers": {
+                                "color": "#022338"
+                            }
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        },
+                        {
+                            "featureType": "local",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#1770aa"
+                            }
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        },
+                        {
+                            "featureType": "arterial",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "on"
+                            }
+                        },
+                        {
+                            "featureType": "railway",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "on"
+                            }
+                        },
+                        {
+                            "featureType": "subway",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "on"
+                            }
+                        },
+                        {
+                            "featureType": "highway",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "on"
+                            }
+                        },
+                        {
+                            "featureType": "green",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#38761d"
+                            }
+                        }
+                    ]
+                }
+            },
+
+            visualMap: {
+                show: false,
+                top: 'top',
+                min: -1,
+                max: -1,
+                seriesIndex: 0,
+                calculable: true,
+
+            },
+            series: [{
+                type: 'heatmap',
+                coordinateSystem: 'bmap',
+                data: baseStationConvertData(),
+                pointSize: 6,
+                blurSize: 15
+            }, {
+                name: '景点',
+                type: 'scatter',
+                coordinateSystem: 'bmap',
+                symbol: 'image://res/img/Mapicons/jingdian.svg',
+                data: data.TourismList,
+                symbolSize: 28,
+                z: 999,
+                itemStyle: {
+                    normal: {
+                        opacity: 1,
+                        shadowColor: 'rgba(0, 0, 0, 1)',
+                        shadowBlur: 10
+                    }
+                },
+                label: {
+                    normal: {
+                        show: true,
+                        formatter: function(v) {
+                            return '{title|' + v.data.subTitle + '}{enter|' + v.data.number + '}';
+                        },
+                        position: 'right',
+                        rich: richStyle01
+                    },
+                    emphasis: {
+                        show: true,
+                        backgroundColor: '#2de7ff',
+                        borderColor: '#2de7ff',
+                        borderWidth: 3,
+                        borderRadius: 3,
+                        fontSize: 12,
+                        color: '#fff',
+                        formatter: function(v) {
+                            return [
+                                '{titleBg|' + v.data.subTitle + '}{time|' + v.data.time + '}',
+                                '{titlelable|当前}{imlable|' + v.data.number + '}',
+                                '{hr|}',
+                                '{titlelable|进入}{imlable|' + v.data.enter + '}',
+                                '{hr|}',
+                                '{titlelable|离开}{imlable|' + v.data.leave + '}',
+                                '{hr|}',
+                                '{titlelable|舒适度}{imlable|' + v.data.comfort + '%}'
+                            ].join('\n');
+                        },
+                        position: 'top',
+                        rich: richStyle02
+                    }
+                }
+            }, {
+                name: '酒店',
+                type: 'scatter',
+                coordinateSystem: 'bmap',
+                symbol: 'image://res/img/Mapicons/zhusu.svg',
+                data: data.HotelList,
+                symbolSize: 28,
+                z: 9,
+                itemStyle: {
+                    normal: {
+                        opacity: 1,
+                        shadowColor: 'rgba(0, 0, 0, 1)',
+                        shadowBlur: 10
+                    }
+                },
+                label: {
+                    emphasis: {
+                        show: true,
+                        backgroundColor: '#2de7ff',
+                        borderColor: '#2de7ff',
+                        borderWidth: 3,
+                        borderRadius: 3,
+                        formatter: function(v) {
+                            return [
+                                '{title|' + v.data.subTitle + '}{time|' + v.data.time + '}',
+                                '{addr|' + v.data.addr + '}'
+                            ].join('\n');
+                        },
+                        position: 'top',
+                        rich: richStyle
+                    }
+                }
+            }, {
+                name: '美食',
+                type: 'scatter',
+                coordinateSystem: 'bmap',
+                symbol: 'image://res/img/Mapicons/canyin.svg',
+                data: data.FoodList,
+                symbolSize: 28,
+                z: 9,
+                itemStyle: {
+                    normal: {
+                        opacity: 1,
+                        shadowColor: 'rgba(0, 0, 0, 1)',
+                        shadowBlur: 10
+                    }
+                },
+                label: {
+                    emphasis: {
+                        show: true,
+                        backgroundColor: '#2de7ff',
+                        borderColor: '#2de7ff',
+                        borderWidth: 3,
+                        borderRadius: 3,
+                        formatter: function(v) {
+                            return [
+                                '{title|' + v.data.subTitle + '}{time|' + v.data.time + '}',
+                                '{addr|' + v.data.addr + '}'
+                            ].join('\n');
+                        },
+                        position: 'top',
+                        rich: richStyle
+                    }
+                }
+            }, {
+                name: '交通',
+                type: 'scatter',
+                coordinateSystem: 'bmap',
+                symbol: 'image://res/img/Mapicons/jiaotong.svg',
+                data: data.TrafficList,
+                symbolSize: 28,
+                z: 9,
+                itemStyle: {
+                    normal: {
+                        opacity: 1,
+                        shadowColor: 'rgba(0, 0, 0, 1)',
+                        shadowBlur: 10
+                    }
+                },
+                label: {
+                    emphasis: {
+                        show: true,
+                        backgroundColor: '#2de7ff',
+                        borderColor: '#2de7ff',
+                        borderWidth: 3,
+                        borderRadius: 3,
+                        formatter: function(v) {
+                            return [
+                                '{title|' + v.data.subTitle + '}{time|' + v.data.time + '}',
+                                '{addr|' + v.data.addr + '}'
+                            ].join('\n');
+                        },
+                        position: 'top',
+                        rich: richStyle
+                    }
+                }
+            }, {
+                name: '购物',
+
+                type: 'scatter',
+                coordinateSystem: 'bmap',
+                symbol: 'image://res/img/Mapicons/gouwu.svg',
+                data: data.ShoppingList,
+                symbolSize: 28,
+                z: 9,
+                itemStyle: {
+                    normal: {
+                        opacity: 1,
+                        shadowColor: 'rgba(0, 0, 0, 1)',
+                        shadowBlur: 10
+                    }
+                },
+                label: {
+                    emphasis: {
+                        show: true,
+                        backgroundColor: '#2de7ff',
+                        borderColor: '#2de7ff',
+                        borderWidth: 3,
+                        borderRadius: 3,
+                        formatter: function(v) {
+                            return [
+                                '{title|' + v.data.name + '}',
+                                '{addr|' + v.data.addr + '}'
+                            ].join('\n');
+                        },
+                        position: 'top',
+                        rich: richStyle
+                    }
+                }
+            }],
+            animationDurationUpdate: 500,
+            animationEasingUpdate: 'quinticInOut'
+        },
+        options: []
+    };
+
+
+    module_30009.setOption(option);
+    module_30009.hideLoading();
+
+
+});
+
+$(window).resize(function() {
+    module_30009.resize();
+});
+</script>

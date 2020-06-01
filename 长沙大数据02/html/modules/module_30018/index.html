@@ -1,0 +1,600 @@
+<div class="inner-box module_100001 module_30018">
+    <div class="map-info-box">
+        <div class="map-info-box-in">
+            <h5 class="info-title">今日累计游客
+            </h5>
+            <p class="box">
+                <span class="dtnum">32,753<label>人次</label></span>
+            </p>
+        </div>
+        <div class="map-info-box-in">
+            <h6 class="info-title">当前在园游客
+            </h6>
+            <p class="box">
+                <span class="dtnum">11,695<label>人次</label></span>
+            </p>
+        </div>
+        <div class="map-info-box-in">
+            <h6 class="info-title">昨日过夜游客
+            </h6>
+            <p class="box">
+                <span class="dtnum">59,233<label>人次</label></span>
+            </p>
+        </div>
+    </div>
+    <div class="visual-map">
+        <span>低</span>
+        <em></em>
+        <span>高</span>
+    </div>
+    <div id="module_30018" class="box-chart map-noborder"></div>
+    <div class="map-shawd-t"></div>
+    <div class="map-shawd-b"></div>
+    <div class="map-shawd-r"></div>
+    <div class="map-shawd-l"></div>
+</div>
+<script type="text/javascript">
+var module_30018 = echarts.init(document.getElementById('module_30018'), theme);
+module_30018.showLoading({
+    text: '拼命加载中',
+    color: '#1abdd2',
+    textColor: '#1abdd2',
+    maskColor: 'rgba(6, 34, 54, 0.9)',
+    zlevel: 9
+});
+
+$.get('modules/module_30018/data.json', function(data) {
+
+    var linesConvertData = function(lines) {
+        var linesData = [];
+        var hStep = 300 / (lines.length - 1);
+        for (var x in lines) {
+            var line = lines[x];
+            var pointString = line.ROAD_LINE;
+            var pointArr = pointString.split(';');
+            var lnglats = [];
+            for (var j in pointArr) {
+                lnglats.push(pointArr[j].split(','))
+            }
+            linesData.push({
+                coords: lnglats,
+                lineStyle: {
+                    normal: {
+                        color: echarts.color.modifyHSL('#5A94DF', Math.round(hStep * x))
+                    }
+                }
+            });
+        }
+        return linesData;
+    }
+
+    var richStyle = {
+        title: {
+            backgroundColor: '#000',
+            height: 30,
+            fontSize: 14,
+            borderRadius: [3, 0, 0, 0],
+            padding: [0, 10, 0, 10],
+            width: 120,
+            color: '#fff'
+        },
+        time: {
+            backgroundColor: '#000',
+            height: 30,
+            fontSize: 14,
+            borderRadius: [0, 3, 0, 0],
+            padding: [0, 10, 0, 10],
+            color: '#fff'
+        },
+        addr: {
+            width: '100%',
+            fontSize: 14,
+            color: '#fff',
+            padding: [12, 10, 12, 10]
+        }
+    };
+    var richStyle01 = {
+        title: {
+            color: '#ffffff',
+            fontSize: 16,
+            textBorderWidth: 3,
+            padding: [0, 4, 0, 0],
+            textBorderColor: '#000000'
+        },
+        time: {
+            backgroundColor: '#000',
+            height: 30,
+            fontSize: 14,
+            borderRadius: [0, 3, 0, 0],
+            padding: [0, 10, 0, 10],
+            color: '#fff'
+        },
+        enter: {
+            fontSize: 12,
+            backgroundColor: '#ff001f',
+            color: '#fff',
+            borderRadius: 4,
+            fontFamily: 'Microsoft YaHei',
+            padding: [2, 4],
+            align: 'right'
+        },
+        leave: {
+            fontSize: 12,
+            backgroundColor: '#1abdd2',
+            color: '#fff',
+            borderRadius: 4,
+            fontFamily: 'Microsoft YaHei',
+            padding: [2, 4],
+            align: 'right'
+        }
+    };
+
+    var richStyle02 = {
+        titleBg: {
+            backgroundColor: '#000',
+            height: 30,
+            fontSize: 14,
+            borderRadius: [3, 0, 0, 0],
+            padding: [0, 10, 0, 10],
+            width: 100,
+            color: '#fff'
+        },
+        time: {
+            backgroundColor: '#000',
+            height: 30,
+            fontSize: 14,
+            borderRadius: [0, 3, 0, 0],
+            padding: [0, 10, 0, 10],
+            color: '#fff'
+        },
+        tc: {
+            align: 'center',
+            color: '#eee'
+        },
+        hr: {
+            borderColor: 'rgba(255,255,255,.4)',
+            width: '100%',
+            borderWidth: 0.5,
+            height: 0
+        },
+        titlelable: {
+            width: 30,
+            fontSize: 12,
+            color: '#fff',
+            padding: [0, 15, 0, 10]
+        },
+        imlable: {
+            fontSize: 24,
+            color: '#fff',
+            padding: [5, 15, 5, 5]
+        }
+    };
+
+    option = {
+        baseOption: {
+            legend: {
+                left: 45,
+                bottom: 45,
+                orient: 'vertical',
+                align: 'left',
+                itemWidth: 17,
+                itemHeight: 17,
+                textStyle: {
+                    color: 'rgba(255,255,255,.8)'
+                },
+                data: ['景点', '酒店', '交通', '美食', '购物']
+            },
+            bmap: {
+                center: [113.00, 28.21],
+                zoom: 13,
+                roam: true,
+                mapStyle: {
+                    styleJson: [{
+                            "featureType": "water",
+                            "elementType": "all",
+                            "stylers": {
+                                "color": "#021019"
+                            }
+                        },
+                        {
+                            "featureType": "highway",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#2f0000"
+                            }
+                        },
+                        {
+                            "featureType": "highway",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#6b0000"
+                            }
+                        },
+                        {
+                            "featureType": "arterial",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#073763"
+                            }
+                        },
+                        {
+                            "featureType": "arterial",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#145b89"
+                            }
+                        },
+                        {
+                            "featureType": "local",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#0f486d"
+                            }
+                        },
+                        {
+                            "featureType": "land",
+                            "elementType": "all",
+                            "stylers": {
+                                "color": "#062236"
+                            }
+                        },
+                        {
+                            "featureType": "railway",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#0b5394"
+                            }
+                        },
+                        {
+                            "featureType": "railway",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#000000"
+                            }
+                        },
+                        {
+                            "featureType": "subway",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#073763"
+                            }
+                        },
+                        {
+                            "featureType": "building",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#000000"
+                            }
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels.text.fill",
+                            "stylers": {
+                                "color": "#857f7f"
+                            }
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels.text.stroke",
+                            "stylers": {
+                                "color": "#000000"
+                            }
+                        },
+                        {
+                            "featureType": "building",
+                            "elementType": "geometry",
+                            "stylers": {
+                                "color": "#013a5e"
+                            }
+                        },
+                        {
+                            "featureType": "green",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#0d2700"
+                            }
+                        },
+                        {
+                            "featureType": "boundary",
+                            "elementType": "all",
+                            "stylers": {
+                                "color": "#1e1c1c"
+                            }
+                        },
+                        {
+                            "featureType": "manmade",
+                            "elementType": "all",
+                            "stylers": {
+                                "color": "#022338"
+                            }
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        },
+                        {
+                            "featureType": "local",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#1770aa"
+                            }
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        },
+                        {
+                            "featureType": "arterial",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "on"
+                            }
+                        },
+                        {
+                            "featureType": "railway",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "on"
+                            }
+                        },
+                        {
+                            "featureType": "subway",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "on"
+                            }
+                        },
+                        {
+                            "featureType": "highway",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "on"
+                            }
+                        },
+                        {
+                            "featureType": "green",
+                            "elementType": "geometry.stroke",
+                            "stylers": {
+                                "color": "#38761d"
+                            }
+                        }
+                    ]
+                }
+            },
+            series: [{
+                name: '景点',
+                type: 'scatter',
+                coordinateSystem: 'bmap',
+                symbol: 'image://res/img/Mapicons/jingdian.svg',
+                data: data.TourismList,
+                symbolSize: 28,
+                z: 999,
+                itemStyle: {
+                    normal: {
+                        opacity: 1,
+                        shadowColor: 'rgba(0, 0, 0, 1)',
+                        shadowBlur: 10
+                    }
+                },
+                label: {
+                    normal: {
+                        show: true,
+                        formatter: function(v) {
+                            return '{title|' + v.data.subTitle + '}{enter|' + v.data.number + '}';
+                        },
+                        position: 'right',
+                        rich: richStyle01
+                    },
+                    emphasis: {
+                        show: true,
+                        backgroundColor: '#2de7ff',
+                        borderColor: '#2de7ff',
+                        borderWidth: 3,
+                        borderRadius: 3,
+                        fontSize: 12,
+                        color: '#fff',
+                        formatter: function(v) {
+                            return [
+                                '{titleBg|' + v.data.subTitle + '}{time|' + v.data.time + '}',
+                                '{titlelable|当前}{imlable|' + v.data.number + '}',
+                                '{hr|}',
+                                '{titlelable|进入}{imlable|' + v.data.enter + '}',
+                                '{hr|}',
+                                '{titlelable|离开}{imlable|' + v.data.leave + '}',
+                                '{hr|}',
+                                '{titlelable|舒适度}{imlable|' + v.data.comfort + '%}'
+                            ].join('\n');
+                        },
+                        position: 'top',
+                        rich: richStyle02
+                    }
+                }
+            }, {
+                name: '酒店',
+                type: 'scatter',
+                coordinateSystem: 'bmap',
+                symbol: 'image://res/img/Mapicons/zhusu.svg',
+                data: data.HotelList,
+                symbolSize: 28,
+                z: 9,
+                itemStyle: {
+                    normal: {
+                        opacity: 1,
+                        shadowColor: 'rgba(0, 0, 0, 1)',
+                        shadowBlur: 10
+                    }
+                },
+                label: {
+                    emphasis: {
+                        show: true,
+                        backgroundColor: '#2de7ff',
+                        borderColor: '#2de7ff',
+                        borderWidth: 3,
+                        borderRadius: 3,
+                        formatter: function(v) {
+                            return [
+                                '{title|' + v.data.subTitle + '}{time|' + v.data.time + '}',
+                                '{addr|' + v.data.addr + '}'
+                            ].join('\n');
+                        },
+                        position: 'top',
+                        rich: richStyle
+                    }
+                }
+            }, {
+                name: '美食',
+                type: 'scatter',
+                coordinateSystem: 'bmap',
+                symbol: 'image://res/img/Mapicons/canyin.svg',
+                data: data.FoodList,
+                symbolSize: 28,
+                z: 9,
+                itemStyle: {
+                    normal: {
+                        opacity: 1,
+                        shadowColor: 'rgba(0, 0, 0, 1)',
+                        shadowBlur: 10
+                    }
+                },
+                label: {
+                    emphasis: {
+                        show: true,
+                        backgroundColor: '#2de7ff',
+                        borderColor: '#2de7ff',
+                        borderWidth: 3,
+                        borderRadius: 3,
+                        formatter: function(v) {
+                            return [
+                                '{title|' + v.data.subTitle + '}{time|' + v.data.time + '}',
+                                '{addr|' + v.data.addr + '}'
+                            ].join('\n');
+                        },
+                        position: 'top',
+                        rich: richStyle
+                    }
+                }
+            }, {
+                name: '交通',
+                type: 'scatter',
+                coordinateSystem: 'bmap',
+                symbol: 'image://res/img/Mapicons/jiaotong.svg',
+                data: data.TrafficList,
+                symbolSize: 28,
+                z: 9,
+                itemStyle: {
+                    normal: {
+                        opacity: 1,
+                        shadowColor: 'rgba(0, 0, 0, 1)',
+                        shadowBlur: 10
+                    }
+                },
+                label: {
+                    emphasis: {
+                        show: true,
+                        backgroundColor: '#2de7ff',
+                        borderColor: '#2de7ff',
+                        borderWidth: 3,
+                        borderRadius: 3,
+                        formatter: function(v) {
+                            return [
+                                '{title|' + v.data.subTitle + '}{time|' + v.data.time + '}',
+                                '{addr|' + v.data.addr + '}'
+                            ].join('\n');
+                        },
+                        position: 'top',
+                        rich: richStyle
+                    }
+                }
+            }, {
+                name: '购物',
+                type: 'scatter',
+                coordinateSystem: 'bmap',
+                symbol: 'image://res/img/Mapicons/gouwu.svg',
+                data: data.ShoppingList,
+                symbolSize: 28,
+                z: 9,
+                itemStyle: {
+                    normal: {
+                        opacity: 1,
+                        shadowColor: 'rgba(0, 0, 0, 1)',
+                        shadowBlur: 10
+                    }
+                },
+                label: {
+                    emphasis: {
+                        show: true,
+                        backgroundColor: '#2de7ff',
+                        borderColor: '#2de7ff',
+                        borderWidth: 3,
+                        borderRadius: 3,
+                        formatter: function(v) {
+                            return [
+                                '{title|' + v.data.name + '}',
+                                '{addr|' + v.data.addr + '}'
+                            ].join('\n');
+                        },
+                        position: 'top',
+                        rich: richStyle
+                    }
+                }
+            }, {
+                type: 'lines',
+                coordinateSystem: 'bmap',
+                polyline: true,
+                data: linesConvertData(data.hotLines),
+                silent: true,
+                symbol: 'circle',
+                symbolSize: 20,
+                lineStyle: {
+                    normal: {
+                        opacity: .4,
+                        width: 2
+                    }
+                },
+                progressiveThreshold: 500,
+                progressive: 200
+            }, {
+                type: 'lines',
+                coordinateSystem: 'bmap',
+                polyline: true,
+                data: linesConvertData(data.hotLines),
+                lineStyle: {
+                    normal: {
+                        width: 0
+                    }
+                },
+                effect: {
+                    constantSpeed: 100,
+                    show: true,
+                    opacity: 1,
+                    trailLength: .1,
+                    smooth: true,
+                    // symbol：'',
+                    // symbol: 'image://res/img/Mapicons/Shape.svg',
+                    symbolSize: 6
+                },
+                zlevel: 2
+            }],
+            animationDurationUpdate: 500,
+            animationEasingUpdate: 'quinticInOut'
+        },
+        options: []
+    };
+
+
+    module_30018.setOption(option);
+    module_30018.hideLoading();
+
+
+});
+
+$(window).resize(function() {
+    module_30018.resize();
+});
+</script>

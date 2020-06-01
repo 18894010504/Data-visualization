@@ -1,0 +1,1184 @@
+<style>
+    .key-item-swiper .swiper-wrapper {
+        height: 60px;
+    }
+</style>
+
+<div class="page-container">
+    <div class="inner-page">
+        <div id="inner_page_header"></div>
+        <div id="alert_info"></div>
+        <div id="filter_panel">
+            <div class="filter-panel">
+                <date-picker type="daterange" :options="options" placement="bottom-start" placeholder="日期选择" style="width: 200px; margin-right: 8px;"></date-picker>
+                <i-select v-model="model1">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value" v-text="item.label"></i-option>
+                </i-select>
+                <i-select v-model="model2">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value" v-text="item.label"></i-option>
+                </i-select>
+                <i-select v-model="model3">
+                    <i-option v-for="item in cityList" :value="item.value" :key="item.value" v-text="item.label"></i-option>
+                </i-select>
+                <i-button type="info" icon="funnel" class="filter-btn">筛选</i-button>
+            </div>
+        </div>
+        <div class="page-panel key-item-swiper-wrap">
+            <div id="key_item_swiper"></div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="guide_panel_01" class="ivu-col ivu-col-span-12"></div>
+                <div id="guide_panel_02" class="ivu-col ivu-col-span-12"></div>
+            </div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="guide_panel_04"></div>
+            </div>
+        </div>
+        <div class="page-panel">
+            <div class="ivu-row">
+                <div id="guide_panel_05"></div>
+            </div>
+        </div>
+        <div id="inner_page_footer"></div>
+    </div>
+    <div id="page_footer"></div>
+</div>
+<script type="text/javascript">
+new Vue({
+        el: '#filter_panel',
+        data: {
+            model1: '',
+            model2: '',
+            model3: '',
+            cityList: [{
+                value: 'beijing',
+                label: '北京市'
+            }, {
+                value: 'shanghai',
+                label: '上海市'
+            }, {
+                value: 'shenzhen',
+                label: '深圳市'
+            }, {
+                value: 'hangzhou',
+                label: '杭州市'
+            }, {
+                value: 'nanjing',
+                label: '南京市'
+            }, {
+                value: 'chongqing',
+                label: '重庆市'
+            }],
+            options: {
+                shortcuts: [
+                    {
+                        text: '近一周',
+                        value () {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                            return [start, end];
+                        }
+                    },
+                    {
+                        text: '近一月',
+                        value () {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                            return [start, end];
+                        }
+                    },
+                    {
+                        text: '近三月',
+                        value () {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                            return [start, end];
+                        }
+                    }
+                ]
+            }
+        }
+    });
+
+$('#inner_page_header').tourInnerPageHeader({
+    pageTitle: '旅行社接待分析',
+    btnSave: false,
+    btnNew: false,
+    btnPrintReport: false
+});
+
+$('#alert_info').tourAlert({
+    desc: '消息提示的描述文案消息提示的描述文案消息提示的描述文案消息提示的描述文案消息提示的描述文案',
+    href: '#'
+});
+
+$('#key_item_swiper').tourKeyItemSwiper({
+    data: [{
+        title: '今日接待团队数',
+        value: '13,432',
+        subValue: 0.4,
+        selected: true
+    }, {
+        title: '今日接待游客数',
+        value: '9,432',
+        subValue: -0.4,
+        selected: true
+    }, {
+        title: '今年接待团队数',
+        value: '32',
+        subValue: 0.4,
+        selected: true
+    }, {
+        title: '今年接待游客数',
+        value: '2,432',
+        subValue: -0.4,
+        selected: true
+    }]
+});
+
+var guide = $('#guide_panel_01').tourChartPanel({
+    chartId: 'chart_01',
+    chartTitle: '自组、地接占比',
+    viewHref: '#',
+    datas: [{
+        type: 'pie',
+        label: '团队占比',
+        keyValue: [{
+            key: '自组团队数',
+            value: '233,343个'
+        }, {
+            key: '地接团队数',
+            value: '233,343个'
+        }],
+        columns: [{
+            title: '类别',
+            key: 'name'
+        }, {
+            title: '团队数',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '自组团队数',
+            value: 782
+        },{
+            name: '地接团队数',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '游客占比',
+        keyValue: [{
+            key: '自组游客数',
+            value: '233,343人'
+        }, {
+            key: '地接游客数',
+            value: '233,343人'
+        }],
+        columns: [{
+            title: '类别',
+            key: 'name'
+        }, {
+            title: '游客数',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '自组游客数',
+            value: 782
+        },{
+            name: '地接游客数',
+            value: 325
+        }]
+    }]
+});
+
+$('#guide_panel_02').tourChartPanel({
+    chartId: 'chart_02',
+    chartTitle: '旅游类型占比',
+    viewHref: '#',
+    datas: [{
+        type: 'pie',
+        label: '团队占比',
+        keyValue: [{
+            key: '国内游',
+            value: '3,343个'
+        }, {
+            key: '赴台游',
+            value: '3,343个'
+        }, {
+            key: '出境游',
+            value: '3,343个'
+        },{
+            key: '入境游',
+            value: '3,343个'
+        }],
+        columns: [{
+            title: '旅游类型',
+            key: 'name'
+        }, {
+            title: '团队数',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '国内游',
+            value: 782
+        },{
+            name: '赴台游',
+            value: 325
+        },{
+            name: '出境游',
+            value: 325
+        },{
+            name: '入境游',
+            value: 325
+        }]
+    },{
+        type: 'pie',
+        label: '游客占比',
+        keyValue: [{
+            key: '国内游',
+            value: '3,343人'
+        }, {
+            key: '赴台游',
+            value: '3,343人'
+        }, {
+            key: '出境游',
+            value: '3,343人'
+        },{
+            key: '入境游',
+            value: '3,343人'
+        }],
+        columns: [{
+            title: '旅游类型',
+            key: 'name'
+        }, {
+            title: '游客数',
+            key: 'value',
+            sortable: true
+        }],
+        data: [{
+            name: '国内游',
+            value: 782
+        },{
+            name: '赴台游',
+            value: 325
+        },{
+            name: '出境游',
+            value: 325
+        },{
+            name: '入境游',
+            value: 325
+        }]
+    }]
+});
+
+$('#guide_panel_04').tourChartTablePanel({
+    chartId: 'chart_id',
+    chartTitle: '团队数、游客数变化统计',
+    chartLegend: '数量',
+    chartType: 'line',
+    tableTitle: '团队数、游客数变化统计',
+    columns: [{
+        "title": "日期",
+        "key": "name",
+        "fixed": "left",
+        "width": 150
+    }, {
+        "title": "团队数",
+        "key": "group",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '团队数',
+            value: '1,343'
+        }, {
+            key: '团队数同比',
+            value: '34%'
+        }],
+        filters: [{
+            label: '大于4000',
+            value: 1
+        }, {
+            label: '小于4000',
+            value: 2
+        }],
+        filterMultiple: false,
+        filterMethod(value, row) {
+            if (value === 1) {
+                return row.group > 4000;
+            } else if (value === 2) {
+                return row.group < 4000;
+            }
+        }
+    }, {
+        "title": "游客数",
+        "key": "tourist",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '游客数',
+            value: '1,343'
+        }, {
+            key: '游客数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "自组团队数",
+        "key": "selfGroup",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '自组团队数',
+            value: '1,343'
+        }, {
+            key: '自组团队数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "自组游客数",
+        "key": "selfTourist",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '自组游客数',
+            value: '1,343'
+        }, {
+            key: '自组游客数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "地接团队数",
+        "key": "groundGroup",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '地接团队数',
+            value: '1,343'
+        }, {
+            key: '地接团队数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "地接游客数",
+        "key": "groundTourist",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '地接游客数',
+            value: '1,343'
+        }, {
+            key: '地接游客数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "国内游团队数",
+        "key": "domesticGroup",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '国内游团队数',
+            value: '1,343'
+        }, {
+            key: '国内游团队数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "国内游游客数",
+        "key": "domesticTourist",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '国内游游客数',
+            value: '1,343'
+        }, {
+            key: '国内游游客数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "赴台游团队数",
+        "key": "taiwanGroup",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '赴台游团队数',
+            value: '1,343'
+        }, {
+            key: '赴台游团队数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "赴台游游客数",
+        "key": "taiwanTourist",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '赴台游游客数',
+            value: '1,343'
+        }, {
+            key: '赴台游游客数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "出境游团队数",
+        "key": "exitGroup",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '出境游团队数',
+            value: '1,343'
+        }, {
+            key: '出境游团队数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "出境游游客数",
+        "key": "exitTourist",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '出境游游客数',
+            value: '1,343'
+        }, {
+            key: '出境游游客数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "入境游团队数",
+        "key": "entrytGroup",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '入境游团队数',
+            value: '1,343'
+        }, {
+            key: '入境游团队数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "入境游游客数",
+        "key": "entrytTourist",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '入境游游客数',
+            value: '1,343'
+        }, {
+            key: '入境游游客数同比',
+            value: '23%'
+        }]
+    }],
+    data: [{
+        "name": "03/28",
+        "group": 7302,
+        "tourist": 5627,
+        "selfGroup": 1563,
+        "selfTourist": 4254,
+        "groundGroup": 1438,
+        "groundTourist": 274,
+        "domesticGroup": 285,
+        "domesticTourist": 285,
+        "taiwanGroup": 1727,
+        "taiwanTourist": 1727,
+        "exitGroup": 558,
+        "exitTourist": 558,
+        "entrytGroup": 4440,
+        "entrytTourist": 4440
+    }, {
+        "name": "03/29",
+        "group": 4720,
+        "tourist": 4086,
+        "selfGroup": 3792,
+        "selfTourist": 8690,
+        "groundGroup": 8470,
+        "groundTourist": 8172,
+        "domesticGroup": 5197,
+        "domesticTourist": 5197,
+        "taiwanGroup": 1684,
+        "taiwanTourist": 1684,
+        "exitGroup": 2593,
+        "exitTourist": 2593,
+        "entrytGroup": 2507,
+        "entrytTourist": 2507
+    }, {
+        "name": "03/30",
+        "group": 7181,
+        "tourist": 8007,
+        "selfGroup": 8477,
+        "selfTourist": 1879,
+        "groundGroup": 16,
+        "groundTourist": 2249,
+        "domesticGroup": 3450,
+        "domesticTourist": 3450,
+        "taiwanGroup": 377,
+        "taiwanGTourist": 377,
+        "exitGroup": 1561,
+        "exitTourist": 1561,
+        "entrytGroup": 3219,
+        "entrytTourist": 3219
+    }, {
+        "name": "03/31",
+        "group": 9911,
+        "tourist": 8976,
+        "selfGroup": 8807,
+        "selfTourist": 8050,
+        "groundGroup": 7668,
+        "groundTourist": 1547,
+        "domesticGroup": 2357,
+        "domesticTourist": 2357,
+        "taiwanGroup": 7278,
+        "taiwanTourist": 7278,
+        "exitGroup": 5309,
+        "exitTourist": 5309,
+        "entrytGroup": 1655,
+        "entrytTourist": 1655
+    }, {
+        "name": "04/01",
+        "group": 934,
+        "tourist": 1394,
+        "selfGroup": 6463,
+        "selfTourist": 5278,
+        "groundGroup": 9256,
+        "groundTourist": 209,
+        "domesticGroup": 3563,
+        "domesticGTourist": 3563,
+        "taiwanGroup": 8285,
+        "taiwanTourist": 8285,
+        "exitGroup": 1230,
+        "exitTourist": 1230,
+        "entrytGroup": 4840,
+        "entrytTourist": 4840
+    }, {
+        "name": "04/02",
+        "group": 6856,
+        "tourist": 1608,
+        "selfGroup": 457,
+        "selfTourist": 4949,
+        "groundGroup": 2909,
+        "groundTourist": 4525,
+        "domesticGroup": 6171,
+        "domesticTourist": 6171,
+        "taiwanGroup": 1920,
+        "taiwanTourist": 1920,
+        "exitGroup": 1966,
+        "exitTourist": 1966,
+        "entrytGroup": 904,
+        "entrytTourist": 904
+    }, {
+        "name": "04/03",
+        "group": 5107,
+        "tourist": 6407,
+        "selfGroup": 4166,
+        "selfTourist": 7970,
+        "groundGroup": 1002,
+        "groundTourist": 8701,
+        "domesticGroup": 9040,
+        "domesticTourist": 9040,
+        "taiwanGroup": 7632,
+        "taiwanTourist": 7632,
+        "exitGroup": 4061,
+        "exitTourist": 4061,
+        "entrytGroup": 4359,
+        "entrytTourist": 4359
+    }, {
+        "name": "04/04",
+        "group": 862,
+        "tourist": 6520,
+        "selfGroup": 6696,
+        "selfTourist": 3209,
+        "groundGroup": 6801,
+        "groundTourist": 6364,
+        "domesticGroup": 6850,
+        "domesticTourist": 6850,
+        "taiwanGroup": 9408,
+        "taiwanTourist": 9408,
+        "exitGroup": 2481,
+        "exitTourist": 2481,
+        "entrytGroup": 1479,
+        "entrytTourist": 1479
+    }, {
+        "name": "04/05",
+        "group": 567,
+        "tourist": 5859,
+        "selfGroup": 128,
+        "selfTourist": 6593,
+        "groundGroup": 1971,
+        "groundTourist": 7596,
+        "domesticGroup": 3546,
+        "taiwanGroup": 6641,
+        "exitGroup": 1611,
+        "entrytGroup": 5534,
+        "entrytTourist": 5534
+    }, {
+        "name": "04/06",
+        "group": 3651,
+        "tourist": 1819,
+        "selfGroup": 4595,
+        "selfTourist": 7499,
+        "groundGroup": 7405,
+        "groundTourist": 8710,
+        "domesticGroup": 5518,
+        "taiwanGroup": 428,
+        "exitGroup": 9768,
+        "entrytGroup": 2864,
+        "entrytTourist": 2864
+    }]
+});
+
+$('#guide_panel_05').tourTablePanel({
+    tableTitle: '旅行社详情',
+    columns: [{
+        "title": "旅行社名称",
+        "key": "name",
+        "fixed": "left",
+        "width": 150
+    }, {
+        "title": "团队数",
+        "key": "group",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '团队数',
+            value: '1,343'
+        }, {
+            key: '团队数同比',
+            value: '34%'
+        }],
+        filters: [{
+            label: '大于4000',
+            value: 1
+        }, {
+            label: '小于4000',
+            value: 2
+        }],
+        filterMultiple: false,
+        filterMethod(value, row) {
+            if (value === 1) {
+                return row.group > 4000;
+            } else if (value === 2) {
+                return row.group < 4000;
+            }
+        }
+    }, {
+        "title": "游客数",
+        "key": "tourist",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '游客数',
+            value: '1,343'
+        }, {
+            key: '游客数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "自组团队数",
+        "key": "selfGroup",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '自组团队数',
+            value: '1,343'
+        }, {
+            key: '自组团队数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "自组游客数",
+        "key": "selfTourist",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '自组游客数',
+            value: '1,343'
+        }, {
+            key: '自组游客数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "地接团队数",
+        "key": "groundGroup",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '地接团队数',
+            value: '1,343'
+        }, {
+            key: '地接团队数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "地接游客数",
+        "key": "groundTourist",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '地接游客数',
+            value: '1,343'
+        }, {
+            key: '地接游客数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "国内游团队数",
+        "key": "domesticGroup",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '国内游团队数',
+            value: '1,343'
+        }, {
+            key: '国内游团队数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "国内游游客数",
+        "key": "domesticTourist",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '国内游游客数',
+            value: '1,343'
+        }, {
+            key: '国内游游客数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "赴台游团队数",
+        "key": "taiwanGroup",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '赴台游团队数',
+            value: '1,343'
+        }, {
+            key: '赴台游团队数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "赴台游游客数",
+        "key": "taiwanTourist",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '赴台游游客数',
+            value: '1,343'
+        }, {
+            key: '赴台游游客数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "出境游团队数",
+        "key": "exitGroup",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '出境游团队数',
+            value: '1,343'
+        }, {
+            key: '出境游团队数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "出境游游客数",
+        "key": "exitTourist",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '出境游游客数',
+            value: '1,343'
+        }, {
+            key: '出境游游客数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "入境游团队数",
+        "key": "entrytGroup",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '入境游团队数',
+            value: '1,343'
+        }, {
+            key: '入境游团队数同比',
+            value: '23%'
+        }]
+    }, {
+        "title": "入境游游客数",
+        "key": "entrytTourist",
+        "width": 150,
+        "sortable": true,
+        className: '',
+        keyValue: [{
+            key: '入境游游客数',
+            value: '1,343'
+        }, {
+            key: '入境游游客数同比',
+            value: '23%'
+        }]
+    }],
+    data: [{
+        "name": "神龙国际旅行社",
+        "group": 7302,
+        "tourist": 5627,
+        "selfGroup": 1563,
+        "selfTourist": 4254,
+        "groundGroup": 1438,
+        "groundTourist": 274,
+        "domesticGroup": 285,
+        "domesticTourist": 285,
+        "taiwanGroup": 1727,
+        "taiwanTourist": 1727,
+        "exitGroup": 558,
+        "exitTourist": 558,
+        "entrytGroup": 4440,
+        "entrytTourist": 4440
+    }, {
+        "name": "神龙国际旅行社",
+        "group": 4720,
+        "tourist": 4086,
+        "selfGroup": 3792,
+        "selfTourist": 8690,
+        "groundGroup": 8470,
+        "groundTourist": 8172,
+        "domesticGroup": 5197,
+        "domesticTourist": 5197,
+        "taiwanGroup": 1684,
+        "taiwanTourist": 1684,
+        "exitGroup": 2593,
+        "exitTourist": 2593,
+        "entrytGroup": 2507,
+        "entrytTourist": 2507
+    }, {
+        "name": "神龙国际旅行社",
+        "group": 7181,
+        "tourist": 8007,
+        "selfGroup": 8477,
+        "selfTourist": 1879,
+        "groundGroup": 16,
+        "groundTourist": 2249,
+        "domesticGroup": 3450,
+        "domesticTourist": 3450,
+        "taiwanGroup": 377,
+        "taiwanGTourist": 377,
+        "exitGroup": 1561,
+        "exitTourist": 1561,
+        "entrytGroup": 3219,
+        "entrytTourist": 3219
+    }, {
+        "name": "神龙国际旅行社",
+        "group": 9911,
+        "tourist": 8976,
+        "selfGroup": 8807,
+        "selfTourist": 8050,
+        "groundGroup": 7668,
+        "groundTourist": 1547,
+        "domesticGroup": 2357,
+        "domesticTourist": 2357,
+        "taiwanGroup": 7278,
+        "taiwanTourist": 7278,
+        "exitGroup": 5309,
+        "exitTourist": 5309,
+        "entrytGroup": 1655,
+        "entrytTourist": 1655
+    }, {
+        "name": "神龙国际旅行社",
+        "group": 934,
+        "tourist": 1394,
+        "selfGroup": 6463,
+        "selfTourist": 5278,
+        "groundGroup": 9256,
+        "groundTourist": 209,
+        "domesticGroup": 3563,
+        "domesticGTourist": 3563,
+        "taiwanGroup": 8285,
+        "taiwanTourist": 8285,
+        "exitGroup": 1230,
+        "exitTourist": 1230,
+        "entrytGroup": 4840,
+        "entrytTourist": 4840
+    }, {
+        "name": "神龙国际旅行社",
+        "group": 6856,
+        "tourist": 1608,
+        "selfGroup": 457,
+        "selfTourist": 4949,
+        "groundGroup": 2909,
+        "groundTourist": 4525,
+        "domesticGroup": 6171,
+        "domesticTourist": 6171,
+        "taiwanGroup": 1920,
+        "taiwanTourist": 1920,
+        "exitGroup": 1966,
+        "exitTourist": 1966,
+        "entrytGroup": 904,
+        "entrytTourist": 904
+    }, {
+        "name": "神龙国际旅行社",
+        "group": 5107,
+        "tourist": 6407,
+        "selfGroup": 4166,
+        "selfTourist": 7970,
+        "groundGroup": 1002,
+        "groundTourist": 8701,
+        "domesticGroup": 9040,
+        "domesticTourist": 9040,
+        "taiwanGroup": 7632,
+        "taiwanTourist": 7632,
+        "exitGroup": 4061,
+        "exitTourist": 4061,
+        "entrytGroup": 4359,
+        "entrytTourist": 4359
+    }, {
+        "name": "神龙国际旅行社",
+        "group": 862,
+        "tourist": 6520,
+        "selfGroup": 6696,
+        "selfTourist": 3209,
+        "groundGroup": 6801,
+        "groundTourist": 6364,
+        "domesticGroup": 6850,
+        "domesticTourist": 6850,
+        "taiwanGroup": 9408,
+        "taiwanTourist": 9408,
+        "exitGroup": 2481,
+        "exitTourist": 2481,
+        "entrytGroup": 1479,
+        "entrytTourist": 1479
+    }, {
+        "name": "神龙国际旅行社",
+        "group": 567,
+        "tourist": 5859,
+        "selfGroup": 128,
+        "selfTourist": 6593,
+        "groundGroup": 1971,
+        "groundTourist": 7596,
+        "domesticGroup": 3546,
+        "taiwanGroup": 6641,
+        "exitGroup": 1611,
+        "entrytGroup": 5534,
+        "entrytTourist": 5534
+    }, {
+        "name": "神龙国际旅行社",
+        "group": 3651,
+        "tourist": 1819,
+        "selfGroup": 4595,
+        "selfTourist": 7499,
+        "groundGroup": 7405,
+        "groundTourist": 8710,
+        "domesticGroup": 5518,
+        "taiwanGroup": 428,
+        "exitGroup": 9768,
+        "entrytGroup": 2864,
+        "entrytTourist": 2864
+    }]
+});
+
+$('#inner_page_footer').tourInnerPageFooter({
+    source: '万维旅游云服务 ©wanwei.com.cn',
+    content: `<p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等；</p>
+            <p>这里显示有关这个专题数据分析的解释内容，包括词汇解释，计算模型的描述等。</p>`
+});
+
+$('#page_footer').tourFooter();
+
+$('.filter-btn').selfTourist(function () {
+    guide.updateData([{
+        type: 'map',
+        mapType: 'china',
+        label: '标签标签1',
+        keyValue: [{
+            key: '累计关注',
+            value: '9人'
+        }, {
+            key: '新增关注',
+            value: '8人'
+        }, {
+            key: '净增关注',
+            value: '-3人'
+        }],
+        columns: [{
+            title: '省份',
+            key: 'province'
+        }, {
+            title: '关注人数',
+            key: 'num',
+            sortable: true
+        }],
+        data: [
+            {
+                num: 9970,
+                province: "甘肃"
+            },
+            {
+                num: 1575,
+                province: "广东"
+            },
+            {
+                num: 1066,
+                province: "浙江"
+            },
+            {
+                num: 947,
+                province: "江苏"
+            },
+            {
+                num: 665,
+                province: "北京"
+            },
+            {
+                num: 607,
+                province: "河南"
+            },
+            {
+                num: 607,
+                province: "山东"
+            },
+            {
+                num: 543,
+                province: "陕西"
+            },
+            {
+                num: 519,
+                province: "河北"
+            },
+            {
+                num: 469,
+                province: "上海"
+            },
+            {
+                num: 417,
+                province: "湖南"
+            },
+            {
+                num: 410,
+                province: "安徽"
+            },
+            {
+                num: 408,
+                province: "四川"
+            },
+            {
+                num: 396,
+                province: "福建"
+            },
+            {
+                num: 369,
+                province: "青海"
+            },
+            {
+                num: 304,
+                province: "山西"
+            },
+            {
+                num: 259,
+                province: "湖北"
+            },
+            {
+                num: 237,
+                province: "辽宁"
+            },
+            {
+                num: 99999,
+                province: "新疆"
+            },
+            {
+                num: 216,
+                province: "云南"
+            },
+            {
+                num: 213,
+                province: "黑龙江"
+            },
+            {
+                num: 177,
+                province: "吉林"
+            },
+            {
+                num: 170,
+                province: "宁夏"
+            },
+            {
+                num: 166,
+                province: "贵州"
+            },
+            {
+                num: 160,
+                province: "江西"
+            },
+            {
+                num: 125,
+                province: "重庆"
+            },
+            {
+                num: 117,
+                province: "内蒙古"
+            },
+            {
+                num: 107,
+                province: "广西"
+            },
+            {
+                num: 95,
+                province: "天津"
+            },
+            {
+                num: 70,
+                province: "西藏"
+            },
+            {
+                num: 69,
+                province: "海南"
+            },
+            {
+                num: 28,
+                province: "香港"
+            },
+            {
+                num: 27,
+                province: "澳门"
+            },
+            {
+                num: 13,
+                province: "台湾"
+            }
+        ]
+    }]);
+});
+</script>

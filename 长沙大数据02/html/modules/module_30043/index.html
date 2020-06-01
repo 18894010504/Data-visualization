@@ -1,0 +1,79 @@
+<div class="title">
+    <div class="text">游客旅行轨迹</div>
+</div>
+<div class="inner-box">
+    <div id="module_30043" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30043 = echarts.init(document.getElementById('module_30043'), theme);
+module_30043.showLoading({
+    text: '拼命加载中',
+    color: '#1abdd2',
+    textColor: '#1abdd2',
+    maskColor: 'rgba(6, 34, 54, 0.9)',
+    zlevel: 9
+});
+$.get('modules/module_30043/data.json', function(data) {
+
+    option = {
+        tooltip: {
+            trigger: 'item',
+            triggerOn: 'mousemove'
+        },
+        series: [{
+            type: 'tree',
+            data: [data],
+            top: 5,
+            left: 15,
+            bottom: 5,
+            right: 156,
+            symbolSize: 7,
+            label: {
+                normal: {
+                    position: 'top',
+                    verticalAlign: 'bottom',
+                    align: 'center',
+                    fontSize: 13,
+                    color: '#fff',
+                    formatter: function(v) {
+                        if (v.value) {
+                            return v.name + '（' + v.value + '%）';
+                        }
+                    }
+                }
+            },
+            itemStyle: {
+                normal: {
+                    borderColor: '#FA7B24'
+                }
+            },
+
+            lineStyle: {
+                normal: {
+                    color: '#3ECCF1'
+                }
+            },
+
+            leaves: {
+                label: {
+                    normal: {
+                        position: 'right',
+                        verticalAlign: 'middle',
+                        align: 'left'
+                    }
+                }
+            },
+
+            expandAndCollapse: false,
+            animationDuration: 550,
+            animationDurationUpdate: 750
+        }]
+    };
+    module_30043.setOption(option);
+    module_30043.hideLoading();
+});
+
+$(window).resize(function() {
+    module_30043.resize();
+});
+</script>

@@ -1,0 +1,98 @@
+<div class="inner-box module_30010">
+    <div class="map-info-box">
+        <div class="map-info-box-in">
+            <h5 class="info-title">今日累计游客</h5>
+            <p class="box">
+                <span class="dtnum">32,753<label>人次</label></span>
+            </p>
+        </div>
+        <div class="map-info-box-in">
+            <h6 class="info-title">昨日过夜游客</h6>
+            <p class="box">
+                <span class="dtnum">59,233<label>人次</label></span>
+            </p>
+        </div>
+    </div>
+    <div id="module_30010" class="box-chart map-noborder"></div>
+</div>
+<script type="text/javascript">
+function randomData() {
+    return Math.round(Math.random() * 2500);
+}
+
+var module_30010 = echarts.init(document.getElementById('module_30010'), theme);
+
+$.get('res/lib/echarts/map/changsha.json', function(changshaJson) {
+    echarts.registerMap('changsha', changshaJson);
+
+    var option = {
+        tooltip: {
+            trigger: 'item',
+            formatter: '{b}：{c}'
+        },
+        visualMap: [{
+            show: false,
+            top: 'top',
+            min: 0,
+            max: 2500,
+            calculable: true,
+            inRange: {
+                color: ['blue', 'blue', 'green', 'yellow', 'red']
+            }
+        }, {
+            min: 0,
+            max: 2500,
+            text: ['高', '低'],
+            realtime: false,
+            calculable: true,
+            seriesIndex: 0
+        }],
+        geo: {
+            map: 'changsha',
+            roam: true,
+            label: {
+                normal: {
+                    show: true,
+                }
+            }
+        },
+        series: [{
+            type: 'map',
+            geoIndex: 0,
+            data: [{
+                name: '芙蓉区',
+                value: randomData()
+            }, {
+                name: '天心区',
+                value: randomData()
+            }, {
+                name: '岳麓区',
+                value: randomData()
+            }, {
+                name: '开福区',
+                value: randomData()
+            }, {
+                name: '雨花区',
+                value: randomData()
+            }, {
+                name: '望城区',
+                value: randomData()
+            }, {
+                name: '浏阳市',
+                value: randomData()
+            }, {
+                name: '宁乡市',
+                value: randomData()
+            }, {
+                name: '长沙县',
+                value: randomData()
+            }]
+        }]
+    };
+    module_30010.setOption(option);
+});
+
+$(window).resize(function() {
+    module_30010.resize();
+});
+</script>

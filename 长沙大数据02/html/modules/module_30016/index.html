@@ -1,0 +1,84 @@
+<div class="title">
+    <div class="text">近30天入境游客</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>近30天最高</h6>
+            <label class="up">24.3<span> 万</span></label>
+        </li>
+        <li>
+            <h6>近30天最低</h6>
+            <label class="up">16.3<span> 万</span></label>
+        </li>
+        <li>
+            <h6>近30天平均</h6>
+            <label class="up">19.31<span> 万</span></label>
+        </li>
+    </ul>
+    <div id="module_30016" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+    var module_30016 = echarts.init(document.getElementById('module_30016'), 'BigDataPe');
+    var option = {
+        grid: {
+            left: 0,
+            right: 0,
+            top: 20,
+            bottom: 20
+        },
+        tooltip: {
+            triggerOn: 'none'
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: true,
+            splitLine: {
+                show: false,
+            },
+            data: ["11月16日", "11月17日", "11月18日", "11月19日", "11月20日", "11月21日", "11月22日", "11月23日", "11月24日", "11月25日", "11月26日", "11月27日", "11月28日", "11月29日", "11月30日", "12月1日", "12月2日", "12月3日", "12月4日", "12月5日", "12月6日", "12月7日", "12月8日", "12月9日", "12月10日", "12月11日", "12月12日", "12月13日", "12月14日", "12月15日"]
+        },
+        yAxis: [{
+            type: 'value',
+            scale: true,
+            boundaryGap: ['60%', '60%'],
+            axisLabel: {
+                inside: true,
+                formatter: '{value}万'
+            },
+        }],
+        series: [{
+            name: '入境游客',
+            type: 'line',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top'
+                }
+            },
+            data: [19.5, 23.7, 23.2, 16.9, 17, 16.3, 21.6, 19.9, 18.2, 18.4, 20.4, 18.8, 16.2, 16.5, 18.8, 19, 17.5, 17.1, 21.1, 21.7, 17.1, 19, 16.1, 23.7, 23, 17.7, 17.5, 23.9, 23.2, 16.4],
+            markLine: {
+                label: {
+                    normal: {
+                        position: 'middle'
+                    }
+                },
+                lineStyle: {
+                    normal: {
+                        color: '#fa792e'
+
+                    }
+                },
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        }]
+
+    };
+    module_30016.setOption(option);
+
+    $(window).resize(function () {
+        module_30016.resize();
+    });
+</script>

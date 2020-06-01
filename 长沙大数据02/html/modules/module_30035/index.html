@@ -1,0 +1,129 @@
+<div class="title">
+    <div class="text">各分类游客满意度</div>
+</div>
+<div class="inner-box">
+    <ul class="box-info">
+        <li>
+            <h6>满意度最高</h6>
+            <label>住宿</label>
+        </li>
+        <li>
+            <h6>满意度最低</h6>
+            <label>交通</label>
+        </li>
+        <li>
+            <h6>评价人数</h6>
+            <label>10135<span style="font-size: 14px;">人</span></label>
+        </li>
+    </ul>
+    <div class="box-chart">
+        <div id="module_30035" class="box-chart"></div>
+    </div>
+</div>
+<script type="text/javascript">
+var module_30035 = echarts.init(document.getElementById('module_30035'), 'BigDataPe');
+var option = {
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+
+        top: 0,
+        left: 0,
+        padding: [6, 8],
+        itemGap: 5,
+        data: ['非常满意', '满意', '一般', '不满意']
+    },
+    grid: {
+        left: 40,
+        right: 10,
+        top: 35,
+        bottom: 5,
+    },
+    xAxis: {
+        show: false
+    },
+    yAxis: {
+        type: 'category',
+        axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+
+        data: ["餐饮", "游玩", "住宿", "交通", "购物", "娱乐"]
+    },
+    series: [{
+            name: '非常满意',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false
+                }
+            },
+            itemStyle: {
+                normal: {
+                    barBorderRadius: 0
+                }
+            },
+            data: [51, 53, 57, 56, 26, 15]
+        },
+        {
+            name: '满意',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false
+                }
+            },
+            itemStyle: {
+                normal: {
+                    barBorderRadius: 0
+                }
+            },
+            data: [31, 23, 18, 26, 44, 58]
+        },
+        {
+            name: '一般',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false
+                }
+            },
+            itemStyle: {
+                normal: {
+                    barBorderRadius: 0
+                }
+            },
+            data: [15, 21, 17, 14, 21, 25]
+        },
+        {
+            name: '不满意',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false
+                }
+            },
+            itemStyle: {
+                normal: {
+                    barBorderRadius: 0
+                }
+            },
+            data: [3, 3, 8, 4, 9, 2]
+        }
+    ]
+};
+module_30035.setOption(option);
+
+$(window).resize(function() {
+    module_30035.resize();
+
+});
+</script>

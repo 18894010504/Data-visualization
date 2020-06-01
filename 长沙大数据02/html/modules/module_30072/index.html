@@ -1,0 +1,79 @@
+<div class="title">
+    <div class="text">互联网关注（餐饮）</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>嗦酱板鸭</h6>
+            <label>38.2<span>%<span></label>
+        </li>
+        <li>
+            <h6>口味蟹</h6>
+            <label>19.6<span>%<span></label>
+        </li>
+        <li>
+            <h6>红烧猪脚</h6>
+            <label>15.95<span>%<span></label>
+        </li>
+    </ul>
+    <div id="module_30072" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+    var module_30072 = echarts.init(document.getElementById('module_30072'), 'BigDataPe');
+    var option = {
+        title: {
+            show: true,
+            text: '吃',
+            x: 'center',
+            y: 'center',
+            textStyle: {
+                color: '#2de7ff',
+                fontSize: 18,
+            },
+        },
+        grid: {
+            left: 25,
+            right: 25,
+            top: 125,
+            bottom: 36,
+        },
+        series: [{
+            name: '吃',
+            type: 'pie',
+            silent: true,
+            label: {
+                normal: {
+                    position: 'outside',
+                    formatter: '{b}\n{d}%'
+                }
+            },
+            data: [
+                {
+                    value: 21.36,
+                    name: '脆皮玉米'
+                },
+                {
+                    value: 60.03,
+                    name: '嗦酱板鸭'
+                },
+                {
+                    value: 30.8,
+                    name: '口味蟹'
+                },
+                {
+                    value: 25.07,
+                    name: '红烧猪脚'
+                },
+                {
+                    value: 19.9,
+                    name: '糖油粑粑'
+                }
+            ]
+        },]
+    };
+    module_30072.setOption(option);
+
+    $(window).resize(function () {
+        module_30072.resize();
+    });
+</script>

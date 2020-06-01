@@ -1,0 +1,122 @@
+<div class="inner-box module_30047">
+    <div class="map-info-box">
+        <div class="map-info-box-in">
+            <h5 class="info-title">全市AQI指数</h5>
+            <p class="box">
+                <span class="dtnum">32</span>
+            </p>
+        </div>
+        <div class="map-info-box-in">
+            <h6 class="info-title">PM2.5</h6>
+            <p class="box">
+                <span class="dtnum">20<label> μg/m<sup>3</sup></label></span>
+            </p>
+        </div>
+        <div class="map-info-box-in">
+            <h6 class="info-title">PM10</h6>
+            <p class="box">
+                <span class="dtnum">34<label> μg/m<sup>3</sup></label></span>
+            </p>
+        </div>
+    </div>
+    <div id="module_30047" class="box-chart map-noborder"></div>
+</div>
+<script type="text/javascript">
+function randomData() {
+    return Math.round(Math.random() * 100);
+}
+
+var colors = ["#009966", "#ffde33", "#ff9933", "#cc0033", "#660099", "#7e0023"];
+
+var module_30047 = echarts.init(document.getElementById('module_30047'), theme);
+
+$.get('res/lib/echarts/map/changsha.json', function(changsha) {
+    echarts.registerMap('changsha', changsha);
+
+    var option = {
+        tooltip: {
+            trigger: 'item',
+            formatter: '{b}'
+        },
+        visualMap: {
+            type: 'piecewise',
+            left: 15,
+            bottom: 10,
+            pieces: [{
+                min: 0, max: 50, label: '优', color: colors[0]
+            }, {
+                min: 51, max: 100, label: '良', color: colors[1]
+            }, {
+                min: 101, max: 150, label: '轻度污染', color: colors[2]
+            }, {
+                min: 151, max: 200, label: '中度污染', color: colors[3]
+            }, {
+                min: 201, max: 300, label: '重度污染', color: colors[4]
+            }, {
+                min: 300, label: '严重污染', color: colors[5]
+            }],
+            calculable: true,
+            orient: 'vertical',
+            itemWidth: 20,
+            itemHeight: 14
+        },
+        geo: {
+            map: 'changsha',
+            roam: true,
+            label: {
+                normal: {
+                    show: true
+                }
+            }
+        },
+        series: [{
+            name: 'categoryA',
+            type: 'map',
+            geoIndex: 0,
+            data: [{
+                    name: '芙蓉区',
+                    value: 28
+            },
+                {
+                    name: '天心区',
+                    value: 28
+                },
+                {
+                    name: '岳麓区',
+                    value: 35
+                },
+                {
+                    name: '开福区',
+                    value: 51
+                },
+                {
+                    name: '雨花区',
+                    value: 51
+                },
+                {
+                    name: '望城区',
+                    value: 28
+                },
+                {
+                    name: '浏阳市',
+                    value: 30
+                },
+                {
+                    name: '宁乡市',
+                    value: 33
+                },
+                {
+                    name: '长沙县',
+                    value: 29
+                }
+            ]
+        }]
+    };
+
+    module_30047.setOption(option);
+});
+
+$(window).resize(function() {
+    module_30047.resize();
+});
+</script>

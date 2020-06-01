@@ -1,0 +1,402 @@
+<div class="title">
+    <div class="text">游客信息关注情况</div>
+</div>
+<div class="inner-box module_30036 module_100023">
+    <ul class="box-info">
+        <li>
+            <h6><i>吃</i> 臭豆腐</h6>
+            <label>34.78<span> %</span></label>
+        </li>
+        <li>
+            <h6><i>住</i> 快捷酒店</h6>
+            <label>22.18<span> %</span></label>
+        </li>
+        <li>
+            <h6><i>行</i> 高铁</h6>
+            <label>32.6<span> %</span></label>
+        </li>
+        <li>
+            <h6><i>游</i> 橘子洲</h6>
+            <label>31.21<span> %</span></label>
+        </li>
+        <li>
+            <h6><i>购</i> 酱板鸭</h6>
+            <label>37.99<span> %</span></label>
+        </li>
+        <li>
+            <h6><i>娱</i>梅溪湖</h6>
+            <label>27.45<span> %</span></label>
+        </li>
+    </ul>
+    <div class="box-chart">
+        <div id="module_30036_1" class="min-chart"></div>
+        <div id="module_30036_2" class="min-chart"></div>
+        <div id="module_30036_3" class="min-chart"></div>
+        <div id="module_30036_4" class="min-chart"></div>
+        <div id="module_30036_5" class="min-chart"></div>
+        <div id="module_30036_6" class="min-chart"></div>
+    </div>
+</div>
+<script type="text/javascript">
+var module_30036_1 = echarts.init(document.getElementById('module_30036_1'), 'BigDataPe');
+var module_30036_2 = echarts.init(document.getElementById('module_30036_2'), 'BigDataPe');
+var module_30036_3 = echarts.init(document.getElementById('module_30036_3'), 'BigDataPe');
+var module_30036_4 = echarts.init(document.getElementById('module_30036_4'), 'BigDataPe');
+var module_30036_5 = echarts.init(document.getElementById('module_30036_5'), 'BigDataPe');
+var module_30036_6 = echarts.init(document.getElementById('module_30036_6'), 'BigDataPe');
+var option1 = {
+        title: {
+            show: true,
+            text: '吃',
+            x: 'center',
+            y: 'center',
+            textStyle: {
+                color: '#2de7ff',
+                fontSize: 16
+            },
+            textBaseline: 'top',
+            itemGap: 0,
+        },
+        grid: {
+            left: 25,
+            right: 25,
+            top: 130,
+            bottom: 36,
+        },
+        series: [{
+            name: '评价指数',
+            type: 'pie',
+            silent: true,
+            radius: ["30%", "40%"],
+            label: {
+                normal: {
+                    position: 'outside',
+                    formatter: '{b}\n{d}%'
+                }
+            },
+            data: [{
+                value: 98,
+                name: '酱板鸭'
+            },{
+                value: 128,
+                name: '臭豆腐'
+            }, {
+                value: 44,
+                name: '米粉'
+            }, {
+                value: 21,
+                name: '剁椒鱼头'
+            }, {
+                value: 45,
+                name: '毛氏红烧肉'
+            }, {
+                value: 32,
+                name: '其他'
+            }]
+        }]
+    },
+    option2 = {
+        title: {
+            show: true,
+            text: '住',
+            x: 'center',
+            y: 'center',
+            textStyle: {
+                color: '#2de7ff',
+                fontSize: 16
+            },
+            textBaseline: 'top',
+            itemGap: 0,
+        },
+        grid: {
+            left: 25,
+            right: 25,
+            top: 130,
+            bottom: 36,
+        },
+        series: [{
+            name: '评价指数',
+            type: 'pie',
+            silent: true,
+            radius: ["30%", "40%"],
+            label: {
+                normal: {
+                    position: 'outside',
+                    formatter: '{b}\n{d}%'
+                }
+            },
+            data: [{
+                value: 8,
+                name: '普通旅社'
+            }, {
+                value: 24,
+                name: '风情民宿'
+            }, {
+                value: 61,
+                name: '快捷酒店'
+            }, {
+                value: 35,
+                name: '露营'
+            }, {
+                value: 12,
+                name: '借宿'
+            }, {
+                value: 18,
+                name: '青年旅馆'
+            }, {
+                value: 56,
+                name: '经济公寓'
+            }, {
+                value: 31,
+                name: '星级酒店'
+            }, {
+                value: 8,
+                name: '太空舱'
+            }, {
+                value: 22,
+                name: '豪华公寓'
+            }]
+        }]
+    },
+    option3 = {
+        title: {
+            show: true,
+            text: '行',
+            x: 'center',
+            y: 'center',
+            textStyle: {
+                color: '#2de7ff',
+                fontSize: 16
+            },
+            textBaseline: 'top',
+            itemGap: 0,
+        },
+        grid: {
+            left: 25,
+            right: 25,
+            top: 130,
+            bottom: 36,
+        },
+        series: [{
+            name: '评价指数',
+            type: 'pie',
+            silent: true,
+            radius: ["30%", "40%"],
+            label: {
+                normal: {
+                    position: 'outside',
+                    formatter: '{b}\n{d}%'
+                }
+            },
+            data: [{
+                value: 98,
+                name: '长涂汽车'
+            }, {
+                value: 44,
+                name: '骑行'
+            }, {
+                value: 21,
+                name: '租车'
+            }, {
+                value: 145,
+                name: '自驾游'
+            }, {
+                value: 32,
+                name: '包车'
+            }, {
+                value: 118,
+                name: '班车'
+            }, {
+                value: 156,
+                name: '飞机'
+            }, {
+                value: 31,
+                name: '火车'
+            }, {
+                value: 312,
+                name: '高铁'
+            }]
+        }]
+    },
+    option4 = {
+        title: {
+            show: true,
+            text: '游',
+            x: 'center',
+            y: 'center',
+            textStyle: {
+                color: '#2de7ff',
+                fontSize: 16
+            },
+            textBaseline: 'top',
+            itemGap: 0,
+        },
+        grid: {
+            left: 25,
+            right: 25,
+            top: 130,
+            bottom: 36,
+        },
+        series: [{
+            name: '评价指数',
+            type: 'pie',
+            silent: true,
+            radius: ["30%", "40%"],
+            label: {
+                normal: {
+                    position: 'outside',
+                    formatter: '{b}\n{d}%'
+                }
+            },
+            data: [{
+                value: 98,
+                name: '橘子洲'
+            }, {
+                value: 44,
+                name: '岳麓山'
+            }, {
+                value: 21,
+                name: '世界之窗'
+            }, {
+                value: 45,
+                name: '湖南大学'
+            }, {
+                value: 32,
+                name: '梅溪湖'
+            }, {
+                value: 18,
+                name: '太平老街'
+            }, {
+                value: 56,
+                name: '其他'
+            }]
+        }]
+    },
+    option5 = {
+        title: {
+            show: true,
+            text: '购',
+            x: 'center',
+            y: 'center',
+            textStyle: {
+                color: '#2de7ff',
+                fontSize: 16
+            },
+            textBaseline: 'top',
+            itemGap: 0,
+        },
+        grid: {
+            left: 25,
+            right: 25,
+            top: 130,
+            bottom: 36,
+        },
+        series: [{
+            name: '评价指数',
+            type: 'pie',
+            silent: true,
+            radius: ["30%", "40%"],
+            label: {
+                normal: {
+                    position: 'outside',
+                    formatter: '{b}\n{d}%'
+                }
+            },
+            data: [{
+                value: 98,
+                name: '酱板鸭'
+            }, {
+                value: 44,
+                name: '鱼干'
+            }, {
+                value: 21,
+                name: '豆腐干'
+            }, {
+                value: 45,
+                name: '槟榔'
+            }, {
+                value: 32,
+                name: '蜜柚'
+            }, {
+                value: 18,
+                name: '其他'
+            }]
+        }]
+    },
+    option6 = {
+        title: {
+            show: true,
+            text: '娱',
+            x: 'center',
+            y: 'center',
+            textStyle: {
+                color: '#2de7ff',
+                fontSize: 16
+            },
+            textBaseline: 'top',
+            itemGap: 0,
+        },
+        grid: {
+            left: 25,
+            right: 25,
+            top: 130,
+            bottom: 36,
+        },
+        series: [{
+            name: '评价指数',
+            type: 'pie',
+            silent: true,
+            radius: ["30%", "40%"],
+            label: {
+                normal: {
+                    position: 'outside',
+                    formatter: '{b}\n{d}%'
+                }
+            },
+            data: [{
+                value: 98,
+                name: '湘江风光带'
+            }, {
+                value: 44,
+                name: '酒吧'
+            }, {
+                value: 21,
+                name: 'KTV'
+            }, {
+                value: 45,
+                name: '游乐场'
+            }, {
+                value: 32,
+                name: '公园'
+            }, {
+                value: 18,
+                name: '商场'
+            }, {
+                value: 56,
+                name: '咖啡厅'
+            }, {
+                value: 31,
+                name: '游泳馆'
+            }, {
+                value: 12,
+                name: '农家乐'
+            }]
+        }]
+    };
+
+module_30036_1.setOption(option1);
+module_30036_2.setOption(option2);
+module_30036_3.setOption(option3);
+module_30036_4.setOption(option4);
+module_30036_5.setOption(option5);
+module_30036_6.setOption(option6);
+
+$(window).resize(function() {
+    module_30036_1.resize();
+    module_30036_2.resize();
+    module_30036_3.resize();
+    module_30036_4.resize();
+    module_30036_5.resize();
+    module_30036_6.resize();
+});
+</script>

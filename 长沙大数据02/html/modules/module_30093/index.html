@@ -1,0 +1,80 @@
+<div class="title">
+    <div class="text">未来60天热门线路预测</div>
+</div>
+<div class="inner-box">
+    <div id="module_30093" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30093 = echarts.init(document.getElementById('module_30093'), theme);
+module_30093.showLoading({
+    text: '拼命加载中',
+    color: '#1abdd2',
+    textColor: '#1abdd2',
+    maskColor: 'rgba(6, 34, 54, 0.9)',
+    zlevel: 9
+});
+$.get('modules/module_30093/data.json', function(data) {
+
+    console.log(data);
+    option = {
+        tooltip: {
+            trigger: 'item',
+            triggerOn: 'mousemove'
+        },
+        series: [{
+            type: 'tree',
+            data: [data],
+            top: 50,
+            left: 40,
+            bottom: 30,
+            right: 124,
+            symbolSize: 7,
+            label: {
+                normal: {
+                    position: 'top',
+                    verticalAlign: 'bottom',
+                    align: 'center',
+                    fontSize: 13,
+                    color: '#fff',
+                    formatter: function(v) {
+                        if (v.value) {
+                            return v.name + '（' + v.value + '%）';
+                        }
+                    }
+                }
+            },
+            itemStyle: {
+                normal: {
+                    borderColor: '#FA792E'
+                }
+            },
+
+            lineStyle: {
+                normal: {
+                    color: '#40CAF0'
+                }
+            },
+
+            leaves: {
+                label: {
+                    normal: {
+                        position: 'right',
+                        verticalAlign: 'middle',
+                        align: 'left'
+                    }
+                }
+            },
+
+            expandAndCollapse: false,
+            animationDuration: 550,
+            animationDurationUpdate: 750
+        }]
+    };
+    module_30093.setOption(option);
+    module_30093.hideLoading();
+});
+
+$(window).resize(function() {
+    module_30093.resize();
+});
+</script>

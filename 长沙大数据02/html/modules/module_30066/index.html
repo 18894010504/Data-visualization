@@ -1,0 +1,108 @@
+<div class="title">
+    <div class="text">近15天游客情绪变化</div>
+</div>
+<div class="inner-box module_100022">
+    <ul class="box-info">
+        <li>
+            <h6>好评</h6>
+            <label class="up">74.5<span> %</span></label>
+        </li>
+        <li>
+            <h6>中评</h6>
+            <label class="down">21.8<span> %</span></label>
+        </li>
+        <li>
+            <h6>差评</h6>
+            <label class="down">3.7<span> %</span></label>
+        </li>
+    </ul>
+    <div id="module_30066" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30066 = echarts.init(document.getElementById('module_30066'), theme);
+var option = {
+    legend: {
+        top: 5,
+        left: 0,
+        padding: [6, 8],
+        itemGap: 5,
+        data: ['好评', '中评', '差评']
+    },
+    grid: {
+        left: 0,
+        right: 5,
+        top: 40,
+        bottom: 20,
+    },
+    tooltip: {
+        triggerOn: 'none',
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        data: ["12月1日", "12月2日", "12月3日", "12月4日", "12月5日", "12月6日", "12月7日", "12月8日", "12月9日", "12月10日", "12月11日", "12月12日", "12月13日", "12月14日", "12月15日"]
+    },
+    yAxis: [{
+        type: 'value',
+        boundaryGap: true,
+        axisLabel: {
+            inside: true,
+            formatter: '{value}'
+        },
+    }],
+    series: [{
+        name: '好评',
+        type: 'bar',
+        label: {
+            normal: {
+                show: false,
+                position: 'top',
+                formatter: '{c}%'
+            }
+        },
+        data: [75.6, 69.2, 85.1, 77.5, 69.2, 72.2, 69.2, 68.5, 73.5, 67.2, 79.3, 81.3, 77.5, 69.9, 68.3]
+    }, {
+        name: '情绪',
+        type: 'line',
+        label: {
+            normal: {
+                show: false,
+                position: 'top',
+                formatter: '{c}%'
+            }
+        },
+        data: [75.6, 69.2, 85.1, 77.5, 69.2, 72.2, 69.2, 68.5, 73.5, 67.2, 79.3, 81.3, 77.5, 69.9, 68.3]
+    }, {
+        name: '中评',
+        type: 'bar',
+        label: {
+            normal: {
+                show: false,
+                position: 'top',
+                formatter: '{c}%'
+            }
+        },
+        data: [26.1, 19.6, 31.5, 26.1, 35.3, 44.7, 29.6, 17.1, 32.9, 33.3, 24.4, 15.2, 26.3, 33.1, 45.8]
+    }, {
+        name: '差评',
+        type: 'bar',
+        label: {
+            normal: {
+                show: false,
+                position: 'top',
+                formatter: '{c}%'
+            }
+        },
+        data: [6.1, 3.6, 5.5, 6.4, 5.3, 4.4, 7.6, 1.5, 3.1, 5.3, 2.4, 1.1, 5.8, 3.7, 4.0]
+    }]
+
+};
+module_30066.setOption(option);
+
+$(window).resize(function() {
+    module_30066.resize();
+});
+</script>

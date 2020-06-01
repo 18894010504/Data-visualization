@@ -1,0 +1,115 @@
+<div class="title">
+    <div class="text">重点景区游客密度</div>
+</div>
+<div class="inner-box module_30012">
+    <ul class="box-info">
+        <li>
+            <h6>游客密度最高</h6>
+            <label>太平街</label>
+        </li>
+        <li>
+            <h6>游客密度最低</h6>
+            <label>爱晚亭</label>
+        </li>
+    </ul>
+    <div id="module_30012" class="box-chart"></div>
+</div>
+<script type="text/javascript">
+var module_30012 = echarts.init(document.getElementById('module_30012'), theme);
+var option = {
+    grid: {
+        left: 0,
+        right: 5,
+        top: 20,
+        bottom: 20,
+        containLabel: false
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow',
+            shadowStyle: {
+
+                color: 'rgba(150,150,150,0)'
+            }
+        },
+        formatter: function(params) {
+            var txt = params[0].name + '：';
+            var num = (100 - params[0].data).toFixed(2);
+            return txt + num
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        splitLine: {
+            show: false,
+        },
+        axisLabel: {
+            interval: 0
+        },
+        data: ["橘子洲", "岳麓山", "岳麓书院", "太平街", "爱晚亭", "靖港古镇", "天心阁", "世界之窗"]
+    },
+    yAxis: [{
+        type: 'value',
+        max: 100,
+        splitNumber: 5,
+        boundaryGap: true,
+        axisLabel: {
+            inside: true,
+            formatter: '{value}'
+        },
+    }, {
+        type: 'value',
+        max: 100,
+        inverse: true,
+        show: false,
+        boundaryGap: true,
+        axisLabel: {
+            inside: true,
+            formatter: '{value}'
+        },
+    }],
+    series: [{
+        type: 'bar',
+
+        z: 0,
+        barGap: '-100%',
+        data: [100, 100, 100, 100, 100, 100, 100, 100, 100],
+        tooltip: {
+            show: false
+        },
+        itemStyle: {
+            normal: {
+                color: new echarts.graphic.LinearGradient(
+                    0, 0, 0, 1, [
+                        { offset: 0, color: 'rgba(139,42,85,1)' },
+                        { offset: 0.2, color: 'rgba(254,82,79,1)' },
+                        { offset: 0.4, color: 'rgba(242,136,21,1)' },
+                        { offset: 0.6, color: 'rgba(207,246,93,1)' },
+                        { offset: 0.8, color: 'rgba(117,230,146,1)' },
+                        { offset: 1, color: 'rgba(8,144,199,1)' }
+                    ]
+                )
+            }
+        }
+    }, {
+        name: '舒适度',
+        type: 'bar',
+        yAxisIndex: 1,
+        z: 0,
+        data: [55.36, 51.63, 53.00, 51.36, 59.8, 55.36, 53.00, 53.36, 42.36],
+        itemStyle: {
+            normal: {
+                color: 'rgba(34,39,48,0.9)'
+            }
+        }
+    }]
+
+};
+module_30012.setOption(option);
+
+$(window).resize(function() {
+    module_30012.resize();
+});
+</script>
